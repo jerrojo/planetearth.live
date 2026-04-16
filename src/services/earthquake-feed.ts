@@ -1,7 +1,8 @@
 /**
  * Live USGS Earthquake Feed — fetches real seismic events.
  * Source: USGS Earthquake Hazards Program (no auth required).
- * Feed: magnitude 2.5+ events from the last 24 hours.
+ * Feed: magnitude 2.5+ events from the last 24 hours (fine-grained feed for pulse-ring
+ * visualization; see src/services/api-client.ts for the broader M4.5+/30-day feed).
  */
 
 export interface Earthquake {
@@ -11,6 +12,16 @@ export interface Earthquake {
     mag: number;       // magnitude
     place: string;
     time: number;      // unix ms
+}
+
+/** Minimal GeoJSON feature shape we consume from USGS */
+interface UsgsFeature {
+    geometry: { coordinates: [number, number, number] };
+    properties: { mag: number; place?: string; time: number };
+}
+
+interface UsgsFeatureCollection {
+    features?: UsgsFeature[];
 }
 
 const FEED_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson';
@@ -29,13 +40,13 @@ export async function fetchEarthquakes(): Promise<Earthquake[]> {
         const res = await fetch(FEED_URL);
         if (!res.ok) return cachedQuakes;
 
-        const data = await res.json();
-        cachedQuakes = (data.features || []).map((f: any) => ({
+        const data = await res.json() as UsgsFeatureCollection;
+        cachedQuakes = (data.features ?? []).map((f) => ({
             lat: f.geometry.coordinates[1],
             lon: f.geometry.coordinates[0],
             depth: f.geometry.coordinates[2],
             mag: f.properties.mag,
-            place: f.properties.place || '',
+            place: f.properties.place ?? '',
             time: f.properties.time,
         }));
         lastFetch = now;

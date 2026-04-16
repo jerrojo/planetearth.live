@@ -1,9 +1,54 @@
+import { getLocale, setLocale, LOCALES, t, applyStaticI18n } from '../../i18n';
+import type { Locale } from '../../i18n/dictionaries';
+
 export function initAccessibility(): () => boolean {
     const a11yToggle = document.getElementById('a11yToggle')!;
     const a11yPanel = document.getElementById('a11yPanel')!;
     const toggleMotion = document.getElementById('toggleMotion')!;
     const toggleContrast = document.getElementById('toggleContrast')!;
     const fontSegBtns = document.querySelectorAll<HTMLButtonElement>('.font-seg-btn');
+
+    // ── Language switcher (injected dynamically so existing HTML stays clean) ──
+    (function injectLanguageSwitcher(): void {
+        if (a11yPanel.querySelector('.lang-seg')) return;
+        const row = document.createElement('div');
+        row.className = 'a11y-row';
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'a11y-label';
+        labelSpan.textContent = t('a11y.language');
+        labelSpan.dataset['i18n'] = 'a11y.language';
+        const seg = document.createElement('div');
+        seg.className = 'font-seg lang-seg';
+        seg.setAttribute('role', 'radiogroup');
+        seg.setAttribute('aria-label', t('a11y.language'));
+        for (const loc of LOCALES) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'font-seg-btn';
+            btn.setAttribute('role', 'radio');
+            btn.dataset['lang'] = loc;
+            btn.textContent = loc.toUpperCase();
+            if (loc === getLocale()) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-checked', 'true');
+            } else {
+                btn.setAttribute('aria-checked', 'false');
+            }
+            btn.addEventListener('click', () => {
+                setLocale(loc as Locale);
+                seg.querySelectorAll<HTMLButtonElement>('.font-seg-btn').forEach(b => {
+                    const isActive = b.dataset['lang'] === loc;
+                    b.classList.toggle('active', isActive);
+                    b.setAttribute('aria-checked', String(isActive));
+                });
+                applyStaticI18n();
+            });
+            seg.appendChild(btn);
+        }
+        row.appendChild(labelSpan);
+        row.appendChild(seg);
+        a11yPanel.appendChild(row);
+    })();
 
     function toggleA11yPanel(open?: boolean): void {
         const shouldOpen = typeof open === 'boolean' ? open : !a11yPanel.classList.contains('open');

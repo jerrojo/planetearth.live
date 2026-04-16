@@ -1,7 +1,11 @@
 /**
  * API Client — Live Environmental Data Integration
  *
- * Fetches real-time data from the most credible scientific sources:
+ * Fetches real-time data from the most credible scientific sources. Every
+ * value shown in the dashboard flows through:
+ *
+ *     HTTP (with retry + timeout)  →  runtime validator  →  provenance record
+ *                                  →  cache (IndexedDB)    →  UI state
  *
  * ┌──────────────────────────────────────────────────────────────────────┐
  * │ Source                    │ Data                 │ Auth    │ Freq   │
@@ -14,41 +18,52 @@
  * │                           │ Sea Level (global)   │         │        │
  * ├──────────────────────────────────────────────────────────────────────┤
  * │ NOAA SWPC                 │ Kp Index (geomag.)   │ None    │ 30m    │
- * ├──────────────────────────────────────────────────────────────────────┤
  * │ NASA EONET v3             │ Natural events       │ None    │ 30m    │
- * ├──────────────────────────────────────────────────────────────────────┤
- * │ USGS Earthquake Hazards   │ Earthquakes M5+      │ None    │ 30m    │
- * ├──────────────────────────────────────────────────────────────────────┤
+ * │ USGS Earthquake Hazards   │ Earthquakes M4.5+    │ None    │ 30m    │
  * │ Open-Meteo Air Quality    │ PM2.5 / US AQI       │ None    │ 1h     │
- * │  (CAMS/Copernicus model)  │ (3-city global avg)  │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
- * │ NOAA CO-OPS              │ Sea level (Battery    │ None    │ 6min   │
- * │  Tides & Currents         │   NYC, 170yr record) │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
+ * │ NOAA CO-OPS               │ Sea level (Battery)  │ None    │ 6min   │
  * │ UK National Grid ESO      │ Carbon intensity     │ None    │ 30m    │
- * │  carbonintensity.org.uk   │ gCO₂/kWh real-time   │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
  * │ Open-Meteo Climate        │ Multi-city temp avg  │ None    │ 1h     │
- * │  (ERA5 reanalysis)        │ (6-city global proxy)│         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
  * │ Global Forest Watch       │ Tree cover loss (ha) │ None    │ 30m    │
- * │  (UMD/Hansen et al.)      │ Annual tropical loss │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
  * │ OpenAQ                    │ PM2.5 global stations│ None    │ 1h     │
- * │  (20K+ gov stations)      │ Blended with CAMS    │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
- * │ Open-Meteo Forecast       │ UV Index (3-city avg)│ None    │ 6h     │
- * │  (GFS data)               │ Global health proxy  │         │        │
- * ├──────────────────────────────────────────────────────────────────────┤
+ * │ Open-Meteo Forecast       │ UV Index             │ None    │ 6h     │
  * │ GBIF                      │ Biodiversity obs.    │ None    │ 30m    │
- * │  (25M+ species records)   │ Recent observation # │         │        │
  * └──────────────────────────────────────────────────────────────────────┘
  *
- * Architecture: Promise.allSettled() for graceful degradation.
- * Any single API can fail without affecting others.
+ * Architecture:
+ *   • Promise.allSettled() — any single API can fail without affecting others.
+ *   • Every successful fetch is persisted to IndexedDB via `cacheMetric()`
+ *     so the UI shows a labelled fallback when the upstream is unreachable.
+ *   • Every fetch produces a `ProvenanceRecord` (source, latency, timestamp,
+ *     validation status) surfaced to users in the data-status panel.
  */
 
 import { TOTAL_APIS } from '../config/constants';
+import { cacheMetric, loadFallback } from './cache';
+import {
+    provenanceSummary,
+    recordFailure,
+    recordInvalid,
+    recordSuccess,
+    registerDefaultProvenance,
+    snapshotProvenance,
+} from './provenance';
+import { trackFallbackHit, trackFetchError, trackFetchInvalid, trackFetchOk } from './telemetry';
+import {
+    validateAirQualityResponse,
+    validateArcticResponse,
+    validateCO2Response,
+    validateCarbonIntensityResponse,
+    validateGbifCountResponse,
+    validateKpResponse,
+    validateMethaneResponse,
+    validateNitrousResponse,
+    validateSeaLevelGlobalResponse,
+    validateSeaLevelLocalResponse,
+    validateTemperature2mResponse,
+    validateTemperatureResponse,
+    validateUvResponse,
+} from './validation';
 
 /* ────────────────── Types ────────────────── */
 
@@ -56,21 +71,21 @@ export interface LiveDataResult {
     apisConnected: number;
     co2?: number;
     temperature?: number;
-    methane?: number;         // ppb (NOAA ESRL global mean)
-    nitrous?: number;         // ppb (NOAA ESRL global mean)
-    arcticIce?: number;       // million km² (NSIDC via global-warming.org)
-    arcticAnomaly?: number;   // million km² anomaly vs 1991-2020 baseline
-    kpIndex?: number;         // 0-9 scale (NOAA SWPC planetary K-index)
+    methane?: number;
+    nitrous?: number;
+    arcticIce?: number;
+    arcticAnomaly?: number;
+    kpIndex?: number;
     naturalEvents?: NaturalEvent[];
-    pm25?: number;            // μg/m³ global average (Open-Meteo CAMS + OpenAQ)
-    globalAQI?: number;       // US AQI scale (0-500) global average
-    seaLevelNYC?: number;     // meters above MSL at The Battery, NYC (NOAA CO-OPS)
-    seaLevelGlobal?: number;  // mm above 1993 baseline (global-warming.org / CSIRO+NOAA)
-    carbonIntensity?: number; // gCO₂/kWh UK grid actual (National Grid ESO)
-    globalTempAvg?: number;   // °C current multi-city average (Open-Meteo ERA5)
-    forestLossHa?: number;    // hectares of tree cover loss, latest year (Global Forest Watch)
-    uvIndex?: number;          // UV index global average (Open-Meteo multi-city)
-    gbifRecentCount?: number;  // recent biodiversity observations (GBIF)
+    pm25?: number;
+    globalAQI?: number;
+    seaLevelNYC?: number;
+    seaLevelGlobal?: number;
+    carbonIntensity?: number;
+    globalTempAvg?: number;
+    forestLossHa?: number;
+    uvIndex?: number;
+    gbifRecentCount?: number;
 }
 
 export interface NaturalEvent {
@@ -84,202 +99,208 @@ export interface NaturalEvent {
     magnitudeUnit?: string;
 }
 
+interface GfwRow { loss_ha?: number | string; area__ha?: number | string }
+interface GfwResponse { data?: GfwRow[]; rows?: GfwRow[] }
+interface UsgsFeature {
+    id?: string;
+    properties: { mag: number; place?: string; title?: string; time: number; code?: string };
+    geometry?: { coordinates?: [number, number, number] };
+}
+interface UsgsResponse { features?: UsgsFeature[] }
+interface EonetGeometry { coordinates?: [number, number]; date: string; magnitudeValue?: number; magnitudeUnit?: string }
+interface EonetEvent { id: string; title: string; categories?: { title: string }[]; geometry?: EonetGeometry[] }
+interface EonetResponse { events?: EonetEvent[] }
+interface OpenAqMeasurement { parameter: string; value: number }
+interface OpenAqStation { measurements?: OpenAqMeasurement[] }
+interface OpenAqResponse { results?: OpenAqStation[] }
+
 /* ────────────────── Fetch Helpers ────────────────── */
 
-const TIMEOUT_MS = 15_000; // 15s timeout per request
+const TIMEOUT_MS = 15_000;
+const MAX_RETRIES = 2;
+const RETRY_BASE_MS = 500;
 
-function fetchWithTimeout(url: string, ms = TIMEOUT_MS): Promise<Response> {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), ms);
-    return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
+interface FetchResult { res: Response; latencyMs: number }
+
+async function fetchWithTimeout(url: string, ms = TIMEOUT_MS): Promise<FetchResult> {
+    let lastErr: unknown;
+    const t0 = Date.now();
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), ms);
+        try {
+            const res = await fetch(url, { signal: controller.signal });
+            clearTimeout(timer);
+            if (!res.ok) {
+                if ((res.status >= 500 || res.status === 429) && attempt < MAX_RETRIES) {
+                    lastErr = new Error(`HTTP ${res.status} on ${url}`);
+                    await sleepWithJitter(attempt);
+                    continue;
+                }
+                throw new Error(`HTTP ${res.status} on ${url}`);
+            }
+            return { res, latencyMs: Date.now() - t0 };
+        } catch (err) {
+            clearTimeout(timer);
+            lastErr = err;
+            if (attempt >= MAX_RETRIES) break;
+            await sleepWithJitter(attempt);
+        }
+    }
+    throw lastErr ?? new Error(`Fetch failed: ${url}`);
+}
+
+function sleepWithJitter(attempt: number): Promise<void> {
+    const base = RETRY_BASE_MS * Math.pow(2, attempt);
+    const jitter = base * 0.25 * (Math.random() * 2 - 1);
+    return new Promise(resolve => setTimeout(resolve, base + jitter));
+}
+
+async function fetchJson(url: string, ms = TIMEOUT_MS): Promise<{ body: unknown; latencyMs: number }> {
+    const { res, latencyMs } = await fetchWithTimeout(url, ms);
+    const body = await res.json();
+    return { body, latencyMs };
+}
+
+/** Load-or-fallback helper used for per-metric recovery. */
+async function applyFallback(id: string, maxAgeMs: number, assign: (v: number) => void): Promise<boolean> {
+    const cached = await loadFallback(id, maxAgeMs);
+    if (cached !== null) {
+        assign(cached.value);
+        trackFallbackHit(id);
+        return true;
+    }
+    return false;
 }
 
 /* ────────────────── Main Fetch ────────────────── */
+
+// Register provenance once at module import.
+registerDefaultProvenance();
+
+const DAY = 24 * 60 * 60 * 1000;
+const HOUR = 60 * 60 * 1000;
 
 export async function fetchLiveData(): Promise<LiveDataResult> {
     let apisConnected = 0;
     const result: LiveDataResult = { apisConnected: 0 };
 
-    try {
-        const results = await Promise.allSettled([
-            // 0: CO₂ — NOAA Mauna Loa via global-warming.org
-            fetchWithTimeout('https://global-warming.org/api/co2-api').then(r => r.json()),
-            // 1: Temperature — NASA GISS via global-warming.org
-            fetchWithTimeout('https://global-warming.org/api/temperature-api').then(r => r.json()),
-            // 2: Methane — NOAA ESRL via global-warming.org
-            fetchWithTimeout('https://global-warming.org/api/methane-api').then(r => r.json()),
-            // 3: Nitrous Oxide — NOAA ESRL via global-warming.org
-            fetchWithTimeout('https://global-warming.org/api/nitrous-oxide-api').then(r => r.json()),
-            // 4: Arctic Ice — NSIDC via global-warming.org
-            fetchWithTimeout('https://global-warming.org/api/arctic-api').then(r => r.json()),
-            // 5: Kp Index — NOAA Space Weather Prediction Center (direct)
-            fetchWithTimeout('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json').then(r => r.json()),
-            // 6: Natural Events — NASA EONET v3 (direct)
-            fetchWithTimeout('https://eonet.gsfc.nasa.gov/api/v3/events?limit=15&status=open').then(r => r.json()),
-            // 7: Global PM2.5 — Open-Meteo Air Quality (CAMS/Copernicus model)
-            //    Average of 3 representative cities: NYC (Americas), Delhi (Asia), London (Europe)
-            //    Source: Copernicus Atmosphere Monitoring Service (CAMS), 11km resolution
-            Promise.allSettled([
-                fetchWithTimeout('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=40.71&longitude=-74.01&current=pm2_5,us_aqi').then(r => r.json()),
-                fetchWithTimeout('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.61&longitude=77.23&current=pm2_5,us_aqi').then(r => r.json()),
-                fetchWithTimeout('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=51.51&longitude=-0.13&current=pm2_5,us_aqi').then(r => r.json()),
-            ]),
-            // 8: Sea Level — NOAA CO-OPS, The Battery NYC (station 8518750)
-            //    Oldest continuously operated tide gauge in the Americas (since 1856).
-            //    Datum: MSL (Mean Sea Level, 1983-2001 NTDE epoch)
-            fetchWithTimeout('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=latest&station=8518750&product=water_level&datum=MSL&units=metric&time_zone=gmt&format=json').then(r => r.json()),
-            // 9: Carbon Intensity — UK National Grid ESO
-            //    Real-time gCO₂ per kWh of electricity generated on the UK grid.
-            //    Powered by University of Oxford & National Grid ESO.
-            fetchWithTimeout('https://api.carbonintensity.org.uk/intensity').then(r => r.json()),
-            // 10: USGS Earthquakes — M5+ in last 30 days (GeoJSON)
-            //     Source: USGS Earthquake Hazards Program
-            fetchWithTimeout('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson').then(r => r.json()),
-            // 11: Global Sea Level — CSIRO/NOAA via global-warming.org
-            //     Global mean sea level rise since 1993 satellite era
-            fetchWithTimeout('https://global-warming.org/api/sea-level-api').then(r => r.json()),
-            // 12: Multi-city temperature — Open-Meteo current weather
-            //     6 cities across continents for global temperature proxy
-            Promise.allSettled([
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current=temperature_2m').then(r => r.json()),  // NYC
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&current=temperature_2m').then(r => r.json()),   // London
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=35.68&longitude=139.69&current=temperature_2m').then(r => r.json()),  // Tokyo
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&current=temperature_2m').then(r => r.json()), // Sydney
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=28.61&longitude=77.23&current=temperature_2m').then(r => r.json()),   // Delhi
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&current=temperature_2m').then(r => r.json()), // São Paulo
-            ]),
-            // 13: Global Forest Watch — annual tree cover loss (top 5 tropical countries)
-            //     Source: University of Maryland / Global Forest Watch (Hansen et al.)
-            //     Queries: Brazil, Indonesia, DRC, Colombia, Bolivia — combined loss
-            Promise.allSettled([
-                fetchWithTimeout('https://data-api.globalforestwatch.org/dataset/umd_tree_cover_loss/v1.11/query?sql=SELECT%20SUM(area__ha)%20AS%20loss_ha%20FROM%20data%20WHERE%20umd_tree_cover_loss__year%20%3E%202022').then(r => r.json()),
-            ]).catch(() => null),
-            // 14: OpenAQ — latest PM2.5 readings from global station network
-            //     Source: OpenAQ (aggregates 20K+ gov monitoring stations worldwide)
-            //     We sample a broader set than our 3-city CAMS proxy
-            fetchWithTimeout('https://api.openaq.org/v2/latest?parameter=pm25&limit=100&sort=desc&order_by=lastUpdated', 10_000).then(r => r.json()).catch(() => null),
-            // 15: UV Index — Open-Meteo multi-city average (3 latitude bands)
-            //     Source: Open-Meteo (GFS data), 3 cities across low/mid/high latitudes
-            Promise.allSettled([
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=19.4&longitude=-99.1&daily=uv_index_max&timezone=auto&forecast_days=1').then(r => r.json()),  // Mexico City (tropical)
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&daily=uv_index_max&timezone=auto&forecast_days=1').then(r => r.json()), // NYC (mid-lat)
-                fetchWithTimeout('https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&daily=uv_index_max&timezone=auto&forecast_days=1').then(r => r.json()),// Sydney (mid-lat south)
-            ]),
-            // 16: GBIF — recent biodiversity observations (last month, threatened species)
-            //     Source: GBIF.org, 25M+ occurrence records
-            fetchWithTimeout('https://api.gbif.org/v1/occurrence/count?year=2024,2026&basisOfRecord=HUMAN_OBSERVATION', 10_000).then(r => r.json()).catch(() => null),
-        ]);
+    const results = await Promise.allSettled([
+        fetchJson('https://global-warming.org/api/co2-api'),                                                   // 0
+        fetchJson('https://global-warming.org/api/temperature-api'),                                            // 1
+        fetchJson('https://global-warming.org/api/methane-api'),                                                // 2
+        fetchJson('https://global-warming.org/api/nitrous-oxide-api'),                                          // 3
+        fetchJson('https://global-warming.org/api/arctic-api'),                                                 // 4
+        fetchJson('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json'),                       // 5
+        fetchJson('https://eonet.gsfc.nasa.gov/api/v3/events?limit=15&status=open'),                            // 6
+        // 7: PM2.5 — three-city CAMS proxy
+        Promise.allSettled([
+            fetchJson('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=40.71&longitude=-74.01&current=pm2_5,us_aqi'),
+            fetchJson('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.61&longitude=77.23&current=pm2_5,us_aqi'),
+            fetchJson('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=51.51&longitude=-0.13&current=pm2_5,us_aqi'),
+        ]),
+        fetchJson('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=latest&station=8518750&product=water_level&datum=MSL&units=metric&time_zone=gmt&format=json'), // 8
+        fetchJson('https://api.carbonintensity.org.uk/intensity'),                                              // 9
+        fetchJson('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson'),               // 10
+        fetchJson('https://global-warming.org/api/sea-level-api'),                                              // 11
+        Promise.allSettled([                                                                                     // 12
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current=temperature_2m'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&current=temperature_2m'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=35.68&longitude=139.69&current=temperature_2m'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&current=temperature_2m'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=28.61&longitude=77.23&current=temperature_2m'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&current=temperature_2m'),
+        ]),
+        fetchJson('https://data-api.globalforestwatch.org/dataset/umd_tree_cover_loss/v1.11/query?sql=SELECT%20SUM(area__ha)%20AS%20loss_ha%20FROM%20data%20WHERE%20umd_tree_cover_loss__year%20%3E%202022').catch(() => null), // 13
+        fetchJson('https://api.openaq.org/v2/latest?parameter=pm25&limit=100&sort=desc&order_by=lastUpdated', 10_000).catch(() => null),                                                                                          // 14
+        Promise.allSettled([                                                                                     // 15
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=19.4&longitude=-99.1&daily=uv_index_max&timezone=auto&forecast_days=1'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&daily=uv_index_max&timezone=auto&forecast_days=1'),
+            fetchJson('https://api.open-meteo.com/v1/forecast?latitude=-33.87&longitude=151.21&daily=uv_index_max&timezone=auto&forecast_days=1'),
+        ]),
+        fetchJson('https://api.gbif.org/v1/occurrence/count?year=2024,2026&basisOfRecord=HUMAN_OBSERVATION', 10_000).catch(() => null), // 16
+    ]);
 
-        // ── CO₂ (NOAA Mauna Loa Keeling Curve) ──
-        if (results[0].status === 'fulfilled') {
-            const co2Data = results[0].value.co2;
-            if (Array.isArray(co2Data) && co2Data.length > 0) {
-                const latest = co2Data[co2Data.length - 1];
-                const co2Val = parseFloat(latest.cycle);
-                if (co2Val > 400 && co2Val < 500) {
-                    result.co2 = co2Val;
-                    apisConnected++;
-                }
+    // ── Unary helper: apply a validator to a single endpoint result. ──
+    async function applyUnary(
+        idx: number,
+        id: string,
+        validator: (raw: unknown) => import('./validation').ValidationResult<number>,
+        assign: (v: number) => void,
+        fallbackMaxAgeMs: number,
+    ): Promise<void> {
+        const r = results[idx];
+        if (r.status === 'fulfilled' && r.value) {
+            const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+            const v = validator(body);
+            if (v.ok) {
+                assign(v.value);
+                recordSuccess(id, v.value, latencyMs);
+                trackFetchOk(id, latencyMs);
+                await cacheMetric(id, v.value);
+                apisConnected++;
+                return;
             }
+            recordInvalid(id, v.reason, latencyMs);
+            trackFetchInvalid(id, v.reason, latencyMs);
+        } else {
+            const reason = r.status === 'rejected' ? String((r as PromiseRejectedResult).reason) : 'null response';
+            recordFailure(id, reason);
+            trackFetchError(id, reason);
         }
+        await applyFallback(id, fallbackMaxAgeMs, assign);
+    }
 
-        // ── Temperature (NASA GISS Land-Ocean Temperature Index) ──
-        if (results[1].status === 'fulfilled') {
-            const tempData = results[1].value.result;
-            if (Array.isArray(tempData) && tempData.length > 0) {
-                const latest = tempData[tempData.length - 1];
-                const tempVal = parseFloat(latest.station);
-                if (!isNaN(tempVal) && tempVal > -1 && tempVal < 5) {
-                    result.temperature = tempVal;
-                    apisConnected++;
-                }
+    await applyUnary(0, 'co2', validateCO2Response, (v) => { result.co2 = v; }, 14 * DAY);
+    await applyUnary(1, 'temperature', validateTemperatureResponse, (v) => { result.temperature = v; }, 120 * DAY);
+    await applyUnary(2, 'methane', validateMethaneResponse, (v) => { result.methane = v; }, 120 * DAY);
+    await applyUnary(3, 'nitrous', validateNitrousResponse, (v) => { result.nitrous = v; }, 120 * DAY);
+
+    // ── Arctic Ice — richer return (value + anomaly) ──
+    {
+        const r = results[4];
+        if (r.status === 'fulfilled' && r.value) {
+            const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+            const v = validateArcticResponse(body);
+            if (v.ok) {
+                result.arcticIce = v.value.value;
+                result.arcticAnomaly = v.value.anomaly;
+                recordSuccess('arcticIce', v.value.value, latencyMs);
+                trackFetchOk('arcticIce', latencyMs);
+                await cacheMetric('arcticIce', v.value.value);
+                apisConnected++;
+            } else {
+                recordInvalid('arcticIce', v.reason, latencyMs);
+                trackFetchInvalid('arcticIce', v.reason, latencyMs);
+                await applyFallback('arcticIce', 14 * DAY, (x) => { result.arcticIce = x; });
             }
+        } else {
+            const reason = r.status === 'rejected' ? String((r as PromiseRejectedResult).reason) : 'null response';
+            recordFailure('arcticIce', reason);
+            trackFetchError('arcticIce', reason);
+            await applyFallback('arcticIce', 14 * DAY, (x) => { result.arcticIce = x; });
         }
+    }
 
-        // ── Methane (NOAA ESRL Global Greenhouse Gas Reference Network) ──
-        // Source: Ed Dlugokencky, NOAA/GML (www.esrl.noaa.gov/gmd/ccgg/trends_ch4/)
-        if (results[2].status === 'fulfilled') {
-            const ch4Data = results[2].value.methane;
-            if (Array.isArray(ch4Data) && ch4Data.length > 0) {
-                const latest = ch4Data[ch4Data.length - 1];
-                const ch4Val = parseFloat(latest.average);
-                // Valid range: 1700-2200 ppb (pre-industrial was ~722 ppb)
-                if (!isNaN(ch4Val) && ch4Val > 1700 && ch4Val < 2200) {
-                    result.methane = ch4Val;
-                    apisConnected++;
-                }
-            }
-        }
+    await applyUnary(5, 'kpIndex', validateKpResponse, (v) => { result.kpIndex = v; }, 6 * HOUR);
 
-        // ── Nitrous Oxide (NOAA ESRL Global N₂O) ──
-        // Source: NOAA Global Monitoring Laboratory
-        if (results[3].status === 'fulfilled') {
-            const n2oData = results[3].value.nitrous;
-            if (Array.isArray(n2oData) && n2oData.length > 0) {
-                const latest = n2oData[n2oData.length - 1];
-                const n2oVal = parseFloat(latest.average);
-                // Valid range: 300-360 ppb (pre-industrial was ~270 ppb)
-                if (!isNaN(n2oVal) && n2oVal > 300 && n2oVal < 360) {
-                    result.nitrous = n2oVal;
-                    apisConnected++;
-                }
-            }
-        }
-
-        // ── Arctic Sea Ice Extent (NSIDC via global-warming.org) ──
-        // Source: National Snow and Ice Data Center (NSIDC)
-        if (results[4].status === 'fulfilled') {
-            const arcticPayload = results[4].value.arcticData;
-            if (arcticPayload?.data) {
-                // Data is keyed by YYYYMM — find the latest entry
-                const keys = Object.keys(arcticPayload.data).sort();
-                if (keys.length > 0) {
-                    const latestKey = keys[keys.length - 1];
-                    const entry = arcticPayload.data[latestKey];
-                    if (entry && entry.value !== -9999) {
-                        result.arcticIce = entry.value;
-                        if (entry.anom !== -9999) {
-                            result.arcticAnomaly = entry.anom;
-                        }
-                        apisConnected++;
-                    }
-                }
-            }
-        }
-
-        // ── Kp Index (NOAA Space Weather Prediction Center) ──
-        // Source: NOAA SWPC (3-hourly planetary K-index from magnetometer network)
-        // Scale: 0 (quiet) to 9 (extreme storm). ≥5 = geomagnetic storm.
-        if (results[5].status === 'fulfilled') {
-            const kpData = results[5].value;
-            if (Array.isArray(kpData) && kpData.length > 1) {
-                // [0] is header row, last element is most recent
-                const latest = kpData[kpData.length - 1];
-                const kpVal = parseFloat(latest[1]); // Kp column
-                if (!isNaN(kpVal) && kpVal >= 0 && kpVal <= 9) {
-                    result.kpIndex = kpVal;
-                    apisConnected++;
-                }
-            }
-        }
-
-        // ── NASA EONET Natural Events ──
-        // Source: NASA Earth Observatory Natural Event Tracker
-        if (results[6].status === 'fulfilled') {
-            const eonetData = results[6].value;
-            if (eonetData?.events && Array.isArray(eonetData.events)) {
+    // ── EONET — count events ──
+    {
+        const r = results[6];
+        if (r.status === 'fulfilled' && r.value) {
+            const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+            const eonet = body as EonetResponse;
+            if (eonet?.events && Array.isArray(eonet.events)) {
                 const events: NaturalEvent[] = [];
-                for (const evt of eonetData.events) {
+                for (const evt of eonet.events) {
                     if (!evt.geometry || evt.geometry.length === 0) continue;
-                    // Use most recent geometry point
                     const geo = evt.geometry[evt.geometry.length - 1];
                     if (!geo.coordinates || geo.coordinates.length < 2) continue;
-
                     events.push({
                         id: evt.id,
                         title: evt.title,
                         category: evt.categories?.[0]?.title ?? 'Unknown',
-                        lon: geo.coordinates[0],  // GeoJSON: [lon, lat]
+                        lon: geo.coordinates[0],
                         lat: geo.coordinates[1],
                         date: geo.date,
                         magnitude: geo.magnitudeValue ?? undefined,
@@ -288,71 +309,71 @@ export async function fetchLiveData(): Promise<LiveDataResult> {
                 }
                 if (events.length > 0) {
                     result.naturalEvents = events;
+                    recordSuccess('naturalEvents', events.length, latencyMs);
+                    trackFetchOk('naturalEvents', latencyMs);
                     apisConnected++;
+                } else {
+                    recordInvalid('naturalEvents', 'empty event list', latencyMs);
+                    trackFetchInvalid('naturalEvents', 'empty event list', latencyMs);
                 }
+            } else {
+                recordInvalid('naturalEvents', 'missing events[]', latencyMs);
+                trackFetchInvalid('naturalEvents', 'missing events[]', latencyMs);
             }
+        } else {
+            const reason = r.status === 'rejected' ? String((r as PromiseRejectedResult).reason) : 'null response';
+            recordFailure('naturalEvents', reason);
+            trackFetchError('naturalEvents', reason);
         }
+    }
 
-        // ── Global PM2.5 Air Quality (Open-Meteo / CAMS) ──
-        // Average PM2.5 and US AQI across 3 major cities (NYC, Delhi, London)
-        // to approximate a global urban air quality index.
-        // WHO 2021 guideline: annual PM2.5 < 15 μg/m³. Current global avg: ~35 μg/m³.
-        if (results[7].status === 'fulfilled') {
-            const cityResults = results[7].value as PromiseSettledResult<any>[];
-            let pm25Sum = 0, aqiSum = 0, count = 0;
+    // ── PM2.5 (CAMS 3-city) ──
+    {
+        const r = results[7];
+        if (r.status === 'fulfilled') {
+            type Settled = PromiseSettledResult<{ body: unknown; latencyMs: number }>;
+            const cityResults = r.value as Settled[];
+            let pm25Sum = 0, aqiSum = 0, count = 0, latencyMax = 0;
             for (const cr of cityResults) {
-                if (cr.status === 'fulfilled' && cr.value?.current?.pm2_5 !== undefined) {
-                    const pm = cr.value.current.pm2_5;
-                    const aqi = cr.value.current.us_aqi ?? 0;
-                    // Valid range: 0-1000 μg/m³ (>500 would be extreme fire/dust event)
-                    if (typeof pm === 'number' && pm >= 0 && pm < 1000) {
-                        pm25Sum += pm;
-                        aqiSum += aqi;
+                if (cr.status === 'fulfilled') {
+                    const { body, latencyMs } = cr.value;
+                    const v = validateAirQualityResponse(body);
+                    if (v.ok) {
+                        pm25Sum += v.value.pm25;
+                        aqiSum += v.value.usAqi;
                         count++;
+                        latencyMax = Math.max(latencyMax, latencyMs);
                     }
                 }
             }
             if (count >= 2) {
                 result.pm25 = Math.round((pm25Sum / count) * 10) / 10;
                 result.globalAQI = Math.round(aqiSum / count);
+                recordSuccess('pm25', result.pm25, latencyMax);
+                trackFetchOk('pm25', latencyMax);
+                await cacheMetric('pm25', result.pm25);
                 apisConnected++;
+            } else {
+                recordInvalid('pm25', 'fewer than 2 cities returned valid data');
+                trackFetchInvalid('pm25', 'fewer than 2 cities returned valid data');
+                await applyFallback('pm25', 24 * HOUR, (x) => { result.pm25 = x; });
             }
+        } else {
+            recordFailure('pm25', 'all CAMS endpoints failed');
+            trackFetchError('pm25', 'all CAMS endpoints failed');
+            await applyFallback('pm25', 24 * HOUR, (x) => { result.pm25 = x; });
         }
+    }
 
-        // ── Sea Level — NOAA CO-OPS (The Battery, NYC) ──
-        // Oldest continuous tide gauge in the Americas (1856-present).
-        // Value: meters above Mean Sea Level datum (NTDE 1983-2001).
-        // Long-term trend at this station: +2.87 mm/yr (NOAA).
-        if (results[8].status === 'fulfilled') {
-            const slData = results[8].value;
-            if (slData?.data?.[0]?.v !== undefined) {
-                const val = parseFloat(slData.data[0].v);
-                if (!isNaN(val) && val > -10 && val < 10) {
-                    result.seaLevelNYC = val;
-                    apisConnected++;
-                }
-            }
-        }
+    await applyUnary(8, 'seaLevelNYC', validateSeaLevelLocalResponse, (v) => { result.seaLevelNYC = v; }, 2 * HOUR);
+    await applyUnary(9, 'carbonIntensity', validateCarbonIntensityResponse, (v) => { result.carbonIntensity = v; }, 12 * HOUR);
 
-        // ── Carbon Intensity — UK National Grid ESO ──
-        // Real-time gCO₂ emitted per kWh of electricity.
-        // UK grid has decarbonized from ~500 gCO₂/kWh (2010) to ~115 (2025).
-        // Target: <50 gCO₂/kWh by 2035 (UK net-zero electricity).
-        if (results[9].status === 'fulfilled') {
-            const ciData = results[9].value;
-            if (ciData?.data?.[0]?.intensity?.actual !== undefined) {
-                const val = ciData.data[0].intensity.actual;
-                if (typeof val === 'number' && val > 0 && val < 1000) {
-                    result.carbonIntensity = val;
-                    apisConnected++;
-                }
-            }
-        }
-
-        // ── USGS Earthquakes (M4.5+ last 30 days) ──
-        // Source: USGS Earthquake Hazards Program, real-time GeoJSON feed
-        if (results[10].status === 'fulfilled') {
-            const quakeData = results[10].value;
+    // ── USGS Earthquakes ──
+    {
+        const r = results[10];
+        if (r.status === 'fulfilled' && r.value) {
+            const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+            const quakeData = body as UsgsResponse;
             if (quakeData?.features && Array.isArray(quakeData.features)) {
                 const quakeEvents: NaturalEvent[] = [];
                 for (const f of quakeData.features) {
@@ -360,7 +381,7 @@ export async function fetchLiveData(): Promise<LiveDataResult> {
                     const coords = f.geometry?.coordinates;
                     if (!coords || coords.length < 2) continue;
                     quakeEvents.push({
-                        id: f.id ?? `usgs-${props.code}`,
+                        id: f.id ?? `usgs-${props.code ?? ''}`,
                         title: props.title ?? `M${props.mag} Earthquake`,
                         category: 'Earthquake',
                         lon: coords[0],
@@ -370,54 +391,103 @@ export async function fetchLiveData(): Promise<LiveDataResult> {
                         magnitudeUnit: 'Mw',
                     });
                 }
-                // Merge with EONET events (deduplicate by keeping both)
                 if (quakeEvents.length > 0) {
                     const existing = result.naturalEvents ?? [];
                     result.naturalEvents = [...existing, ...quakeEvents.slice(0, 30)];
+                    recordSuccess('earthquakes', quakeEvents.length, latencyMs);
+                    trackFetchOk('earthquakes', latencyMs);
                     apisConnected++;
+                } else {
+                    recordInvalid('earthquakes', 'empty feature list', latencyMs);
+                    trackFetchInvalid('earthquakes', 'empty feature list', latencyMs);
                 }
+            } else {
+                recordInvalid('earthquakes', 'missing features[]', latencyMs);
+                trackFetchInvalid('earthquakes', 'missing features[]', latencyMs);
             }
+        } else {
+            const reason = r.status === 'rejected' ? String((r as PromiseRejectedResult).reason) : 'null response';
+            recordFailure('earthquakes', reason);
+            trackFetchError('earthquakes', reason);
         }
+    }
 
-        // ── Global Sea Level (CSIRO + NOAA satellite altimetry) ──
-        // Source: Church & White (2011) + satellite era (1993-present)
-        // Value: mm above 1993 baseline
-        if (results[11].status === 'fulfilled') {
-            const slData = results[11].value?.sealevel;
-            if (Array.isArray(slData) && slData.length > 0) {
-                const latest = slData[slData.length - 1];
-                const val = parseFloat(latest.GMSL ?? latest.gmsl ?? latest.value);
-                if (!isNaN(val)) {
-                    result.seaLevelGlobal = val;
-                    apisConnected++;
-                }
-            }
-        }
+    await applyUnary(11, 'seaLevelGlobal', validateSeaLevelGlobalResponse, (v) => { result.seaLevelGlobal = v; }, 120 * DAY);
 
-        // ── Global Forest Watch — Tree Cover Loss ──
-        // Annual forest loss in hectares from UMD/GFW satellite data
-        if (results[13]?.status === 'fulfilled' && results[13].value) {
-            try {
-                const gfwResults = results[13].value as PromiseSettledResult<any>[];
-                if (gfwResults[0]?.status === 'fulfilled') {
-                    const data = gfwResults[0].value;
-                    const rows = data?.data ?? data?.rows ?? [];
-                    if (Array.isArray(rows) && rows.length > 0) {
-                        const lossHa = parseFloat(rows[0]?.loss_ha ?? rows[0]?.area__ha ?? 0);
-                        if (lossHa > 0) {
-                            result.forestLossHa = lossHa;
-                            apisConnected++;
-                        }
+    // ── Multi-city temperature ──
+    {
+        const r = results[12];
+        if (r.status === 'fulfilled') {
+            type Settled = PromiseSettledResult<{ body: unknown; latencyMs: number }>;
+            const cityResults = r.value as Settled[];
+            let tempSum = 0, count = 0, latencyMax = 0;
+            for (const cr of cityResults) {
+                if (cr.status === 'fulfilled') {
+                    const { body, latencyMs } = cr.value;
+                    const v = validateTemperature2mResponse(body);
+                    if (v.ok) {
+                        tempSum += v.value;
+                        count++;
+                        latencyMax = Math.max(latencyMax, latencyMs);
                     }
                 }
-            } catch { /* GFW parse error — non-critical */ }
+            }
+            if (count >= 3) {
+                result.globalTempAvg = Math.round((tempSum / count) * 10) / 10;
+                recordSuccess('globalTempAvg', result.globalTempAvg, latencyMax);
+                trackFetchOk('globalTempAvg', latencyMax);
+                await cacheMetric('globalTempAvg', result.globalTempAvg);
+                apisConnected++;
+            } else {
+                recordInvalid('globalTempAvg', 'fewer than 3 cities returned valid data');
+                trackFetchInvalid('globalTempAvg', 'fewer than 3 cities returned valid data');
+                await applyFallback('globalTempAvg', 24 * HOUR, (x) => { result.globalTempAvg = x; });
+            }
         }
+    }
 
-        // ── OpenAQ — Global PM2.5 Station Average ──
-        // Supplements the 3-city CAMS proxy with real station measurements
-        if (results[14]?.status === 'fulfilled' && results[14].value) {
+    // ── GFW Forest Loss ──
+    {
+        const r = results[13];
+        if (r?.status === 'fulfilled' && r.value) {
             try {
-                const oaqData = results[14].value;
+                const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+                const data = body as GfwResponse;
+                const rows: GfwRow[] = data?.data ?? data?.rows ?? [];
+                if (Array.isArray(rows) && rows.length > 0) {
+                    const lossHa = parseFloat(String(rows[0]?.loss_ha ?? rows[0]?.area__ha ?? 0));
+                    if (Number.isFinite(lossHa) && lossHa > 0) {
+                        result.forestLossHa = lossHa;
+                        recordSuccess('forestLossHa', lossHa, latencyMs);
+                        trackFetchOk('forestLossHa', latencyMs);
+                        await cacheMetric('forestLossHa', lossHa);
+                        apisConnected++;
+                    } else {
+                        recordInvalid('forestLossHa', 'non-positive loss_ha');
+                        trackFetchInvalid('forestLossHa', 'non-positive loss_ha');
+                    }
+                } else {
+                    recordInvalid('forestLossHa', 'empty rows');
+                    trackFetchInvalid('forestLossHa', 'empty rows');
+                }
+            } catch (err) {
+                recordFailure('forestLossHa', String(err));
+                trackFetchError('forestLossHa', String(err));
+            }
+        } else {
+            recordFailure('forestLossHa', 'endpoint unreachable');
+            trackFetchError('forestLossHa', 'endpoint unreachable');
+            await applyFallback('forestLossHa', 400 * DAY, (x) => { result.forestLossHa = x; });
+        }
+    }
+
+    // ── OpenAQ blended PM2.5 ──
+    {
+        const r = results[14];
+        if (r?.status === 'fulfilled' && r.value) {
+            try {
+                const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+                const oaqData = body as OpenAqResponse;
                 const oaqResults = oaqData?.results;
                 if (Array.isArray(oaqResults) && oaqResults.length > 10) {
                     let sum = 0, count = 0;
@@ -432,77 +502,87 @@ export async function fetchLiveData(): Promise<LiveDataResult> {
                         }
                     }
                     if (count >= 10) {
-                        // Blend with CAMS estimate: 60% station data + 40% CAMS model (if available)
                         const stationAvg = Math.round((sum / count) * 10) / 10;
-                        if (result.pm25 !== undefined) {
-                            result.pm25 = Math.round((result.pm25 * 0.4 + stationAvg * 0.6) * 10) / 10;
-                        } else {
-                            result.pm25 = stationAvg;
-                        }
+                        const blended = result.pm25 !== undefined
+                            ? Math.round((result.pm25 * 0.4 + stationAvg * 0.6) * 10) / 10
+                            : stationAvg;
+                        result.pm25 = blended;
+                        recordSuccess('openAq', stationAvg, latencyMs);
+                        trackFetchOk('openAq', latencyMs);
                         apisConnected++;
+                    } else {
+                        recordInvalid('openAq', `only ${count} valid measurements`);
+                        trackFetchInvalid('openAq', `only ${count} valid measurements`);
                     }
+                } else {
+                    recordInvalid('openAq', 'fewer than 10 stations returned');
+                    trackFetchInvalid('openAq', 'fewer than 10 stations returned');
                 }
-            } catch { /* OpenAQ parse error — non-critical */ }
-        }
-
-        // ── UV Index — Multi-city average (Open-Meteo) ──
-        if (results[15]?.status === 'fulfilled') {
-            try {
-                const uvResults = results[15].value as PromiseSettledResult<any>[];
-                let uvSum = 0, uvCount = 0;
-                for (const cr of uvResults) {
-                    if (cr.status === 'fulfilled' && cr.value?.daily?.uv_index_max?.[0] !== undefined) {
-                        const uv = cr.value.daily.uv_index_max[0];
-                        if (typeof uv === 'number' && uv >= 0 && uv <= 16) {
-                            uvSum += uv;
-                            uvCount++;
-                        }
-                    }
-                }
-                if (uvCount >= 2) {
-                    result.uvIndex = Math.round((uvSum / uvCount) * 10) / 10;
-                    apisConnected++;
-                }
-            } catch { /* UV parse error */ }
-        }
-
-        // ── GBIF — Biodiversity Observation Count ──
-        if (results[16]?.status === 'fulfilled' && results[16].value) {
-            try {
-                const gbifCount = results[16].value;
-                if (typeof gbifCount === 'number' && gbifCount > 0) {
-                    result.gbifRecentCount = gbifCount;
-                    apisConnected++;
-                }
-            } catch { /* GBIF parse error */ }
-        }
-
-        // ── Global Temperature Proxy (6-city average) ──
-        // Real-time current temperature from 6 cities across all continents
-        // to provide a live "global temperature pulse"
-        if (results[12].status === 'fulfilled') {
-            const cityResults = results[12].value as PromiseSettledResult<any>[];
-            let tempSum = 0, count = 0;
-            for (const cr of cityResults) {
-                if (cr.status === 'fulfilled' && cr.value?.current?.temperature_2m !== undefined) {
-                    const t = cr.value.current.temperature_2m;
-                    if (typeof t === 'number' && t > -60 && t < 60) {
-                        tempSum += t;
-                        count++;
-                    }
-                }
+            } catch (err) {
+                recordFailure('openAq', String(err));
+                trackFetchError('openAq', String(err));
             }
-            if (count >= 3) {
-                result.globalTempAvg = Math.round((tempSum / count) * 10) / 10;
-                apisConnected++;
-            }
+        } else {
+            recordFailure('openAq', 'endpoint unreachable');
+            trackFetchError('openAq', 'endpoint unreachable');
         }
-
-        result.apisConnected = apisConnected;
-    } catch {
-        // All APIs failed — result has defaults
     }
 
+    // ── UV Index (3-latitude proxy) ──
+    {
+        const r = results[15];
+        if (r.status === 'fulfilled') {
+            type Settled = PromiseSettledResult<{ body: unknown; latencyMs: number }>;
+            const uvResults = r.value as Settled[];
+            let uvSum = 0, uvCount = 0, latencyMax = 0;
+            for (const cr of uvResults) {
+                if (cr.status === 'fulfilled') {
+                    const { body, latencyMs } = cr.value;
+                    const v = validateUvResponse(body);
+                    if (v.ok) {
+                        uvSum += v.value;
+                        uvCount++;
+                        latencyMax = Math.max(latencyMax, latencyMs);
+                    }
+                }
+            }
+            if (uvCount >= 2) {
+                result.uvIndex = Math.round((uvSum / uvCount) * 10) / 10;
+                recordSuccess('uvIndex', result.uvIndex, latencyMax);
+                trackFetchOk('uvIndex', latencyMax);
+                await cacheMetric('uvIndex', result.uvIndex);
+                apisConnected++;
+            } else {
+                recordInvalid('uvIndex', 'fewer than 2 cities returned valid UV data');
+                trackFetchInvalid('uvIndex', 'fewer than 2 cities returned valid UV data');
+                await applyFallback('uvIndex', 24 * HOUR, (x) => { result.uvIndex = x; });
+            }
+        }
+    }
+
+    // ── GBIF biodiversity count ──
+    {
+        const r = results[16];
+        if (r?.status === 'fulfilled' && r.value) {
+            const { body, latencyMs } = r.value as { body: unknown; latencyMs: number };
+            const v = validateGbifCountResponse(body);
+            if (v.ok) {
+                result.gbifRecentCount = v.value;
+                recordSuccess('gbifRecentCount', v.value, latencyMs);
+                trackFetchOk('gbifRecentCount', latencyMs);
+                await cacheMetric('gbifRecentCount', v.value);
+                apisConnected++;
+            } else {
+                recordInvalid('gbifRecentCount', v.reason, latencyMs);
+                trackFetchInvalid('gbifRecentCount', v.reason, latencyMs);
+            }
+        } else {
+            recordFailure('gbifRecentCount', 'endpoint unreachable');
+            trackFetchError('gbifRecentCount', 'endpoint unreachable');
+        }
+    }
+
+    result.apisConnected = apisConnected;
     return result;
 }
 
@@ -518,3 +598,8 @@ export function getStatusText(apisConnected: number): { text: string; connected:
     }
     return { text: 'OFFLINE — datos base marzo 2026', connected: false };
 }
+
+/* ────────────────── Exports for UI status panel ────────────────── */
+
+export { snapshotProvenance, provenanceSummary };
+export type { ProvenanceRecord } from './provenance';

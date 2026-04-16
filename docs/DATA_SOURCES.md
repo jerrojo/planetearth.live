@@ -19,8 +19,9 @@ If a source is unreachable at load time, the dashboard falls back to the last ca
 | Metric | Agency / Source | Endpoint | Units | Cadence |
 |---|---|---|---|---|
 | PM2.5 (3-city proxy) | Copernicus CAMS via Open-Meteo | `air-quality-api.open-meteo.com/v1/air-quality` | µg/m³ | hourly |
-| PM2.5 (global station network) | OpenAQ | `api.openaq.org/v3/latest` | µg/m³ | near-real-time |
+| PM2.5 (global station network) | OpenAQ | `api.openaq.org/v2/latest` | µg/m³ | near-real-time |
 | Multi-city temperature | Open-Meteo | `api.open-meteo.com/v1/forecast` | °C | hourly |
+| UV Index (3-latitude proxy) | Open-Meteo (GFS) | `api.open-meteo.com/v1/forecast?daily=uv_index_max` | 0-16 | 6-hour |
 
 ## Cryosphere & Oceans
 
@@ -36,12 +37,14 @@ If a source is unreachable at load time, the dashboard falls back to the last ca
 | Metric | Agency / Source | Endpoint | Units | Cadence |
 |---|---|---|---|---|
 | Earthquakes M4.5+ (30 days) | USGS Earthquake Hazards Program | `earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson` | magnitude, lat/lon, depth | live |
+| Earthquakes M2.5+ (24 hours) | USGS Earthquake Hazards Program | `earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson` | magnitude, lat/lon, depth | live (5-min poll) |
 
 ## Biosphere
 
 | Metric | Agency / Source | Endpoint | Units | Cadence |
 |---|---|---|---|---|
-| Tree cover loss (top 5 tropical countries) | University of Maryland / Global Forest Watch | `data-api.globalforestwatch.org/dataset/umd_tree_cover_loss` | hectares lost | annual |
+| Tree cover loss (top 5 tropical countries) | University of Maryland / Global Forest Watch | `data-api.globalforestwatch.org/dataset/umd_tree_cover_loss/v1.11` | hectares lost | annual |
+| Biodiversity observations (recent) | GBIF | `api.gbif.org/v1/occurrence/count` | count of HUMAN_OBSERVATION records | live |
 | Biodiversity hotspots | IUCN / Critical Ecosystem Partnership Fund | hardcoded in `src/data/biodiversity-hotspots.ts` | polygons | reference |
 
 ## Hazards & Events

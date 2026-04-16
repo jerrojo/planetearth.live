@@ -1,4 +1,6 @@
 import { createApp } from './app';
+import { applyStaticI18n, initI18n, t } from './i18n';
+import { initDataStatusPanel } from './ui/components/data-status';
 
 function showFatalError(message: string): void {
     document.body.innerHTML = `
@@ -14,13 +16,18 @@ function showFatalError(message: string): void {
         </div>`;
 }
 
+// Initialize i18n first so early DOM passes show the right language.
+initI18n();
+applyStaticI18n();
+
 if (!window.WebGLRenderingContext && !(window as unknown as Record<string, unknown>).WebGL2RenderingContext) {
-    showFatalError('Tu navegador no soporta WebGL. Por favor usa Chrome, Firefox, Safari o Edge actualizado.');
+    showFatalError(t('error.webgl'));
 } else {
     try {
         createApp();
+        initDataStatusPanel();
     } catch (err) {
         console.error('planetearth.live initialization failed:', err);
-        showFatalError('Error al inicializar la visualización. Por favor recarga la página o prueba otro navegador.');
+        showFatalError(t('error.boot'));
     }
 }

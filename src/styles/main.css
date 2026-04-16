@@ -90,7 +90,7 @@
     padding: 10px 24px;
     border-radius: var(--radius-sm);
     z-index: 1000;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
     font-size: var(--font-size-sm);
     text-decoration: none;
@@ -245,7 +245,7 @@ body.loaded .categories { transform: translateY(-50%) translateY(0); }
     min-height: 44px;
     color: rgba(240,236,228,0.65);
     font-size: var(--font-size-sm);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     cursor: pointer;
     transition: all var(--dur-state) var(--ease-out-expo);
     display: flex;
@@ -352,7 +352,7 @@ body.loaded .categories { transform: translateY(-50%) translateY(0); }
     background: none;
     border: none;
     color: var(--text-primary);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     transition: opacity var(--dur-micro), transform var(--dur-micro) var(--ease-spring), background var(--dur-micro);
     width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
@@ -877,7 +877,7 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     min-height: 44px;
     color: rgba(240,236,228,0.75);
     font-size: max(0.62em, 11px);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     cursor: pointer;
     white-space: nowrap;
     backdrop-filter: blur(8px);
@@ -1280,7 +1280,7 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     position: relative;
     transition: all var(--dur-micro) var(--ease-out-expo);
     padding: 10px 2px;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 .toggle-switch:hover {
     border-color: rgba(240,236,228,0.3);
@@ -1316,7 +1316,7 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     padding: 4px 10px;
     min-height: 44px;
     font-size: max(0.65em, 11px);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
     background: transparent;
     border: none;
@@ -1367,7 +1367,7 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     gap: 8px;
 }
 .intro-phrase {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-size: 2.2em;
     font-weight: 800;
     color: var(--text-primary);
@@ -1401,7 +1401,7 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     padding: 10px 24px;
     min-height: 44px;
     color: var(--text-muted);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-size: max(0.7em, 12px);
     font-weight: 600;
     cursor: pointer;
@@ -1771,4 +1771,151 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     .action-widget.aw-expanded .aw-body { padding: 0 10px 8px; }
     .aw-action { font-size: 0.72em; }
     .aw-top-row { font-size: 0.6em; }
+}
+
+/* ============================================================
+ * Data Source Status Panel
+ * ============================================================
+ * Visible institutional-trust artefact: agency, URL, timestamp,
+ * validation status, and CSV/JSON export for every live metric.
+ */
+
+.ds-toggle {
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    z-index: 50;
+    background: var(--bg-btn);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 0.75em;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: border-color var(--dur-micro), background var(--dur-micro);
+}
+.ds-toggle:hover,
+.ds-toggle:focus-visible {
+    border-color: var(--border-active);
+    background: rgba(40, 34, 70, 0.85);
+    outline: none;
+}
+.ds-panel {
+    position: fixed;
+    left: 12px;
+    bottom: 56px;
+    width: min(420px, 92vw);
+    max-height: 70vh;
+    overflow: auto;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    z-index: 51;
+    backdrop-filter: blur(12px);
+    padding: 14px 16px 12px;
+}
+.ds-header h2 {
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.ds-summary {
+    font-size: 0.68em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.ds-actions {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.ds-export-btn {
+    flex: 1;
+    background: var(--bg-btn);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 5px 8px;
+    font-family: inherit;
+    font-size: 0.72em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--dur-micro);
+}
+.ds-export-btn:hover,
+.ds-export-btn:focus-visible {
+    border-color: var(--border-active);
+    outline: none;
+}
+.ds-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.ds-row {
+    border-left: 3px solid var(--border-subtle);
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(20, 16, 40, 0.45);
+    font-size: 0.72em;
+}
+.ds-row-ok { border-left-color: var(--accent-green); }
+.ds-row-stale { border-left-color: var(--accent-1); }
+.ds-row-invalid { border-left-color: var(--accent-coral); }
+.ds-row-offline { border-left-color: var(--accent-coral); opacity: 0.75; }
+.ds-row-pending { border-left-color: var(--border-subtle); opacity: 0.65; }
+.ds-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px;
+}
+.ds-label { font-weight: 700; }
+.ds-badge {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+}
+.ds-row-ok .ds-badge { color: var(--accent-green); }
+.ds-row-stale .ds-badge { color: var(--accent-1); }
+.ds-row-invalid .ds-badge,
+.ds-row-offline .ds-badge { color: var(--accent-coral); }
+.ds-row-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+.ds-row-details {
+    margin-top: 4px;
+    word-break: break-all;
+}
+.ds-url {
+    color: var(--accent-1);
+    font-size: 0.85em;
+    text-decoration: none;
+}
+.ds-url:hover,
+.ds-url:focus-visible {
+    text-decoration: underline;
+    outline: none;
+}
+.ds-reason {
+    display: block;
+    color: var(--accent-coral);
+    font-size: 0.85em;
+    margin-top: 2px;
+}
+
+@media (max-width: 480px) {
+    .ds-toggle { font-size: 0.68em; padding: 5px 10px; }
+    .ds-panel { bottom: 52px; font-size: 0.95em; }
 }

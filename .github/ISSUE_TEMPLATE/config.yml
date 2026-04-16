@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: mailto:security@planetearth.live
+    about: Confidential security reports — do not open a public issue. See SECURITY.md.
+  - name: Code of conduct
+    url: mailto:conduct@planetearth.live
+    about: Confidential code-of-conduct reports. See CODE_OF_CONDUCT.md.
+  - name: Privacy
+    url: mailto:privacy@planetearth.live
+    about: Privacy questions. See PRIVACY.md.
+  - name: General question (FAQ)
+    url: https://github.com/planetearth-live/planetearth-live/blob/main/docs/FAQ.md
+    about: The FAQ covers most common questions before opening an issue.

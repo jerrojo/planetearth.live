@@ -5,6 +5,18 @@ dist/
 .env
 .env.*
 
+# Vite / Vitest build artefacts
+*.timestamp-*.mjs
+
+# Playwright
+test-results/
+playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Coverage
+coverage/
+
 # Local dev artifacts and historical/legacy files (not part of the published project)
 .claude/
 legacy/

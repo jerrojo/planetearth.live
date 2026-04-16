@@ -111,13 +111,18 @@ export function isHighResMaskLoaded(): boolean {
     return maskReady;
 }
 
-export function isLandMask(lat: number, lon: number): boolean {
+/**
+ * Land/ocean test for any lat/lon. Returns `true` if land.
+ *
+ * Note: exported as both `isLandMask` and `isLand` for backwards compatibility with
+ * existing call sites (terrain.ts, biome-classifier.ts, fireflies.ts). Prefer `isLand`
+ * at call sites; the `isLandMask` alias can be removed once the codebase is unified.
+ */
+export function isLand(lat: number, lon: number): boolean {
     const x = Math.floor(((lon + 180) / 360) * MASK_W);
     const y = Math.floor(((90 - lat) / 180) * MASK_H);
     if (x < 0 || x >= MASK_W || y < 0 || y >= MASK_H) return false;
     return maskData[(y * MASK_W + x) * 4] > 128;
 }
 
-export function isLand(lat: number, lon: number): boolean {
-    return isLandMask(lat, lon);
-}
+export { isLand as isLandMask };

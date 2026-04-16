@@ -6,7 +6,11 @@
     <meta name="description" content="planetearth.live: visualización 3D en tiempo real de la salud del planeta, construida con datos abiertos de NOAA, NASA, USGS, Copernicus y Argo. Open source.">
     <meta name="theme-color" content="#0f0e2a">
     <meta name="robots" content="index,follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://planetearth.live/">
+    <link rel="alternate" hreflang="es" href="https://planetearth.live/?lang=es">
+    <link rel="alternate" hreflang="en" href="https://planetearth.live/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://planetearth.live/">
 
     <!-- Icons & PWA -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -34,34 +38,80 @@
     <meta name="twitter:description" content="Real-time 3D visualization of the Earth's vital signs. Open data. Open source.">
     <meta name="twitter:image" content="https://planetearth.live/og-image.jpg">
 
+    <!-- Schema.org Dataset metadata (machine-readable attribution for scientific crawlers) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "planetearth.live",
+        "alternateName": "Live Planetary Health Dashboard",
+        "description": "Real-time visualization of Earth's vital signs (atmosphere, oceans, cryosphere, biosphere, seismic activity, air quality), assembled from public scientific feeds.",
+        "url": "https://planetearth.live/",
+        "keywords": [
+            "climate", "CO2", "methane", "temperature", "sea level", "arctic ice",
+            "air quality", "PM2.5", "biodiversity", "earthquakes", "carbon intensity",
+            "open data", "NOAA", "NASA", "USGS", "Copernicus", "Global Forest Watch", "GBIF"
+        ],
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "creator": {
+            "@type": "Organization",
+            "name": "planetearth.live contributors",
+            "url": "https://planetearth.live/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "planetearth.live",
+            "url": "https://planetearth.live/"
+        },
+        "inLanguage": ["es", "en"],
+        "distribution": [
+            { "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://planetearth.live/#data-status-panel" },
+            { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://planetearth.live/#data-status-panel" }
+        ],
+        "measurementTechnique": [
+            "remote-sensing", "in-situ observation", "tide-gauge", "ice-extent retrieval",
+            "flask sampling", "continuous monitoring network"
+        ],
+        "variableMeasured": [
+            "atmospheric CO₂ (ppm)", "atmospheric CH₄ (ppb)", "atmospheric N₂O (ppb)",
+            "global mean temperature anomaly (°C)", "Arctic sea-ice extent (Mkm²)",
+            "planetary Kp index", "PM2.5 (µg/m³)", "tide-gauge water level (m)",
+            "grid carbon intensity (gCO₂/kWh)", "tree cover loss (ha/yr)",
+            "UV index (0-16)", "biodiversity observations (count)"
+        ],
+        "citation": "https://planetearth.live/docs/METHODOLOGY.md"
+    }
+    </script>
+
     <title>planetearth.live — Live Planetary Health Dashboard</title>
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 <body>
-    <a href="#catList" class="skip-link">Saltar al contenido</a>
+    <a href="#catList" class="skip-link" data-i18n="nav.skipToContent">Saltar al contenido</a>
     <canvas id="canvas" role="img" aria-label="Visualización 3D interactiva del planeta Tierra mostrando biomas y datos de impacto planetario"></canvas>
     <div class="vignette"></div>
     <div class="texture-overlay" aria-hidden="true"></div>
 
-    <div class="loading-spinner" aria-label="Cargando"><div class="spinner-ring"></div></div>
+    <div class="loading-spinner" aria-label="Cargando" data-i18n-aria="app.loading"><div class="spinner-ring"></div></div>
 
     <div class="title" role="banner">
         <h1>PLANETEARTH.LIVE</h1>
-        <p>Planetary Impact Visualization</p>
+        <p data-i18n="app.tagline">Planetary Impact Visualization</p>
         <div class="pop-counter" aria-label="Contador de población mundial y meta de participación">
             <div class="pop-row">
                 <div class="pop-block">
                     <div class="pop-number" id="popWorld">8,123,456,789</div>
-                    <div class="pop-label">Población Mundial</div>
+                    <div class="pop-label" data-i18n="app.worldPopulation">Población Mundial</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="categories" id="catList" role="navigation" aria-label="Categorías de impacto"></div>
+    <div class="categories" id="catList" role="navigation" aria-label="Categorías de impacto" data-i18n-aria="nav.categories"></div>
 
     <div class="panel" id="panel" role="dialog" aria-labelledby="panelTitle" aria-modal="false">
-        <button class="close-btn" id="closeBtn" aria-label="Cerrar panel">&times;</button>
+        <button class="close-btn" id="closeBtn" aria-label="Cerrar panel" data-i18n-aria="nav.close">&times;</button>
         <h2 id="panelTitle"></h2>
         <div class="subtitle" id="panelSubtitle"></div>
         <div id="panelContent"></div>
@@ -74,26 +124,26 @@
     </div>
 
     <!-- Accessibility Controls -->
-    <button class="a11y-toggle" id="a11yToggle" aria-label="Configuración" aria-expanded="false">⚙</button>
-    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Configuración">
-        <h3>⚙ Configuración</h3>
+    <button class="a11y-toggle" id="a11yToggle" aria-label="Configuración" aria-expanded="false" data-i18n-aria="a11y.settings">⚙</button>
+    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Configuración" data-i18n-aria="a11y.settings">
+        <h3><span data-i18n="a11y.settings">⚙ Configuración</span></h3>
         <div class="a11y-row">
-            <span class="a11y-label">Texto</span>
+            <span class="a11y-label" data-i18n="a11y.text">Texto</span>
             <div class="font-seg" role="radiogroup" aria-label="Tamaño de texto">
-                <button class="font-seg-btn" data-size="small" role="radio" aria-checked="false">Peq</button>
-                <button class="font-seg-btn active" data-size="medium" role="radio" aria-checked="true">Med</button>
-                <button class="font-seg-btn" data-size="large" role="radio" aria-checked="false">Grande</button>
+                <button class="font-seg-btn" data-size="small" role="radio" aria-checked="false" data-i18n="a11y.textSmall">Peq</button>
+                <button class="font-seg-btn active" data-size="medium" role="radio" aria-checked="true" data-i18n="a11y.textMedium">Med</button>
+                <button class="font-seg-btn" data-size="large" role="radio" aria-checked="false" data-i18n="a11y.textLarge">Grande</button>
             </div>
         </div>
         <div class="a11y-row">
-            <span class="a11y-label">Reducir movimiento</span>
-            <button class="toggle-switch" id="toggleMotion" role="switch" aria-checked="false" aria-label="Reducir movimiento">
+            <span class="a11y-label" data-i18n="a11y.reduceMotion">Reducir movimiento</span>
+            <button class="toggle-switch" id="toggleMotion" role="switch" aria-checked="false" aria-label="Reducir movimiento" data-i18n-aria="a11y.reduceMotion">
                 <span class="toggle-thumb"></span>
             </button>
         </div>
         <div class="a11y-row">
-            <span class="a11y-label">Alto contraste</span>
-            <button class="toggle-switch" id="toggleContrast" role="switch" aria-checked="false" aria-label="Alto contraste">
+            <span class="a11y-label" data-i18n="a11y.highContrast">Alto contraste</span>
+            <button class="toggle-switch" id="toggleContrast" role="switch" aria-checked="false" aria-label="Alto contraste" data-i18n-aria="a11y.highContrast">
                 <span class="toggle-thumb"></span>
             </button>
         </div>

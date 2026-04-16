@@ -5,6 +5,14 @@ const B = BiomeType;
 // With ~20-30K terrain particles (1.8° step), each particle should be visible
 // as a small textured dot that adds biome detail on top of the Blue Marble.
 // Sizes ~0.018-0.035 world units, opacities 0.40-0.65.
+//
+// Field key (full schema in src/types/index.ts BiomeParams):
+//   h = HSL hue range, s = saturation, l = lightness
+//   sz = particle size, r = orbit radius, op = opacity, bl = blend ('a'|'n')
+//   g = grass tier, gh = grass height, ghu = grass hue
+//   wm = water mix, wh = water hue  (wetlands/cenotes/river-lake)
+//   ac = accent chance, ah = accent hue, al = accent lightness, bsc = base-scale reduction
+//         (volcanic/scorched biomes)
 
 export const biomeParams: Record<BiomeId, BiomeParams> = {
     [B.OCEAN]:        {h:[.55,.62],s:[.5,.8],l:[.35,.55],sz:.012,r:5.008,op:.20,bl:'a',g:0},
