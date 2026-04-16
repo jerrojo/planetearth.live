@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="planetearth.live: visualización 3D en tiempo real de la salud del planeta, construida con datos abiertos de NOAA, NASA, USGS, Copernicus y Argo. Open source.">
+    <meta name="theme-color" content="#0f0e2a">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://planetearth.live/">
+
+    <!-- Icons & PWA -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:site_name" content="planetearth.live">
+    <meta property="og:title" content="planetearth.live — Live Planetary Health Dashboard">
+    <meta property="og:description" content="Real-time 3D visualization of the Earth's vital signs, built from open public data. NOAA · NASA · USGS · Copernicus · Argo. Open source.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://planetearth.live/">
+    <meta property="og:image" content="https://planetearth.live/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="planetearth.live — Live Planetary Health Dashboard">
+    <meta name="twitter:description" content="Real-time 3D visualization of the Earth's vital signs. Open data. Open source.">
+    <meta name="twitter:image" content="https://planetearth.live/og-image.jpg">
+
+    <title>planetearth.live — Live Planetary Health Dashboard</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <a href="#catList" class="skip-link">Saltar al contenido</a>
+    <canvas id="canvas" role="img" aria-label="Visualización 3D interactiva del planeta Tierra mostrando biomas y datos de impacto planetario"></canvas>
+    <div class="vignette"></div>
+    <div class="texture-overlay" aria-hidden="true"></div>
+
+    <div class="loading-spinner" aria-label="Cargando"><div class="spinner-ring"></div></div>
+
+    <div class="title" role="banner">
+        <h1>PLANETEARTH.LIVE</h1>
+        <p>Planetary Impact Visualization</p>
+        <div class="pop-counter" aria-label="Contador de población mundial y meta de participación">
+            <div class="pop-row">
+                <div class="pop-block">
+                    <div class="pop-number" id="popWorld">8,123,456,789</div>
+                    <div class="pop-label">Población Mundial</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories" id="catList" role="navigation" aria-label="Categorías de impacto"></div>
+
+    <div class="panel" id="panel" role="dialog" aria-labelledby="panelTitle" aria-modal="false">
+        <button class="close-btn" id="closeBtn" aria-label="Cerrar panel">&times;</button>
+        <h2 id="panelTitle"></h2>
+        <div class="subtitle" id="panelSubtitle"></div>
+        <div id="panelContent"></div>
+    </div>
+
+    <div class="mobile-cats" id="mobileCats"><div class="mobile-cats-inner" id="mobileCatsInner"></div></div>
+    <div class="dashboard" id="dashboard" role="region" aria-label="Métricas ambientales"></div>
+    <div class="instructions">
+        <span class="live-badge"><span class="live-dot" id="liveDot"></span><span id="liveStatus">Conectando APIs...</span></span>
+    </div>
+
+    <!-- Accessibility Controls -->
+    <button class="a11y-toggle" id="a11yToggle" aria-label="Configuración" aria-expanded="false">⚙</button>
+    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Configuración">
+        <h3>⚙ Configuración</h3>
+        <div class="a11y-row">
+            <span class="a11y-label">Texto</span>
+            <div class="font-seg" role="radiogroup" aria-label="Tamaño de texto">
+                <button class="font-seg-btn" data-size="small" role="radio" aria-checked="false">Peq</button>
+                <button class="font-seg-btn active" data-size="medium" role="radio" aria-checked="true">Med</button>
+                <button class="font-seg-btn" data-size="large" role="radio" aria-checked="false">Grande</button>
+            </div>
+        </div>
+        <div class="a11y-row">
+            <span class="a11y-label">Reducir movimiento</span>
+            <button class="toggle-switch" id="toggleMotion" role="switch" aria-checked="false" aria-label="Reducir movimiento">
+                <span class="toggle-thumb"></span>
+            </button>
+        </div>
+        <div class="a11y-row">
+            <span class="a11y-label">Alto contraste</span>
+            <button class="toggle-switch" id="toggleContrast" role="switch" aria-checked="false" aria-label="Alto contraste">
+                <span class="toggle-thumb"></span>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

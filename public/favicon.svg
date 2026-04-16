@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#6ec1ff"/>
+      <stop offset="55%" stop-color="#1f5fb3"/>
+      <stop offset="100%" stop-color="#0f0e2a"/>
+    </radialGradient>
+    <radialGradient id="atm" cx="50%" cy="50%" r="55%">
+      <stop offset="70%" stop-color="#6ec1ff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#6ec1ff" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0f0e2a"/>
+  <circle cx="32" cy="32" r="24" fill="url(#atm)"/>
+  <circle cx="32" cy="32" r="21" fill="url(#g)"/>
+  <!-- continents hint -->
+  <path d="M18 30 Q22 24 28 26 T36 24 Q42 25 44 30 T40 38 Q34 42 28 40 T20 36 Z" fill="#2e7d4f" opacity="0.85"/>
+  <path d="M38 18 Q44 17 46 22 T44 26 Q40 27 38 24 Z" fill="#2e7d4f" opacity="0.75"/>
+  <path d="M22 42 Q26 44 30 44 T34 46 Q30 48 24 46 Z" fill="#2e7d4f" opacity="0.7"/>
+  <!-- highlight -->
+  <ellipse cx="24" cy="24" rx="6" ry="3" fill="#ffffff" opacity="0.25"/>
+</svg>
