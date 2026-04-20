@@ -1343,19 +1343,19 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 7px 0;
     border-bottom: 1px solid rgba(197,179,230,0.06);
 }
 .a11y-row:last-child { border-bottom: none; }
 .a11y-label {
-    font-size: 0.72em;
+    font-size: 0.78em;
     font-weight: 600;
-    color: rgba(240,236,228,0.82);
+    color: rgba(240,236,228,0.85);
 }
 /* Section header inside Settings — visually introduces a group of rows (e.g. Layers). */
-.layers-header { margin-top: 4px; padding-bottom: 2px; border-bottom: none; }
+.layers-header { margin-top: 6px; padding-bottom: 4px; border-bottom: none; }
 .a11y-section-label {
-    font-size: 0.66em;
+    font-size: 0.72em;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.9px;
@@ -1363,13 +1363,13 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
 }
 
 /* ---- Toggle switch ----
- * iOS-style pill: wide and short. Previously 44×44 (touch-target spec) made the
- * Settings panel feel like a phone call dialer. This keeps the hit area at 44px
- * of effective vertical space via padding while the visible pill is slim. */
+ * iOS Human Interface Guidelines standard: 51×31pt track, 27pt thumb, 2pt inset,
+ * 20pt travel. This is the pattern users recognize from every iOS app — legible
+ * at a glance, accessible hit area, comfortable finger target. */
 .toggle-switch {
-    width: 34px;
-    height: 20px;
-    border-radius: 10px;
+    width: 51px;
+    height: 31px;
+    border-radius: 16px;
     background: rgba(240,236,228,0.1);
     border: 1px solid rgba(240,236,228,0.15);
     cursor: pointer;
@@ -1391,15 +1391,16 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 14px;
-    height: 14px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background: var(--text-primary);
     transition: transform var(--dur-micro) var(--ease-spring);
     pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 0 1px rgba(0,0,0,0.25);
 }
 .toggle-switch[aria-checked="true"] .toggle-thumb {
-    transform: translateX(14px);
+    transform: translateX(20px);
 }
 
 /* ---- Font size segmented control ---- */
@@ -1410,9 +1411,9 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     border: 1px solid rgba(240,236,228,0.1);
 }
 .font-seg-btn {
-    padding: 3px 8px;
-    min-height: 26px;
-    font-size: max(0.65em, 11px);
+    padding: 5px 10px;
+    min-height: 30px;
+    font-size: max(0.7em, 12px);
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-weight: 600;
     background: transparent;
@@ -1433,16 +1434,13 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     border-right: 1px solid rgba(240,236,228,0.08);
 }
 
-/* Language switcher holds 8 locales — wrap instead of overflowing the a11y panel.
- * Each button gets an equal share of the row so ZH/JA/AR don't jam against ES/EN. */
+/* Language switcher — 2 locales (ES/EN), keep the segmented control snug. */
 .lang-seg {
-    flex-wrap: wrap;
     border-radius: 8px;
 }
 .lang-seg .font-seg-btn {
-    flex: 1 1 calc(25% - 1px); /* 4 buttons per row at typical panel width */
-    min-width: 34px;
-    padding: 3px 5px;
+    min-width: 40px;
+    padding: 5px 8px;
 }
 /* RTL: the segmented control keeps a left border on each separator,
  * but under dir="rtl" the visual separation should flip. border-inline-end

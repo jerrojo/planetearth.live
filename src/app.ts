@@ -20,7 +20,6 @@ import { createHeatmap, showHeatmap, hideHeatmap, updateHeatmap } from './render
 import { createConnections, updateConnections, showConnections, hideConnections } from './renderer/effects/connections';
 import { createStationMarkers } from './renderer/effects/station-markers';
 import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
-import { createSatellites } from './renderer/effects/satellites';
 import { createCountryMarkers } from './renderer/effects/country-markers';
 import { initStations } from './data/measurement-stations';
 
@@ -56,11 +55,6 @@ import { liveData } from './state/live-data';
 // Scratch objects for per-frame quaternion math — allocated once at module scope.
 const _Y_AXIS = new THREE.Vector3(0, 1, 0);
 const _siderealQuat = new THREE.Quaternion();
-
-// Real Earth sidereal rotation (rad/s) — used to convert the demo-pace auto-rotation
-// into an equivalent "sim clock" for satellites. Without this they'd orbit at real
-// time while the globe spins ~1100× faster, making them look pinned to the surface.
-const SIDEREAL_RAD_PER_SEC = 2 * Math.PI / 86164;
 
 export function createApp(): void {
     // Canvas
@@ -102,9 +96,6 @@ export function createApp(): void {
 
     // Natural event markers (wildfires, volcanoes, storms from NASA EONET)
     const naturalEventMarkers = createNaturalEventMarkers(globeGroup);
-
-    // Starlink satellite constellation (live TLE → Kepler propagation, opt-in layer)
-    const satellitesCtx = createSatellites(globeGroup);
 
     // Country accountability markers (curated editorial — positive/negative actions)
     const countryMarkersCtx = createCountryMarkers(globeGroup);
@@ -158,44 +149,17 @@ export function createApp(): void {
 
     // ── Layer visibility wiring ──────────────────────────────────────────
     // Each optional layer exposes its toggleable Object3D (wind Points,
-    // natural-event Group, future satellites + countries groups). We sync
-    // initial state here, then subscribe so Settings toggles flip visibility
-    // without needing to re-enter the animation loop.
+    // natural-event Group, country markers). We sync initial state here,
+    // then subscribe so Settings toggles flip visibility without needing
+    // to re-enter the animation loop.
     windCtx.points.visible = isLayerEnabled('windFlow');
     naturalEventMarkers.group.visible = isLayerEnabled('naturalEvents');
-    satellitesCtx.group.visible = isLayerEnabled('satellites');
     countryMarkersCtx.group.visible = isLayerEnabled('countries');
     stationCtx.group.visible = isLayerEnabled('stations');
     let filmGrainEnabled = isLayerEnabled('filmGrain');
-    let satellitesFetched = false;
-    // Accumulator for the demo-accelerated sim time fed to satellite propagation.
-    // Starts at wall-clock now; advances each frame by dt * speedup, where speedup
-    // is the ratio of the visible Earth rotation rate (real sidereal + demo
-    // autoRotation) to the real sidereal rate. Preserves the real ratio of orbital
-    // motion to ground rotation (~14×), so satellites visibly zip past the surface.
-    let satSimNowMs = Date.now();
-    if (isLayerEnabled('satellites')) {
-        void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
-    } else {
-        // Prewarm TLEs in the background on idle so first activation is instant.
-        // Cached in localStorage for 24h; no network hit if a recent cache exists.
-        const kickPrewarm = (): void => {
-            void satellitesCtx.prewarm().then(() => { satellitesFetched = true; });
-        };
-        const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
-        if (typeof ric === 'function') ric(kickPrewarm, { timeout: 4000 });
-        else setTimeout(kickPrewarm, 3000);
-    }
     onLayerChange((key, value) => {
         if (key === 'windFlow') windCtx.points.visible = value;
         else if (key === 'naturalEvents') naturalEventMarkers.group.visible = value;
-        else if (key === 'satellites') {
-            satellitesCtx.group.visible = value;
-            // Lazy-fetch TLE on first activation — zero network cost by default.
-            if (value && !satellitesFetched) {
-                void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
-            }
-        }
         else if (key === 'countries') countryMarkersCtx.group.visible = value;
         else if (key === 'stations') stationCtx.group.visible = value;
         else if (key === 'filmGrain') filmGrainEnabled = value;
@@ -429,14 +393,6 @@ export function createApp(): void {
 
         // Natural event markers (NASA EONET fires, volcanoes, storms)
         if (naturalEventMarkers.group.visible) naturalEventMarkers.update(t);
-
-        // Starlink satellites — only propagate when the layer is visible (cheap no-op otherwise).
-        // Sim clock advances at the same pace as the globe's visible rotation, so orbital
-        // motion stays ~14× faster than Earth's surface (the real ratio).
-        const earthOmega = 0.08 * motionScale + SIDEREAL_RAD_PER_SEC;
-        const speedup = earthOmega / SIDEREAL_RAD_PER_SEC;
-        satSimNowMs += dt * 1000 * speedup;
-        if (satellitesCtx.group.visible) satellitesCtx.update(satSimNowMs);
 
         // Country accountability pulses
         if (countryMarkersCtx.group.visible) countryMarkersCtx.update(t);

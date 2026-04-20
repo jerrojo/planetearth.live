@@ -46,7 +46,6 @@ export type StringKey =
     | 'a11y.layers'
     | 'a11y.layerWind'
     | 'a11y.layerEvents'
-    | 'a11y.layerSatellites'
     | 'a11y.layerCountries'
     | 'a11y.layerStations'
     | 'a11y.layerGrain'
@@ -179,7 +178,6 @@ const es: Dict = {
     'a11y.layers': 'Capas',
     'a11y.layerWind': 'Flujo del viento',
     'a11y.layerEvents': 'Eventos naturales',
-    'a11y.layerSatellites': 'Satélites (Starlink)',
     'a11y.layerCountries': 'Países',
     'a11y.layerStations': 'Estaciones de medición',
     'a11y.layerGrain': 'Grano cinematográfico',
@@ -354,7 +352,6 @@ const en: Dict = {
     'a11y.layers': 'Layers',
     'a11y.layerWind': 'Wind flow',
     'a11y.layerEvents': 'Natural events',
-    'a11y.layerSatellites': 'Satellites (Starlink)',
     'a11y.layerCountries': 'Countries',
     'a11y.layerStations': 'Measurement stations',
     'a11y.layerGrain': 'Film grain',

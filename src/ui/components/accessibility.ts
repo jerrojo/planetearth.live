@@ -75,7 +75,6 @@ export function initAccessibility(): () => boolean {
             { key: 'windFlow',      labelKey: 'a11y.layerWind' },
             { key: 'naturalEvents', labelKey: 'a11y.layerEvents' },
             { key: 'stations',      labelKey: 'a11y.layerStations' },
-            { key: 'satellites',    labelKey: 'a11y.layerSatellites' },
             { key: 'countries',     labelKey: 'a11y.layerCountries' },
             { key: 'filmGrain',     labelKey: 'a11y.layerGrain' },
         ];

@@ -5,7 +5,6 @@
  *   - windFlow: atmospheric circulation particle streamlines (decoupled from
  *     reduce-motion, which users sometimes want on without losing the globe feel).
  *   - naturalEvents: NASA EONET wildfires, volcanoes, storms, earthquakes.
- *   - satellites: Starlink constellation (live TLE propagation).
  *   - countries: country accountability markers (curated editorial layer).
  *
  * Persisted to localStorage under `planetearth-layer-<key>`. Subscribers are notified
@@ -13,12 +12,11 @@
  * or tear down any per-frame cost.
  */
 
-export type LayerKey = 'windFlow' | 'naturalEvents' | 'satellites' | 'countries' | 'stations' | 'filmGrain';
+export type LayerKey = 'windFlow' | 'naturalEvents' | 'countries' | 'stations' | 'filmGrain';
 
 const DEFAULTS: Record<LayerKey, boolean> = {
     windFlow: true,
     naturalEvents: true,
-    satellites: false,  // opt-in — adds ~6000 points + 50kB/6h network
     countries: true,    // editorial, lightweight
     stations: true,     // real measurement sensors (Argo, NOAA GHG, weather, buoys, tide,
                         // solar, seismic, airq). On by default — the dots ARE the data.
