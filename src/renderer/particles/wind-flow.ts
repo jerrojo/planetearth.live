@@ -128,7 +128,14 @@ export interface WindFlowContext {
     points: THREE.Points;
 }
 
-export function createWindFlow(scene: THREE.Scene): WindFlowContext {
+/**
+ * Parent the wind-flow Points to an Earth-attached Object3D (normally globeGroup)
+ * so user drag + sidereal auto-rotation propagate to the streamlines via the
+ * scene graph — otherwise the particles float in world space while the globe
+ * rotates underneath, looking like clouds that don't follow the drag.
+ * Particle positions are computed in the globe's local frame via ll2v().
+ */
+export function createWindFlow(parent: THREE.Object3D): WindFlowContext {
     const particles: WindParticle[] = [];
     const positions = new Float32Array(WIND_COUNT * 3);
     const colors = new Float32Array(WIND_COUNT * 3);
@@ -179,7 +186,7 @@ export function createWindFlow(scene: THREE.Scene): WindFlowContext {
     });
 
     const points = new THREE.Points(geometry, mat);
-    scene.add(points);
+    parent.add(points);
 
     return { particles, positions, colors, alphas, geometry, points };
 }

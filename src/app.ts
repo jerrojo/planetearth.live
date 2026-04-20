@@ -106,7 +106,10 @@ export function createApp(): void {
     const fireflyCtx = createFireflies(scene);
     const sunGlowCtx = createSunGlow(scene);
     createPulsePool(globeGroup);
-    const windCtx = createWindFlow(scene);
+    // Parent wind-flow to globeGroup so streamlines rotate with user drag.
+    // Previously attached to scene → particles floated in world space while
+    // the globe spun underneath, looking like "clouds that don't follow the drag".
+    const windCtx = createWindFlow(globeGroup);
 
     // UI initialization
     const catListEl = document.getElementById('catList')!;
