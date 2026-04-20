@@ -396,8 +396,13 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
     // Based on: Hadley cell ITCZ convergence (~5-10°N), subtropical dry zones (15-30°),
     // mid-latitude storm tracks (40-60°), polar fronts, Sahara/Arabian/Australian desert gaps
     // Sources: ISCCP cloud climatology, Hartmann (2016) "Global Physical Climatology"
+    // Parent the cloud group to the globe so user drag, sidereal auto-rotation,
+    // and any future earth transforms propagate automatically via Three.js's
+    // scene graph — no per-frame quaternion mirror needed. Cloud particles
+    // still drift locally through the wind field, producing their own pace
+    // relative to the surface while staying visually attached to the planet.
     const cloudGroup = new THREE.Group();
-    scene.add(cloudGroup);
+    globeGroup.add(cloudGroup);
     const cp: number[] = [];
     const cSizes: number[] = [];
     const cAlphas: number[] = [];

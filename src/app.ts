@@ -75,7 +75,7 @@ export function createApp(): void {
     const isMobile = window.innerWidth < 768;
 
     // Globe
-    const { globeGroup, cloudGroup, cloudCtx, cityDots, hotspotGroup, oceanMaterial } = createGlobe(scene);
+    const { globeGroup, cloudCtx, cityDots, hotspotGroup, oceanMaterial } = createGlobe(scene);
 
     // Day/Night terminator
     const dayNightCtx = createDayNight(globeGroup);
@@ -335,10 +335,11 @@ export function createApp(): void {
         _siderealQuat.setFromAxisAngle(_Y_AXIS, siderealBase + orbit.autoRotation);
         globeGroup.quaternion.copy(orbit.userQuat).multiply(_siderealQuat);
 
-        // Clouds share Earth's rotation — they live in the rotating reference frame.
-        // Local drift is applied below via updateCloudMotion, which advects each cloud
-        // through the procedural wind field (trade winds, westerlies, polar easterlies).
-        cloudGroup.quaternion.copy(globeGroup.quaternion);
+        // Clouds inherit Earth's orientation automatically — cloudGroup is a child
+        // of globeGroup, so user drag + sidereal spin propagate through the scene
+        // graph. updateCloudMotion only advects each cloud *locally* through the
+        // procedural wind field (trade winds, westerlies, polar easterlies), so
+        // clouds have their own pace relative to the surface.
         updateCloudMotion(cloudCtx, t, dt, motionScale);
 
         // Cinematic camera breathing
