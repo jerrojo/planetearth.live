@@ -20,6 +20,8 @@ import { createHeatmap, showHeatmap, hideHeatmap, updateHeatmap } from './render
 import { createConnections, updateConnections, showConnections, hideConnections } from './renderer/effects/connections';
 import { createStationMarkers } from './renderer/effects/station-markers';
 import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
+import { createSatellites } from './renderer/effects/satellites';
+import { createCountryMarkers } from './renderer/effects/country-markers';
 import { initStations } from './data/measurement-stations';
 
 // UI
@@ -32,7 +34,7 @@ import { initAccessibility } from './ui/components/accessibility';
 import { initActionPrompt } from './ui/components/action-prompt';
 
 // Controls
-import { createOrbitState, initOrbitControls } from './controls/orbit';
+import { createOrbitState, initOrbitControls, rotateOrbit } from './controls/orbit';
 
 // Services
 import { fetchLiveData, getStatusText } from './services/api-client';
@@ -42,11 +44,18 @@ import { fetchEarthquakes } from './services/earthquake-feed';
 // i18n — needed to re-render liveStatus on locale toggle
 import { subscribe as subscribeLocale } from './i18n';
 
+// Layers — user-controlled optional overlays
+import { isLayerEnabled, onLayerChange } from './state/layers';
+
 // Data
 import { categories } from './data/categories';
 
 // Shared state
 import { liveData } from './state/live-data';
+
+// Scratch objects for per-frame quaternion math — allocated once at module scope.
+const _Y_AXIS = new THREE.Vector3(0, 1, 0);
+const _siderealQuat = new THREE.Quaternion();
 
 export function createApp(): void {
     // Canvas
@@ -88,6 +97,12 @@ export function createApp(): void {
 
     // Natural event markers (wildfires, volcanoes, storms from NASA EONET)
     const naturalEventMarkers = createNaturalEventMarkers(globeGroup);
+
+    // Starlink satellite constellation (live TLE → Kepler propagation, opt-in layer)
+    const satellitesCtx = createSatellites(globeGroup);
+
+    // Country accountability markers (curated editorial — positive/negative actions)
+    const countryMarkersCtx = createCountryMarkers(globeGroup);
 
     // Particles
     const starsCtx = createStars(scene);
@@ -136,6 +151,32 @@ export function createApp(): void {
     const orbit = createOrbitState();
     initOrbitControls(canvas, orbit);
 
+    // ── Layer visibility wiring ──────────────────────────────────────────
+    // Each optional layer exposes its toggleable Object3D (wind Points,
+    // natural-event Group, future satellites + countries groups). We sync
+    // initial state here, then subscribe so Settings toggles flip visibility
+    // without needing to re-enter the animation loop.
+    windCtx.points.visible = isLayerEnabled('windFlow');
+    naturalEventMarkers.group.visible = isLayerEnabled('naturalEvents');
+    satellitesCtx.group.visible = isLayerEnabled('satellites');
+    countryMarkersCtx.group.visible = isLayerEnabled('countries');
+    let satellitesFetched = false;
+    if (isLayerEnabled('satellites')) {
+        void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
+    }
+    onLayerChange((key, value) => {
+        if (key === 'windFlow') windCtx.points.visible = value;
+        else if (key === 'naturalEvents') naturalEventMarkers.group.visible = value;
+        else if (key === 'satellites') {
+            satellitesCtx.group.visible = value;
+            // Lazy-fetch TLE on first activation — zero network cost by default.
+            if (value && !satellitesFetched) {
+                void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
+            }
+        }
+        else if (key === 'countries') countryMarkersCtx.group.visible = value;
+    });
+
     // Keyboard shortcuts
     const panel = document.getElementById('panel')!;
     const a11yPanel = document.getElementById('a11yPanel')!;
@@ -148,12 +189,12 @@ export function createApp(): void {
                 document.getElementById('a11yToggle')!.focus();
             }
         }
-        // Arrow keys for globe rotation
+        // Arrow keys for globe rotation (world-axis quaternion deltas — free rotation, no gimbal lock)
         const ARROW_SPEED = 0.05;
-        if (e.key === 'ArrowLeft') orbit.rotY -= ARROW_SPEED;
-        if (e.key === 'ArrowRight') orbit.rotY += ARROW_SPEED;
-        if (e.key === 'ArrowUp') orbit.rotX = Math.max(-1.2, orbit.rotX - ARROW_SPEED);
-        if (e.key === 'ArrowDown') orbit.rotX = Math.min(1.2, orbit.rotX + ARROW_SPEED);
+        if (e.key === 'ArrowLeft') rotateOrbit(orbit, -ARROW_SPEED, 0);
+        if (e.key === 'ArrowRight') rotateOrbit(orbit, ARROW_SPEED, 0);
+        if (e.key === 'ArrowUp') rotateOrbit(orbit, 0, -ARROW_SPEED);
+        if (e.key === 'ArrowDown') rotateOrbit(orbit, 0, ARROW_SPEED);
         // +/- for zoom
         if (e.key === '+' || e.key === '=') orbit.zoomTarget = Math.max(9, orbit.zoomTarget - 1);
         if (e.key === '-' || e.key === '_') orbit.zoomTarget = Math.min(25, orbit.zoomTarget + 1);
@@ -243,11 +284,31 @@ export function createApp(): void {
         setTimeout(() => actionPrompt.show(), 900);
     });
 
+    // View mode — after 60s of no interaction the UI chrome fades away so the
+    // user is alone with the planet. Any pointer, key, wheel, or touch input
+    // clears the idle class instantly (CSS transition handles the fade-in).
+    // This plays well with Page Visibility: when the tab comes back we restart
+    // the timer so the user returns to a populated HUD.
+    const IDLE_MS = 60_000;
+    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+    function resetIdle(): void {
+        document.body.classList.remove('idle');
+        if (idleTimer) clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => document.body.classList.add('idle'), IDLE_MS);
+    }
+    (['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart', 'touchmove'] as const).forEach(ev => {
+        window.addEventListener(ev, resetIdle, { passive: true });
+    });
+    resetIdle();
+
     // Page Visibility API — pause render when tab is hidden (saves CPU/GPU/battery)
     let isTabVisible = true;
     document.addEventListener('visibilitychange', () => {
         isTabVisible = !document.hidden;
-        if (isTabVisible) clock.getDelta(); // discard stale dt after resume
+        if (isTabVisible) {
+            clock.getDelta(); // discard stale dt after resume
+            resetIdle();      // coming back to the tab counts as interaction
+        }
     });
 
     // Animation loop
@@ -265,35 +326,31 @@ export function createApp(): void {
         const t = clock.getElapsedTime();
         const motionScale = isReducedMotion() ? 0 : 1;
 
-        // Orbit inertia (smooth deceleration)
+        // Orbit inertia (smooth deceleration) — applied as quaternion deltas
         if (!orbit.isDragging) {
             orbit.velocityY *= 0.95;
             orbit.velocityX *= 0.95;
-            orbit.rotY += orbit.velocityY;
-            orbit.rotX += orbit.velocityX;
-            orbit.rotX = Math.max(-1.2, Math.min(1.2, orbit.rotX));
+            if (Math.abs(orbit.velocityY) > 1e-5 || Math.abs(orbit.velocityX) > 1e-5) {
+                rotateOrbit(orbit, orbit.velocityY, orbit.velocityX);
+            }
             orbit.autoRotation += dt * 0.08 * motionScale;
         }
 
-        // Globe rotation — base angle from sidereal time so day/night aligns with sun direction
-        // Greenwich Sidereal Time: at 12:00 UTC, Greenwich (lon 0°) faces the sun
-        // The computeSunDirection() function uses hourAngle = (hours-12)/24 * 2π
-        // We need the globe rotated so that longitude 0° starts at +Z (toward camera),
-        // and rotates to match the sun's hour angle.
+        // Globe orientation — compose: userQuat (free rotation) × siderealQuat (day/night)
+        // Greenwich Sidereal Time: at 12:00 UTC, Greenwich (lon 0°) faces the sun.
+        // computeSunDirection() uses hourAngle = (hours-12)/24 * 2π. The siderealBase
+        // rotation puts longitude 0° at +Z at boot, then rotates to match the sun's
+        // hour angle, so the day/night terminator aligns with real solar position.
         const utcNow = new Date();
         const utcHours = utcNow.getUTCHours() + utcNow.getUTCMinutes() / 60;
         const siderealBase = -((utcHours - 12) / 24) * Math.PI * 2;
-        globeGroup.rotation.y = siderealBase + orbit.rotY + orbit.autoRotation;
-        globeGroup.rotation.x = orbit.rotX;
+        _siderealQuat.setFromAxisAngle(_Y_AXIS, siderealBase + orbit.autoRotation);
+        globeGroup.quaternion.copy(orbit.userQuat).multiply(_siderealQuat);
 
-        // Clouds share Earth's rotation (they live in the atmosphere, attached to
-        // the rotating reference frame). Local drift is applied below via
-        // updateCloudMotion, which advects each cloud through the procedural
-        // wind field from wind-flow.ts — trade winds push clouds west at the
-        // tropics, westerlies push them east at mid-latitudes, polar easterlies
-        // push them west again. No more rigid-body cloud rotation.
-        cloudGroup.rotation.y = globeGroup.rotation.y;
-        cloudGroup.rotation.x = globeGroup.rotation.x;
+        // Clouds share Earth's rotation — they live in the rotating reference frame.
+        // Local drift is applied below via updateCloudMotion, which advects each cloud
+        // through the procedural wind field (trade winds, westerlies, polar easterlies).
+        cloudGroup.quaternion.copy(globeGroup.quaternion);
         updateCloudMotion(cloudCtx, t, dt, motionScale);
 
         // Cinematic camera breathing
@@ -323,8 +380,10 @@ export function createApp(): void {
         // Fireflies (CO₂ emission particles)
         updateFireflies(fireflyCtx, t, motionScale);
 
-        // Wind flow particles (atmospheric circulation)
-        updateWindFlow(windCtx, t, dt, motionScale);
+        // Wind flow particles (atmospheric circulation) — skip when layer is off
+        if (windCtx.points.visible) {
+            updateWindFlow(windCtx, t, dt, motionScale);
+        }
 
         // Day/Night cycle (real solar position from UTC time)
         updateDayNight(dayNightCtx);
@@ -344,6 +403,12 @@ export function createApp(): void {
 
         // Natural event markers (NASA EONET fires, volcanoes, storms)
         naturalEventMarkers.update(t);
+
+        // Starlink satellites — only propagate when the layer is visible (cheap no-op otherwise)
+        if (satellitesCtx.group.visible) satellitesCtx.update();
+
+        // Country accountability pulses
+        if (countryMarkersCtx.group.visible) countryMarkersCtx.update(t);
 
         // City pulse — smoother ease
         cityDots.forEach((d, i) => {

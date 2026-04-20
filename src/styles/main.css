@@ -197,6 +197,29 @@ body.loaded .a11y-toggle {
     transition-delay: 1.0s;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   View mode — after 60 seconds of no interaction the chrome fades away so
+   only the planet remains. Any pointer, key, wheel, or touch input restores
+   the UI immediately via the interaction tracker in app.ts.
+   Rules placed AFTER the body.loaded entrance block so they win the cascade.
+   ────────────────────────────────────────────────────────────────────────── */
+body.idle .title,
+body.idle .categories,
+body.idle .mobile-cats,
+body.idle .dashboard,
+body.idle .instructions,
+body.idle .a11y-toggle,
+body.idle .a11y-panel,
+body.idle .ds-toggle,
+body.idle .narrative-bar,
+body.idle .live-ticker,
+body.idle .panel,
+body.idle .pop-counter {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 1.6s ease-out !important;
+}
+
 /* Loading spinner — visible until JS initializes */
 .loading-spinner {
     position: fixed;
@@ -496,7 +519,9 @@ body.loaded .categories { transform: translateY(-50%) translateY(0); }
 /* ---- Dashboard HUD (Planet Health Score + Metric Cards) ---- */
 .dashboard {
     position: fixed;
-    bottom: 10px;
+    /* Leaves breathing room for the live-status badge underneath — the two
+       lines were sitting on top of each other before. */
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -1326,6 +1351,15 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     font-size: 0.75em;
     font-weight: 600;
     color: rgba(240,236,228,0.8);
+}
+/* Section header inside Settings — visually introduces a group of rows (e.g. Layers). */
+.layers-header { margin-top: 6px; padding-bottom: 4px; border-bottom: none; }
+.a11y-section-label {
+    font-size: 0.7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: rgba(240,236,228,0.55);
 }
 
 /* ---- Toggle switch ---- */

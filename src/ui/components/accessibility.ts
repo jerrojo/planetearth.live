@@ -1,5 +1,6 @@
 import { getLocale, setLocale, LOCALES, LOCALE_LABELS, t, applyStaticI18n } from '../../i18n';
-import type { Locale } from '../../i18n/dictionaries';
+import type { Locale, StringKey } from '../../i18n/dictionaries';
+import { isLayerEnabled, setLayer, type LayerKey } from '../../state/layers';
 
 export function initAccessibility(): () => boolean {
     const a11yToggle = document.getElementById('a11yToggle')!;
@@ -52,6 +53,62 @@ export function initAccessibility(): () => boolean {
         row.appendChild(labelSpan);
         row.appendChild(seg);
         a11yPanel.appendChild(row);
+    })();
+
+    // ── Layers section ──────────────────────────────────────────────────────
+    // Independent toggles for optional globe overlays. Stacked in one column —
+    // each row has the label on the left and a toggle switch on the right, same
+    // visual grammar as "Reduce motion" / "High contrast" so the pattern reads.
+    (function injectLayersSection(): void {
+        if (a11yPanel.querySelector('.layers-header')) return;
+
+        const header = document.createElement('div');
+        header.className = 'a11y-row layers-header';
+        const headerLabel = document.createElement('span');
+        headerLabel.className = 'a11y-label a11y-section-label';
+        headerLabel.textContent = t('a11y.layers');
+        headerLabel.dataset['i18n'] = 'a11y.layers';
+        header.appendChild(headerLabel);
+        a11yPanel.appendChild(header);
+
+        const layers: Array<{ key: LayerKey; labelKey: StringKey }> = [
+            { key: 'windFlow',     labelKey: 'a11y.layerWind' },
+            { key: 'naturalEvents', labelKey: 'a11y.layerEvents' },
+            { key: 'satellites',   labelKey: 'a11y.layerSatellites' },
+            { key: 'countries',    labelKey: 'a11y.layerCountries' },
+        ];
+
+        for (const { key, labelKey } of layers) {
+            const row = document.createElement('div');
+            row.className = 'a11y-row';
+
+            const label = document.createElement('span');
+            label.className = 'a11y-label';
+            label.textContent = t(labelKey);
+            label.dataset['i18n'] = labelKey;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'toggle-switch';
+            btn.setAttribute('role', 'switch');
+            const initial = isLayerEnabled(key);
+            btn.setAttribute('aria-checked', String(initial));
+            btn.setAttribute('aria-label', t(labelKey));
+            btn.dataset['i18nAria'] = labelKey;
+            const thumb = document.createElement('span');
+            thumb.className = 'toggle-thumb';
+            btn.appendChild(thumb);
+
+            btn.addEventListener('click', () => {
+                const next = btn.getAttribute('aria-checked') !== 'true';
+                btn.setAttribute('aria-checked', String(next));
+                setLayer(key, next);
+            });
+
+            row.appendChild(label);
+            row.appendChild(btn);
+            a11yPanel.appendChild(row);
+        }
     })();
 
     function toggleA11yPanel(open?: boolean): void {

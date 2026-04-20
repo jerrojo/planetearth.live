@@ -43,6 +43,11 @@ export type StringKey =
     | 'a11y.reduceMotion'
     | 'a11y.highContrast'
     | 'a11y.language'
+    | 'a11y.layers'
+    | 'a11y.layerWind'
+    | 'a11y.layerEvents'
+    | 'a11y.layerSatellites'
+    | 'a11y.layerCountries'
     | 'data.fresh'
     | 'data.stale'
     | 'data.invalid'
@@ -169,6 +174,11 @@ const es: Dict = {
     'a11y.reduceMotion': 'Reducir movimiento',
     'a11y.highContrast': 'Alto contraste',
     'a11y.language': 'Idioma',
+    'a11y.layers': 'Capas',
+    'a11y.layerWind': 'Flujo del viento',
+    'a11y.layerEvents': 'Eventos naturales',
+    'a11y.layerSatellites': 'Satélites (Starlink)',
+    'a11y.layerCountries': 'Países',
     'data.fresh': 'al día',
     'data.stale': 'desactualizado',
     'data.invalid': 'inválido',
@@ -337,6 +347,11 @@ const en: Dict = {
     'a11y.reduceMotion': 'Reduce motion',
     'a11y.highContrast': 'High contrast',
     'a11y.language': 'Language',
+    'a11y.layers': 'Layers',
+    'a11y.layerWind': 'Wind flow',
+    'a11y.layerEvents': 'Natural events',
+    'a11y.layerSatellites': 'Satellites (Starlink)',
+    'a11y.layerCountries': 'Countries',
     'data.fresh': 'fresh',
     'data.stale': 'stale',
     'data.invalid': 'invalid',

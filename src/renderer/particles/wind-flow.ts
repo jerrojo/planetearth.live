@@ -124,6 +124,8 @@ export interface WindFlowContext {
     colors: Float32Array;
     alphas: Float32Array;
     geometry: THREE.BufferGeometry;
+    /** The rendered Points object — exposed so layer toggles can hide/show it. */
+    points: THREE.Points;
 }
 
 export function createWindFlow(scene: THREE.Scene): WindFlowContext {
@@ -176,9 +178,10 @@ export function createWindFlow(scene: THREE.Scene): WindFlowContext {
         vertexColors: true,
     });
 
-    scene.add(new THREE.Points(geometry, mat));
+    const points = new THREE.Points(geometry, mat);
+    scene.add(points);
 
-    return { particles, positions, colors, alphas, geometry };
+    return { particles, positions, colors, alphas, geometry, points };
 }
 
 export function updateWindFlow(ctx: WindFlowContext, t: number, dt: number, motionScale: number): void {
