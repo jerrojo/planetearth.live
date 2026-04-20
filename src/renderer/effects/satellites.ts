@@ -20,6 +20,7 @@
  */
 import * as THREE from 'three';
 import { ll2v } from '../../utils/math';
+import { computeSunDirection } from './day-night';
 
 const GLOBE_RADIUS_UNITS = 5;         // scene units
 const EARTH_RADIUS_KM = 6371;
@@ -245,7 +246,11 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
                     // Starlinks in Earth's shadow disappear; lit ones pick up a specular
                     // term when the view-reflection angle aligns with the sun (dusk flare).
                     float sunDot = dot(nrm, normalize(uSunDir));
-                    vLit = smoothstep(-0.05, 0.15, sunDot); // 0..1, crisp terminator
+                    // Real Earth-shadow geometry: from 550 km LEO, Earth subtends
+                    // ~83° so the umbra begins at sunDot ≈ -0.13. Sats with
+                    // sunDot above that are still fully lit by the sun; below it,
+                    // they're eclipsed and invisible to ground-based observers.
+                    vLit = smoothstep(-0.13, 0.05, sunDot);
 
                     // Flare: rare, brief, bright. Real Starlinks flare for 1-3s when panel
                     // mirrors the sun to the observer. We fake it with a per-sat phase
@@ -308,20 +313,12 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
         const nowMs = simNowMs ?? Date.now();
         const n = Math.min(elements.length, MAX_SATS);
 
-        // Sun direction in ECEF — use day-of-year + hour to rotate a canonical
-        // ecliptic-ish vector. Good enough for visual terminator placement.
-        // Obliquity ≈23.44°, hour-angle derived from UTC.
-        const d = new Date(nowMs);
-        const dayOfYear = (Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()) -
-                           Date.UTC(d.getUTCFullYear(), 0, 0)) / 86400000;
-        const declRad = 23.44 * Math.PI / 180 * Math.sin(2 * Math.PI * (dayOfYear - 81) / 365);
-        const hourUTC = d.getUTCHours() + d.getUTCMinutes() / 60 + d.getUTCSeconds() / 3600;
-        const hourAngle = (12 - hourUTC) * 15 * Math.PI / 180; // noon longitude of sun
-        sunDir.set(
-            Math.cos(declRad) * Math.cos(hourAngle),
-            Math.sin(declRad),
-            Math.cos(declRad) * Math.sin(hourAngle),
-        ).normalize();
+        // Sun direction in the same Three.js world frame the globe uses. Reusing
+        // computeSunDirection() (from day-night) guarantees the terminator the
+        // satellites see lines up with the one lit on the Earth surface — an
+        // earlier bug computed sun in a 90°-rotated frame, so every sat the
+        // camera could see was wrongly classified as eclipsed and discarded.
+        sunDir.copy(computeSunDirection());
         if (material) {
             material.uniforms['uTime']!.value = nowMs / 1000;
         }
