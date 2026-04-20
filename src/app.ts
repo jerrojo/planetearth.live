@@ -57,6 +57,11 @@ import { liveData } from './state/live-data';
 const _Y_AXIS = new THREE.Vector3(0, 1, 0);
 const _siderealQuat = new THREE.Quaternion();
 
+// Real Earth sidereal rotation (rad/s) — used to convert the demo-pace auto-rotation
+// into an equivalent "sim clock" for satellites. Without this they'd orbit at real
+// time while the globe spins ~1100× faster, making them look pinned to the surface.
+const SIDEREAL_RAD_PER_SEC = 2 * Math.PI / 86164;
+
 export function createApp(): void {
     // Canvas
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
@@ -163,6 +168,12 @@ export function createApp(): void {
     stationCtx.group.visible = isLayerEnabled('stations');
     let filmGrainEnabled = isLayerEnabled('filmGrain');
     let satellitesFetched = false;
+    // Accumulator for the demo-accelerated sim time fed to satellite propagation.
+    // Starts at wall-clock now; advances each frame by dt * speedup, where speedup
+    // is the ratio of the visible Earth rotation rate (real sidereal + demo
+    // autoRotation) to the real sidereal rate. Preserves the real ratio of orbital
+    // motion to ground rotation (~14×), so satellites visibly zip past the surface.
+    let satSimNowMs = Date.now();
     if (isLayerEnabled('satellites')) {
         void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
     }
@@ -410,8 +421,13 @@ export function createApp(): void {
         // Natural event markers (NASA EONET fires, volcanoes, storms)
         if (naturalEventMarkers.group.visible) naturalEventMarkers.update(t);
 
-        // Starlink satellites — only propagate when the layer is visible (cheap no-op otherwise)
-        if (satellitesCtx.group.visible) satellitesCtx.update();
+        // Starlink satellites — only propagate when the layer is visible (cheap no-op otherwise).
+        // Sim clock advances at the same pace as the globe's visible rotation, so orbital
+        // motion stays ~14× faster than Earth's surface (the real ratio).
+        const earthOmega = 0.08 * motionScale + SIDEREAL_RAD_PER_SEC;
+        const speedup = earthOmega / SIDEREAL_RAD_PER_SEC;
+        satSimNowMs += dt * 1000 * speedup;
+        if (satellitesCtx.group.visible) satellitesCtx.update(satSimNowMs);
 
         // Country accountability pulses
         if (countryMarkersCtx.group.visible) countryMarkersCtx.update(t);

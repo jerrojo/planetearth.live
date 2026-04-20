@@ -142,8 +142,13 @@ function propagateToECEF(el: OrbitalElements, nowMs: number, out: { x: number; y
 
 export interface SatellitesContext {
     group: THREE.Group;
-    /** Force a positions refresh (e.g. after fetching new TLEs). */
-    update: () => void;
+    /**
+     * Propagate orbits to the given wall-clock time (ms since epoch).
+     * Pass an accelerated time when the globe is on demo-speed rotation so
+     * satellite ground-tracks stay visually faster than Earth's surface —
+     * the real ratio (orbit ≈ 14× sidereal rotation) is preserved.
+     */
+    update: (nowMs?: number) => void;
     /** Fetch the latest TLE batch from Celestrak. */
     refresh: () => Promise<void>;
 }
@@ -242,8 +247,11 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
                     vFlare = flareWindow * vLit;
 
                     vec4 mv = viewMatrix * world;
-                    float basePx = 1.6 + 0.6 * step(0.5, vShell);      // polar shell slightly bigger
-                    gl_PointSize = max(1.1, basePx * (180.0 / -mv.z) * mix(1.0, 2.8, vFlare));
+                    // Point size cut to ~half the old footprint. Real Starlinks are 3 m
+                    // specks at 550 km — they should read as tiny moving dots, not bright
+                    // orbs. Flare moments still bloom to ~2× so the sparkle stays legible.
+                    float basePx = 0.75 + 0.25 * step(0.5, vShell);     // polar shell nudge
+                    gl_PointSize = max(0.8, basePx * (180.0 / -mv.z) * mix(1.0, 2.0, vFlare));
                     gl_Position = projectionMatrix * mv;
                 }
             `,
@@ -283,9 +291,12 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
         group.add(new THREE.Points(geometry, material));
     }
 
-    function update(): void {
+    function update(simNowMs?: number): void {
         if (!elements.length || !positions || !geometry || !shells) return;
-        const nowMs = Date.now();
+        // When the app runs on demo-accelerated Earth rotation, satellites need
+        // the same accelerated clock for orbital propagation. Otherwise the
+        // Earth spins ~1100× faster than real and the sats look pinned to it.
+        const nowMs = simNowMs ?? Date.now();
         const n = Math.min(elements.length, MAX_SATS);
 
         // Sun direction in ECEF — use day-of-year + hour to rotate a canonical
