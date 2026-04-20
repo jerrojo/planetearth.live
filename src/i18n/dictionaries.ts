@@ -49,6 +49,7 @@ export type StringKey =
     | 'a11y.layerSatellites'
     | 'a11y.layerCountries'
     | 'a11y.layerStations'
+    | 'a11y.layerGrain'
     | 'data.fresh'
     | 'data.stale'
     | 'data.invalid'
@@ -181,6 +182,7 @@ const es: Dict = {
     'a11y.layerSatellites': 'Satélites (Starlink)',
     'a11y.layerCountries': 'Países',
     'a11y.layerStations': 'Estaciones de medición',
+    'a11y.layerGrain': 'Grano cinematográfico',
     'data.fresh': 'al día',
     'data.stale': 'desactualizado',
     'data.invalid': 'inválido',
@@ -355,6 +357,7 @@ const en: Dict = {
     'a11y.layerSatellites': 'Satellites (Starlink)',
     'a11y.layerCountries': 'Countries',
     'a11y.layerStations': 'Measurement stations',
+    'a11y.layerGrain': 'Film grain',
     'data.fresh': 'fresh',
     'data.stale': 'stale',
     'data.invalid': 'invalid',

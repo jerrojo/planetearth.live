@@ -72,11 +72,12 @@ export function initAccessibility(): () => boolean {
         a11yPanel.appendChild(header);
 
         const layers: Array<{ key: LayerKey; labelKey: StringKey }> = [
-            { key: 'windFlow',     labelKey: 'a11y.layerWind' },
+            { key: 'windFlow',      labelKey: 'a11y.layerWind' },
             { key: 'naturalEvents', labelKey: 'a11y.layerEvents' },
-            { key: 'stations',     labelKey: 'a11y.layerStations' },
-            { key: 'satellites',   labelKey: 'a11y.layerSatellites' },
-            { key: 'countries',    labelKey: 'a11y.layerCountries' },
+            { key: 'stations',      labelKey: 'a11y.layerStations' },
+            { key: 'satellites',    labelKey: 'a11y.layerSatellites' },
+            { key: 'countries',     labelKey: 'a11y.layerCountries' },
+            { key: 'filmGrain',     labelKey: 'a11y.layerGrain' },
         ];
 
         for (const { key, labelKey } of layers) {

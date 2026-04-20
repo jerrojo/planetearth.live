@@ -13,7 +13,7 @@
  * or tear down any per-frame cost.
  */
 
-export type LayerKey = 'windFlow' | 'naturalEvents' | 'satellites' | 'countries' | 'stations';
+export type LayerKey = 'windFlow' | 'naturalEvents' | 'satellites' | 'countries' | 'stations' | 'filmGrain';
 
 const DEFAULTS: Record<LayerKey, boolean> = {
     windFlow: true,
@@ -22,6 +22,8 @@ const DEFAULTS: Record<LayerKey, boolean> = {
     countries: true,    // editorial, lightweight
     stations: false,    // dense sensor grid — off by default so the globe reads cleanly;
                         // users who want to audit the data sources turn it on.
+    filmGrain: true,    // cinematic "static" noise — decoupled from reduce-motion so users
+                        // who keep motion on can still turn the grain off if they find it noisy.
 };
 
 type Listener = (key: LayerKey, value: boolean) => void;

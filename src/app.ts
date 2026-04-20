@@ -161,6 +161,7 @@ export function createApp(): void {
     satellitesCtx.group.visible = isLayerEnabled('satellites');
     countryMarkersCtx.group.visible = isLayerEnabled('countries');
     stationCtx.group.visible = isLayerEnabled('stations');
+    let filmGrainEnabled = isLayerEnabled('filmGrain');
     let satellitesFetched = false;
     if (isLayerEnabled('satellites')) {
         void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
@@ -177,6 +178,7 @@ export function createApp(): void {
         }
         else if (key === 'countries') countryMarkersCtx.group.visible = value;
         else if (key === 'stations') stationCtx.group.visible = value;
+        else if (key === 'filmGrain') filmGrainEnabled = value;
     });
 
     // Keyboard shortcuts
@@ -370,8 +372,10 @@ export function createApp(): void {
         // Stars twinkle
         starsCtx.material.uniforms.uTime.value = t;
 
-        // Film grain: disabled on mobile and reduced-motion
-        if (motionScale === 0 || isMobile) {
+        // Film grain — independent Settings → Layers toggle, also auto-disabled on mobile
+        // where the cost isn't worth it. `filmGrainEnabled` is mutated by the onLayerChange
+        // listener below so switching the toggle takes effect next frame.
+        if (isMobile || !filmGrainEnabled) {
             uTimeRef.value = 0;
             uGrainRef.value = 0;
         } else {
