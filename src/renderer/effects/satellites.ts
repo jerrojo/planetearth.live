@@ -259,8 +259,8 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
                     // Point size cut to ~half the old footprint. Real Starlinks are 3 m
                     // specks at 550 km — they should read as tiny moving dots, not bright
                     // orbs. Flare moments still bloom to ~2× so the sparkle stays legible.
-                    float basePx = 0.75 + 0.25 * step(0.5, vShell);     // polar shell nudge
-                    gl_PointSize = max(0.8, basePx * (180.0 / -mv.z) * mix(1.0, 2.0, vFlare));
+                    float basePx = 1.15 + 0.35 * step(0.5, vShell);     // polar shell nudge
+                    gl_PointSize = max(1.3, basePx * (180.0 / -mv.z) * mix(1.0, 2.2, vFlare));
                     gl_Position = projectionMatrix * mv;
                 }
             `,
