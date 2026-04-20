@@ -13,13 +13,15 @@
  * or tear down any per-frame cost.
  */
 
-export type LayerKey = 'windFlow' | 'naturalEvents' | 'satellites' | 'countries';
+export type LayerKey = 'windFlow' | 'naturalEvents' | 'satellites' | 'countries' | 'stations';
 
 const DEFAULTS: Record<LayerKey, boolean> = {
     windFlow: true,
     naturalEvents: true,
     satellites: false,  // opt-in — adds ~6000 points + 50kB/6h network
     countries: true,    // editorial, lightweight
+    stations: false,    // dense sensor grid — off by default so the globe reads cleanly;
+                        // users who want to audit the data sources turn it on.
 };
 
 type Listener = (key: LayerKey, value: boolean) => void;

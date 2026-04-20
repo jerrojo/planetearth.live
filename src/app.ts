@@ -160,6 +160,7 @@ export function createApp(): void {
     naturalEventMarkers.group.visible = isLayerEnabled('naturalEvents');
     satellitesCtx.group.visible = isLayerEnabled('satellites');
     countryMarkersCtx.group.visible = isLayerEnabled('countries');
+    stationCtx.group.visible = isLayerEnabled('stations');
     let satellitesFetched = false;
     if (isLayerEnabled('satellites')) {
         void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
@@ -175,6 +176,7 @@ export function createApp(): void {
             }
         }
         else if (key === 'countries') countryMarkersCtx.group.visible = value;
+        else if (key === 'stations') stationCtx.group.visible = value;
     });
 
     // Keyboard shortcuts
@@ -398,11 +400,11 @@ export function createApp(): void {
         // Connection network
         updateConnections(connectionsCtx, t);
 
-        // Real measurement stations
-        stationCtx.update(t);
+        // Real measurement stations — only pulse when the layer is visible
+        if (stationCtx.group.visible) stationCtx.update(t);
 
         // Natural event markers (NASA EONET fires, volcanoes, storms)
-        naturalEventMarkers.update(t);
+        if (naturalEventMarkers.group.visible) naturalEventMarkers.update(t);
 
         // Starlink satellites — only propagate when the layer is visible (cheap no-op otherwise)
         if (satellitesCtx.group.visible) satellitesCtx.update();
