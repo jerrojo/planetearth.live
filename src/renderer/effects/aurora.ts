@@ -122,7 +122,10 @@ export function createAurora(scene: THREE.Object3D): AuroraContext {
     const material = new THREE.ShaderMaterial({
         uniforms: {
             uTime: { value: 0 },
-            uIntensity: { value: 1.0 },
+            // Pixar grade: aurora should read as a delicate, moving glow — not a blob.
+            // 0.55 keeps the science (Kp response, color distribution) but under bloom threshold 0.82,
+            // so only the brightest peaks bloom instead of the whole ring saturating.
+            uIntensity: { value: 0.55 },
             uKp: { value: 2.0 },
         },
         vertexShader: /* glsl */ `
@@ -219,10 +222,10 @@ export function createAurora(scene: THREE.Object3D): AuroraContext {
                 float d = length(gl_PointCoord - 0.5) * 2.0;
                 if (d > 1.0) discard;
 
-                // Soft gaussian falloff for ethereal curtain look
-                float alpha = exp(-d * d * 3.0) * vAlpha;
+                // Soft gaussian falloff for ethereal curtain look — wider tail, softer core
+                float alpha = exp(-d * d * 3.5) * vAlpha;
 
-                gl_FragColor = vec4(vColor, alpha * 0.6);
+                gl_FragColor = vec4(vColor, alpha * 0.40);
             }
         `,
         transparent: true,

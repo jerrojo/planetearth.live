@@ -2,38 +2,90 @@
 
 /* ---- Theme: Pixar Warm Night — Golden warmth meets cosmic wonder ---- */
 :root {
+    /* ── Surfaces ── */
     --bg-primary: #0e0c22;
     --bg-card: rgba(28, 22, 50, 0.88);
     --bg-btn: rgba(32, 26, 55, 0.65);
+
+    /* ── Text (WCAG AA on bg-card) ── */
     --text-primary: #f5efe5;
-    --text-muted: rgba(245, 239, 229, 0.45);
-    --accent-1: #ffd6a0; /* warm golden */
-    --accent-2: #d4b3e8; /* soft lavender */
-    --accent-green: #a8e6b4; /* soft green — connected */
-    --accent-coral: #f0a0a0; /* soft coral — offline */
+    --text-secondary: rgba(245, 239, 229, 0.78);   /* AA on bg-card for body copy */
+    --text-muted: rgba(245, 239, 229, 0.62);       /* bumped from 0.45 — was failing AA on small text */
+    --text-faint: rgba(245, 239, 229, 0.42);       /* decorative only, never required content */
+
+    /* ── Accents ── */
+    --accent-1: #ffd6a0;        /* warm golden */
+    --accent-2: #d4b3e8;        /* soft lavender */
+    --accent-green: #a8e6b4;    /* soft green — connected */
+    --accent-coral: #f0a0a0;    /* soft coral — offline */
+    --accent-warn: #ffb872;     /* amber — stale data */
+
+    /* ── Borders ── */
     --border-subtle: rgba(255, 214, 160, 0.08);
     --border-hover: rgba(255, 214, 160, 0.25);
     --border-active: rgba(255, 214, 160, 0.38);
+
+    /* ── Radius (paired with type scale) ── */
     --radius-sm: 14px;
     --radius-md: 20px;
     --radius-lg: 26px;
-    --font-size-base: 1em;
-    --font-size-xs: 0.65em;
-    --font-size-sm: 0.68em;
-    --font-size-lg: 1.1em;
-    --font-size-xl: 1.3em;
-    --font-size-title: 1.8em;
+
+    /* ── Type scale: modular 1.125, 4px baseline, min-px floors for mobile legibility ── */
+    --fs-2xs: max(0.70em, 11px);    /* metadata, unit labels */
+    --fs-xs:  max(0.80em, 12px);    /* secondary labels */
+    --fs-sm:  max(0.90em, 13px);    /* pill labels, sidebar secondary */
+    --fs-base: 1em;                  /* body */
+    --fs-lg:  max(1.15em, 18px);    /* card titles */
+    --fs-xl:  max(1.35em, 22px);    /* section titles */
+    --fs-2xl: max(1.65em, 28px);    /* stat values */
+    --fs-title: max(1.95em, 32px);  /* hero / planet score */
+    /* Legacy aliases — keep existing rules working while we migrate */
+    --font-size-base: var(--fs-base);
+    --font-size-xs: var(--fs-xs);
+    --font-size-sm: var(--fs-sm);
+    --font-size-lg: var(--fs-lg);
+    --font-size-xl: var(--fs-xl);
+    --font-size-title: var(--fs-title);
+
+    /* ── Spacing scale: 4px baseline ── */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 28px;
+    --space-7: 40px;
+
+    /* ── Backdrop blur hierarchy (3 levels) ── */
+    --blur-sm: 8px;
+    --blur-md: 16px;
+    --blur-lg: 24px;
+
+    /* ── Shadows + gradients ── */
     --shadow-soft: 0 6px 28px rgba(12, 10, 30, 0.6);
     --shadow-glow: 0 0 24px rgba(255, 214, 160, 0.10);
     --gradient-title: linear-gradient(135deg, #ffd6a0 0%, #d4b3e8 45%, #ffb088 100%);
     --gradient-bar: linear-gradient(90deg, #a8e6b4, #ffd6a0);
+
+    /* ── Easing ── */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     --ease-pixar-bounce: cubic-bezier(0.25, 1.6, 0.5, 1);
-    /* Motion intent hierarchy */
+
+    /* ── Motion intent ── */
     --dur-micro: 180ms;   /* hover, active, feedback */
     --dur-state: 450ms;   /* panel open/close, selection */
     --dur-reveal: 900ms;  /* initial entrance animations */
+}
+
+/* ── Global prefers-reduced-motion guard ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* High contrast override */
@@ -105,10 +157,13 @@
 body {
     background: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-size: clamp(15px, 1vw + 14px, 18px);
     font-weight: 400;
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* All UI elements hidden before load, revealed with staggered entrance */
@@ -1336,84 +1391,31 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     border-right: 1px solid rgba(240,236,228,0.08);
 }
 
+/* Language switcher holds 8 locales — wrap instead of overflowing the a11y panel.
+ * Each button gets an equal share of the row so ZH/JA/AR don't jam against ES/EN. */
+.lang-seg {
+    flex-wrap: wrap;
+    border-radius: 8px;
+}
+.lang-seg .font-seg-btn {
+    flex: 1 1 calc(25% - 1px); /* 4 buttons per row at typical panel width */
+    min-width: 44px;
+    padding: 4px 6px;
+}
+/* RTL: the segmented control keeps a left border on each separator,
+ * but under dir="rtl" the visual separation should flip. border-inline-end
+ * would be cleaner but keeping it explicit for clarity. */
+html[dir="rtl"] .font-seg-btn:not(:last-child) {
+    border-right: none;
+    border-left: 1px solid rgba(240,236,228,0.08);
+}
+
 /* ---- Grab cursor on globe ---- */
 #canvas {
     cursor: grab;
 }
 #canvas:active {
     cursor: grabbing;
-}
-
-/* ---- Intro Cinematic Overlay ---- */
-.intro-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: all;
-    transition: opacity 0.8s ease-out;
-}
-.intro-overlay.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-.intro-text-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-.intro-phrase {
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    font-size: 2.2em;
-    font-weight: 800;
-    color: var(--text-primary);
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-    transition: opacity 1s ease-out, transform 1s var(--ease-pixar-bounce, var(--ease-spring));
-    letter-spacing: 3px;
-    text-shadow: 0 0 50px rgba(255,214,160,0.35), 0 0 100px rgba(212,179,232,0.15);
-    white-space: nowrap;
-    background: linear-gradient(135deg, #f5efe5 20%, #ffd6a0 50%, #d4b3e8 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 30px rgba(255,214,160,0.25));
-}
-.intro-phrase.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-.intro-phrase.fading {
-    opacity: 0;
-    transform: translateY(-15px) scale(1.05);
-}
-.intro-skip {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: rgba(26, 22, 62, 0.6);
-    border: 1px solid var(--border-subtle);
-    border-radius: 22px;
-    padding: 10px 24px;
-    min-height: 44px;
-    color: var(--text-muted);
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    font-size: max(0.7em, 12px);
-    font-weight: 600;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: all var(--dur-micro);
-    letter-spacing: 1px;
-    z-index: 1001;
-}
-.intro-skip:hover {
-    color: var(--text-primary);
-    border-color: var(--border-hover);
-    background: rgba(26, 22, 62, 0.85);
 }
 
 /* ---- Panel Animations ---- */
@@ -1564,31 +1566,28 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
     box-shadow: 0 2px 8px rgba(255, 214, 160, 0.06);
 }
 .stat-card-value {
-    font-size: 0.85em;
+    font-size: max(0.95em, 14px);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
 }
 .stat-card-label {
-    font-size: max(0.42em, 9px);
+    font-size: max(0.58em, 11px);
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 2px;
+    margin-top: 3px;
     font-weight: 600;
 }
 
 /* ---- Mobile Responsive Updates ---- */
 @media (max-width: 900px) {
-    .intro-phrase {
-        font-size: 1.4em;
-    }
     .stat-cards {
         grid-template-columns: repeat(3, 1fr);
         gap: 4px;
     }
     .stat-card { padding: 6px 4px; }
-    .stat-card-value { font-size: 0.7em; }
-    .stat-card-label { font-size: 0.36em; }
+    .stat-card-value { font-size: max(0.82em, 13px); }
+    .stat-card-label { font-size: max(0.52em, 10px); }
     .sparkline-canvas { height: 14px; }
 }
 
@@ -1918,4 +1917,30 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
 @media (max-width: 480px) {
     .ds-toggle { font-size: 0.68em; padding: 5px 10px; }
     .ds-panel { bottom: 52px; font-size: 0.95em; }
+}
+
+/* ═══ Stale data signal ═══
+   Applied to .metric cards when the underlying API data is older than 2h.
+   Visual: desaturated value, amber dot, subtle pulse to invite a glance at data-status.
+*/
+.metric.is-stale .metric-value {
+    filter: saturate(0.6);
+    opacity: 0.78;
+}
+.metric.is-stale::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-warn);
+    box-shadow: 0 0 8px rgba(255, 184, 114, 0.65);
+    animation: stalePulse 2.8s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes stalePulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 1.0;  transform: scale(1.35); }
 }

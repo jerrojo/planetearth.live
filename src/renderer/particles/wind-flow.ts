@@ -15,7 +15,11 @@ import * as THREE from 'three';
 import { ll2v } from '../../utils/math';
 import { windSpeedColor } from '../../utils/color-scales';
 
-const WIND_COUNT = 18000;
+// WIND_COUNT: 18000 produced an opaque cellular overlay on the whole globe —
+// each particle ≈23px at camera distance 22, additively blended, so 18K stacked
+// sprites bled into a "scaly" pattern that obliterated the Blue Marble texture.
+// 2500 is the sweet spot: streamlines read as flowing currents, base map wins.
+const WIND_COUNT = 2500;
 const WIND_RADIUS = 5.035; // just above globe surface, below clouds
 
 interface WindParticle {
@@ -26,11 +30,14 @@ interface WindParticle {
 }
 
 /**
- * Procedural wind field — returns [u, v] in degrees/second.
+ * Procedural wind field — returns [u, v] in m/s.
  * u = east-west (positive = eastward), v = north-south (positive = northward).
  * Based on idealized general circulation + longitude perturbations.
+ *
+ * Exported so the cloud layer can advect particles along the same field,
+ * keeping clouds and wind streamlines physically consistent.
  */
-function getWind(lat: number, lon: number, t: number): [number, number] {
+export function getWind(lat: number, lon: number, t: number): [number, number] {
     const absLat = Math.abs(lat);
     const latSign = lat >= 0 ? 1 : -1;
     const lonRad = lon * Math.PI / 180;
@@ -145,7 +152,10 @@ export function createWindFlow(scene: THREE.Scene): WindFlowContext {
                 vAlpha = aAlpha;
                 vColor = color;
                 vec4 mv = modelViewMatrix * vec4(position, 1.0);
-                gl_PointSize = max(1.0, 2.5 * (200.0 / -mv.z));
+                // Size reduced 2.5 → 1.2: pre-fix each particle rendered ~23px wide,
+                // turning 18K additive sprites into a cellular overlay. Tight 1.2
+                // keeps streamlines crisp while letting the Blue Marble base read through.
+                gl_PointSize = max(1.0, 1.2 * (200.0 / -mv.z));
                 gl_Position = projectionMatrix * mv;
             }
         `,
@@ -213,7 +223,9 @@ export function updateWindFlow(ctx: WindFlowContext, t: number, dt: number, moti
         const life = p.age / p.maxAge;
         const fadeIn = Math.min(life * 5, 1); // first 20%
         const fadeOut = Math.min((1 - life) * 5, 1); // last 20%
-        ctx.alphas[i] = fadeIn * fadeOut * 0.6;
+        // Alpha lowered 0.6 → 0.22: wind should hint at circulation, not dominate.
+        // With additive blending on 2500 particles, overlapping regions still read bright.
+        ctx.alphas[i] = fadeIn * fadeOut * 0.22;
     }
 
     ctx.geometry.attributes.position.needsUpdate = true;

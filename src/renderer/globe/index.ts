@@ -4,10 +4,29 @@ import { cities, type CityData } from '../../data/cities';
 import { biodiversityHotspots } from '../../data/biodiversity-hotspots';
 import { initLandMask, landMaskReady } from './land-mask';
 import { generateTerrain } from './terrain';
+import { getWind } from '../particles/wind-flow';
+
+export interface CloudContext {
+    /** Per-cloud latitude in degrees (drifts over time via wind field). */
+    lats: Float32Array;
+    /** Per-cloud longitude in degrees. */
+    lons: Float32Array;
+    /** Per-cloud radius (altitude above globe surface). */
+    radii: Float32Array;
+    /** Cloud age in seconds — used to respawn near climatological band. */
+    ages: Float32Array;
+    /** Max age before respawn. */
+    maxAges: Float32Array;
+    /** Raw BufferGeometry — positions are rewritten each frame. */
+    geometry: THREE.BufferGeometry;
+    /** Underlying position Float32Array (3 floats per cloud). */
+    positions: Float32Array;
+}
 
 export interface GlobeObjects {
     globeGroup: THREE.Group;
     cloudGroup: THREE.Group;
+    cloudCtx: CloudContext;
     cityDots: THREE.Mesh[];
     hotspotGroup: THREE.Group;
     oceanMaterial: THREE.ShaderMaterial;
@@ -180,10 +199,25 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
     globeGroup.add(oceanMesh);
 
     // Land base layer — NASA Blue Marble texture for real geography
-    // Gives pixel-accurate continent shapes + realistic coloring
-    // Particles add biome detail and artistic texture on top
-    const earthTex = new THREE.TextureLoader().load('/textures/earth-blue-marble.jpg');
+    // Gives pixel-accurate continent shapes + realistic coloring.
+    // IMPORTANT: this layer must be OPAQUE and write depth, so the entire globe
+    // renders as a solid sphere even before biome particles layer on top. An
+    // earlier iteration kept this transparent with depthWrite:false, which —
+    // combined with the ocean shader underneath — caused a "cellular/pointillist"
+    // failure mode when transparency sorting flipped the draw order.
+    const earthTex = new THREE.TextureLoader().load(
+        '/textures/earth-blue-marble.jpg',
+        (tex) => { tex.needsUpdate = true; },
+        undefined,
+        (err) => {
+            // Swallow but log — the globe still renders with ocean shader + particles
+            // if the texture fails, but we want visibility in the console.
+            // eslint-disable-next-line no-console
+            console.warn('[globe] Blue Marble texture failed to load:', err);
+        },
+    );
     earthTex.colorSpace = THREE.SRGBColorSpace;
+    earthTex.anisotropy = 8;
     const landBaseMat = new THREE.ShaderMaterial({
         uniforms: {
             uTex: { value: earthTex },
@@ -207,21 +241,29 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
             void main() {
                 vec3 texCol = texture2D(uTex, vUv).rgb;
 
-                // Muted so biome particles and station markers add detail on top
-                texCol *= 0.55;
+                // Pixar grade: let NASA Blue Marble dominate the read.
+                // Gentle warm-grade lift on midtones; mild teal in deep ocean shadows so it reads rich.
+                float luma = dot(texCol, vec3(0.2126, 0.7152, 0.0722));
+                vec3 warmLift = vec3(1.04, 1.02, 0.94);       // golden into continents
+                vec3 coolShadow = vec3(0.92, 0.95, 1.04);     // slight teal in ocean shadows
+                texCol = mix(texCol * coolShadow, texCol * warmLift, smoothstep(0.10, 0.45, luma));
 
-                // Gentle Fresnel edge darkening (limb darkening)
+                // Limb darkening — Pixar rim roll-off so the edge reads as a sphere, not a flat disc
                 vec3 viewDir = normalize(cameraPosition - vWorldPos);
-                float fresnel = pow(1.0 - max(dot(vNormal, viewDir), 0.0), 3.0);
-                texCol *= 1.0 - fresnel * 0.25;
+                float fresnel = pow(1.0 - max(dot(vNormal, viewDir), 0.0), 2.6);
+                texCol *= 1.0 - fresnel * 0.30;
 
-                gl_FragColor = vec4(texCol, 0.95);
+                gl_FragColor = vec4(texCol, 1.0);
             }
         `,
-        transparent: true,
-        depthWrite: false,
+        // Opaque + writes depth: this is the base of the globe and must be rock-solid.
+        // Transparency on the base layer was the root cause of a recurring
+        // "particle cellular pattern" regression — fixed by making this mesh opaque.
+        transparent: false,
+        depthWrite: true,
     });
-    const landBaseMesh = new THREE.Mesh(new THREE.SphereGeometry(5.009, 64, 64), landBaseMat);
+    const landBaseMesh = new THREE.Mesh(new THREE.SphereGeometry(5.009, 128, 128), landBaseMat);
+    landBaseMesh.renderOrder = 0; // explicit: base of the globe
     globeGroup.add(landBaseMesh);
 
     // Grid lines
@@ -265,10 +307,12 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
         buildTerrain();
     });
 
-    // Atmosphere — ultra-thin rim glow only, MUST NOT wash out land or obscure station markers
-    // Low intensity + high Fresnel power = visible only at the extreme limb
-    globeGroup.add(makeAtmos(5.45, [0.18, 0.42, 0.85], 0.10, 0.30));  // tight blue rim
-    globeGroup.add(makeAtmos(5.65, [0.10, 0.25, 0.55], 0.04, 0.25));  // faint outer haze
+    // Atmosphere — rim scattering at the limb ONLY, must not wash out the continents.
+    // A prior "Pixar" pass cranked intensity to 0.55 which additively over-brightened the
+    // mid-globe via fresnel falloff, blowing out the blue marble texture detail.
+    // Calibrated values: bright enough to read as a glow, dim enough that continents stay crisp.
+    globeGroup.add(makeAtmos(5.42, [0.30, 0.62, 1.00], 0.18, 0.40));  // cyan limb rim
+    globeGroup.add(makeAtmos(5.70, [0.14, 0.36, 0.78], 0.08, 0.30));  // soft outer haze
 
     // City dots — size scaled by population, glow colored by CO₂ per capita
     const cityDots: THREE.Mesh[] = [];
@@ -355,6 +399,15 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
     const cp: number[] = [];
     const cSizes: number[] = [];
     const cAlphas: number[] = [];
+    // Per-cloud state — used by updateCloudMotion() to advect clouds
+    // through the procedural wind field so they drift along real atmospheric
+    // circulation (trade winds westward, westerlies eastward, polar easterlies)
+    // rather than rotating in rigid lock-step with the globe.
+    const cLats: number[] = [];
+    const cLons: number[] = [];
+    const cRadii: number[] = [];
+    const cAges: number[] = [];
+    const cMaxAges: number[] = [];
 
     /**
      * Cloud probability by latitude band — models Earth's general circulation:
@@ -410,24 +463,30 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
         return Math.min(prob, 0.90);
     }
 
-    // Two altitude layers for depth
+    // Two altitude layers for depth — calibrated so clouds read as weather, not foam.
+    // Step widened (5→8, 8→11), sizes and alphas cut ~30% after the high-DPI overlay regression.
     const layers = [
-        { radius: 5.14, step: 5.0, sizeMin: 0.04, sizeMax: 0.09, alphaMin: 0.015, alphaMax: 0.04 },
-        { radius: 5.24, step: 8.0, sizeMin: 0.06, sizeMax: 0.14, alphaMin: 0.010, alphaMax: 0.025 },
+        { radius: 5.14, step: 8.0, sizeMin: 0.028, sizeMax: 0.065, alphaMin: 0.010, alphaMax: 0.028 },
+        { radius: 5.24, step: 11.0, sizeMin: 0.040, sizeMax: 0.095, alphaMin: 0.007, alphaMax: 0.018 },
     ];
     for (const layer of layers) {
         for (let lat = -80; lat <= 80; lat += layer.step) {
             for (let lon = -180; lon <= 180; lon += layer.step) {
                 const prob = cloudProbability(lat, lon) * (layer === layers[0] ? 1.0 : 0.7);
                 if (Math.random() > prob) continue;
-                const v = ll2v(
-                    lat + (Math.random() - 0.5) * 5,
-                    lon + (Math.random() - 0.5) * 5,
-                    layer.radius,
-                );
+                const jLat = lat + (Math.random() - 0.5) * 5;
+                const jLon = lon + (Math.random() - 0.5) * 5;
+                const v = ll2v(jLat, jLon, layer.radius);
                 cp.push(v.x, v.y, v.z);
                 cSizes.push(layer.sizeMin + Math.random() * (layer.sizeMax - layer.sizeMin));
                 cAlphas.push(layer.alphaMin + Math.random() * (layer.alphaMax - layer.alphaMin));
+                cLats.push(jLat);
+                cLons.push(jLon);
+                cRadii.push(layer.radius);
+                cAges.push(Math.random() * 120); // stagger
+                // Realistic cloud lifetimes: cumulus ~20 min, stratus ~hours, cyclones ~days.
+                // In sim-time we use 60-180s so users see a full life cycle.
+                cMaxAges.push(60 + Math.random() * 120);
             }
         }
     }
@@ -458,21 +517,132 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
         fragmentShader: /* glsl */ `
             varying float vAlpha;
             void main() {
-                // Soft radial falloff — creates circular cloud puffs
+                // Tight radial falloff — sparse cotton wisps, not puffs.
+                // Halo was causing a "cellular blob" overlay when hundreds of clouds
+                // overlapped in screen space. Now just a soft core, capped well below
+                // bloom threshold so clouds don't spread into glowing blobs.
                 vec2 uv = gl_PointCoord - 0.5;
                 float d = length(uv) * 2.0;
-                float alpha = smoothstep(1.0, 0.3, d) * vAlpha;
-                if (alpha < 0.005) discard;
-                // Pixar clouds: warm white with subtle golden tint (muted to not wash out globe)
-                gl_FragColor = vec4(0.85, 0.83, 0.78, alpha);
+                if (d > 1.0) discard;
+                float core = smoothstep(1.0, 0.0, d); // soft falloff to edge
+                float alpha = core * vAlpha;
+                if (alpha < 0.003) discard;
+                // Muted cloud color — below bloom threshold to avoid glow contagion
+                vec3 col = vec3(0.72, 0.76, 0.82);
+                gl_FragColor = vec4(col, alpha * 0.65);
             }
         `,
     });
 
     cloudGroup.add(new THREE.Points(cloudGeo, cloudMat));
 
+    const cloudCtx: CloudContext = {
+        lats: new Float32Array(cLats),
+        lons: new Float32Array(cLons),
+        radii: new Float32Array(cRadii),
+        ages: new Float32Array(cAges),
+        maxAges: new Float32Array(cMaxAges),
+        geometry: cloudGeo,
+        positions: cloudGeo.attributes['position'].array as Float32Array,
+    };
+
     // GitHub-style outer halo (behind everything)
     makeOuterHalo(scene);
 
-    return { globeGroup, cloudGroup, cityDots, hotspotGroup, oceanMaterial: oceanMat };
+    return { globeGroup, cloudGroup, cloudCtx, cityDots, hotspotGroup, oceanMaterial: oceanMat };
+}
+
+/**
+ * Advect each cloud through the procedural wind field from wind-flow.ts.
+ *
+ * Scientific grounding:
+ *  - Clouds in Earth's atmosphere drift with prevailing surface-layer winds:
+ *    trade winds (0-30°) blow westward, mid-latitude westerlies (30-60°)
+ *    blow eastward, polar easterlies (>60°) blow westward.
+ *  - Near the ITCZ, weak mean winds let clouds pile up into the characteristic
+ *    equatorial cloud band visible from space.
+ *  - Storm-track latitudes (~40-60°) sweep clouds around at 10 m/s typical.
+ *  - Clouds are advected at ~30% the speed used for wind-flow "streamline"
+ *    particles because cloud masses are larger and slower than schematic
+ *    streamline tracers.
+ *
+ * Clouds respawn near the climatological band when they age out, so the
+ * long-term distribution converges back to ISCCP (avoiding desert drift).
+ */
+export function updateCloudMotion(ctx: CloudContext, t: number, dt: number, motionScale: number): void {
+    const scaledDt = dt * motionScale;
+    if (scaledDt <= 0) return;
+
+    const count = ctx.lats.length;
+    for (let i = 0; i < count; i++) {
+        ctx.ages[i] += scaledDt;
+
+        // Respawn on age-out — pick a new random location weighted by
+        // climatological cloud probability. Keeps cloud population faithful
+        // to ISCCP while allowing free local advection.
+        if (ctx.ages[i] >= ctx.maxAges[i]) {
+            // Simple rejection sample over a few tries — cheap, runs at
+            // ~once per minute per cloud so total cost is trivial.
+            for (let attempt = 0; attempt < 8; attempt++) {
+                const newLat = (Math.random() - 0.5) * 160;
+                const newLon = (Math.random() - 0.5) * 360;
+                const prob = cloudProbabilityFor(newLat, newLon);
+                if (Math.random() < prob) {
+                    ctx.lats[i] = newLat;
+                    ctx.lons[i] = newLon;
+                    break;
+                }
+            }
+            ctx.ages[i] = 0;
+        }
+
+        // Advect by local wind. getWind returns m/s.
+        // Scale factor 0.05 converts to °/s at 1 m/s — so a 10 m/s wind
+        // moves a cloud 0.5°/s, which reads as slow drift at camera distance.
+        const lat = ctx.lats[i];
+        const lon = ctx.lons[i];
+        const [u, v] = getWind(lat, lon, t);
+        const cosLat = Math.max(Math.cos(lat * Math.PI / 180), 0.1);
+        const newLon = lon + u * scaledDt * 0.05 / cosLat;
+        const newLat = lat + v * scaledDt * 0.05;
+
+        // Wrap longitude, clamp latitude (avoid pole singularity)
+        ctx.lons[i] = newLon > 180 ? newLon - 360 : newLon < -180 ? newLon + 360 : newLon;
+        ctx.lats[i] = Math.max(-85, Math.min(85, newLat));
+
+        // Reproject to 3D
+        const r = ctx.radii[i];
+        const latRad = ctx.lats[i] * Math.PI / 180;
+        const lonRad = ctx.lons[i] * Math.PI / 180;
+        const cl = Math.cos(latRad);
+        ctx.positions[i * 3]     = r * cl * Math.cos(lonRad);
+        ctx.positions[i * 3 + 1] = r * Math.sin(latRad);
+        ctx.positions[i * 3 + 2] = r * cl * Math.sin(lonRad);
+    }
+
+    ctx.geometry.attributes['position'].needsUpdate = true;
+}
+
+/**
+ * Exported for the respawn step inside updateCloudMotion.
+ * Keeps ISCCP-calibrated climatology outside the closure without duplicating code.
+ */
+function cloudProbabilityFor(lat: number, lon: number): number {
+    const absLat = Math.abs(lat);
+    let prob: number;
+    if (absLat < 5) prob = 0.22;
+    else if (absLat < 15) prob = lat > 0 ? 0.18 : 0.14;
+    else if (absLat < 30) prob = 0.05;
+    else if (absLat < 45) prob = 0.12;
+    else if (absLat < 65) prob = lat < 0 ? 0.22 : 0.18;
+    else prob = 0.14;
+
+    if (lat > 15 && lat < 32 && lon > -15 && lon < 35) prob *= 0.25;
+    if (lat > 18 && lat < 30 && lon > 35 && lon < 60) prob *= 0.30;
+    if (lat < -15 && lat > -30 && lon > 120 && lon < 150) prob *= 0.35;
+    if (lat < -15 && lat > -30 && lon > -75 && lon < -68) prob *= 0.20;
+    if (lat < -15 && lat > -30 && lon > 15 && lon < 30) prob *= 0.35;
+    if (lat > 25 && lat < 50 && lon > -80 && lon < -40) prob *= 1.15;
+
+    return Math.min(prob, 0.90);
 }

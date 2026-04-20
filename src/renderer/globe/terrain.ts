@@ -23,11 +23,14 @@ export function generateTerrain(): TerrainResult {
     const grassPos: number[] = [];
     const grassCol: number[] = [];
 
-    // Main terrain scan — 1.8° step produces ~20-30K land particles.
-    // These add subtle biome color texture ON TOP of the Blue Marble base map.
-    // Too dense (0.4°→ 241K particles) creates an opaque layer that hides the texture.
+    // Main terrain scan — 3.6° step produces ~5-7K land particles.
+    // These add whisper-subtle biome color texture ON TOP of the Blue Marble base map.
+    // Calibration history:
+    //   0.4° → 241K particles: opaque layer that hides the texture
+    //   1.8° → 20K particles: "cellular/pointillist" overlay that dominates reading
+    //   3.6° → 5K particles: clean whisper, base map stays legible ✓
     // Jitter is proportional to step size so particles don't form a visible grid.
-    const STEP = 1.8;
+    const STEP = 3.6;
     for (let lat = -85; lat <= 85; lat += STEP) {
         for (let lon = -180; lon <= 180; lon += STEP) {
             const biome = getBiome(lat, lon);
@@ -59,9 +62,10 @@ export function generateTerrain(): TerrainResult {
                 l = p.l[0] + Math.random() * (p.l[1] - p.l[0]);
             }
             const col = new THREE.Color().setHSL(h, s, l);
-            // Dim terrain particles so they don't overwhelm the land texture on the day side
-            // The Pixar tonemap + sRGB gamma amplifies linear colors significantly
-            col.multiplyScalar(0.40);
+            // Pixar grade: biome particles are a WHISPER of color over the NASA Blue Marble base.
+            // The base carries continent shapes; particles add warmth/texture variance at grazing zooms.
+            // Lowered to 0.12 after a recurring pointillism regression on high-DPI displays.
+            col.multiplyScalar(0.12);
 
             if (!biomeArrays[biome]) biomeArrays[biome] = { pos: [], col: [] };
             biomeArrays[biome].pos.push(v.x, v.y, v.z);
@@ -174,7 +178,7 @@ export function generateTerrain(): TerrainResult {
     oceanGeo.setAttribute('position', new THREE.Float32BufferAttribute(oceanPos, 3));
     oceanGeo.setAttribute('color', new THREE.Float32BufferAttribute(oceanCol, 3));
     const oceanPoints = new THREE.Points(oceanGeo, new THREE.PointsMaterial({
-        size: 0.02, vertexColors: true, transparent: true, opacity: 0.3,
+        size: 0.018, vertexColors: true, transparent: true, opacity: 0.16,
         blending: THREE.AdditiveBlending, depthWrite: false,
     }));
 
@@ -188,7 +192,8 @@ export function generateTerrain(): TerrainResult {
         geo.setAttribute('position', new THREE.Float32BufferAttribute(d.pos, 3));
         geo.setAttribute('color', new THREE.Float32BufferAttribute(d.col, 3));
         biomeGroups.push(new THREE.Points(geo, new THREE.PointsMaterial({
-            size: p.sz, vertexColors: true, transparent: true, opacity: p.op,
+            // size × 0.6 + opacity × 0.45: biome read stays as warm variance, not a stippling overlay
+            size: p.sz * 0.6, vertexColors: true, transparent: true, opacity: p.op * 0.45,
             blending: p.bl === 'a' ? THREE.AdditiveBlending : THREE.NormalBlending,
             depthWrite: false,
         })));
@@ -201,7 +206,8 @@ export function generateTerrain(): TerrainResult {
         gGeo.setAttribute('position', new THREE.Float32BufferAttribute(grassPos, 3));
         gGeo.setAttribute('color', new THREE.Float32BufferAttribute(grassCol, 3));
         grassLines = new THREE.LineSegments(gGeo, new THREE.LineBasicMaterial({
-            vertexColors: true, transparent: true, opacity: 0.75, depthWrite: false,
+            // Lowered from 0.75 → 0.35: blades should hint at vegetation, not dominate the read
+            vertexColors: true, transparent: true, opacity: 0.35, depthWrite: false,
         }));
     }
 

@@ -39,6 +39,7 @@
  */
 
 import { TOTAL_APIS } from '../config/constants';
+import { t } from '../i18n';
 import { cacheMetric, loadFallback } from './cache';
 import {
     provenanceSummary,
@@ -589,14 +590,16 @@ export async function fetchLiveData(): Promise<LiveDataResult> {
 /* ────────────────── Status Text ────────────────── */
 
 export function getStatusText(apisConnected: number): { text: string; connected: boolean } {
+    const n = String(apisConnected);
+    const total = String(TOTAL_APIS);
     if (apisConnected >= 9) {
-        return { text: `LIVE — ${apisConnected}/${TOTAL_APIS} fuentes (NOAA, NASA, USGS, CAMS, GFW, GBIF)`, connected: true };
+        return { text: t('status.live', { n, total }), connected: true };
     } else if (apisConnected >= 5) {
-        return { text: `PARCIAL — ${apisConnected}/${TOTAL_APIS} fuentes activas`, connected: true };
+        return { text: t('status.partial', { n, total }), connected: true };
     } else if (apisConnected >= 1) {
-        return { text: `MÍNIMO — ${apisConnected}/${TOTAL_APIS} API conectada`, connected: true };
+        return { text: t('status.minimal', { n, total }), connected: true };
     }
-    return { text: 'OFFLINE — datos base marzo 2026', connected: false };
+    return { text: t('status.offline'), connected: false };
 }
 
 /* ────────────────── Exports for UI status panel ────────────────── */

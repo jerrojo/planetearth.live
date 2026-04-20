@@ -80,7 +80,7 @@
             "grid carbon intensity (gCO₂/kWh)", "tree cover loss (ha/yr)",
             "UV index (0-16)", "biodiversity observations (count)"
         ],
-        "citation": "https://planetearth.live/docs/METHODOLOGY.md"
+        "citation": "https://planetearth.live/#data-status-panel"
     }
     </script>
 
@@ -89,7 +89,7 @@
 </head>
 <body>
     <a href="#catList" class="skip-link" data-i18n="nav.skipToContent">Saltar al contenido</a>
-    <canvas id="canvas" role="img" aria-label="Visualización 3D interactiva del planeta Tierra mostrando biomas y datos de impacto planetario"></canvas>
+    <canvas id="canvas" role="img" aria-label="Visualización 3D interactiva del planeta Tierra mostrando biomas y datos de impacto planetario" data-i18n-aria="aria.canvas"></canvas>
     <div class="vignette"></div>
     <div class="texture-overlay" aria-hidden="true"></div>
 
@@ -98,7 +98,7 @@
     <div class="title" role="banner">
         <h1>PLANETEARTH.LIVE</h1>
         <p data-i18n="app.tagline">Planetary Impact Visualization</p>
-        <div class="pop-counter" aria-label="Contador de población mundial y meta de participación">
+        <div class="pop-counter" aria-label="Contador de población mundial y meta de participación" data-i18n-aria="aria.popCounter">
             <div class="pop-row">
                 <div class="pop-block">
                     <div class="pop-number" id="popWorld">8,123,456,789</div>
@@ -118,9 +118,9 @@
     </div>
 
     <div class="mobile-cats" id="mobileCats"><div class="mobile-cats-inner" id="mobileCatsInner"></div></div>
-    <div class="dashboard" id="dashboard" role="region" aria-label="Métricas ambientales"></div>
+    <div class="dashboard" id="dashboard" role="region" aria-label="Métricas ambientales" data-i18n-aria="aria.dashboardRegion"></div>
     <div class="instructions">
-        <span class="live-badge"><span class="live-dot" id="liveDot"></span><span id="liveStatus">Conectando APIs...</span></span>
+        <span class="live-badge"><span class="live-dot" id="liveDot"></span><span id="liveStatus" data-i18n="status.connecting">Conectando APIs…</span></span>
     </div>
 
     <!-- Accessibility Controls -->
@@ -129,7 +129,7 @@
         <h3><span data-i18n="a11y.settings">⚙ Configuración</span></h3>
         <div class="a11y-row">
             <span class="a11y-label" data-i18n="a11y.text">Texto</span>
-            <div class="font-seg" role="radiogroup" aria-label="Tamaño de texto">
+            <div class="font-seg" role="radiogroup" aria-label="Tamaño de texto" data-i18n-aria="aria.textSize">
                 <button class="font-seg-btn" data-size="small" role="radio" aria-checked="false" data-i18n="a11y.textSmall">Peq</button>
                 <button class="font-seg-btn active" data-size="medium" role="radio" aria-checked="true" data-i18n="a11y.textMedium">Med</button>
                 <button class="font-seg-btn" data-size="large" role="radio" aria-checked="false" data-i18n="a11y.textLarge">Grande</button>

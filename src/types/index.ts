@@ -120,6 +120,11 @@ export interface Category {
 }
 
 export interface MetricDef {
+  /** i18n key resolving to the metric's display label. Preferred over `label`
+   *  for UI rendering — UI components should call `t(m.labelKey ?? …)` so
+   *  labels track the active locale. `label` remains as a raw fallback used
+   *  for CSV exports and aria fallback. */
+  labelKey?: string;
   label: string;
   value: number;
   rate: number;

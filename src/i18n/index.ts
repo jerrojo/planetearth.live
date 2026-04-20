@@ -16,11 +16,11 @@
  *   5. DEFAULT_LOCALE.
  */
 
-import { DEFAULT_LOCALE, DICTS, LOCALES, type Locale, type StringKey } from './dictionaries';
+import { DEFAULT_LOCALE, DICTS, LOCALES, isRTL, type Locale, type StringKey } from './dictionaries';
 
 // Re-export so consumers can write `import { LOCALES, setLocale, t } from '../i18n'`
 // without needing to reach into the dictionaries module.
-export { LOCALES, DEFAULT_LOCALE, DICTS } from './dictionaries';
+export { LOCALES, DEFAULT_LOCALE, DICTS, LOCALE_LABELS, isRTL } from './dictionaries';
 export type { Locale, StringKey } from './dictionaries';
 
 const STORAGE_KEY = 'pel:locale';
@@ -38,6 +38,9 @@ export function setLocale(locale: Locale): void {
     try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* ignore */ }
     if (typeof document !== 'undefined') {
         document.documentElement.lang = locale;
+        // RTL for Arabic; LTR for everything else. Setting `dir` on <html>
+        // lets the whole UI mirror automatically via CSS logical properties.
+        document.documentElement.dir = isRTL(locale) ? 'rtl' : 'ltr';
     }
     for (const l of listeners) {
         try { l(); } catch { /* ignore */ }
@@ -88,6 +91,7 @@ export function initI18n(): Locale {
     current = detectLocale();
     if (typeof document !== 'undefined') {
         document.documentElement.lang = current;
+        document.documentElement.dir = isRTL(current) ? 'rtl' : 'ltr';
     }
     return current;
 }

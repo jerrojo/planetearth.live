@@ -3,7 +3,7 @@ import { METRIC_UPDATE_INTERVAL, API_REFRESH_INTERVAL } from './config/constants
 
 // Renderer & post-processing
 import { createSceneContext, handleResize } from './renderer/scene-manager';
-import { createGlobe } from './renderer/globe';
+import { createGlobe, updateCloudMotion } from './renderer/globe';
 import { createPostProcessing, resizePostProcessing } from './renderer/post-processing';
 
 // Particles & effects
@@ -19,6 +19,7 @@ import { createAurora, updateAurora } from './renderer/effects/aurora';
 import { createHeatmap, showHeatmap, hideHeatmap, updateHeatmap } from './renderer/effects/heatmap';
 import { createConnections, updateConnections, showConnections, hideConnections } from './renderer/effects/connections';
 import { createStationMarkers } from './renderer/effects/station-markers';
+import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
 import { initStations } from './data/measurement-stations';
 
 // UI
@@ -28,7 +29,6 @@ import { initDashboard, updateDashboardVisuals, updateSparklines, type Dashboard
 import { initLiveTicker } from './ui/components/live-ticker';
 import { initPopulationCounter } from './ui/components/population-counter';
 import { initAccessibility } from './ui/components/accessibility';
-import { createIntro, getIntroCameraProgress } from './ui/components/intro';
 import { initActionPrompt } from './ui/components/action-prompt';
 
 // Controls
@@ -64,7 +64,7 @@ export function createApp(): void {
     const isMobile = window.innerWidth < 768;
 
     // Globe
-    const { globeGroup, cloudGroup, cityDots, hotspotGroup, oceanMaterial } = createGlobe(scene);
+    const { globeGroup, cloudGroup, cloudCtx, cityDots, hotspotGroup, oceanMaterial } = createGlobe(scene);
 
     // Day/Night terminator
     const dayNightCtx = createDayNight(globeGroup);
@@ -82,6 +82,9 @@ export function createApp(): void {
     const stationCtx = createStationMarkers(globeGroup);
     // Load station data async (NOAA buoys, tide gauges, Argo floats + hardcoded GHG/solar)
     initStations().then(() => stationCtx.rebuild());
+
+    // Natural event markers (wildfires, volcanoes, storms from NASA EONET)
+    const naturalEventMarkers = createNaturalEventMarkers(globeGroup);
 
     // Particles
     const starsCtx = createStars(scene);
@@ -185,9 +188,10 @@ export function createApp(): void {
             liveData.kpIndex = result.kpIndex;
         }
 
-        // Natural events
+        // Natural events (wildfires, volcanoes, storms, earthquakes)
         if (result.naturalEvents) {
             liveData.naturalEvents = result.naturalEvents;
+            naturalEventMarkers.rebuild();
         }
 
         // Sea level (NYC Battery + global)
@@ -219,12 +223,12 @@ export function createApp(): void {
     fetchEarthquakes();
     setInterval(fetchEarthquakes, 5 * 60 * 1000);
 
-    // Intro cinematic sequence
-    const introCtx = createIntro(() => {
-        // After intro finishes, reveal UI
+    // Reveal UI immediately — intro overlay removed for a cleaner, direct landing.
+    // `loaded` class triggers the staggered fade-in of title, categories, dashboard, etc.
+    requestAnimationFrame(() => {
         document.body.classList.add('loaded');
-        // Show action widget inline (short delay for staggered entrance)
-        setTimeout(() => actionPrompt.show(), 600);
+        // Action widget enters slightly later so the attention flows: globe → HUD → action.
+        setTimeout(() => actionPrompt.show(), 900);
     });
 
     // Page Visibility API — pause render when tab is hidden (saves CPU/GPU/battery)
@@ -249,10 +253,6 @@ export function createApp(): void {
         const t = clock.getElapsedTime();
         const motionScale = isReducedMotion() ? 0 : 1;
 
-        // Intro camera zoom (far space -> normal position)
-        const introProgress = getIntroCameraProgress(introCtx);
-        const introZoom = 50 - (50 - orbit.zoomTarget) * introProgress;
-
         // Orbit inertia (smooth deceleration)
         if (!orbit.isDragging) {
             orbit.velocityY *= 0.95;
@@ -274,17 +274,22 @@ export function createApp(): void {
         globeGroup.rotation.y = siderealBase + orbit.rotY + orbit.autoRotation;
         globeGroup.rotation.x = orbit.rotX;
 
-        // Cloud rotation (slightly faster than globe for wind effect)
-        cloudGroup.rotation.y = globeGroup.rotation.y + t * 0.012 * motionScale;
+        // Clouds share Earth's rotation (they live in the atmosphere, attached to
+        // the rotating reference frame). Local drift is applied below via
+        // updateCloudMotion, which advects each cloud through the procedural
+        // wind field from wind-flow.ts — trade winds push clouds west at the
+        // tropics, westerlies push them east at mid-latitudes, polar easterlies
+        // push them west again. No more rigid-body cloud rotation.
+        cloudGroup.rotation.y = globeGroup.rotation.y;
         cloudGroup.rotation.x = globeGroup.rotation.x;
+        updateCloudMotion(cloudCtx, t, dt, motionScale);
 
         // Cinematic camera breathing
         camera.position.x = Math.sin(t * 0.12) * 0.2 * motionScale;
         camera.position.y = 1.5 + Math.sin(t * 0.08) * 0.15 * motionScale;
 
-        // During intro: use intro zoom; after: use orbit zoom
-        const targetZ = introCtx.isPlaying ? introZoom : orbit.zoomTarget;
-        camera.position.z += (targetZ - camera.position.z) * 0.06;
+        // Smoothly follow user's zoom target (initial position = orbit.zoomTarget, so no jump on boot).
+        camera.position.z += (orbit.zoomTarget - camera.position.z) * 0.06;
         camera.lookAt(0, 0, 0);
 
         // Ocean uniforms (time + sun direction for specular glint)
@@ -324,6 +329,9 @@ export function createApp(): void {
 
         // Real measurement stations
         stationCtx.update(t);
+
+        // Natural event markers (NASA EONET fires, volcanoes, storms)
+        naturalEventMarkers.update(t);
 
         // City pulse — smoother ease
         cityDots.forEach((d, i) => {

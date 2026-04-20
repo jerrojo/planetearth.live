@@ -7,8 +7,10 @@
  */
 
 import type { MetricDef } from '../../types';
-import { categories } from '../../data/categories';
+import { categories, categoryName, localizedActions } from '../../data/categories';
 import { calculateHealth } from './dashboard';
+import { t, getLocale, subscribe } from '../../i18n';
+import type { StringKey } from '../../i18n/dictionaries';
 
 /* ────────────────── Types ────────────────── */
 
@@ -32,11 +34,15 @@ function selectAction(metrics: MetricDef[]): SelectedAction {
     const worstIndices = ranked.slice(0, 3).map(r => r.idx);
     const worstHealth = ranked[0].health;
 
-    // Gather categories connected to ANY of the 3 worst metrics
-    const relatedCats = categories.filter(c =>
-        c.relatedMetrics.some(ri => worstIndices.includes(ri))
-    );
-    const pool = relatedCats.length > 0 ? relatedCats : categories;
+    // Gather category INDICES connected to ANY of the 3 worst metrics.
+    // We track indices (not cat objects) so downstream calls can use the
+    // locale-aware helpers `categoryName(idx)` and `localizedActions(idx, …)`.
+    const relatedIdxs = categories
+        .map((_, i) => i)
+        .filter(i => categories[i].relatedMetrics.some(ri => worstIndices.includes(ri)));
+    const poolIdxs = relatedIdxs.length > 0
+        ? relatedIdxs
+        : categories.map((_, i) => i);
 
     // Build weighted candidate pool — prioritize high-impact actions
     // SOS-level metrics (health < 10%) → strongly prefer startHere + tiered actions
@@ -44,10 +50,15 @@ function selectAction(metrics: MetricDef[]): SelectedAction {
     interface Weighted { action: SelectedAction; weight: number }
     const weighted: Weighted[] = [];
 
-    for (const cat of pool) {
+    for (const catIdx of poolIdxs) {
+        const cat = categories[catIdx];
+        const catName = categoryName(catIdx);
         // Include both global (systemic) and individual (actionable) actions
         // Global actions inspire awareness; individual actions are immediately doable
-        const allActions = [...cat.individual, ...cat.global];
+        const allActions = [
+            ...localizedActions(catIdx, 'individual'),
+            ...localizedActions(catIdx, 'global'),
+        ];
         for (const action of allActions) {
             let weight = 1;
             if (action.startHere) weight += 4; // heavily favor "start here"
@@ -55,7 +66,7 @@ function selectAction(metrics: MetricDef[]): SelectedAction {
             if (worstHealth < 10) weight *= 2; // double weight in SOS mode
 
             weighted.push({
-                action: { text: action.text, catName: cat.name, catColor: cat.color },
+                action: { text: action.text, catName, catColor: cat.color },
                 weight,
             });
         }
@@ -72,30 +83,34 @@ function selectAction(metrics: MetricDef[]): SelectedAction {
         return weighted[weighted.length - 1].action;
     }
 
-    // Fallback
-    const cat = categories[Math.floor(Math.random() * categories.length)];
-    const action = cat.individual[Math.floor(Math.random() * cat.individual.length)];
+    // Fallback — random category, random individual action, locale-aware
+    const catIdx = Math.floor(Math.random() * categories.length);
+    const cat = categories[catIdx];
+    const individualActions = localizedActions(catIdx, 'individual');
+    const action = individualActions[Math.floor(Math.random() * individualActions.length)];
     return {
         text: action.text,
-        catName: cat.name,
+        catName: categoryName(catIdx),
         catColor: cat.color,
     };
 }
 
 /* ────────────────── Mood phrase for worst metric ────────────────── */
 
-const MOOD_PHRASES: Record<number, string> = {
-    0: 'CO₂ está en {v} ppm',
-    1: 'Temperatura subió +{v}°C',
-    2: 'pH oceánico baja a {v}',
-    3: 'Perdemos árboles cada segundo',
-    4: 'Solo {v}% de energía limpia',
-    5: 'Emitimos {v} GT CO₂/año',
-    6: 'Metano en {v} ppb — ganadería + fugas fósiles',
-    7: 'N₂O en {v} ppb — fertilizantes sintéticos',
-    8: 'Hielo ártico: solo {v} M km²',
-    9: 'PM2.5 global: {v} μg/m³ — 7M mueren/año',
-    10: 'Red eléctrica: {v} gCO₂/kWh ahora',
+// i18n key per metric index — resolved at call time so phrase language
+// tracks the active locale. Missing keys fall back to the metric label.
+const MOOD_PHRASE_KEYS: Record<number, StringKey> = {
+    0:  'action.phrase.0',
+    1:  'action.phrase.1',
+    2:  'action.phrase.2',
+    3:  'action.phrase.3',
+    4:  'action.phrase.4',
+    5:  'action.phrase.5',
+    6:  'action.phrase.6',
+    7:  'action.phrase.7',
+    8:  'action.phrase.8',
+    9:  'action.phrase.9',
+    10: 'action.phrase.10',
 };
 
 function getWorstPhrase(metrics: MetricDef[]): { phrase: string; face: string } {
@@ -107,8 +122,11 @@ function getWorstPhrase(metrics: MetricDef[]): { phrase: string; face: string } 
     });
 
     const m = metrics[worstIdx];
-    const v = m.value < 100 ? m.value.toFixed(2) : Math.round(m.value).toLocaleString('es');
-    const phrase = (MOOD_PHRASES[worstIdx] ?? m.label).replace('{v}', v);
+    // Locale-aware number formatting — 'es' uses "1.234,56", 'en' uses "1,234.56"
+    const numLocale = getLocale() === 'en' ? 'en-US' : 'es-ES';
+    const v = m.value < 100 ? m.value.toFixed(2) : Math.round(m.value).toLocaleString(numLocale);
+    const key = MOOD_PHRASE_KEYS[worstIdx];
+    const phrase = key ? t(key, { v }) : m.label.replace('{v}', v);
     const face = worstHealth >= 50 ? '😟' : worstHealth >= 25 ? '😰' : '🆘';
     return { phrase, face };
 }
@@ -122,7 +140,7 @@ export function initActionPrompt(metrics: MetricDef[]): ActionPromptContext {
     const widget = document.createElement('div');
     widget.className = 'action-widget';
     widget.setAttribute('role', 'complementary');
-    widget.setAttribute('aria-label', 'Acción del día');
+    widget.setAttribute('aria-label', t('action.ofTheDay'));
 
     // Left accent bar (category color)
     const accent = document.createElement('div');
@@ -138,7 +156,7 @@ export function initActionPrompt(metrics: MetricDef[]): ActionPromptContext {
 
     const headerLabel = document.createElement('span');
     headerLabel.className = 'aw-header-label';
-    headerLabel.textContent = 'Acción del día';
+    headerLabel.textContent = t('action.ofTheDay');
 
     const headerToggle = document.createElement('span');
     headerToggle.className = 'aw-header-toggle';
@@ -180,8 +198,8 @@ export function initActionPrompt(metrics: MetricDef[]): ActionPromptContext {
 
     const skipBtn = document.createElement('button');
     skipBtn.className = 'aw-btn-skip';
-    skipBtn.textContent = '↻ Otra acción';
-    skipBtn.setAttribute('aria-label', 'Ver otra acción');
+    skipBtn.textContent = t('action.skipButton');
+    skipBtn.setAttribute('aria-label', t('action.skipButtonAria'));
 
     bottomRow.appendChild(skipBtn);
 
@@ -235,6 +253,17 @@ export function initActionPrompt(metrics: MetricDef[]): ActionPromptContext {
 
     skipBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        renderAction();
+    });
+
+    // Keep widget chrome (header label, skip button, action text) in sync with
+    // the active locale. `renderAction()` pulls fresh phrases from the current
+    // dictionary, and the label/button strings need re-reading from `t()`.
+    subscribe(() => {
+        widget.setAttribute('aria-label', t('action.ofTheDay'));
+        headerLabel.textContent = t('action.ofTheDay');
+        skipBtn.textContent = t('action.skipButton');
+        skipBtn.setAttribute('aria-label', t('action.skipButtonAria'));
         renderAction();
     });
 

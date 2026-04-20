@@ -1,4 +1,48 @@
-import type { Category } from '../types';
+import type { Category, ActionItem } from '../types';
+import { t, getLocale, type StringKey } from '../i18n';
+import { categoriesEN } from './categories.en';
+
+/**
+ * Localized category lookups.
+ *
+ * The `categories` array below is the Spanish-native source of truth: every
+ * field (name, subtitle, action text, impact) is canonically in Spanish. For
+ * English we keep an index-aligned translation file (`categories.en.ts`) and
+ * swap in its strings at render time. Names and subtitles go through `t()`
+ * (keys `cat.<id>.name` / `cat.<id>.subtitle`); action arrays and impact
+ * strings go through the helpers below.
+ *
+ * When adding a new locale: add its full dictionary in `dictionaries.ts`,
+ * create a parallel `categories.<locale>.ts` with the same shape, and extend
+ * the locale branches in `localizedActions` / `localizedImpact`.
+ */
+export function categoryName(idx: number): string {
+    return t(`cat.${idx}.name` as StringKey);
+}
+
+export function categorySubtitle(idx: number): string {
+    return t(`cat.${idx}.subtitle` as StringKey);
+}
+
+/** Return the localized action list (preserves `tier` / `startHere` metadata). */
+export function localizedActions(idx: number, kind: 'global' | 'individual'): ActionItem[] {
+    const source = categories[idx][kind];
+    if (getLocale() === 'en') {
+        const en = categoriesEN[idx];
+        const translated = kind === 'global' ? en.global : en.individual;
+        // Pair each original ActionItem with its translated text, preserving
+        // tier/startHere flags. Index alignment is guaranteed by hand-authored
+        // parity between categories.ts and categories.en.ts.
+        return source.map((a, i) => ({ ...a, text: translated[i] ?? a.text }));
+    }
+    return source;
+}
+
+/** Return the localized impact sentence template. */
+export function localizedImpact(idx: number): string {
+    if (getLocale() === 'en') return categoriesEN[idx].impact;
+    return categories[idx].impact;
+}
 
 export const categories: Category[] = [
     { id:0, name:"Clima y Energía", subtitle:"El sistema operativo del planeta", color:"#ff6b35",

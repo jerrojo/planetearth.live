@@ -33,6 +33,7 @@ export function createMetrics(): MetricDef[] {
     return [
         // ── INDEX 0: CO₂ ──
         {
+            labelKey: 'metric.0.label',
             label: 'CO₂ (PPM)',
             value: 429.0 + co2Seasonal,
             rate: 7.92e-8,              // +2.5 ppm/yr (NOAA Mauna Loa)
@@ -47,6 +48,7 @@ export function createMetrics(): MetricDef[] {
         },
         // ── INDEX 1: TEMPERATURE ──
         {
+            labelKey: 'metric.1.label',
             label: 'TEMP +°C',
             value: 1.45,
             rate: 8.55e-10,             // +0.027°C/yr (NASA GISS 2015-2025 trend)
@@ -61,6 +63,7 @@ export function createMetrics(): MetricDef[] {
         },
         // ── INDEX 2: OCEAN PH ──
         {
+            labelKey: 'metric.2.label',
             label: 'PH OCEÁNICO',
             value: 8.07,
             rate: -5.39e-11,            // −0.0017 pH/yr (Bates et al. BATS)
@@ -75,6 +78,7 @@ export function createMetrics(): MetricDef[] {
         },
         // ── INDEX 3: TREES ──
         {
+            labelKey: 'metric.3.label',
             label: 'ÁRBOLES',
             value: 3_040_000_000_000,
             rate: -317,                 // −10B/yr net loss (FAO FRA 2020)
@@ -87,6 +91,7 @@ export function createMetrics(): MetricDef[] {
         },
         // ── INDEX 4: CLEAN ENERGY ──
         {
+            labelKey: 'metric.4.label',
             label: 'ENERGÍA LIMPIA %',
             value: 33.0,
             rate: 5.70e-8,             // +1.8 pp/yr (IEA trajectory)
@@ -101,6 +106,7 @@ export function createMetrics(): MetricDef[] {
         },
         // ── INDEX 5: EMISSIONS ──
         {
+            labelKey: 'metric.5.label',
             label: 'EMISIONES GT CO₂',
             value: 40.6,
             rate: 1.58e-8,             // +0.5 GT/yr acceleration (GCB 2025)
@@ -122,6 +128,7 @@ export function createMetrics(): MetricDef[] {
         // concentration consistent with staying within the safe operating space.
         // Source: Steffen et al. (2015) Science 347:1259855, NOAA ESRL
         {
+            labelKey: 'metric.6.label',
             label: 'METANO PPB',
             value: 1946,
             rate: 3.17e-7,             // +10 ppb/yr (NOAA ESRL 2020-2025 mean; note: accelerating from ~8 ppb/yr pre-2020)
@@ -141,6 +148,7 @@ export function createMetrics(): MetricDef[] {
         // Planetary boundary: 290 ppb (Steffen et al. 2015, Science 347:1259855)
         // Source: NOAA Global Monitoring Laboratory
         {
+            labelKey: 'metric.7.label',
             label: 'N₂O PPB',
             value: 339,
             rate: 3.17e-8,             // +1.0 ppb/yr mid-range (NOAA ESRL; recent 2019-2025 acceleration ~1.2 ppb/yr)
@@ -159,6 +167,7 @@ export function createMetrics(): MetricDef[] {
         // Losing ~0.6 M km²/decade (NSIDC decadal trend).
         // Source: NSIDC Sea Ice Index v3.0
         {
+            labelKey: 'metric.8.label',
             label: 'HIELO ÁRTICO M km²',
             value: 17.0,
             rate: -1.90e-6,            // −0.06 M km²/yr = −0.6/decade (NSIDC trend)
@@ -179,6 +188,7 @@ export function createMetrics(): MetricDef[] {
         // Rate: 0 — this is a real-time snapshot, not a trend (overwritten by API each refresh).
         // Source: Copernicus Atmosphere Monitoring Service (CAMS) via Open-Meteo
         {
+            labelKey: 'metric.9.label',
             label: 'PM2.5 μg/m³',
             value: 35.0,
             rate: 0,                   // snapshot metric — overwritten by live API data
@@ -198,6 +208,7 @@ export function createMetrics(): MetricDef[] {
         // Target: <50 gCO₂/kWh by 2035 (UK net-zero electricity).
         // Source: University of Oxford + National Grid ESO (carbonintensity.org.uk)
         {
+            labelKey: 'metric.10.label',
             label: 'CARBONO g/kWh',
             value: 115,
             rate: 0,                   // snapshot metric — overwritten by live API data

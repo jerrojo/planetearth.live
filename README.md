@@ -38,7 +38,7 @@ Climate data is often dismissed as "politicized" or "cherry-picked." When the en
 Requirements: Node.js 20+ and npm.
 
 ```
-git clone https://github.com/jerrojo/planetearth.live.git
+git clone https://github.com/planetearth-live/planetearth.live.git
 cd planetearth.live
 npm install
 npm run dev

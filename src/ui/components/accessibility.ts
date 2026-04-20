@@ -1,4 +1,4 @@
-import { getLocale, setLocale, LOCALES, t, applyStaticI18n } from '../../i18n';
+import { getLocale, setLocale, LOCALES, LOCALE_LABELS, t, applyStaticI18n } from '../../i18n';
 import type { Locale } from '../../i18n/dictionaries';
 
 export function initAccessibility(): () => boolean {
@@ -24,10 +24,14 @@ export function initAccessibility(): () => boolean {
         for (const loc of LOCALES) {
             const btn = document.createElement('button');
             btn.type = 'button';
-            btn.className = 'font-seg-btn';
+            btn.className = 'font-seg-btn lang-btn';
             btn.setAttribute('role', 'radio');
             btn.dataset['lang'] = loc;
+            // Use the language code for compactness (ES, EN, PT, FR, DE, ZH, JA, AR)
+            // and expose the native name via `title` so a hover tells you what it is.
             btn.textContent = loc.toUpperCase();
+            btn.setAttribute('title', LOCALE_LABELS[loc]);
+            btn.setAttribute('aria-label', LOCALE_LABELS[loc]);
             if (loc === getLocale()) {
                 btn.classList.add('active');
                 btn.setAttribute('aria-checked', 'true');

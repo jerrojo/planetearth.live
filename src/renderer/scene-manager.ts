@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { t } from '../i18n';
 
 export interface SceneContext {
     scene: THREE.Scene;
@@ -20,7 +21,10 @@ function showContextLostOverlay(show: boolean): void {
             background:rgba(15,14,42,0.9);color:#f0ece4;font-family:'Nunito',system-ui,sans-serif;
             z-index:2000;text-align:center;
         `;
-        overlay.innerHTML = '<p style="opacity:0.8;">Reconectando gráficos…</p>';
+        const msg = document.createElement('p');
+        msg.style.opacity = '0.8';
+        msg.textContent = t('error.contextLost');
+        overlay.appendChild(msg);
         document.body.appendChild(overlay);
     } else if (!show && overlay) {
         overlay.remove();

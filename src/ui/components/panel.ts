@@ -1,12 +1,20 @@
 import type { ActionItem } from '../../types';
-import { categories, connections } from '../../data/categories';
+import { categories, connections, categoryName, categorySubtitle, localizedActions, localizedImpact } from '../../data/categories';
 import { POP_BASE, POP_EPOCH, POP_RATE, THRESHOLD } from '../../config/constants';
 import { formatPop } from '../../utils/format';
 import { setActiveCategory, clearActiveCategory } from './sidebar';
+import { t, subscribe } from '../../i18n';
 
 let lastFocusedBtn: HTMLElement | null = null;
 let onCategoryChange: ((idx: number) => void) | null = null;
 let onCategoryClose: (() => void) | null = null;
+let currentOpenIdx: number | null = null;
+
+// Re-render the open panel whenever the user switches language so its title,
+// section headings, stat cards and connections badge track the active locale.
+subscribe(() => {
+    if (currentOpenIdx !== null) showPanel(currentOpenIdx);
+});
 
 export function setOnCategoryChange(fn: (idx: number) => void): void {
     onCategoryChange = fn;
@@ -44,7 +52,7 @@ function renderAction(a: ActionItem, _catColor: string): string {
     const textOnly = emojiMatch ? a.text.slice(emojiMatch[0].length) : a.text;
 
     const badge = a.startHere
-        ? '<span class="action-badge badge-start">Empieza aquí</span>'
+        ? `<span class="action-badge badge-start">${t('action.startHereBadge')}</span>`
         : '';
 
     // Layout: [emoji] [badge + text] — emoji in fixed column, text flows naturally
@@ -69,8 +77,8 @@ export function showPanel(idx: number): void {
 
     const panelTitle = document.getElementById('panelTitle')!;
     panelTitle.style.color = cat.color;
-    panelTitle.textContent = cat.name;
-    document.getElementById('panelSubtitle')!.textContent = cat.subtitle;
+    panelTitle.textContent = categoryName(idx);
+    document.getElementById('panelSubtitle')!.textContent = categorySubtitle(idx);
 
     // Dynamic 3.5% of live population
     const now = Date.now();
@@ -80,7 +88,7 @@ export function showPanel(idx: number): void {
     const tgtM = (tgt / 1e6).toFixed(1);
     const tgt3 = formatPop(tgt * 3);
     const popLabel = `3.5% (${tgtM}M)`;
-    const impactText = cat.impact.replace('{N}', popLabel).replace('{N3}', tgt3);
+    const impactText = localizedImpact(idx).replace('{N}', popLabel).replace('{N3}', tgt3);
 
     let h = '';
 
@@ -89,65 +97,68 @@ export function showPanel(idx: number): void {
     if (connectedCats.length > 0) {
         const names = connectedCats.map(ci => {
             const c = categories[ci];
-            return `<span class="conn-name" style="color:${c.color}">${c.name}</span>`;
+            return `<span class="conn-name" style="color:${c.color}">${categoryName(ci)}</span>`;
         }).join(', ');
         h += `<div class="connections-badge animate-in" style="animation-delay:0s">`;
-        h += `<span class="connections-label">Conectado con</span> ${names}`;
+        h += `<span class="connections-label">${t('panel.connectedWith')}</span> ${names}`;
         h += `</div>`;
     }
 
     // Related metrics highlight hint
     if (cat.relatedMetrics.length > 0) {
         h += `<div class="metric-bridge-hint animate-in" style="animation-delay:0.02s">`;
-        h += `<span class="bridge-icon">📊</span> Métricas relacionadas resaltadas arriba`;
+        h += `<span class="bridge-icon">📊</span> ${t('panel.metricsHighlighted')}`;
         h += `</div>`;
     }
 
     // Individual actions first — what's in our hands
-    h += '<div class="section-title animate-in" style="animation-delay:0.04s">Acciones Individuales</div>';
-    const sortedIndividual = sortActions(cat.individual);
+    h += `<div class="section-title animate-in" style="animation-delay:0.04s">${t('panel.sectionIndividual')}</div>`;
+    const sortedIndividual = sortActions(localizedActions(idx, 'individual'));
     sortedIndividual.forEach((a, i) => {
         h += `<div class="animate-in" style="animation-delay:${0.06 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
     });
 
     // Global actions — systemic changes
-    h += '<div class="section-title animate-in" style="animation-delay:0.24s">Acciones Globales</div>';
-    const sortedGlobal = sortActions(cat.global);
+    h += `<div class="section-title animate-in" style="animation-delay:0.24s">${t('panel.sectionGlobal')}</div>`;
+    const sortedGlobal = sortActions(localizedActions(idx, 'global'));
     sortedGlobal.forEach((a, i) => {
         h += `<div class="animate-in" style="animation-delay:${0.28 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
     });
 
     // Impact box
     h += `<div class="impact-box animate-in" style="animation-delay:0.48s">`;
-    h += `<div class="impact-header"><strong>\uD83C\uDFAF Impacto 3.5%:</strong></div>`;
+    h += `<div class="impact-header"><strong>\uD83C\uDFAF ${t('panel.impactLabel')}</strong></div>`;
     h += `<div class="impact-text">${impactText}</div>`;
     h += `<div class="impact-meter">`;
     h += `<div class="impact-meter-fill" style="background:${cat.color}"></div>`;
     h += `</div>`;
     h += `<div class="impact-scale">`;
-    h += `<span>0%</span><span>Meta 3.5%</span><span>100%</span>`;
+    h += `<span>0%</span><span>${t('panel.scaleMid')}</span><span>100%</span>`;
     h += `</div>`;
     h += `</div>`;
 
     // Stat cards
     h += `<div class="stat-cards animate-in" style="animation-delay:0.56s">`;
-    h += createStatCard('Personas necesarias', `${tgtM}M`, cat.color);
-    h += createStatCard('Multiplicador red', 'x3\u201310', cat.color);
-    h += createStatCard('Conexiones', `${connectedCats.length} categorías`, cat.color);
+    h += createStatCard(t('panel.statPeopleNeeded'), `${tgtM}M`, cat.color);
+    h += createStatCard(t('panel.statNetworkMultiplier'), 'x3\u201310', cat.color);
+    h += createStatCard(t('panel.statConnections'), t('panel.statConnectionsValue', { count: connectedCats.length }), cat.color);
     h += `</div>`;
 
     document.getElementById('panelContent')!.innerHTML = h;
 
     const panel = document.getElementById('panel')!;
+    const wasAlreadyOpen = panel.classList.contains('active');
     panel.classList.add('active');
     panel.setAttribute('aria-modal', 'true');
     setActiveCategory(idx);
-    document.getElementById('closeBtn')!.focus();
+    // Only steal focus on the initial open — skip on locale-change re-renders.
+    if (!wasAlreadyOpen) document.getElementById('closeBtn')!.focus();
 
     // Highlight related metrics in dashboard
     highlightRelatedMetrics(cat.relatedMetrics);
 
     // Notify callback for globe effects
+    currentOpenIdx = idx;
     if (onCategoryChange) onCategoryChange(idx);
 }
 
@@ -176,6 +187,7 @@ export function closePanel(): void {
         el.classList.remove('metric-highlighted');
     });
 
+    currentOpenIdx = null;
     // Notify callback
     if (onCategoryClose) onCategoryClose();
 }

@@ -178,7 +178,7 @@ All runtime sanity bounds live in `BOUNDS` inside `src/services/validation.ts`. 
 1. Open the data-source status panel at the bottom-left of the page.
 2. Find the metric; copy the URL shown.
 3. Fetch it yourself (`curl`, `wget`, or a browser). The raw value will match what the dashboard displays (modulo staleness and OpenAQ blending, both disclosed in the panel).
-4. If you find a mismatch, open an issue at <https://github.com/jerrojo/planetearth.live/issues> with the URL, the agency response, and what the dashboard showed. We treat such reports as P0.
+4. If you find a mismatch, open an issue on the project repository with the URL, the agency response, and what the dashboard showed. We treat such reports as P0.
 
 ## Review cadence
 

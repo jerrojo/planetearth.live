@@ -127,16 +127,20 @@ export function createPostProcessing(
     const renderPass = new RenderPass(scene, camera);
     composer.addPass(renderPass);
 
-    // 2. Bloom — Pixar-style dreamy glow (stronger, softer radius, lower threshold)
+    // 2. Bloom — tight, high-threshold glow for STARS / city dots / aurora only.
+    // Previous settings (threshold 0.82, radius 0.3) caused every cloud fragment
+    // (emitting values 0.78–1.00) to bloom into a ~10px blob, producing a
+    // "cellular" overlay that smothered the Blue Marble. Threshold raised well
+    // above cloud brightness, strength + radius halved.
     const isMobile = window.innerWidth < 768;
     const bloomSize = isMobile
         ? new THREE.Vector2(Math.floor(size.x * 0.5), Math.floor(size.y * 0.5))
         : new THREE.Vector2(size.x, size.y);
     const bloomPass = new UnrealBloomPass(
         bloomSize,
-        isMobile ? 0.10 : 0.15,   // strength — very subtle, preserve detail
-        isMobile ? 0.2 : 0.3,    // radius — tight bloom spread
-        isMobile ? 0.85 : 0.82   // threshold — only stars, aurora, city glows bloom (not terrain)
+        isMobile ? 0.06 : 0.08,   // strength — very subtle halo
+        isMobile ? 0.15 : 0.18,   // radius — tight spread
+        isMobile ? 1.05 : 1.00    // threshold — only HDR-style emissive highlights bloom
     );
     composer.addPass(bloomPass);
 
