@@ -20,8 +20,9 @@ const DEFAULTS: Record<LayerKey, boolean> = {
     naturalEvents: true,
     satellites: false,  // opt-in — adds ~6000 points + 50kB/6h network
     countries: true,    // editorial, lightweight
-    stations: false,    // dense sensor grid — off by default so the globe reads cleanly;
-                        // users who want to audit the data sources turn it on.
+    stations: true,     // real measurement sensors (Argo, NOAA GHG, weather, buoys, tide,
+                        // solar, seismic, airq). On by default — the dots ARE the data.
+                        // Toggle exists for users who want a cleaner planet view.
     filmGrain: true,    // cinematic "static" noise — decoupled from reduce-motion so users
                         // who keep motion on can still turn the grain off if they find it noisy.
 };
