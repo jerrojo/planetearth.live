@@ -27,6 +27,9 @@ const MU_EARTH = 3.986004418e14;      // m³/s²
 const CELESTRAK_URL = 'https://celestrak.org/NORAD/elements/gp.php?GROUP=starlink&FORMAT=json';
 const REFRESH_MS = 6 * 60 * 60 * 1000; // 6h
 const MAX_SATS = 8000;                 // safety cap
+const FETCH_TIMEOUT_MS = 15000;        // give up after 15s, retry in background
+const CACHE_KEY = 'planetearth-starlink-tle-v1';
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h — orbital elements drift slowly for visual use
 
 interface OrbitalElements {
     incl: number;       // inclination (rad)
@@ -149,8 +152,14 @@ export interface SatellitesContext {
      * the real ratio (orbit ≈ 14× sidereal rotation) is preserved.
      */
     update: (nowMs?: number) => void;
-    /** Fetch the latest TLE batch from Celestrak. */
+    /** Fetch the latest TLE batch from Celestrak (uses cached data if fresh). */
     refresh: () => Promise<void>;
+    /**
+     * Start the TLE pipeline in the background without making the layer visible.
+     * Called from app boot on idle so the first time a user enables Satellites,
+     * the points render instantly instead of waiting 3-10s for a 2+MB fetch.
+     */
+    prewarm: () => Promise<void>;
 }
 
 // Shell classification by altitude (km above Earth) — maps to constellation
@@ -335,19 +344,83 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
         (geometry.attributes['aShell'] as THREE.BufferAttribute).needsUpdate = true;
     }
 
-    async function refresh(): Promise<void> {
+    /**
+     * Attempt to load TLE JSON from the localStorage cache. Returns parsed
+     * entries if the cache exists and is fresh (<24h); null otherwise.
+     * Cache misses are silent — localStorage can throw in private-browsing
+     * mode and that's fine, we just fall back to the network.
+     */
+    function loadFromCache(): CelestrakEntry[] | null {
         try {
-            const res = await fetch(CELESTRAK_URL, { cache: 'no-cache' });
-            if (!res.ok) throw new Error(`Celestrak ${res.status}`);
-            const data: CelestrakEntry[] = await res.json();
-            const parsed = data.map(parseElements).filter((x): x is OrbitalElements => x !== null);
-            if (!parsed.length) return;
-            elements = parsed;
-            build();
-            update();
+            const raw = localStorage.getItem(CACHE_KEY);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw) as { ts: number; data: CelestrakEntry[] };
+            if (!parsed || typeof parsed.ts !== 'number') return null;
+            if (Date.now() - parsed.ts > CACHE_TTL_MS) return null;
+            if (!Array.isArray(parsed.data) || !parsed.data.length) return null;
+            return parsed.data;
         } catch {
-            // Swallow — satellites is an optional layer, non-fatal.
+            return null;
         }
+    }
+
+    function saveToCache(data: CelestrakEntry[]): void {
+        try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+        } catch {
+            // Quota exceeded or disabled — not fatal, next boot re-fetches.
+        }
+    }
+
+    function applyEntries(data: CelestrakEntry[]): void {
+        const parsed = data.map(parseElements).filter((x): x is OrbitalElements => x !== null);
+        if (!parsed.length) return;
+        elements = parsed;
+        build();
+        update();
+    }
+
+    /** Fetch with a hard timeout so a hung connection doesn't block forever. */
+    async function fetchTLEs(): Promise<CelestrakEntry[] | null> {
+        const ac = new AbortController();
+        const timer = setTimeout(() => ac.abort(), FETCH_TIMEOUT_MS);
+        try {
+            const res = await fetch(CELESTRAK_URL, { cache: 'no-cache', signal: ac.signal });
+            if (!res.ok) throw new Error(`Celestrak ${res.status}`);
+            const data = await res.json() as CelestrakEntry[];
+            if (Array.isArray(data) && data.length) {
+                saveToCache(data);
+                return data;
+            }
+            return null;
+        } catch (err) {
+            // Optional layer — log at warn level so devs can see it in devtools
+            // but the app keeps running happily without satellites.
+            if (typeof console !== 'undefined' && console.warn) {
+                console.warn('Starlink TLE fetch failed, keeping any cached data:', err);
+            }
+            return null;
+        } finally {
+            clearTimeout(timer);
+        }
+    }
+
+    /**
+     * Hybrid refresh: paint from cache immediately (if fresh), then fetch in the
+     * background to update. On a cache miss, awaits the network. This means
+     * repeat activations of the Satellites layer render instantly.
+     */
+    async function refresh(): Promise<void> {
+        const cached = loadFromCache();
+        if (cached) {
+            applyEntries(cached);
+            // Background refresh — don't await. The painted positions will
+            // silently update next frame when new elements arrive.
+            void fetchTLEs().then(data => { if (data) applyEntries(data); });
+            return;
+        }
+        const fresh = await fetchTLEs();
+        if (fresh) applyEntries(fresh);
     }
 
     // Auto-refresh on a long cadence. The first call happens only when the layer
@@ -358,12 +431,28 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
         refreshTimer = setInterval(() => { void refresh(); }, REFRESH_MS);
     }
 
+    /**
+     * Fire the fetch/cache pipeline without making the layer visible. Called
+     * from app boot on requestIdleCallback so the first user activation is
+     * instant. If the TLE is already cached, this is a no-op network-wise.
+     */
+    let prewarmed = false;
+    async function prewarm(): Promise<void> {
+        if (prewarmed) return;
+        prewarmed = true;
+        await refresh();
+    }
+
     return {
         group,
         update,
         refresh: async () => {
             ensureRefreshCycle();
             await refresh();
+        },
+        prewarm: async () => {
+            ensureRefreshCycle();
+            await prewarm();
         },
     };
 }

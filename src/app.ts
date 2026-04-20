@@ -176,6 +176,15 @@ export function createApp(): void {
     let satSimNowMs = Date.now();
     if (isLayerEnabled('satellites')) {
         void satellitesCtx.refresh().then(() => { satellitesFetched = true; });
+    } else {
+        // Prewarm TLEs in the background on idle so first activation is instant.
+        // Cached in localStorage for 24h; no network hit if a recent cache exists.
+        const kickPrewarm = (): void => {
+            void satellitesCtx.prewarm().then(() => { satellitesFetched = true; });
+        };
+        const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
+        if (typeof ric === 'function') ric(kickPrewarm, { timeout: 4000 });
+        else setTimeout(kickPrewarm, 3000);
     }
     onLayerChange((key, value) => {
         if (key === 'windFlow') windCtx.points.visible = value;
