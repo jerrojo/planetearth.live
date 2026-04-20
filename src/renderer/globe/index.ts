@@ -21,6 +21,8 @@ export interface CloudContext {
     geometry: THREE.BufferGeometry;
     /** Underlying position Float32Array (3 floats per cloud). */
     positions: Float32Array;
+    /** ShaderMaterial for the cloud Points — exposes uTime for fBm drift. */
+    material: THREE.ShaderMaterial;
 }
 
 export interface GlobeObjects {
@@ -464,10 +466,14 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
     }
 
     // Two altitude layers for depth — calibrated so clouds read as weather, not foam.
+    // Low layer (cumulus/stratus ~2-6 km): cooler, denser, shorter fractal dimension D≈1.18-1.28.
+    // High layer (cirrus ~8-12 km): warmer, thinner wisps, D≈1.37 (raggedest edges).
+    // These Ds come out in the fragment shader via domain-warped fBm — see below.
     // Step widened (5→8, 8→11), sizes and alphas cut ~30% after the high-DPI overlay regression.
+    const cTypes: number[] = []; // 0 = cumulus (low), 1 = cirrus (high)
     const layers = [
-        { radius: 5.14, step: 8.0, sizeMin: 0.028, sizeMax: 0.065, alphaMin: 0.010, alphaMax: 0.028 },
-        { radius: 5.24, step: 11.0, sizeMin: 0.040, sizeMax: 0.095, alphaMin: 0.007, alphaMax: 0.018 },
+        { radius: 5.14, step: 8.0, sizeMin: 0.028, sizeMax: 0.065, alphaMin: 0.010, alphaMax: 0.028, type: 0 },
+        { radius: 5.24, step: 11.0, sizeMin: 0.040, sizeMax: 0.095, alphaMin: 0.007, alphaMax: 0.018, type: 1 },
     ];
     for (const layer of layers) {
         for (let lat = -80; lat <= 80; lat += layer.step) {
@@ -480,6 +486,7 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
                 cp.push(v.x, v.y, v.z);
                 cSizes.push(layer.sizeMin + Math.random() * (layer.sizeMax - layer.sizeMin));
                 cAlphas.push(layer.alphaMin + Math.random() * (layer.alphaMax - layer.alphaMin));
+                cTypes.push(layer.type);
                 cLats.push(jLat);
                 cLons.push(jLon);
                 cRadii.push(layer.radius);
@@ -495,20 +502,38 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
     cloudGeo.setAttribute('position', new THREE.Float32BufferAttribute(cp, 3));
     cloudGeo.setAttribute('aSize', new THREE.Float32BufferAttribute(cSizes, 1));
     cloudGeo.setAttribute('aAlpha', new THREE.Float32BufferAttribute(cAlphas, 1));
+    cloudGeo.setAttribute('aType', new THREE.Float32BufferAttribute(cTypes, 1));
+
+    // Per-cloud hash used by the fragment shader to decorrelate fBm noise —
+    // without it, every point would sample the same fractal pattern and the
+    // globe would look like a quilt. Uses position as a cheap deterministic hash.
+    const cHash = new Float32Array(cp.length / 3);
+    for (let i = 0; i < cHash.length; i++) {
+        cHash[i] = (cp[i * 3] * 12.9898 + cp[i * 3 + 1] * 78.233 + cp[i * 3 + 2] * 37.719) % 1;
+        if (cHash[i] < 0) cHash[i] += 1;
+    }
+    cloudGeo.setAttribute('aHash', new THREE.Float32BufferAttribute(cHash, 1));
 
     const cloudMat = new THREE.ShaderMaterial({
         transparent: true,
         depthWrite: false,
         uniforms: {
             uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+            uTime:       { value: 0 },
         },
         vertexShader: /* glsl */ `
             attribute float aSize;
             attribute float aAlpha;
+            attribute float aType;
+            attribute float aHash;
             varying float vAlpha;
+            varying float vType;
+            varying float vHash;
             uniform float uPixelRatio;
             void main() {
                 vAlpha = aAlpha;
+                vType = aType;
+                vHash = aHash;
                 vec4 mv = modelViewMatrix * vec4(position, 1.0);
                 gl_PointSize = aSize * uPixelRatio * (300.0 / -mv.z);
                 gl_Position = projectionMatrix * mv;
@@ -516,19 +541,62 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
         `,
         fragmentShader: /* glsl */ `
             varying float vAlpha;
+            varying float vType;
+            varying float vHash;
+            uniform float uTime;
+
+            // 2-D value noise — cheap, enough for fractal edge crinkle.
+            // Grounded in Lovejoy (1982): cloud perimeters have fractal D≈1.18-1.37,
+            // so a 3-octave fBm gives the recognizable "ragged silhouette" without
+            // looking like a perfect disc.
+            float hash21(vec2 p) {
+                return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+            }
+            float noise2(vec2 p) {
+                vec2 i = floor(p), f = fract(p);
+                vec2 u = f * f * (3.0 - 2.0 * f);
+                return mix(mix(hash21(i + vec2(0,0)), hash21(i + vec2(1,0)), u.x),
+                           mix(hash21(i + vec2(0,1)), hash21(i + vec2(1,1)), u.x), u.y);
+            }
+            // Domain-warped fBm — the Quilez trick. Without warping, fBm looks
+            // like noise; with it, it swirls like real cloud turbulence.
+            float fbm(vec2 p) {
+                float v = 0.0;
+                float a = 0.5;
+                for (int i = 0; i < 3; i++) {
+                    v += a * noise2(p);
+                    p *= 2.0;
+                    a *= 0.5;
+                }
+                return v;
+            }
+
             void main() {
-                // Tight radial falloff — sparse cotton wisps, not puffs.
-                // Halo was causing a "cellular blob" overlay when hundreds of clouds
-                // overlapped in screen space. Now just a soft core, capped well below
-                // bloom threshold so clouds don't spread into glowing blobs.
                 vec2 uv = gl_PointCoord - 0.5;
                 float d = length(uv) * 2.0;
                 if (d > 1.0) discard;
-                float core = smoothstep(1.0, 0.0, d); // soft falloff to edge
-                float alpha = core * vAlpha;
-                if (alpha < 0.003) discard;
-                // Muted cloud color — below bloom threshold to avoid glow contagion
-                vec3 col = vec3(0.72, 0.76, 0.82);
+                float core = smoothstep(1.0, 0.0, d); // soft radial falloff
+
+                // Fractal edge crinkle — each cloud gets its own patch of fBm,
+                // domain-warped by a secondary fBm so the silhouette swirls.
+                // vHash decorrelates clouds so they don't all share a pattern.
+                vec2 np = uv * 2.4 + vec2(vHash * 40.0, vHash * 17.0) + vec2(uTime * 0.015, 0.0);
+                vec2 warp = vec2(fbm(np + 1.7), fbm(np + 4.3)) - 0.5;
+                float fractal = fbm(np + warp * 1.2);
+                // Cirrus edges are raggedier (higher D); cumulus edges are smoother.
+                float edgeBite = mix(0.55, 0.85, vType) * fractal;
+                float alpha = core * vAlpha * (0.45 + 0.85 * fractal) * (1.0 - smoothstep(0.85 - 0.3 * vType, 1.0, d) * (1.0 - edgeBite));
+                if (alpha < 0.0025) discard;
+
+                // Altitude-dependent color: low cumulus cool-blue-grey,
+                // high cirrus warmer-gold (icy crystals scatter more into yellows).
+                vec3 lowCol  = vec3(0.70, 0.75, 0.82);
+                vec3 highCol = vec3(0.88, 0.86, 0.80);
+                vec3 col = mix(lowCol, highCol, vType);
+                // Subtle shear-band highlight (Kelvin-Helmholtz feel) — brightens
+                // the leading edge when the domain warp resolves to a ridge.
+                col += vec3(0.08) * smoothstep(0.55, 0.9, fractal) * (1.0 - vType * 0.4);
+
                 gl_FragColor = vec4(col, alpha * 0.65);
             }
         `,
@@ -544,6 +612,7 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
         maxAges: new Float32Array(cMaxAges),
         geometry: cloudGeo,
         positions: cloudGeo.attributes['position'].array as Float32Array,
+        material: cloudMat,
     };
 
     // GitHub-style outer halo (behind everything)
@@ -570,6 +639,10 @@ export function createGlobe(scene: THREE.Scene): GlobeObjects {
  * long-term distribution converges back to ISCCP (avoiding desert drift).
  */
 export function updateCloudMotion(ctx: CloudContext, t: number, dt: number, motionScale: number): void {
+    // Tick the shader clock regardless of motionScale — even when the globe is
+    // paused, a touch of fBm drift keeps edges alive instead of freezing solid.
+    ctx.material.uniforms['uTime']!.value = t;
+
     const scaledDt = dt * motionScale;
     if (scaledDt <= 0) return;
 

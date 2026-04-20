@@ -148,6 +148,25 @@ export interface SatellitesContext {
     refresh: () => Promise<void>;
 }
 
+// Shell classification by altitude (km above Earth) — maps to constellation
+// design: primary 53° shell is being lowered from 550→480 km through 2026,
+// polar 97.6° shell sits at ~560 km. A handful of older sats still hover near
+// their drift altitudes. Each shell gets a distinct hue so the viewer can
+// visually parse "this ring is the polar shell" etc. — same data as the
+// Wikipedia/Celestrak tables, legible at a glance.
+const SHELL_LOW       = 500;  // km — primary lowered shell (~480-500)
+const SHELL_MID       = 555;  // km — legacy 550 shell, still widely populated
+const SHELL_POLAR     = 565;  // km — ~560 polar (97.6°)
+const SHELL_DRIFT_HI  = 600;  // km — residual higher-drift satellites
+
+/** Map altitude (km) to shell code 0..3 used by the shader for hue/size. */
+function shellCode(altKm: number): number {
+    if (altKm < (SHELL_LOW + SHELL_MID) / 2) return 0;       // low shell
+    if (altKm < (SHELL_MID + SHELL_POLAR) / 2) return 1;     // mid 53°
+    if (altKm < (SHELL_POLAR + SHELL_DRIFT_HI) / 2) return 2; // polar 97.6°
+    return 3;                                                 // drift / high
+}
+
 export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
     const group = new THREE.Group();
     group.name = 'starlinkSatellites';
@@ -156,7 +175,15 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
     let elements: OrbitalElements[] = [];
     let geometry: THREE.BufferGeometry | null = null;
     let positions: Float32Array | null = null;
+    let shells: Float32Array | null = null;        // per-sat shell code 0..3
+    let phases: Float32Array | null = null;        // per-sat random phase (0..1) for flare twinkle
+    let material: THREE.ShaderMaterial | null = null;
     const tmp = { x: 0, y: 0, z: 0 };
+    // Sun direction in world space (ECEF-ish) — recomputed each update().
+    // Used by the shader to produce the "dusk-terminator flare" effect: a
+    // satellite lit by the sun and close to the observer-side terminator flashes
+    // like a real Starlink specular reflection.
+    const sunDir = new THREE.Vector3(1, 0, 0);
 
     function build(): void {
         // Teardown previous buffers
@@ -172,27 +199,83 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
 
         const n = Math.min(elements.length, MAX_SATS);
         positions = new Float32Array(n * 3);
+        shells = new Float32Array(n);
+        phases = new Float32Array(n);
+        for (let i = 0; i < n; i++) phases[i] = Math.random();
         geometry = new THREE.BufferGeometry();
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('aShell', new THREE.BufferAttribute(shells, 1));
+        geometry.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1));
 
-        const material = new THREE.ShaderMaterial({
+        material = new THREE.ShaderMaterial({
             transparent: true,
             depthWrite: false,
             blending: THREE.AdditiveBlending,
+            uniforms: {
+                uTime:    { value: 0 },
+                uSunDir:  { value: sunDir },
+            },
             vertexShader: /* glsl */ `
+                attribute float aShell;
+                attribute float aPhase;
+                uniform float uTime;
+                uniform vec3 uSunDir;
+                varying float vShell;
+                varying float vFlare;
+                varying float vLit;
                 void main() {
-                    vec4 mv = modelViewMatrix * vec4(position, 1.0);
-                    gl_PointSize = max(1.2, 1.6 * (180.0 / -mv.z));
+                    vShell = aShell;
+                    vec4 world = modelMatrix * vec4(position, 1.0);
+                    vec3 nrm = normalize(world.xyz);
+                    // Dot with sun: +1 = full sun, -1 = full shadow.
+                    // Starlinks in Earth's shadow disappear; lit ones pick up a specular
+                    // term when the view-reflection angle aligns with the sun (dusk flare).
+                    float sunDot = dot(nrm, normalize(uSunDir));
+                    vLit = smoothstep(-0.05, 0.15, sunDot); // 0..1, crisp terminator
+
+                    // Flare: rare, brief, bright. Real Starlinks flare for 1-3s when panel
+                    // mirrors the sun to the observer. We fake it with a per-sat phase
+                    // that sweeps a narrow cone past the sun direction roughly once per
+                    // orbit — cheap, gives the characteristic sparkle.
+                    float phaseT = fract(aPhase + uTime * 0.008);
+                    float flareWindow = smoothstep(0.495, 0.5, phaseT) * smoothstep(0.505, 0.5, phaseT);
+                    vFlare = flareWindow * vLit;
+
+                    vec4 mv = viewMatrix * world;
+                    float basePx = 1.6 + 0.6 * step(0.5, vShell);      // polar shell slightly bigger
+                    gl_PointSize = max(1.1, basePx * (180.0 / -mv.z) * mix(1.0, 2.8, vFlare));
                     gl_Position = projectionMatrix * mv;
                 }
             `,
             fragmentShader: /* glsl */ `
+                varying float vShell;
+                varying float vFlare;
+                varying float vLit;
                 void main() {
                     float d = length(gl_PointCoord - 0.5) * 2.0;
                     if (d > 1.0) discard;
                     float a = smoothstep(1.0, 0.15, d);
-                    // Starlinks are reflective metal — cool-white with a faint cyan edge
-                    gl_FragColor = vec4(0.82, 0.92, 1.0, a * 0.85);
+                    if (vLit < 0.02) discard; // hide eclipsed satellites
+
+                    // Shell color palette (cool-white base with shell accents):
+                    //   shell 0 (~480 km low):  pale cyan  — the new lowered tier
+                    //   shell 1 (~550 km mid):  warm white — the workhorse shell
+                    //   shell 2 (~560 km pol):  cool teal  — polar shell (97.6°)
+                    //   shell 3 (~600 km hi ):  faint gold — residual high drifters
+                    vec3 c0 = vec3(0.78, 0.92, 1.00);
+                    vec3 c1 = vec3(0.96, 0.94, 0.86);
+                    vec3 c2 = vec3(0.72, 0.95, 0.98);
+                    vec3 c3 = vec3(1.00, 0.88, 0.72);
+                    vec3 col = c1;
+                    if (vShell < 0.5)      col = c0;
+                    else if (vShell < 1.5) col = c1;
+                    else if (vShell < 2.5) col = c2;
+                    else                   col = c3;
+
+                    // Flare: crush to near-white + boost alpha, brief but intense
+                    col = mix(col, vec3(1.0, 1.0, 0.95), vFlare * 0.9);
+                    float alpha = a * (0.70 + 0.55 * vFlare) * vLit;
+                    gl_FragColor = vec4(col, alpha);
                 }
             `,
         });
@@ -201,13 +284,34 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
     }
 
     function update(): void {
-        if (!elements.length || !positions || !geometry) return;
+        if (!elements.length || !positions || !geometry || !shells) return;
         const nowMs = Date.now();
         const n = Math.min(elements.length, MAX_SATS);
+
+        // Sun direction in ECEF — use day-of-year + hour to rotate a canonical
+        // ecliptic-ish vector. Good enough for visual terminator placement.
+        // Obliquity ≈23.44°, hour-angle derived from UTC.
+        const d = new Date(nowMs);
+        const dayOfYear = (Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()) -
+                           Date.UTC(d.getUTCFullYear(), 0, 0)) / 86400000;
+        const declRad = 23.44 * Math.PI / 180 * Math.sin(2 * Math.PI * (dayOfYear - 81) / 365);
+        const hourUTC = d.getUTCHours() + d.getUTCMinutes() / 60 + d.getUTCSeconds() / 3600;
+        const hourAngle = (12 - hourUTC) * 15 * Math.PI / 180; // noon longitude of sun
+        sunDir.set(
+            Math.cos(declRad) * Math.cos(hourAngle),
+            Math.sin(declRad),
+            Math.cos(declRad) * Math.sin(hourAngle),
+        ).normalize();
+        if (material) {
+            material.uniforms['uTime']!.value = nowMs / 1000;
+        }
+
         for (let i = 0; i < n; i++) {
             propagateToECEF(elements[i], nowMs, tmp);
             // ECEF (x,y,z in km) → geodetic lat/lon + altitude (spherical Earth, adequate for viz)
             const rKm = Math.sqrt(tmp.x * tmp.x + tmp.y * tmp.y + tmp.z * tmp.z);
+            const altKm = rKm - EARTH_RADIUS_KM;
+            shells[i] = shellCode(altKm);
             const lat = Math.asin(tmp.z / rKm) * 180 / Math.PI;
             const lon = Math.atan2(tmp.y, tmp.x) * 180 / Math.PI;
             const rUnits = (rKm / EARTH_RADIUS_KM) * GLOBE_RADIUS_UNITS;
@@ -216,7 +320,8 @@ export function createSatellites(globeGroup: THREE.Group): SatellitesContext {
             positions[i * 3 + 1] = v.y;
             positions[i * 3 + 2] = v.z;
         }
-        (geometry.attributes.position as THREE.BufferAttribute).needsUpdate = true;
+        (geometry.attributes['position'] as THREE.BufferAttribute).needsUpdate = true;
+        (geometry.attributes['aShell'] as THREE.BufferAttribute).needsUpdate = true;
     }
 
     async function refresh(): Promise<void> {
