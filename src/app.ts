@@ -39,6 +39,9 @@ import { fetchLiveData, getStatusText } from './services/api-client';
 import { updateMetrics } from './services/metrics';
 import { fetchEarthquakes } from './services/earthquake-feed';
 
+// i18n — needed to re-render liveStatus on locale toggle
+import { subscribe as subscribeLocale } from './i18n';
+
 // Data
 import { categories } from './data/categories';
 
@@ -170,6 +173,14 @@ export function createApp(): void {
     const liveDot = document.getElementById('liveDot')!;
     const liveStatus = document.getElementById('liveStatus')!;
 
+    // Track last known API-connected count so we can re-translate the status
+    // line on locale change without waiting for the next 60s refresh.
+    let lastApisConnected = 0;
+    subscribeLocale(() => {
+        const status = getStatusText(lastApisConnected);
+        liveStatus.textContent = status.text;
+    });
+
     async function refreshLiveData(): Promise<void> {
         const result = await fetchLiveData();
 
@@ -211,6 +222,7 @@ export function createApp(): void {
             liveData.gbifRecentCount = result.gbifRecentCount;
         }
 
+        lastApisConnected = result.apisConnected;
         const status = getStatusText(result.apisConnected);
         liveStatus.textContent = status.text;
         if (status.connected) liveDot.classList.add('connected');

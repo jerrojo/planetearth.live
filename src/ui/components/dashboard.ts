@@ -473,10 +473,8 @@ export function initDashboard(): DashboardContext {
         lastValues.push('-');
     });
 
-    // Keep metric labels + aria labels in sync with active locale.
-    // (Mood bubble + narrative are refreshed every ~2 s by updateDashboardVisuals,
-    //  so they don't need an explicit subscribe — their phraseFor() call pulls
-    //  fresh strings from the dict.)
+    // Keep metric labels, aria labels, and the narrative bar in sync with
+    // the active locale — immediately, not on the next 2 s update tick.
     subscribe(() => {
         metrics.forEach((m, i) => {
             const info = PERSONALITY[i];
@@ -485,6 +483,9 @@ export function initDashboard(): DashboardContext {
             labEls[i].textContent = metricLabel(m);
             cardEls[i].setAttribute('aria-label', `${metricLabel(m)} — ${phraseFor(info, mood.face)}`);
         });
+        // narrativeEl is defined below; re-read via a ref on the element
+        const nEl = document.querySelector('.narrative-bar');
+        if (nEl) nEl.textContent = getCriticalNarrative(metrics);
     });
 
     dashEl.appendChild(pillsContainer);
@@ -578,7 +579,7 @@ export function updateDashboardVisuals(ctx: DashboardContext): void {
                         ? `${Math.round(ageMs / 60_000)} min`
                         : `${Math.round(ageMs / 3600_000)} h`;
                     card.setAttribute('data-stale-age', ageStr);
-                    card.setAttribute('title', `Datos con ${ageStr} de antigüedad — abre "Data Status" para detalles`);
+                    card.setAttribute('title', t('dashboard.staleDataTooltip', { age: ageStr }));
                 } else {
                     card.removeAttribute('data-stale-age');
                     card.removeAttribute('title');

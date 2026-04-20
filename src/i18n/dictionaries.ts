@@ -140,7 +140,9 @@ export type StringKey =
     | 'metric.0.label'  | 'metric.1.label'  | 'metric.2.label'
     | 'metric.3.label'  | 'metric.4.label'  | 'metric.5.label'
     | 'metric.6.label'  | 'metric.7.label'  | 'metric.8.label'
-    | 'metric.9.label'  | 'metric.10.label';
+    | 'metric.9.label'  | 'metric.10.label'
+    // Dashboard tooltips
+    | 'dashboard.staleDataTooltip';
 
 type Dict = Record<StringKey, string>;
 
@@ -306,9 +308,10 @@ const es: Dict = {
     'metric.5.label':  'EMISIONES GT CO₂',
     'metric.6.label':  'METANO PPB',
     'metric.7.label':  'N₂O PPB',
-    'metric.8.label':  'HIELO ÁRTICO M km²',
+    'metric.8.label':  'HIELO ÁRTICO Mkm²',
     'metric.9.label':  'PM2.5 μg/m³',
     'metric.10.label': 'CARBONO g/kWh',
+    'dashboard.staleDataTooltip': 'Datos con {age} de antigüedad — abre "Data Status" para detalles',
 };
 
 const en: Dict = {
@@ -473,9 +476,10 @@ const en: Dict = {
     'metric.5.label':  'EMISSIONS GT CO₂',
     'metric.6.label':  'METHANE PPB',
     'metric.7.label':  'N₂O PPB',
-    'metric.8.label':  'ARCTIC ICE M km²',
+    'metric.8.label':  'ARCTIC ICE Mkm²',
     'metric.9.label':  'PM2.5 μg/m³',
     'metric.10.label': 'CARBON g/kWh',
+    'dashboard.staleDataTooltip': 'Data from {age} ago — open "Data Status" for details',
 };
 
 

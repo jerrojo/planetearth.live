@@ -762,11 +762,15 @@ body.loaded .dashboard { transform: translateX(-50%) translateY(0); }
 .metric .label {
     font-size: max(0.48em, 9px);
     color: var(--text-muted);
-    text-transform: uppercase;
+    /* Avoid CSS uppercasing — scientific units like μg/m³ must keep exact case.
+       Dict strings are already uppercased where we want them (e.g. "HIELO ÁRTICO Mkm²"). */
     letter-spacing: 0.6px;
     margin-top: 1px;
     font-weight: 600;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
     opacity: 0.85;
 }
 
