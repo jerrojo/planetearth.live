@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "NZL",
+    "name_en": "New Zealand",
+    "name_es": "Nueva Zelanda",
+    "region": "Oceania",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 76,
+    "per_capita_tco2e": 14.6,
+    "historical_share_pct": 0.1,
+    "trend_5y_pct": -4.0,
+    "trend_10y_pct": -6.5,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 40,
+      "industry": 6,
+      "agriculture": 49,
+      "transport": 19,
+      "buildings": 2,
+      "lulucf": -24,
+      "waste": 4
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 87,
+    "fossil_pct": 13,
+    "nuclear_pct": 0,
+    "coal_pct": 4,
+    "renewable_growth_5y_pp": 5
+  },
+  "commitments": {
+    "ndc_target": "Reduce net GHG emissions by 50% below 2005 gross levels by 2030 (NDC1 updated 2021); new 2035 NDC filed December 2024 pledges 51–55% below 2005 by 2035",
+    "ndc_updated_year": 2024,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Response (Zero Carbon) Amendment Act 2019 — net-zero by 2050 (biogenic methane carved out: 24–47% cut by 2050)",
+      "Emissions Trading Scheme (NZ ETS, 2008; ag entry repeatedly deferred — now delayed to 2030 under He Waka Eke Noa replacement)",
+      "Resource Management Act 1991 — core planning law, being split into Natural and Built Environment Act + Spatial Planning Act (2023, partially repealed 2024)",
+      "Crown Minerals Amendment Act 2018 — offshore oil & gas exploration ban (reversed December 2024 by the Luxon government)",
+      "Conservation Act 1987 & Wildlife Act 1953 — backbone of DOC and species protection",
+      "Te Mana o te Wai / National Policy Statement for Freshwater Management 2020 (weakened 2024)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Highly insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/new-zealand/",
+    "projection_2030_mtco2e": 64,
+    "ndc_gap_mtco2e": 18,
+    "pathway_15c_gap_mtco2e": 22
+  },
+  "pillars": {
+    "climate": {
+      "score": 35,
+      "rationale": "Per-capita emissions (~14.6 tCO2e) are among the highest in the OECD; gross emissions are declining modestly but New Zealand's NDC relies heavily on offshore credits to meet its 2030 pledge. The Zero Carbon Act 2019 set a legal 2050 net-zero target but carved biogenic methane out on a weaker trajectory (24–47%). CAT rates the country 'Highly insufficient', and the Luxon government's 2024 reversal of the offshore oil & gas exploration ban signaled a direction-of-travel shift backward.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 52,
+      "rationale": "Forest covers ~38% of land area, but roughly a third of that is exotic pine plantation (Pinus radiata) rather than native ngahere. Kauri dieback (Phytophthora agathidicida) continues to spread despite rāhui and track closures. Permanent-forest ETS settings are being reformed after concerns that whole-farm conversion to pine was crowding out food production and hollowing out rural communities, with limited biodiversity benefit.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 32,
+      "rationale": "An archipelago of extraordinary endemism — kiwi, kākāpō, tuatara, Hector's dolphin, long-tailed bat — but roughly 74% of native terrestrial birds and ~94% of reptiles are threatened or at risk (DOC Threat Classification). Predator Free 2050 is world-leading in ambition, with measurable kiwi recoveries in sanctuary zones, but introduced mammals still cost ~25 million native birds annually. Yale EPI 2024 biodiversity subscore remains middling.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 62,
+      "rationale": "Terrestrial protected areas reach ~33% (Protected Planet), largely through DOC conservation estate — above the GBF 30×30 target on paper. Marine coverage is ~30% headline but concentrated in the remote Kermadec / Rangitāhua sanctuary; mainland EEZ strict no-take coverage is under 1%. The Kermadec Ocean Sanctuary remains stalled after Māori fisheries settlement objections.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 55,
+      "rationale": "Ambient air quality is among the cleanest in the OECD, but freshwater is the Achilles heel: ~45% of monitored rivers fail swimmability standards and nitrate contamination from dairy intensification affects drinking water in Canterbury and Southland. The 2020 Te Mana o te Wai freshwater NPS was weakened in 2024, loosening farm winter-grazing and nitrogen-cap rules.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 25,
+      "rationale": "Agriculture is ~49% of gross emissions — the highest share of any OECD country — driven by ~26 million sheep, 10 million beef and dairy cattle, and enteric methane. Synthetic nitrogen fertilizer use has tripled since 1990. Pricing agricultural emissions has been delayed to 2030 after He Waka Eke Noa collapsed; methane targets face industry-led review. Pesticide regulation lags EU benchmarks.",
+      "data_confidence": "high"
+    },
+    "env_governance": {
+      "score": 52,
+      "rationale": "Strong institutional scaffolding — independent Climate Change Commission, Parliamentary Commissioner for the Environment, Environment Court — and genuine Te Tiriti-based co-governance experiments (Te Urewera, Whanganui River legal personhood). But the 2023–2026 coalition has rolled back fast-track consenting safeguards, weakened freshwater rules, and placed co-governance under political strain. Climate litigation is active (Smith v Fonterra reached the Supreme Court 2024).",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 45,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~64 MtCO2e projected 2030 (domestic)",
+      "target": "~42 MtCO2e (1.5°C compatible, CAT)",
+      "gap_pct": 52,
+      "source": "https://climateactiontracker.org/countries/new-zealand/"
+    },
+    {
+      "dimension": "Agricultural methane",
+      "current": "~49% of gross emissions; pricing deferred to 2030",
+      "target": "24–47% cut by 2050 (Zero Carbon Act floor); pricing in force by 2025",
+      "gap_pct": 100,
+      "source": "https://environment.govt.nz/publications/new-zealands-greenhouse-gas-inventory/"
+    },
+    {
+      "dimension": "Strict marine protection (no-take)",
+      "current": "<1% of EEZ fully protected outside Kermadec",
+      "target": "10% strict protection by 2030 (GBF)",
+      "gap_pct": 90,
+      "source": "https://www.protectedplanet.net/country/NZL"
+    },
+    {
+      "dimension": "Freshwater quality",
+      "current": "~45% of monitored rivers unswimmable",
+      "target": "90% swimmable by 2040 (NPS-FM)",
+      "gap_pct": 50,
+      "source": "https://environment.govt.nz/facts-and-science/freshwater/"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$0.3B/yr fuel excise concessions + re-opened exploration",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-12-09",
+      "action": "Luxon government passed Crown Minerals Amendment Bill reversing the 2018 ban on new offshore oil & gas exploration permits",
+      "type": "negative",
+      "source": "https://www.legislation.govt.nz/"
+    },
+    {
+      "date": "2024-12-19",
+      "action": "Filed 2035 NDC pledging 51–55% cut below 2005 gross emissions by 2035 — modest step up on the 2030 target",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2025-08-14",
+      "action": "Fast-track Approvals Act 2024 used to consent a major seabed iron-sand mining project off Taranaki over environmental and iwi objections",
+      "type": "negative",
+      "source": "https://environment.govt.nz/"
+    },
+    {
+      "date": "2025-06-30",
+      "action": "Predator Free 2050 programme reported kiwi population up to ~70,000 birds, first sustained increase in a century",
+      "type": "positive",
+      "source": "https://www.doc.govt.nz/nature/pests-and-threats/predator-free-2050/"
+    },
+    {
+      "date": "2025-10-22",
+      "action": "Government weakened National Policy Statement for Freshwater Management, relaxing nitrogen-cap and winter-grazing rules",
+      "type": "negative",
+      "source": "https://environment.govt.nz/publications/national-policy-statement-for-freshwater-management/"
+    },
+    {
+      "date": "2026-02-07",
+      "action": "Supreme Court allowed Smith v Fonterra climate tort case to proceed to full trial — landmark for corporate climate liability in NZ",
+      "type": "positive",
+      "source": "https://climatecasechart.com/non-us-jurisdiction/new-zealand/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 5,
+    "fossil_subsidies_usd_bn": 0.3,
+    "fossil_subsidies_pct_gdp": 0.11,
+    "climate_litigation_cases": 24
+  },
+  "context": {
+    "gdp_trillion_usd": 0.253,
+    "population_m": 5.22,
+    "fossil_dep_pct_gdp": 0.4,
+    "key_tension": "A country that markets itself as '100% Pure' and legislated net-zero by 2050 still runs an economy anchored in methane-intensive dairy and sheep, and the government elected in late 2023 is actively unwinding the environmental guardrails built over the previous decade."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — New Zealand", "url": "https://climateactiontracker.org/countries/new-zealand/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions New Zealand", "url": "https://ourworldindata.org/co2/country/new-zealand", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — New Zealand profile", "url": "https://epi.yale.edu/country/2024/NZL", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — New Zealand", "url": "https://www.protectedplanet.net/country/NZL", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — New Zealand 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Country Estimates", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation — New Zealand", "url": "https://climatecasechart.com/non-us-jurisdiction/new-zealand/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — New Zealand Country Data", "url": "https://data.worldbank.org/country/new-zealand", "date_accessed": "2026-04-20" },
+    { "name": "Ministry for the Environment — NZ Greenhouse Gas Inventory", "url": "https://environment.govt.nz/publications/new-zealands-greenhouse-gas-inventory/", "date_accessed": "2026-04-20" },
+    { "name": "Department of Conservation — Predator Free 2050", "url": "https://www.doc.govt.nz/nature/pests-and-threats/predator-free-2050/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — New Zealand species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Parliamentary Commissioner for the Environment", "url": "https://pce.parliament.nz/", "date_accessed": "2026-04-20" },
+    { "name": "NZ Climate Change Commission — He Pou a Rangi", "url": "https://www.climatecommission.govt.nz/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "ZAF",
+    "name_en": "South Africa",
+    "name_es": "Sudáfrica",
+    "region": "Africa",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 442,
+    "per_capita_tco2e": 7.1,
+    "historical_share_pct": 1.3,
+    "trend_5y_pct": -4.5,
+    "trend_10y_pct": -9.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 78,
+      "industry": 8,
+      "agriculture": 5,
+      "transport": 11,
+      "buildings": 2,
+      "lulucf": -3,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 11,
+    "fossil_pct": 85,
+    "nuclear_pct": 4,
+    "coal_pct": 82,
+    "renewable_growth_5y_pp": 5
+  },
+  "commitments": {
+    "ndc_target": "350–420 MtCO2e by 2030 (peak-plateau-decline); updated 2021 NDC upper bound lowered 32% below previous pledge",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Act (2024) — first binding national climate law; sectoral carbon budgets",
+      "Carbon Tax Act (2019, Phase 2 from 2026) — rate rising to ~R236/tCO2e",
+      "Integrated Resource Plan 2023 (electricity mix to 2030)",
+      "National Environmental Management: Biodiversity Act (2004, amended 2022)",
+      "Just Energy Transition Implementation Plan (2023)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/south-africa/",
+    "projection_2030_mtco2e": 410,
+    "ndc_gap_mtco2e": 60,
+    "pathway_15c_gap_mtco2e": 110
+  },
+  "pillars": {
+    "climate": {
+      "score": 38,
+      "rationale": "Highest per-capita emitter in Africa at ~7.1 tCO2e, with ~78% of emissions from an Eskom grid that is ~82% coal-fired. Emissions have declined ~9% over the decade largely because load-shedding has throttled output rather than by design. CAT rates overall effort 'Insufficient'; the 2030 NDC upper bound (420 Mt) is aligned with a 2°C path but the lower bound (350 Mt) approaches 1.5°C compatibility only if JETP financing actually lands.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 50,
+      "rationale": "South Africa is a naturally low-forest country (~7.6% tree cover, mostly savanna and fynbos shrubland) so conventional deforestation metrics understate the story. Commercial timber plantations (~1.3 Mha of pine/eucalyptus) drive water stress, while invasive alien species affect ~10% of land area. Working for Water programme is a global model for ecological restoration and jobs linkage.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 55,
+      "rationale": "One of 17 megadiverse countries — home to the Cape Floristic Region (one of six floral kingdoms on Earth), three biodiversity hotspots, and iconic megafauna. Rhino poaching killed 420 animals in 2024 (down from 2014 peak of 1,215 but rebounding in KwaZulu-Natal). IUCN Red List shows ~14% of assessed species threatened. Strong science base (SANBI) but funding and enforcement gaps.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 48,
+      "rationale": "Terrestrial protected areas at 9.24% and marine at 14.55% (after 2019 MPA expansion) per Protected Planet. Terrestrial coverage is well below the GBF 30×30 target. Kruger, iSimangaliso and Table Mountain National Parks are world-class, but connectivity and representation of grassland and succulent Karoo biomes remain weak.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 35,
+      "rationale": "Highveld industrial region has some of the world's worst SO2 pollution — NASA satellite data ranks Mpumalanga coal belt the largest NO2 hotspot on Earth. 2022 Constitutional Court ruling (Deadly Air case) found government failure to enforce Air Quality Act violated constitutional rights. PM2.5 population-weighted exposure ~25 µg/m³, 5× WHO guideline.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 48,
+      "rationale": "Agriculture only ~3% of GDP but uses ~60% of freshwater; sector is bimodal (high-tech commercial export farming alongside subsistence smallholders). Pesticide use moderate by global standards; organic <2% of farmland. Climate vulnerability is acute — 2015–2018 Cape Town 'Day Zero' drought and ongoing Eastern Cape water stress signal structural risk.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 55,
+      "rationale": "Strong constitutional environmental rights (Section 24), independent judiciary, active civil society, and landmark climate litigation (Deadly Air 2022; Earthlife Africa Thabametsi 2017). 2024 Climate Change Act is a structural milestone. But implementation gap is wide: Eskom, Sasol, mining houses retain political weight, and state capacity has been eroded by a decade of 'state capture' corruption.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 47,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Coal share of electricity",
+      "current": "82% (2025)",
+      "target": "<30% by 2030 for 1.5°C alignment",
+      "gap_pct": 173,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~410 MtCO2e projected 2030",
+      "target": "~300 MtCO2e (1.5°C compatible)",
+      "gap_pct": 37,
+      "source": "https://climateactiontracker.org/countries/south-africa/"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "9.24%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 69,
+      "source": "https://www.protectedplanet.net/country/ZAF"
+    },
+    {
+      "dimension": "Air quality (Highveld PM2.5)",
+      "current": "~25 µg/m³ population-weighted",
+      "target": "5 µg/m³ (WHO guideline)",
+      "gap_pct": 400,
+      "source": "https://epi.yale.edu/country/2024/ZAF"
+    },
+    {
+      "dimension": "JETP financing delivered vs pledged",
+      "current": "~$2.1B disbursed of $11.8B pledged",
+      "target": "Full mobilisation by 2027",
+      "gap_pct": 82,
+      "source": "https://www.thepresidency.gov.za/just-energy-transition-investment-plan"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-07-23",
+      "action": "Climate Change Act signed into law — establishes binding sectoral carbon budgets and a Presidential Climate Commission in statute",
+      "type": "positive",
+      "source": "https://www.dffe.gov.za/"
+    },
+    {
+      "date": "2025-09-18",
+      "action": "Integrated Resource Plan 2025 gazetted — extends life of Komati and Camden coal stations past earlier retirement dates citing grid security",
+      "type": "negative",
+      "source": "https://www.energy.gov.za/"
+    },
+    {
+      "date": "2026-01-14",
+      "action": "Rhino poaching statistics show 420 killed in 2024 — fourth consecutive annual rise in KwaZulu-Natal despite dehorning programmes",
+      "type": "negative",
+      "source": "https://www.dffe.gov.za/"
+    },
+    {
+      "date": "2025-11-22",
+      "action": "US withdrawal from JETP confirmed; remaining partners (EU, UK, Germany, France, Netherlands, Denmark) reaffirmed $9.3B pledge, but grant share shrinks further",
+      "type": "negative",
+      "source": "https://www.thepresidency.gov.za/just-energy-transition-investment-plan"
+    },
+    {
+      "date": "2025-06-05",
+      "action": "Loadshedding suspended for 330+ consecutive days as Eskom energy availability factor passes 65% and 6 GW of private rooftop solar eases peak demand",
+      "type": "positive",
+      "source": "https://www.eskom.co.za/"
+    },
+    {
+      "date": "2026-02-28",
+      "action": "Carbon Tax Phase 2 begins — headline rate rises to R236/tCO2e with free allowances tapering; first binding cost signal for Eskom and Sasol",
+      "type": "positive",
+      "source": "https://www.treasury.gov.za/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 2,
+    "indigenous_land_recognition_pct": 4,
+    "fossil_subsidies_usd_bn": 4.9,
+    "fossil_subsidies_pct_gdp": 1.2,
+    "climate_litigation_cases": 34
+  },
+  "context": {
+    "gdp_trillion_usd": 0.41,
+    "population_m": 62.4,
+    "fossil_dep_pct_gdp": 2.3,
+    "key_tension": "South Africa has Africa's most developed climate law and the continent's most coal-dependent grid in the same country — the Just Energy Transition is a test case for whether an emerging economy can decarbonise without deepening unemployment in regions whose entire economy is built on coal."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — South Africa", "url": "https://climateactiontracker.org/countries/south-africa/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions South Africa", "url": "https://ourworldindata.org/co2/country/south-africa", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — South Africa country profile", "url": "https://epi.yale.edu/country/2024/ZAF", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — South Africa", "url": "https://www.protectedplanet.net/country/ZAF", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — South Africa", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center — Climate Litigation Database (South Africa)", "url": "https://climatecasechart.com/non-us-jurisdiction/south-africa/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — South Africa Country Data", "url": "https://data.worldbank.org/country/south-africa", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — South African species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Presidency of South Africa — JET Investment Plan", "url": "https://www.thepresidency.gov.za/just-energy-transition-investment-plan", "date_accessed": "2026-04-20" },
+    { "name": "Department of Forestry, Fisheries and the Environment (DFFE)", "url": "https://www.dffe.gov.za/", "date_accessed": "2026-04-20" },
+    { "name": "SANBI — South African National Biodiversity Institute", "url": "https://www.sanbi.org/", "date_accessed": "2026-04-20" },
+    { "name": "High Court of South Africa — Deadly Air judgment 2022", "url": "https://www.saflii.org/za/cases/ZAGPPHC/2022/208.html", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

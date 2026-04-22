@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "ARE",
+    "name_en": "United Arab Emirates",
+    "name_es": "Emiratos Árabes Unidos",
+    "region": "Asia",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 245,
+    "per_capita_tco2e": 24.5,
+    "historical_share_pct": 0.4,
+    "trend_5y_pct": 9.0,
+    "trend_10y_pct": 22.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 68,
+      "industry": 18,
+      "agriculture": 1,
+      "transport": 9,
+      "buildings": 2,
+      "lulucf": 0,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 8,
+    "fossil_pct": 75,
+    "nuclear_pct": 17,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 6
+  },
+  "commitments": {
+    "ndc_target": "Cut GHG emissions 47% below business-as-usual by 2035 (third NDC, 2024); 2030 NDC updated July 2023 to 19% absolute cut vs 2019",
+    "ndc_updated_year": 2024,
+    "net_zero_year": 2050,
+    "net_zero_status": "policy",
+    "key_laws": [
+      "Federal Decree-Law No. 11 of 2024 on Climate Change — first binding national climate law",
+      "UAE Net Zero by 2050 Strategic Initiative (2021, updated 2023)",
+      "National Climate Change Plan 2017–2050",
+      "UAE Energy Strategy 2050 (targets 44% clean energy by 2050)",
+      "National Biodiversity Strategy and Action Plan 2014–2021 (renewal pending)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/uae/",
+    "projection_2030_mtco2e": 230,
+    "ndc_gap_mtco2e": 45,
+    "pathway_15c_gap_mtco2e": 90
+  },
+  "pillars": {
+    "climate": {
+      "score": 32,
+      "rationale": "Per-capita emissions at ~24.5 tCO2e are among the highest in the world, and absolute emissions continue to rise (~+9% over 5 years). ADNOC is expanding oil capacity to 5 Mb/d by 2027 and investing in LNG, even as Masdar scales renewables abroad. CAT rates domestic policies and targets 'Insufficient'; the 2035 NDC (-47% vs BAU) relies on a high baseline and includes non-reduction accounting that weakens its real force.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 38,
+      "rationale": "Hyperarid geography means natural forest cover is effectively zero; mangroves and ghaf woodlands are the ecologically meaningful land systems. Abu Dhabi's mangrove area has grown ~35% since 2010 through active planting (Mohamed bin Zayed pledge: 100M mangroves by 2030). But urban sprawl, desalination brine, and coastal landfill continue to erode intertidal habitat. Score reflects active restoration against a small ecological base.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 30,
+      "rationale": "Not megadiverse but ecologically distinctive: Arabian oryx (reintroduced from extinction-in-the-wild), dugongs (second-largest global population in the Gulf), hawksbill turtles, and endemic reef fish. IUCN Red List flags ~14% of assessed species as threatened; coral bleaching in the southern Gulf is chronic due to extreme SST. Wildlife trade enforcement has strengthened but the UAE remains a CITES transit hub of concern.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 45,
+      "rationale": "Terrestrial protected areas cover ~15.5% and marine ~12% per Protected Planet — above global average for marine, but still far short of the GBF 30×30 target the UAE endorsed at COP15. Marwa Marine Reserve and Marawah Biosphere are genuine conservation assets; enforcement and no-take zoning remain uneven.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 35,
+      "rationale": "Yale EPI 2024 ranks the UAE mid-pack on air quality; population-weighted PM2.5 remains ~40 µg/m³ (8× WHO guideline), driven by dust, traffic, and petrochemicals. Per-capita municipal waste is among the world's highest. Desalination supplies ~42% of potable water and discharges hypersaline brine into one of the planet's most saline and thermally stressed seas.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 40,
+      "rationale": "Agriculture is <1% of GDP and <1% of land, limiting aggregate impact, but water intensity is extreme: groundwater aquifers have been drawn down catastrophically (Liwa oasis falling >1m/yr). Food imports cover ~85% of consumption, externalizing land footprint. Controlled-environment agriculture and vertical farming are expanding; regenerative desert soil programs remain pilot-scale.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 48,
+      "rationale": "Strong executive capacity: Ministry of Climate Change and Environment, binding 2024 climate law, and COP28 presidency produced the 'UAE Consensus' language on 'transitioning away from fossil fuels'. But civil society space is constrained, independent climate journalism is limited, and Al Jaber's dual role as ADNOC CEO and COP28 president surfaced structural conflicts of interest flagged by UN Special Rapporteurs and Global Witness.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 37,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~230 MtCO2e projected 2030",
+      "target": "~140 MtCO2e (1.5°C compatible)",
+      "gap_pct": 64,
+      "source": "https://climateactiontracker.org/countries/uae/"
+    },
+    {
+      "dimension": "Renewables in electricity",
+      "current": "8% (2025)",
+      "target": ">60% by 2030 for 1.5°C alignment",
+      "gap_pct": 87,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "ADNOC oil capacity expansion",
+      "current": "Expanding to 5 Mb/d by 2027",
+      "target": "No new oil/gas fields (IEA NZE 2021)",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/reports/net-zero-by-2050"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "~12%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 60,
+      "source": "https://www.protectedplanet.net/country/ARE"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$5B/yr explicit (IEA)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-11-20",
+      "action": "Al Dhafra Solar PV (2 GW) fully commissioned — among the world's largest single-site solar farms at record-low tariff",
+      "type": "positive",
+      "source": "https://www.masdar.ae/"
+    },
+    {
+      "date": "2026-02-10",
+      "action": "ADNOC announces acceleration of oil production capacity to 5 million barrels/day by 2027 (one year earlier than prior plan)",
+      "type": "negative",
+      "source": "https://www.adnoc.ae/"
+    },
+    {
+      "date": "2025-09-15",
+      "action": "Submitted third NDC committing to 47% GHG cut below BAU by 2035 — first UAE pledge with sector-specific sub-targets",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2026-01-22",
+      "action": "Federal Decree-Law No. 11 of 2024 on Climate Change enters force — first binding national climate law with penalties",
+      "type": "positive",
+      "source": "https://moccae.gov.ae/"
+    },
+    {
+      "date": "2025-12-05",
+      "action": "Barakah Nuclear Plant Unit 4 reaches commercial operation — completes 5.6 GW fleet supplying ~25% of UAE electricity carbon-free",
+      "type": "positive",
+      "source": "https://www.enec.gov.ae/"
+    },
+    {
+      "date": "2026-03-08",
+      "action": "Abu Dhabi approves expanded LNG export terminal (Ruwais LNG, 9.6 Mtpa) — long-lived fossil infrastructure despite net-zero pledge",
+      "type": "negative",
+      "source": "https://www.adnoc.ae/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 5,
+    "fossil_subsidies_pct_gdp": 1.0,
+    "climate_litigation_cases": 2
+  },
+  "context": {
+    "gdp_trillion_usd": 0.52,
+    "population_m": 10.0,
+    "fossil_dep_pct_gdp": 17.5,
+    "key_tension": "The UAE chaired COP28 and delivered the first UNFCCC text calling to 'transition away from fossil fuels' — while its national oil company simultaneously accelerates the largest oil capacity expansion of any producer outside the United States."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — UAE", "url": "https://climateactiontracker.org/countries/uae/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions UAE", "url": "https://ourworldindata.org/co2/country/united-arab-emirates", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — UAE country profile", "url": "https://epi.yale.edu/country/2024/ARE", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — United Arab Emirates", "url": "https://www.protectedplanet.net/country/ARE", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — UAE Third NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Working Paper (Parry et al.)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — UAE", "url": "https://climatecasechart.com/non-us-jurisdiction/united-arab-emirates/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — COP28 fossil fuel lobbyists briefing", "url": "https://www.globalwitness.org/en/campaigns/fossil-gas/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — UAE Country Data", "url": "https://data.worldbank.org/country/united-arab-emirates", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — UAE species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "UAE Ministry of Climate Change and Environment (MOCCAE)", "url": "https://www.moccae.gov.ae/", "date_accessed": "2026-04-20" },
+    { "name": "Masdar — Project portfolio", "url": "https://www.masdar.ae/", "date_accessed": "2026-04-20" },
+    { "name": "ADNOC — Upstream production plans", "url": "https://www.adnoc.ae/", "date_accessed": "2026-04-20" },
+    { "name": "UAE Consensus — COP28 Outcome (UNFCCC)", "url": "https://unfccc.int/cop28/outcomes", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

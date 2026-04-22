@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "NOR",
+    "name_en": "Norway",
+    "name_es": "Noruega",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 46.5,
+    "per_capita_tco2e": 8.3,
+    "historical_share_pct": 0.2,
+    "trend_5y_pct": -9.0,
+    "trend_10y_pct": -14.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 26,
+      "industry": 23,
+      "agriculture": 9,
+      "transport": 28,
+      "buildings": 3,
+      "lulucf": -35,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 98,
+    "fossil_pct": 2,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 1
+  },
+  "commitments": {
+    "ndc_target": "Cut GHG emissions by at least 55% below 1990 levels by 2030; 70–75% by 2035 (updated NDC)",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Act (2018, strengthened 2021) — statutory 2030 and 2050 targets",
+      "Nature Diversity Act (2009) — framework for biodiversity and protected areas",
+      "Svalbard Environmental Protection Act (2001)",
+      "Pollution Control Act (1981, amended) — industrial emissions framework",
+      "Planning and Building Act — environmental impact assessment regime"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/norway/",
+    "projection_2030_mtco2e": 38.0,
+    "ndc_gap_mtco2e": 14.0,
+    "pathway_15c_gap_mtco2e": 20.0
+  },
+  "pillars": {
+    "climate": {
+      "score": 55,
+      "rationale": "Electricity is ~98% renewable (hydro-dominated) and Norway leads the world on EV adoption at ~95% of new car sales, but the country is also a top-20 oil and gas producer and Europe's largest gas supplier post-Russia. Territorial emissions are falling (~14% below 1990) while exported fossil emissions dwarf the domestic inventory. CAT rates overall effort 'Insufficient' due to continued North Sea drilling approvals.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 60,
+      "rationale": "Forest cover is ~38% and expanding, with net carbon removals in LULUCF of roughly -20 to -25 MtCO2e per year. Primary and near-natural forest remains limited, and intensive spruce plantations dominate managed stands. Norway is a major international funder of tropical forest protection via NICFI (~$500M/yr) and the Rainforest Foundation, partially offsetting thin domestic old-growth protection.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Roughly 1 in 5 assessed species is Red-Listed nationally; wild Atlantic salmon stocks collapsed to a record low in 2024, triggering river closures. Open-net salmon farming exports ~1.2 MtCO2e of escape, sea-lice and benthic impact along the coast. Arctic warming at 3–4× global mean is pushing cod, reindeer and polar bear ranges; IUCN trajectory remains negative.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 58,
+      "rationale": "Terrestrial protected areas cover ~17.5% (including large Svalbard reserves) and marine ~4.6% of national waters — well short of the GBF 30×30 target Norway endorsed. Protection is skewed toward high-altitude and high-Arctic areas, leaving coastal and boreal forest under-represented. OECM reporting is nascent.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 78,
+      "rationale": "Air quality is among the best in the OECD (population-weighted PM2.5 ~6–7 µg/m³, near the WHO guideline), and waste/water systems are high-performing. Legacy issues include mercury in fjord sediments, microplastics from tyre wear and salmon-farm nutrient loading. Yale EPI 2024 ranks Norway in the global top 5 largely on pollution indicators.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 55,
+      "rationale": "Small sector (~2% of GDP) with relatively low pesticide intensity and strong animal welfare rules, but high per-hectare nitrogen loading and heavy reliance on imported soy feed for salmon and livestock. Organic area around 4–5%, below the EU ambition of 25% by 2030. Aquaculture (salmon) is the dominant food-system footprint and is only loosely integrated into agricultural emissions accounting.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 72,
+      "rationale": "Strong institutions: independent Climate Council, statutory Climate Change Act, high transparency, active Sabin-listed litigation (including the People v. Arctic Oil Supreme Court case). The $1.6T Government Pension Fund Global divested from thermal coal and select oil producers, though it retains large fossil equity. Sámi consultation rights under ILO 169 are real but contested (Fosen wind ruling).",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 60,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~38 MtCO2e projected 2030",
+      "target": "~18 MtCO2e (1.5°C compatible, excl. exported fossils)",
+      "gap_pct": 111,
+      "source": "https://climateactiontracker.org/countries/norway/"
+    },
+    {
+      "dimension": "Exported fossil fuel emissions",
+      "current": "~450 MtCO2e/yr from oil & gas exports",
+      "target": "Managed decline consistent with 1.5°C (IEA: no new fields)",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/reports/net-zero-by-2050"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "4.6%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 85,
+      "source": "https://www.protectedplanet.net/country/NOR"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "17.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 42,
+      "source": "https://www.protectedplanet.net/country/NOR"
+    },
+    {
+      "dimension": "Wild Atlantic salmon stocks",
+      "current": "Record low 2024; 33 rivers closed",
+      "target": "Recovery to sustainable harvestable levels",
+      "gap_pct": 70,
+      "source": "https://www.iucnredlist.org/species/19855/9026693"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-02-10",
+      "action": "Government paused commercial deep-sea mining licensing round in Arctic waters after parliamentary and EU pressure, pending further impact assessment",
+      "type": "positive",
+      "source": "https://www.regjeringen.no/"
+    },
+    {
+      "date": "2025-11-12",
+      "action": "Submitted updated 2035 NDC pledging 70–75% cut below 1990 levels, above EU's 2040 indicative target",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2025-06-26",
+      "action": "Approved new production licences on the Norwegian Continental Shelf including North Sea and Barents Sea blocks (APA 2025 round)",
+      "type": "negative",
+      "source": "https://www.sodir.no/"
+    },
+    {
+      "date": "2025-08-05",
+      "action": "33 salmon rivers closed to fishing after wild Atlantic salmon returns hit a historic low, linked to sea-lice from open-net farms and ocean warming",
+      "type": "negative",
+      "source": "https://www.miljodirektoratet.no/"
+    },
+    {
+      "date": "2026-01-18",
+      "action": "Government Pension Fund Global tightened climate expectations on portfolio companies and excluded additional oil-sands producers",
+      "type": "positive",
+      "source": "https://www.nbim.no/"
+    },
+    {
+      "date": "2025-10-02",
+      "action": "Supreme Court confirmed Fosen wind farm construction violated Sámi reindeer herding rights; government ordered to negotiate mitigation with affected siidas",
+      "type": "neutral",
+      "source": "https://www.domstol.no/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 45,
+    "fossil_subsidies_usd_bn": 3.2,
+    "fossil_subsidies_pct_gdp": 0.55,
+    "climate_litigation_cases": 9
+  },
+  "context": {
+    "gdp_trillion_usd": 0.58,
+    "population_m": 5.58,
+    "fossil_dep_pct_gdp": 13.0,
+    "key_tension": "Norway powers itself almost entirely on renewables and leads the world on EVs, yet exports enough oil and gas to emit ten times its domestic footprint — its climate credibility rests on whether it is willing to manage the decline of the industry that made it rich."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Norway", "url": "https://climateactiontracker.org/countries/norway/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Norway", "url": "https://ourworldindata.org/co2/country/norway", "date_accessed": "2026-04-20" },
+    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Norway country profile", "url": "https://epi.yale.edu/country/2024/NOR", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Norway", "url": "https://www.protectedplanet.net/country/NOR", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Norway updated NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies (country estimates)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Norway", "url": "https://climatecasechart.com/non-us-jurisdiction/norway/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Norway Country Data", "url": "https://data.worldbank.org/country/norway", "date_accessed": "2026-04-20" },
+    { "name": "Norwegian Environment Agency (Miljødirektoratet)", "url": "https://www.miljodirektoratet.no/", "date_accessed": "2026-04-20" },
+    { "name": "Norwegian Offshore Directorate (Sodir)", "url": "https://www.sodir.no/", "date_accessed": "2026-04-20" },
+    { "name": "Norges Bank Investment Management (Government Pension Fund Global)", "url": "https://www.nbim.no/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Atlantic Salmon", "url": "https://www.iucnredlist.org/species/19855/9026693", "date_accessed": "2026-04-20" },
+    { "name": "Norway's International Climate and Forest Initiative (NICFI)", "url": "https://www.nicfi.no/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

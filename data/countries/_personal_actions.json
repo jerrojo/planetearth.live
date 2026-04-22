@@ -1,0 +1,53 @@
+{
+  "version": "2.0",
+  "scope": "individual-universal",
+  "description": "Top 5 individual actions shown on every country panel when the user expands the Acciones Personales category. Same list regardless of which country is selected. Ranked by per-person impact × tractability. Based on peer-reviewed lifestyle-impact research.",
+  "last_updated": "2026-04-20",
+  "items": [
+    {
+      "rank": 1,
+      "title_en": "Move your money out of fossil banks and pensions",
+      "title_es": "Saca tu dinero de bancos y pensiones fósiles",
+      "what_en": "The 60 biggest banks financed $869B in fossil expansion in 2025. Moving your checking, savings, and pension to a climate-aligned bank or fund removes capital from the problem — and does more per person than most behavior changes combined.",
+      "what_es": "Los 60 bancos más grandes financiaron $869B en expansión fósil en 2025. Mover tu cuenta, ahorros y pensión a un banco o fondo alineado con el clima le quita capital al problema — y hace más por persona que la mayoría de cambios de conducta sumados.",
+      "impact_tag": "~2 tCO2e/yr equivalent (capital displaced)",
+      "source": "https://www.bankingonclimatechaos.org/"
+    },
+    {
+      "rank": 2,
+      "title_en": "Shift your diet toward plants",
+      "title_es": "Desplaza tu dieta hacia plantas",
+      "what_en": "A plant-forward diet cuts personal food-system emissions by up to 73%. Red meat and dairy are the highest-intensity foods per calorie delivered, and account for roughly 60% of food's total climate footprint.",
+      "what_es": "Una dieta basada en plantas reduce tus emisiones alimentarias hasta 73%. La carne roja y los lácteos son los alimentos más intensos por caloría y representan ~60% de la huella climática de la comida.",
+      "impact_tag": "~1.1 tCO2e/yr",
+      "source": "https://science.sciencemag.org/content/360/6392/987"
+    },
+    {
+      "rank": 3,
+      "title_en": "Fly less — train and local vacations count twice",
+      "title_es": "Vuela menos — el tren y las vacaciones locales cuentan doble",
+      "what_en": "One transatlantic round-trip emits ~1.6 tCO2e, more than the annual emissions of the average person in 100+ countries. Business travel is the easiest to cut; leisure travel the most impactful when you trade one long-haul for multiple local trips.",
+      "what_es": "Un vuelo transatlántico ida-vuelta emite ~1.6 tCO2e, más que las emisiones anuales promedio de una persona en más de 100 países. Los viajes de trabajo son los más fáciles de recortar; los de placer son de mayor impacto si cambias un vuelo largo por varios viajes locales.",
+      "impact_tag": "~1.6 tCO2e per avoided trip",
+      "source": "https://iopscience.iop.org/article/10.1088/1748-9326/aa7541"
+    },
+    {
+      "rank": 4,
+      "title_en": "Vote — in every election, at every level",
+      "title_es": "Vota — en cada elección, en cada nivel",
+      "what_en": "Local and national elections decide whether coal plants stay open, forests get protected, and transit gets funded. Climate-credible candidates win or lose on thin margins. Your vote also signals to parties which issues determine elections.",
+      "what_es": "Las elecciones locales y nacionales deciden si las plantas de carbón siguen abiertas, si se protegen los bosques y si se financia el transporte público. Los candidatos creíbles en clima ganan o pierden por márgenes finos. Tu voto también le indica a los partidos qué temas deciden elecciones.",
+      "impact_tag": "systemic — indirect but decisive",
+      "source": "https://climate.mit.edu/explainers/how-much-do-individual-actions-matter"
+    },
+    {
+      "rank": 5,
+      "title_en": "Join a local climate or nature group — and talk about it",
+      "title_es": "Únete a un grupo local de clima o naturaleza — y habla del tema",
+      "what_en": "Less than 1 in 3 people hear climate change discussed in their personal life. Silence is the biggest barrier. Joining a local group multiplies your individual actions into collective political power — and breaking the silence lets others feel permission to care.",
+      "what_es": "Menos de 1 de cada 3 personas escuchan hablar del cambio climático en su vida personal. El silencio es la mayor barrera. Unirte a un grupo local multiplica tus acciones individuales en poder político colectivo — y romper el silencio le da permiso a otros para que les importe.",
+      "impact_tag": "compounds across a lifetime",
+      "source": "https://350.org/"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "MAR",
+    "name_en": "Morocco",
+    "name_es": "Marruecos",
+    "region": "Africa",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 95,
+    "per_capita_tco2e": 2.5,
+    "historical_share_pct": 0.14,
+    "trend_5y_pct": 6.5,
+    "trend_10y_pct": 18.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 62,
+      "industry": 14,
+      "agriculture": 13,
+      "transport": 16,
+      "buildings": 4,
+      "lulucf": -3,
+      "waste": 6
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 22,
+    "fossil_pct": 78,
+    "nuclear_pct": 0,
+    "coal_pct": 60,
+    "renewable_growth_5y_pp": 5
+  },
+  "commitments": {
+    "ndc_target": "45.5% reduction in GHG emissions below BAU by 2030 (18.3% unconditional, 27.2% conditional on international finance)",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2050,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Framework Law 99-12 on the National Charter for Environment and Sustainable Development (2014)",
+      "Law 13-09 on Renewable Energies (2010, amended 2016, 2023)",
+      "National Energy Strategy 2030 (52% renewable electricity target)",
+      "Green Hydrogen Offer / Morocco Offer (2024) — national framework for green H2 export",
+      "National Water Plan 2020–2050 and Emergency Water Programme (2020, extended 2023)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Almost sufficient",
+    "cat_url": "https://climateactiontracker.org/countries/morocco/",
+    "projection_2030_mtco2e": 110,
+    "ndc_gap_mtco2e": 15,
+    "pathway_15c_gap_mtco2e": 25
+  },
+  "pillars": {
+    "climate": {
+      "score": 58,
+      "rationale": "Low per-capita emissions (~2.5 tCO2e) and a genuine renewables story — Noor Ouarzazate is one of the world's largest CSP complexes, and the 52% renewable electricity target for 2030 is a credible north star. CAT rates Morocco 'Almost sufficient', one of the few such ratings globally. But coal still supplies ~60% of electricity via Jorf Lasfar and Safi, and absolute emissions are still rising ~6.5% over 5 years as industry and transport grow.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 42,
+      "rationale": "Forest cover is ~12.7% (mainly cedar, cork oak, argan), under chronic pressure from overgrazing, fuelwood collection, and climate-driven drought. The Forêts du Maroc 2020–2030 strategy targets restoration of 600,000 ha and a shift to community co-management, but enforcement is uneven. The 2023 Al Haouz earthquake accelerated land-use pressure in the High Atlas.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 45,
+      "rationale": "Not megadiverse but globally significant as a Mediterranean Basin hotspot with endemic argan woodlands, Barbary macaque, North African leopard (critically endangered) and a critical Afro-Palearctic migratory bird corridor through the Strait of Gibraltar. IUCN Red List trajectory is negative: ~11% of mammals and ~14% of fish threatened. Marine ecosystems under heavy industrial fishing pressure.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 35,
+      "rationale": "Terrestrial protected areas at ~1.5% and marine at ~0.8% (Protected Planet), among the lowest coverage in North Africa and far below the GBF 30×30 target Morocco endorsed. The 2023 Biodiversity Strategy promises expansion, but gazetting and management effectiveness remain weak. Few OECMs formally recognized.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 40,
+      "rationale": "Urban PM2.5 exposure ~33 µg/m³ (6–7× WHO guideline) in Casablanca and the industrial corridor. Phosphate mining by OCP — the world's largest phosphate producer and reserves holder — generates large phosphogypsum waste streams and marine effluent on the Atlantic coast. Solid waste collection improving but landfill dominates; plastic-bag ban (2016) partially effective.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 30,
+      "rationale": "Agriculture uses ~87% of freshwater in a country experiencing its worst drought in 40+ years. The Plan Maroc Vert / Generation Green strategies boosted export crops (tomatoes, berries, citrus, avocado) often in water-stressed regions, deepening hydrological stress. Fertilizer use moderate but groundwater tables falling >1 m/year in parts of Souss and Saïss basins.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 48,
+      "rationale": "Unusually proactive for the region: constitutional environmental right (2011), an active Ministry of Energy Transition, and credible convening power (hosted COP22 in 2016). The monarchy's top-down execution delivers megaprojects like Noor but constrains civil society — environmental defenders in Rif and Jerada faced prosecution; Western Sahara governance opacity limits independent monitoring of Dakhla/Laayoune renewable zones.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 43,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Coal share of electricity",
+      "current": "~60% (2025)",
+      "target": "<20% by 2030 for 1.5°C alignment",
+      "gap_pct": 200,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Renewable electricity share vs 2030 target",
+      "current": "22% (2025)",
+      "target": "52% by 2030 (National Energy Strategy)",
+      "gap_pct": 58,
+      "source": "https://www.iea.org/countries/morocco"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~1.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 95,
+      "source": "https://www.protectedplanet.net/country/MAR"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "~0.8%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 97,
+      "source": "https://www.protectedplanet.net/country/MAR"
+    },
+    {
+      "dimension": "Agricultural water use vs sustainable yield",
+      "current": "~87% of freshwater, groundwater falling >1 m/yr",
+      "target": "Aquifer-balanced abstraction by 2030",
+      "gap_pct": 60,
+      "source": "https://www.worldbank.org/en/country/morocco"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-05",
+      "action": "Signed first binding green hydrogen export offtake agreements with German and Dutch consortia under the 'Morocco Offer' framework — ~183,000 ha allocated for H2/ammonia projects",
+      "type": "positive",
+      "source": "https://www.mem.gov.ma/"
+    },
+    {
+      "date": "2025-12-10",
+      "action": "Commissioned Noor Midelt I (800 MW hybrid CSP + PV) after repeated delays — adds dispatchable solar to the grid",
+      "type": "positive",
+      "source": "https://www.masen.ma/"
+    },
+    {
+      "date": "2025-09-22",
+      "action": "Extended Emergency Water Programme with 143 bn MAD budget through 2027 — desalination expansion to cover 50% of drinking water by 2030",
+      "type": "neutral",
+      "source": "https://www.equipement.gov.ma/"
+    },
+    {
+      "date": "2025-07-01",
+      "action": "Approved extension of Safi coal plant operating permit despite 2030 renewable target — ONEE cites grid stability concerns",
+      "type": "negative",
+      "source": "https://www.one.org.ma/"
+    },
+    {
+      "date": "2026-02-14",
+      "action": "Ratified updated National Biodiversity Strategy and Action Plan (NBSAP) aligned with Kunming-Montreal GBF — commits to 10% terrestrial protection milestone by 2028",
+      "type": "positive",
+      "source": "https://www.cbd.int/countries/?country=ma"
+    },
+    {
+      "date": "2025-11-18",
+      "action": "Expanded avocado and berry export acreage in the Souss-Massa basin approved despite hydrological red flags from the Oum Er-Rbia basin agency",
+      "type": "negative",
+      "source": "https://www.agriculture.gov.ma/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 2.4,
+    "fossil_subsidies_pct_gdp": 1.6,
+    "climate_litigation_cases": 2
+  },
+  "context": {
+    "gdp_trillion_usd": 0.155,
+    "population_m": 37.8,
+    "fossil_dep_pct_gdp": 0.1,
+    "key_tension": "Morocco exports the clean-energy future — green hydrogen to Europe, world-scale CSP, phosphate for global food security — while running its own grid on coal and draining its aquifers to grow berries and avocados for European supermarkets."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Morocco", "url": "https://climateactiontracker.org/countries/morocco/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Morocco", "url": "https://ourworldindata.org/co2/country/morocco", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025 (Morocco)", "url": "https://ember-climate.org/countries-and-regions/countries/morocco/", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Morocco Country Profile", "url": "https://www.iea.org/countries/morocco", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Morocco country profile", "url": "https://epi.yale.edu/country/2024/MAR", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Morocco", "url": "https://www.protectedplanet.net/country/MAR", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Morocco Updated NDC 2021", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Morocco species assessments", "url": "https://www.iucnredlist.org/search?country=MA", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Country Data", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Morocco", "url": "https://climatecasechart.com/non-us-jurisdiction/morocco/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Morocco Country Data", "url": "https://data.worldbank.org/country/morocco", "date_accessed": "2026-04-20" },
+    { "name": "MASEN — Moroccan Agency for Sustainable Energy", "url": "https://www.masen.ma/", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Energy Transition and Sustainable Development", "url": "https://www.mem.gov.ma/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "FAO AQUASTAT — Morocco water profile", "url": "https://www.fao.org/aquastat/en/countries-and-basins/country-profiles/country/MAR", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

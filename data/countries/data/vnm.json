@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "VNM",
+    "name_en": "Vietnam",
+    "name_es": "Vietnam",
+    "region": "Asia",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 475,
+    "per_capita_tco2e": 4.7,
+    "historical_share_pct": 0.5,
+    "trend_5y_pct": 18.0,
+    "trend_10y_pct": 62.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 65,
+      "industry": 12,
+      "agriculture": 18,
+      "transport": 9,
+      "buildings": 2,
+      "lulucf": -8,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 44,
+    "fossil_pct": 55,
+    "nuclear_pct": 0,
+    "coal_pct": 44,
+    "renewable_growth_5y_pp": 18
+  },
+  "commitments": {
+    "ndc_target": "Unconditional 15.8% cut from BAU by 2030 (403.7 MtCO2e cap), or 43.5% with international support — updated 2022 NDC",
+    "ndc_updated_year": 2022,
+    "net_zero_year": 2050,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Law on Environmental Protection (2020, effective 2022) — consolidated framework, first explicit climate chapter",
+      "Power Development Plan 8 (PDP8, 2023, revised 2024) — coal cap through 2030, phase-out target 2050",
+      "Decree 06/2022 — GHG inventory and domestic carbon market rules",
+      "Just Energy Transition Partnership (JETP) agreement — $15.5B package signed December 2022",
+      "Forestry Law (2017) — expanded community forest rights, tightened natural forest protection"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/vietnam/",
+    "projection_2030_mtco2e": 560,
+    "ndc_gap_mtco2e": 156,
+    "pathway_15c_gap_mtco2e": 230
+  },
+  "pillars": {
+    "climate": {
+      "score": 38,
+      "rationale": "Emissions have roughly doubled over the last decade on industrial export growth, with energy-sector CO2 still rising despite headline renewables share. PDP8 caps coal capacity at ~30 GW through 2030 but the pipeline is already near that ceiling, and 2050 net-zero has no interim legal backbone. CAT rates Vietnam 'Insufficient' and finds current policies lead to a ~35% overshoot of the unconditional NDC by 2030.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 52,
+      "rationale": "Reported forest cover has climbed from ~28% in 1990 to ~42% today, one of the few net-gain trajectories in Southeast Asia, driven by acacia and eucalyptus plantations plus natural-forest protection rules. But Global Forest Watch shows ~2.9 Mha of tree cover lost since 2000, heavy primary-forest loss in the Central Highlands from coffee and rubber expansion, and plantation monocultures now dominate the 'forest' accounting. Illegal logging for rosewood and agarwood persists.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 32,
+      "rationale": "Extraordinarily biodiverse despite not being on the Mittermeier 17-country list — home to the critically endangered saola (rediscovered 1992, possibly <100 individuals), Cao Vit gibbon, Delacour's langur, and the last Indochinese tigers (likely functionally extinct in the wild since ~2014). IUCN lists Vietnam among the top countries globally for critically endangered mammals, and illegal wildlife trade through Vietnam remains a major regional driver. The Javan rhino was declared extinct in Vietnam in 2011.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 36,
+      "rationale": "Terrestrial protected areas cover ~8.2% and marine ~0.5% per Protected Planet — far below the GBF 30x30 target, and among the lowest marine coverage in ASEAN. The national system of 34 national parks and ~170 nature reserves is well-established on paper but chronically underfunded, with management effectiveness assessments flagging weak enforcement. Ha Long Bay (World Heritage) faces tourism-driven water-quality collapse.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 34,
+      "rationale": "Hanoi routinely ranks among the ten most air-polluted capitals globally; annual PM2.5 averages ~30-40 µg/m³ (6-8x WHO guideline) driven by coal, traffic, and transboundary burning. Yale EPI 2024 ranks Vietnam 133rd of 180 overall, with especially weak scores on air quality and waste management. Industrial water pollution incidents (notably Formosa 2016) remain unresolved in several river basins.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 30,
+      "rationale": "Agriculture generates ~18% of emissions — unusually high — led by rice methane (Mekong and Red River deltas) and fertilizer N2O. Coffee and pepper intensification in the Central Highlands has driven deforestation and aquifer drawdown; Vietnam is the world's second-largest coffee exporter. The 1M-ha low-emission rice program (2023) is a meaningful pilot but covers a small share of paddy.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 28,
+      "rationale": "The 2020 Environmental Protection Law is a real step, and the JETP framework brings external accountability. But civil society space has sharply contracted: prominent climate and energy-transition advocates — including Nguy Thi Khanh (Goldman Prize 2018), Hong Hoang, Dang Dinh Bach, Mai Phan Loi, and Bach Hung Duong — have been jailed on tax charges widely viewed as reprisal, hollowing out the NGO coalition that JETP was designed to co-monitor. Independent environmental reporting is constrained.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 35,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs unconditional NDC",
+      "current": "~560 MtCO2e projected 2030",
+      "target": "403.7 MtCO2e (unconditional NDC cap)",
+      "gap_pct": 39,
+      "source": "https://climateactiontracker.org/countries/vietnam/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "44% (2025)",
+      "target": "<10% by 2030 for 1.5°C alignment",
+      "gap_pct": 340,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "0.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 98,
+      "source": "https://www.protectedplanet.net/country/VNM"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "8.2%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 73,
+      "source": "https://www.protectedplanet.net/country/VNM"
+    },
+    {
+      "dimension": "Civic space for environmental defenders",
+      "current": "At least 5 senior climate/environmental advocates jailed 2021-2024",
+      "target": "Zero detentions of peaceful environmental advocates",
+      "gap_pct": 100,
+      "source": "https://www.hrw.org/world-report/2025/country-chapters/vietnam"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-09-12",
+      "action": "Released revised Power Development Plan 8 implementation plan with accelerated offshore wind timeline (6 GW by 2030) and first LNG-to-renewable conversion pilots",
+      "type": "positive",
+      "source": "https://moit.gov.vn/"
+    },
+    {
+      "date": "2025-11-22",
+      "action": "JETP Resource Mobilisation Plan updated — ~$8.1B of the $15.5B package now allocated to specific projects, but disbursement remains slow and loan-heavy",
+      "type": "neutral",
+      "source": "https://www.iea.org/reports/vietnams-clean-energy-transition"
+    },
+    {
+      "date": "2025-06-30",
+      "action": "Amended Law on Cadres, Civil Servants and related media rules tightened, further constraining independent environmental reporting and NGO registration",
+      "type": "negative",
+      "source": "https://www.hrw.org/news/"
+    },
+    {
+      "date": "2026-02-14",
+      "action": "Climate advocate Dang Dinh Bach completed fourth year of a five-year prison sentence on tax charges widely viewed as reprisal for JETP-related advocacy",
+      "type": "negative",
+      "source": "https://www.frontlinedefenders.org/"
+    },
+    {
+      "date": "2025-12-05",
+      "action": "Expanded 1-million-hectare low-emission rice program in the Mekong Delta with World Bank results-based finance, targeting 20% methane cut per hectare",
+      "type": "positive",
+      "source": "https://www.worldbank.org/en/country/vietnam"
+    },
+    {
+      "date": "2025-08-18",
+      "action": "Approved two new LNG power plants (Nhon Trach 3 and 4, 1.5 GW) despite PDP8 targets — locking in fossil gas infrastructure through 2050s",
+      "type": "negative",
+      "source": "https://globalenergymonitor.org/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 2,
+    "fossil_subsidies_usd_bn": 4.2,
+    "fossil_subsidies_pct_gdp": 0.95,
+    "climate_litigation_cases": 0
+  },
+  "context": {
+    "gdp_trillion_usd": 0.47,
+    "population_m": 101.3,
+    "fossil_dep_pct_gdp": 1.8,
+    "key_tension": "Vietnam signed the world's second-largest JETP deal ($15.5B) while simultaneously jailing the civil-society leaders who built the case for it — making the transition a top-down bargain without the independent monitoring that would make it credible."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Vietnam", "url": "https://climateactiontracker.org/countries/vietnam/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Vietnam", "url": "https://ourworldindata.org/co2/country/vietnam", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025 (Vietnam)", "url": "https://ember-climate.org/countries-and-regions/countries/vietnam/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Vietnam country profile", "url": "https://epi.yale.edu/country/2024/VNM", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Vietnam", "url": "https://www.protectedplanet.net/country/VNM", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Vietnam 2022 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Vietnam's Clean Energy Transition", "url": "https://www.iea.org/reports/vietnams-clean-energy-transition", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Country Estimates", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Vietnam", "url": "https://climatecasechart.com/non-us-jurisdiction/vietnam/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Vietnam Country Data", "url": "https://data.worldbank.org/country/vietnam", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Vietnam", "url": "https://www.globalforestwatch.org/dashboards/country/VNM/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Vietnam species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Human Rights Watch — Vietnam Chapter 2025", "url": "https://www.hrw.org/world-report/2025/country-chapters/vietnam", "date_accessed": "2026-04-20" },
+    { "name": "JETP Resource Mobilisation Plan — Vietnam", "url": "https://jetp-vietnam.com/", "date_accessed": "2026-04-20" },
+    { "name": "Global Energy Monitor — Vietnam coal and LNG trackers", "url": "https://globalenergymonitor.org/countries/vietnam/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

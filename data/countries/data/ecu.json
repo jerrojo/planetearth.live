@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "ECU",
+    "name_en": "Ecuador",
+    "name_es": "Ecuador",
+    "region": "South America",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 80,
+    "per_capita_tco2e": 4.3,
+    "historical_share_pct": 0.12,
+    "trend_5y_pct": 2.5,
+    "trend_10y_pct": 9.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 46,
+      "industry": 6,
+      "agriculture": 18,
+      "transport": 22,
+      "buildings": 2,
+      "lulucf": 22,
+      "waste": 6
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 72,
+    "fossil_pct": 28,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": -6
+  },
+  "commitments": {
+    "ndc_target": "9% unconditional reduction of GHG emissions by 2025 vs BAU in the energy, industry, agriculture and waste sectors (up to 20.9% conditional on international finance)",
+    "ndc_updated_year": 2019,
+    "net_zero_year": 2050,
+    "net_zero_status": "declaration",
+    "key_laws": [
+      "Constitution of Ecuador (2008) — first in the world to recognize Rights of Nature (Pacha Mama), Articles 71–74",
+      "Organic Environmental Code (COA, 2017) — integrates biodiversity, protected areas, climate",
+      "Yasuní-ITT Referendum (August 2023) — binding vote to keep ITT oil reserves permanently underground",
+      "Law of Recognition and Protection of the Galápagos (2015, amended); Hermandad Marine Reserve Decree (2022) — 60,000 km² MPA expansion",
+      "National Strategy for Climate Change (ENCC) 2012–2025 and National Climate Change Adaptation Plan (PNA, 2023)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Not rated",
+    "cat_url": "https://climateactiontracker.org/",
+    "projection_2030_mtco2e": 92,
+    "ndc_gap_mtco2e": 12,
+    "pathway_15c_gap_mtco2e": 30
+  },
+  "pillars": {
+    "climate": {
+      "score": 52,
+      "rationale": "Low per-capita emissions (~4.3 tCO2e) and a grid that is ~72% hydro-dominated renewable give Ecuador a structurally green starting point, but a 2023–2024 drought crippled hydro output and forced emergency diesel imports and rolling blackouts, pushing fossil share up. The 2019 NDC (9% unconditional by 2025) has not been updated to a 2035 horizon and is not Paris-aligned. Amazon oil expansion in Blocks 43-ITT, 31 and 74 continues despite the August 2023 Yasuní referendum mandating withdrawal.",
+      "data_confidence": "medium"
+    },
+    "forests_land": {
+      "score": 45,
+      "rationale": "Home to ~12.5 million ha of forest covering ~50% of land area, including western Chocó, Andean cloud forests and ~80% of Ecuadorian Amazon still intact. But Global Forest Watch records ~20,000–25,000 ha of primary forest loss per year, driven by the oil frontier, palm oil, illegal gold mining in Napo and Esmeraldas, and cattle. Socio Bosque payments-for-conservation program has enrolled ~1.6M ha but budget has eroded since 2015.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 62,
+      "rationale": "Per square kilometer, Ecuador is arguably the most biodiverse country on Earth — Yasuní alone holds more tree species per hectare than the U.S. and Canada combined, and the Galápagos remain a unique endemic laboratory. IUCN Red List flags 2,300+ threatened species, among the highest globally in absolute terms, with pink river dolphin, Andean condor, jaguar, and scalloped hammerhead under pressure. Constitutional Rights of Nature jurisprudence (Los Cedros 2021) is the strongest legal biodiversity shield in the Global South.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 78,
+      "rationale": "Terrestrial protected areas cover ~21% of land via the SNAP (National System of Protected Areas). Marine coverage jumped to ~19% after the 2022 Hermandad Reserve expanded Galápagos by 60,000 km², making Ecuador one of the few tropical countries within striking distance of GBF 30x30. OECMs and Indigenous/Afro-Ecuadorian conserved territories are beginning to be formally recognized but remain undercounted.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 42,
+      "rationale": "Urban PM2.5 in Quito and Guayaquil runs ~14–18 µg/m³ (3–4× WHO guideline) with seasonal biomass and traffic peaks. Legacy Chevron-Texaco contamination in Sucumbíos/Orellana (Lago Agrio) remains a massive unresolved groundwater and soil crisis; Indigenous plaintiffs won a $9.5B Ecuadorian judgment that remains uncollected. Illegal gold mining is dumping mercury into Amazonian tributaries at accelerating rates.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 48,
+      "rationale": "World's largest banana exporter and a top-5 cocoa producer; both sectors drive monoculture expansion on the coast and deforestation pressure on the Amazon frontier. Pesticide use per hectare (especially on bananas) is among the highest in Latin America. A growing fine-flavor cocoa (cacao nacional) agroforestry movement and certified-organic sector (~2% of farmland) are bright spots.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 50,
+      "rationale": "World-leading on paper: Rights of Nature in the 2008 Constitution, the 2023 Yasuní referendum (first binding popular vote to halt oil extraction globally), and Constitutional Court rulings citing nature as a rights-holder. But implementation is collapsing: the Noboa government has missed the August 2024 deadline to dismantle ITT infrastructure, environmental defenders face rising violence, and the security crisis is eroding state presence in Amazonian provinces where illegal mining and logging flourish.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 54,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Yasuní-ITT oil withdrawal vs referendum mandate",
+      "current": "Petroecuador still producing ~48,000 bpd in Block 43-ITT",
+      "target": "Zero extraction + infrastructure dismantled by August 2024 (one-year constitutional deadline)",
+      "gap_pct": 100,
+      "source": "https://www.cortenacional.gob.ec/"
+    },
+    {
+      "dimension": "Primary Amazon forest loss",
+      "current": "~22,000 ha/yr primary forest loss (2023)",
+      "target": "Zero net deforestation by 2030 (Glasgow Declaration signatory)",
+      "gap_pct": 100,
+      "source": "https://www.globalforestwatch.org/dashboards/country/ECU/"
+    },
+    {
+      "dimension": "NDC ambition (2035 target)",
+      "current": "No updated 2035 NDC submitted; 2019 pledge caps at 9% unconditional",
+      "target": "Paris-aligned absolute target for 2035 submission by COP30",
+      "gap_pct": 100,
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~21% (SNAP)",
+      "target": "30% by 2030 (GBF 30x30)",
+      "gap_pct": 30,
+      "source": "https://www.protectedplanet.net/country/ECU"
+    },
+    {
+      "dimension": "Fossil fuel subsidies",
+      "current": "~$3.2B/yr (diesel and gasoline price supports, ~2.7% of GDP)",
+      "target": "Phase out per G20 / IMF reform guidance",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-02-11",
+      "action": "Constitutional Court reaffirmed Yasuní-ITT referendum is binding and ordered executive branch to publish phased dismantling timeline within 90 days",
+      "type": "positive",
+      "source": "https://www.corteconstitucional.gob.ec/"
+    },
+    {
+      "date": "2025-11-18",
+      "action": "Noboa government approved new oil exploration licensing round covering blocks adjacent to Yasuní and Cuyabeno reserves",
+      "type": "negative",
+      "source": "https://www.recursosyenergia.gob.ec/"
+    },
+    {
+      "date": "2025-09-30",
+      "action": "Decree slashing diesel subsidies partially reinstated after nationwide Indigenous-led paro (strike); net fiscal savings for green transition unclear",
+      "type": "neutral",
+      "source": "https://www.imf.org/en/Countries/ECU"
+    },
+    {
+      "date": "2025-08-20",
+      "action": "Hermandad Marine Reserve patrol and enforcement budget expanded with a $150M debt-for-nature swap completed with Credit Suisse/Oceans Finance — world's largest marine swap to date",
+      "type": "positive",
+      "source": "https://www.environment.gob.ec/"
+    },
+    {
+      "date": "2026-01-25",
+      "action": "At least 4 Indigenous environmental defenders killed in Amazonian provinces (Napo, Sucumbíos) in 12-month window per Global Witness and local monitors",
+      "type": "negative",
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    },
+    {
+      "date": "2025-12-05",
+      "action": "Ministry of Environment launched national REDD+ implementation update and received first Green Climate Fund results-based payment tranche (~$18M)",
+      "type": "positive",
+      "source": "https://www.greenclimate.fund/countries/ecuador"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 4,
+    "indigenous_land_recognition_pct": 24,
+    "fossil_subsidies_usd_bn": 3.2,
+    "fossil_subsidies_pct_gdp": 2.7,
+    "climate_litigation_cases": 14
+  },
+  "context": {
+    "gdp_trillion_usd": 0.121,
+    "population_m": 18.3,
+    "fossil_dep_pct_gdp": 6.8,
+    "key_tension": "Ecuador is the first country where citizens voted to leave oil in the ground and the first to give nature constitutional rights — yet a cash-strapped state facing a violence crisis keeps drilling, logging and mining the Amazon anyway."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — country coverage", "url": "https://climateactiontracker.org/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Ecuador", "url": "https://ourworldindata.org/co2/country/ecuador", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Ecuador electricity data", "url": "https://ember-energy.org/countries-and-regions/ecuador/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Ecuador country profile", "url": "https://epi.yale.edu/country/2024/ECU", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Ecuador", "url": "https://www.protectedplanet.net/country/ECU", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Ecuador", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Ecuador Article IV and energy subsidy reform", "url": "https://www.imf.org/en/Countries/ECU", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Change Litigation Database — Ecuador", "url": "https://climatecasechart.com/non-us-jurisdiction/ecuador/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Ecuador Country Data", "url": "https://data.worldbank.org/country/ecuador", "date_accessed": "2026-04-20" },
+    { "name": "INEC Ecuador — Environmental Information", "url": "https://www.ecuadorencifras.gob.ec/estadisticas-ambientales/", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Ecuador dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/ECU/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Ecuador species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Constitutional Court of Ecuador — Yasuní and Los Cedros rulings", "url": "https://www.corteconstitucional.gob.ec/", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Environment, Water and Ecological Transition (MAATE)", "url": "https://www.ambiente.gob.ec/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

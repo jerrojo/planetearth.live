@@ -1,0 +1,206 @@
+{
+  "identity": {
+    "iso_a3": "CAN",
+    "name_en": "Canada",
+    "name_es": "Canadá",
+    "region": "North America",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 694,
+    "per_capita_tco2e": 17.2,
+    "historical_share_pct": 2.6,
+    "trend_5y_pct": -7.0,
+    "trend_10y_pct": -8.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 28,
+      "industry": 11,
+      "agriculture": 10,
+      "transport": 23,
+      "buildings": 13,
+      "lulucf": 2,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 68,
+    "fossil_pct": 17,
+    "nuclear_pct": 15,
+    "coal_pct": 4,
+    "renewable_growth_5y_pp": 3
+  },
+  "commitments": {
+    "ndc_target": "Cut greenhouse gas emissions 40–45% below 2005 levels by 2030; 45–50% below 2005 by 2035 (submitted 2025)",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Canadian Net-Zero Emissions Accountability Act (2021) — binding 2050 net-zero target",
+      "Greenhouse Gas Pollution Pricing Act (2018) — federal carbon pricing backstop",
+      "Oil and Gas Emissions Cap regulations (finalized 2024) — sector-specific cap declining to 2030",
+      "Clean Electricity Regulations (2024) — net-zero grid by 2035",
+      "Impact Assessment Act (2019, amended 2024 post-Supreme Court ruling)",
+      "Species at Risk Act (2002)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Highly insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/canada/",
+    "projection_2030_mtco2e": 600,
+    "ndc_gap_mtco2e": 150,
+    "pathway_15c_gap_mtco2e": 240
+  },
+  "pillars": {
+    "climate": {
+      "score": 38,
+      "rationale": "Per-capita emissions (~17 tCO2e) are among the highest in the G20, driven by the Alberta oil sands and a freight-heavy transport sector. Emissions are finally on a downward trajectory (-7% since 2019) but the 2030 target (40–45% below 2005) is not yet on track — CAT rates Canada 'Highly insufficient'. The consumer carbon price was scrapped in early 2025 by the Carney government under political pressure, though the industrial carbon price and oil & gas emissions cap remain.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 52,
+      "rationale": "Canada holds ~9% of the world's forests and ~25% of the world's remaining boreal forest — a globally significant carbon sink that is now, by Canada's own inventory accounting, a net source in many years due to wildfires and insect outbreaks. The 2023 fire season burned a record 18.5 million hectares, more than doubling the previous record; 2024 remained severe. Industrial logging of primary boreal forest continues with weak federal-provincial coordination.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Not on the megadiverse list, but home to iconic species — boreal caribou, polar bears, right whales, Pacific salmon — many in steep decline. Boreal caribou populations are below self-sustaining thresholds across most ranges; North Atlantic right whale at ~370 individuals. The 2030 Nature Strategy (2024) raised ambition, but Species at Risk Act enforcement remains weak and provincial resistance slows recovery planning.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 55,
+      "rationale": "Terrestrial protected + OECMs at ~13.6% and marine at ~14.7% — progressing toward but still well below the GBF 30×30 targets Canada helped broker at COP15 in Montreal. Indigenous Protected and Conserved Areas (IPCAs) are the main engine of expansion, with several major designations in 2024–2025 including Thaidene Nëné and proposed expansions in the Northwest Territories and Nunavut.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 70,
+      "rationale": "Ambient air quality is among the best in the G20 (PM2.5 population-weighted ~7 µg/m³), though wildfire smoke has repeatedly pushed cities into hazardous ranges in 2023–2024. Tailings ponds in the Alberta oil sands cover ~300 km² with documented leakage, and PFAS contamination is emerging as a regulatory priority. Single-use plastics ban partially reinstated after 2023 Federal Court ruling.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "Large-scale grain and livestock systems with significant N2O from fertilizer and CH4 from cattle; agriculture is ~10% of national emissions. The federal target of 30% fertilizer emissions reduction by 2030 is voluntary and politically contested in the Prairie provinces. Regenerative practices growing but organic share remains ~2% of farmland.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 58,
+      "rationale": "Strong rule of law, independent courts, an active Environment Commissioner, and a Net-Zero Advisory Body — but federal-provincial fragmentation persistently undercuts climate and nature policy (Alberta and Saskatchewan routinely challenge federal rules in court). The 2023 Supreme Court ruling against the Impact Assessment Act forced revisions, and Indigenous consent/consultation doctrine under UNDRIP is still being operationalized.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 51,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~600 MtCO2e projected 2030",
+      "target": "~360 MtCO2e (1.5°C compatible)",
+      "gap_pct": 67,
+      "source": "https://climateactiontracker.org/countries/canada/"
+    },
+    {
+      "dimension": "Per-capita emissions",
+      "current": "~17.2 tCO2e/person (2024)",
+      "target": "<5 tCO2e/person by 2030 for 1.5°C alignment",
+      "gap_pct": 244,
+      "source": "https://ourworldindata.org/co2/country/canada"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "13.6% (incl. OECMs)",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 55,
+      "source": "https://www.protectedplanet.net/country/CAN"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "14.7%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 51,
+      "source": "https://www.protectedplanet.net/country/CAN"
+    },
+    {
+      "dimension": "Fossil fuel subsidies (explicit + public financing)",
+      "current": "~$18.5B/yr (IISD, incl. Crown corp financing)",
+      "target": "Phase out per G20 2009 and Canadian 2023 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iisd.org/publications/report/public-cash-fossil-fuels-canada"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-04-01",
+      "action": "Consumer carbon price eliminated by Carney government ahead of federal election; industrial carbon pricing retained",
+      "type": "negative",
+      "source": "https://www.canada.ca/en/department-finance/news/"
+    },
+    {
+      "date": "2024-11-04",
+      "action": "Oil and Gas Emissions Cap regulations finalized — cap declining to 35–38% below 2019 by 2030",
+      "type": "positive",
+      "source": "https://www.canada.ca/en/environment-climate-change/news/"
+    },
+    {
+      "date": "2025-02-10",
+      "action": "2035 NDC submitted — 45–50% below 2005 levels; judged insufficient for 1.5°C by Climate Action Tracker",
+      "type": "neutral",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2024-08-20",
+      "action": "Clean Electricity Regulations finalized — net-zero grid by 2035 with flexibility provisions for gas peakers",
+      "type": "positive",
+      "source": "https://www.canada.ca/en/environment-climate-change/services/canadian-environmental-protection-act-registry/clean-electricity-regulations.html"
+    },
+    {
+      "date": "2025-06-15",
+      "action": "Bill C-5 (Major Projects Act) fast-tracks pipeline and mine approvals; Indigenous groups file constitutional challenge",
+      "type": "negative",
+      "source": "https://www.parl.ca/"
+    },
+    {
+      "date": "2024-10-30",
+      "action": "Thaidene Nëné Indigenous-led protected area expanded; several new IPCAs advanced in NWT and Nunavut",
+      "type": "positive",
+      "source": "https://www.canada.ca/en/parks-canada/news/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 8,
+    "fossil_subsidies_usd_bn": 18.5,
+    "fossil_subsidies_pct_gdp": 0.85,
+    "climate_litigation_cases": 36
+  },
+  "context": {
+    "gdp_trillion_usd": 2.22,
+    "population_m": 40.1,
+    "fossil_dep_pct_gdp": 5.8,
+    "key_tension": "Canada brokered the global 30×30 biodiversity deal and legislated net-zero, yet remains the G7's highest per-capita emitter and its largest untapped bitumen reserve — a country whose climate diplomacy is credible only to the extent it can outpace the political gravity of the Alberta oil sands."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Canada", "url": "https://climateactiontracker.org/countries/canada/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Canada", "url": "https://ourworldindata.org/co2/country/canada", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025 (Canada)", "url": "https://ember-climate.org/countries-and-regions/countries/canada/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Canada country profile", "url": "https://epi.yale.edu/country/2024/CAN", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Canada", "url": "https://www.protectedplanet.net/country/CAN", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Canada", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Canada Energy Policy Review", "url": "https://www.iea.org/countries/canada", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IISD — Public Cash for Fossil Fuels in Canada", "url": "https://www.iisd.org/publications/report/public-cash-fossil-fuels-canada", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center — Canada climate litigation", "url": "https://climatecasechart.com/non-us-jurisdiction/canada/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Canada Country Data", "url": "https://data.worldbank.org/country/canada", "date_accessed": "2026-04-20" },
+    { "name": "Environment and Climate Change Canada — National Inventory Report", "url": "https://www.canada.ca/en/environment-climate-change/services/climate-change/greenhouse-gas-emissions/inventory.html", "date_accessed": "2026-04-20" },
+    { "name": "Natural Resources Canada — National Forestry Database", "url": "https://nfdp.ccfm.org/", "date_accessed": "2026-04-20" },
+    { "name": "Canadian Forest Service — Wildfire statistics 2023–2024", "url": "https://cwfis.cfs.nrcan.gc.ca/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Canada species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Land Needs Guarantee / Indigenous Leadership Initiative", "url": "https://www.ilinationhood.ca/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

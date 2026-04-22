@@ -1,0 +1,53 @@
+{
+  "version": "2.0",
+  "scope": "planet-level-universal",
+  "description": "Top 5 global actions shown on every country panel when the user expands the Acciones Globales category. Same list regardless of which country is selected. Updated every 2–4 weeks.",
+  "last_updated": "2026-04-20",
+  "items": [
+    {
+      "rank": 1,
+      "title_en": "Hold the 1.5°C line at COP and beyond",
+      "title_es": "Defender el 1.5°C en la COP y después",
+      "what_en": "Every COP that fails to codify fossil fuel phase-out language lets the 1.5°C budget slip. The post-COP30 agenda must translate the Belém package into binding phase-out timelines, funded adaptation, and a real Loss & Damage pipeline — not another round of voluntary pledges.",
+      "what_es": "Cada COP que no codifica la eliminación de fósiles deja escapar el presupuesto de 1.5°C. La agenda post-COP30 debe convertir el paquete de Belém en cronogramas vinculantes, adaptación financiada y un verdadero canal de Loss & Damage — no otra ronda de compromisos voluntarios.",
+      "status": "in progress",
+      "source": "https://unfccc.int/cop30"
+    },
+    {
+      "rank": 2,
+      "title_en": "Close the Global Plastics Treaty with a production cap",
+      "title_es": "Cerrar el Tratado Global de Plásticos con un tope de producción",
+      "what_en": "Primary plastic production is on track to triple by 2060. Without a cap on production (not just recycling targets) the treaty is cosmetic. A small group of petrostates blocked INC-5.2 in Geneva — unblocking this is the highest-leverage global action of 2026.",
+      "what_es": "La producción primaria de plástico se triplicaría para 2060. Sin un tope a la producción (no solo metas de reciclaje) el tratado es cosmético. Un grupo pequeño de petro-estados bloqueó INC-5.2 en Ginebra — destrabar esto es la acción global de mayor palanca del 2026.",
+      "status": "blocked",
+      "source": "https://www.unep.org/inc-plastic-pollution"
+    },
+    {
+      "rank": 3,
+      "title_en": "Scale the High Seas Treaty: protect 30% of the ocean by 2030",
+      "title_es": "Escalar el Tratado de Alta Mar: proteger 30% del océano para 2030",
+      "what_en": "The BBNJ Treaty enters into force in 2026 but marine protection is still at ~8% globally. The next two years decide whether the treaty creates real no-take reserves on the two-thirds of ocean beyond national jurisdiction, or whether it becomes a paperwork layer over business-as-usual extraction.",
+      "what_es": "El Tratado BBNJ entra en vigor en 2026, pero la protección marina sigue en ~8% global. Los próximos dos años deciden si el tratado crea reservas reales sin extracción en los dos tercios de océano fuera de jurisdicción nacional, o si se convierte en otro trámite sobre la extracción de siempre.",
+      "status": "active",
+      "source": "https://www.un.org/bbnj"
+    },
+    {
+      "rank": 4,
+      "title_en": "Stop global banks from financing fossil expansion",
+      "title_es": "Frenar el financiamiento fósil de los bancos globales",
+      "what_en": "The world's 60 biggest banks funneled $869B into fossil fuels in 2025 — a 7% increase, not a decrease. Private capital flow dwarfs every public climate fund combined. Shareholder, regulatory and customer pressure is the pipeline to cut.",
+      "what_es": "Los 60 bancos más grandes del mundo canalizaron $869B hacia fósiles en 2025 — un aumento de 7%, no una caída. El flujo de capital privado empequeñece a cualquier fondo climático público sumado. La presión de accionistas, reguladores y clientes es el grifo que hay que cerrar.",
+      "status": "active",
+      "source": "https://www.bankingonclimatechaos.org/"
+    },
+    {
+      "rank": 5,
+      "title_en": "Enforce ICJ: climate inaction is now a legal wrong",
+      "title_es": "Hacer cumplir la CIJ: la inacción climática ya es un ilícito jurídico",
+      "what_en": "The July 2025 ICJ advisory opinion established that states have binding legal obligations to prevent climate harm. Civil society and small-island states now have a precedent to sue for sovereign inaction. Scaling climate litigation is the fastest lever to move reluctant governments.",
+      "what_es": "La opinión consultiva de la CIJ de julio 2025 estableció que los estados tienen obligaciones legales vinculantes de prevenir daño climático. Sociedad civil y estados isleños tienen ahora un precedente para demandar por inacción soberana. Escalar el litigio climático es la palanca más rápida para mover gobiernos reacios.",
+      "status": "active",
+      "source": "https://www.icj-cij.org/case/187"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "scope": "government-universal",
+  "description": "Top 5 actions every government should take — shown on every country panel when the user expands the Acciones Gubernamentales category. Same list regardless of which country is selected. These are the universal structural reforms a 1.5°C + GBF 30×30-aligned state must deliver.",
+  "last_updated": "2026-04-20",
+  "items": [
+    {
+      "rank": 1,
+      "title_en": "Set a binding fossil fuel phase-out timeline in law",
+      "title_es": "Fijar por ley una fecha vinculante de salida de combustibles fósiles",
+      "what_en": "A net-zero pledge without a fossil-phase-out timeline is a promise that someone else will cut later. Governments must legislate no new coal/oil/gas exploration, a declining production cap, and end-date for unabated fossil electricity.",
+      "what_es": "Una promesa de cero neto sin calendario de salida de fósiles es prometer que alguien más lo hará después. Los gobiernos deben legislar cero nueva exploración de carbón/petróleo/gas, un tope decreciente a la producción y una fecha final para la electricidad fósil sin captura.",
+      "why_matters_en": "Fossil supply expansion is the single biggest structural risk to 1.5°C. Demand will not fall as long as governments approve new supply.",
+      "why_matters_es": "La expansión fósil en la oferta es el mayor riesgo estructural para 1.5°C. La demanda no cae mientras los gobiernos aprueban nueva oferta.",
+      "source": "https://fossilfueltreaty.org/"
+    },
+    {
+      "rank": 2,
+      "title_en": "Legally protect 30% of land and 30% of sea by 2030",
+      "title_es": "Proteger por ley 30% del territorio terrestre y 30% del mar para 2030",
+      "what_en": "Every signatory of the Kunming-Montreal Global Biodiversity Framework committed to 30×30. Most are off pace. Closing the gap requires designating new protected areas, recognizing Indigenous and community-conserved areas (OECMs), and funding enforcement — not just drawing polygons on maps.",
+      "what_es": "Todo firmante del Marco Kunming-Montreal de Biodiversidad se comprometió al 30×30. La mayoría va atrasada. Cerrar la brecha requiere designar nuevas áreas protegidas, reconocer territorios indígenas y áreas comunitarias (OECM) y financiar la aplicación — no solo pintar polígonos en mapas.",
+      "why_matters_en": "Biodiversity collapse is accelerating 1000× faster than background extinction rates. Protected areas are the single most evidence-backed intervention to slow it.",
+      "why_matters_es": "El colapso de biodiversidad avanza mil veces más rápido que la extinción natural. Las áreas protegidas son la intervención con más evidencia para frenarlo.",
+      "source": "https://www.cbd.int/gbf/"
+    },
+    {
+      "rank": 3,
+      "title_en": "End fossil fuel subsidies; redirect to just transition",
+      "title_es": "Eliminar los subsidios fósiles; redirigir a transición justa",
+      "what_en": "IMF's implicit subsidy figure puts fossil support at ~$7T/year globally. The G20 pledged in 2009 to phase out 'inefficient' subsidies — most have grown. Redirecting these dollars into worker retraining, clean energy deployment and low-income household electrification is the highest-leverage fiscal reform available.",
+      "what_es": "El cálculo implícito del FMI ubica el apoyo fósil en ~$7 billones/año a nivel global. El G20 prometió en 2009 eliminar subsidios 'ineficientes' — la mayoría han crecido. Redirigir esos dólares a recapacitación laboral, energía limpia y electrificación de hogares de bajos ingresos es la reforma fiscal de mayor palanca disponible.",
+      "why_matters_en": "You cannot tax carbon and subsidize it simultaneously. Subsidy reform unlocks revenue, corrects price signals, and funds the transition in one move.",
+      "why_matters_es": "No puedes gravar el carbono y subsidiarlo a la vez. La reforma de subsidios libera ingresos, corrige precios y financia la transición en un solo movimiento.",
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    },
+    {
+      "rank": 4,
+      "title_en": "Protect environmental defenders and press freedom",
+      "title_es": "Proteger a defensores ambientales y la libertad de prensa",
+      "what_en": "Over 190 environmental defenders were killed in 2024 — Latin America is deadliest, but criminalization is rising everywhere. Governments must ratify Escazú, recognize Indigenous land tenure, prosecute attacks against defenders, and stop the civil-society crackdowns that make independent monitoring impossible.",
+      "what_es": "Más de 190 defensores ambientales fueron asesinados en 2024 — Latinoamérica es la más mortal, pero la criminalización crece en todas partes. Los gobiernos deben ratificar Escazú, reconocer la tenencia indígena, procesar los ataques a defensores, y detener la represión a sociedad civil que hace imposible el monitoreo independiente.",
+      "why_matters_en": "Without defenders and free press, no environmental law enforces itself. Every other governmental action depends on someone being able to watch.",
+      "why_matters_es": "Sin defensores y prensa libre, ninguna ley ambiental se aplica sola. Cada otra acción gubernamental depende de que alguien pueda vigilar.",
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    },
+    {
+      "rank": 5,
+      "title_en": "Align NDCs with 1.5°C and report real progress",
+      "title_es": "Alinear las NDC con 1.5°C y reportar avances reales",
+      "what_en": "Most 2035 NDCs submitted around COP30 are 'Insufficient' or worse per Climate Action Tracker. Governments must resubmit with science-based targets, transparent sector pathways (not just totals), and independent verification — not the creative accounting on LULUCF and offsets that hides the real curve.",
+      "what_es": "La mayoría de NDC 2035 entregadas cerca de COP30 son 'Insuficientes' o peor según Climate Action Tracker. Los gobiernos deben resubmitir con metas basadas en ciencia, rutas sectoriales transparentes (no solo totales) y verificación independiente — no la contabilidad creativa en LULUCF y offsets que esconde la curva real.",
+      "why_matters_en": "If NDCs as a whole don't close the emissions gap by 2030, we lose 1.5°C permanently. This is the mechanism the Paris Agreement gave us — it has to be honest.",
+      "why_matters_es": "Si el conjunto de NDC no cierra la brecha de emisiones en 2030, perdemos 1.5°C para siempre. Este es el mecanismo que nos dio París — tiene que ser honesto.",
+      "source": "https://climateactiontracker.org/"
+    }
+  ]
+}

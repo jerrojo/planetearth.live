@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "ISL",
+    "name_en": "Iceland",
+    "name_es": "Islandia",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 12.8,
+    "per_capita_tco2e": 32.5,
+    "historical_share_pct": 0.02,
+    "trend_5y_pct": -4.0,
+    "trend_10y_pct": -7.5,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 18,
+      "industry": 42,
+      "agriculture": 12,
+      "transport": 19,
+      "buildings": 2,
+      "lulucf": 55,
+      "waste": 5
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 99.98,
+    "fossil_pct": 0.02,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 0.1
+  },
+  "commitments": {
+    "ndc_target": "Reduce GHG emissions 55% by 2030 from 1990 levels (joint target with EU and Norway)",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2040,
+    "net_zero_status": "policy",
+    "key_laws": [
+      "Climate Act No. 70/2012 (amended 2019, 2021) — legally binding framework",
+      "Updated Climate Action Plan (2020) — 50 measures across sectors",
+      "Act on Nature Conservation No. 60/2013",
+      "Land Reclamation Act No. 155/2018",
+      "Act on Incentives for Electric Vehicles (extended through 2025)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/",
+    "projection_2030_mtco2e": 11.5,
+    "ndc_gap_mtco2e": 3.5,
+    "pathway_15c_gap_mtco2e": 5.2
+  },
+  "pillars": {
+    "climate": {
+      "score": 62,
+      "rationale": "Electricity is ~100% renewable (geothermal + hydro), the envy of the world — but per capita emissions (~32.5 tCO2e including LULUCF and heavy industry) are among the highest in Europe, driven by aluminum smelting, fishing fleets, and drained peatlands. Climeworks operates the world's largest direct air capture facility (Mammoth, 36,000 t/yr) outside Reykjavík. 2040 net-zero target remains policy, not yet law, and CAT rates policy 'Insufficient'.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 30,
+      "rationale": "Native forest cover is under 2% — Iceland was ~25–40% forested at settlement (874 CE) before a millennium of sheep grazing and firewood cutting stripped it. Active afforestation and revegetation programs are adding ~1,000 ha/yr (mostly non-native Sitka spruce and lodgepole pine). Drained peatlands leak ~8 MtCO2e/yr — the single largest land-use emission and a major rewetting opportunity.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Low species richness by geography (island, subarctic) but globally important seabird colonies — ~60% of world Atlantic puffins breed here, alongside razorbills, fulmars, and Arctic terns. Whale hunting (minke and fin) continues under commercial quotas despite IWC moratorium, though 2024 quotas were the lowest ever and only one company remains active. Overfished cod and other demersal stocks are now rebuilding under ITQ management. Invasive mink, lupines, and spruce transform lowland habitats.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 55,
+      "rationale": "Terrestrial protected areas at ~30% thanks to Vatnajökull National Park (largest in Europe, 14% of the country) plus Þingvellir and Snæfellsjökull — nominally meeting GBF 30×30 on land. Marine protected area coverage is only ~0.9% of EEZ, dominated by seasonal fisheries closures rather than strict no-take reserves, one of the weakest marine performances in Europe.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 78,
+      "rationale": "Air quality is among the cleanest in the world (PM2.5 ~5 µg/m³, near WHO guideline) — most heating and electricity are geothermal/hydro, so no fossil combustion indoors. Volcanic SO2 and fluoride events (Fagradalsfjall, Holuhraun) cause episodic exceedances. Aluminum smelters emit fluoride and PFCs. Microplastic and ocean-plastic pollution in subarctic waters is an emerging concern.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 42,
+      "rationale": "Agriculture is small (~1% GDP) and dominated by sheep on rangelands and dairy in lowlands. Sheep grazing drives erosion and prevents forest recovery on vast highland tracts. Fertilizer intensity is moderate; organic farming <2% of area. Fisheries are the true 'agricultural' story: ITQ-managed and MSC-certified for most species, but cod quotas have tightened and capelin collapse linked to warming seas.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 68,
+      "rationale": "Strong rule-of-law, transparent environmental data (Umhverfisstofnun), active civil society and free press. Climate Act is legally binding with statutory Climate Council oversight. Yale EPI 2024 ranks Iceland in the top 15. Persistent gaps: whaling licenses renewed despite public opposition, aluminum sector lobbying influence, and slow pace on peatland rewetting despite known scale of the leak.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 55,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs NDC (EU joint target)",
+      "current": "~11.5 MtCO2e projected 2030",
+      "target": "~8.0 MtCO2e (55% below 1990)",
+      "gap_pct": 44,
+      "source": "https://climateactiontracker.org/countries/"
+    },
+    {
+      "dimension": "Drained peatland emissions",
+      "current": "~8 MtCO2e/yr leaking from drained wetlands",
+      "target": "Rewet >50% by 2030 to cut emissions in half",
+      "gap_pct": 85,
+      "source": "https://ust.is/english/"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "~0.9% of EEZ strictly protected",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 97,
+      "source": "https://www.protectedplanet.net/country/ISL"
+    },
+    {
+      "dimension": "Native forest cover",
+      "current": "<2% of land area",
+      "target": "12% by 2100 (national forestry plan)",
+      "gap_pct": 83,
+      "source": "https://www.skogur.is/"
+    },
+    {
+      "dimension": "Commercial whaling quotas",
+      "current": "Fin + minke quotas renewed 2024 (IWC moratorium defiance)",
+      "target": "Full cessation aligned with IWC",
+      "gap_pct": 100,
+      "source": "https://iwc.int/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-05-08",
+      "action": "Climeworks 'Mammoth' DAC plant inaugurated — world's largest, ~36,000 tCO2/yr capture capacity with Carbfix mineralization",
+      "type": "positive",
+      "source": "https://climeworks.com/"
+    },
+    {
+      "date": "2024-06-11",
+      "action": "Fisheries Minister issued a one-year whaling license to Hvalur hf. for fin whales with the lowest quota on record (128) — criticized by NGOs for continuing the hunt at all",
+      "type": "negative",
+      "source": "https://www.government.is/"
+    },
+    {
+      "date": "2025-03-20",
+      "action": "Parliament approved updated Climate Action Plan with expanded peatland rewetting target (20,000 ha by 2030)",
+      "type": "positive",
+      "source": "https://www.government.is/"
+    },
+    {
+      "date": "2025-09-15",
+      "action": "Landsvirkjun signed first commercial green hydrogen offtake with European shipping consortium — 30 MW electrolyzer at Hellisheiði",
+      "type": "positive",
+      "source": "https://www.landsvirkjun.com/"
+    },
+    {
+      "date": "2025-11-02",
+      "action": "Capelin quota set to zero for third consecutive season as warming seas disrupt stock — signals climate-driven fisheries collapse",
+      "type": "neutral",
+      "source": "https://www.hafogvatn.is/en"
+    },
+    {
+      "date": "2026-02-18",
+      "action": "Environment Agency reported Iceland on track to miss 2030 NDC by ~44%, citing industrial emissions and transport as laggard sectors",
+      "type": "negative",
+      "source": "https://ust.is/english/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 0.1,
+    "fossil_subsidies_pct_gdp": 0.3,
+    "climate_litigation_cases": 2
+  },
+  "context": {
+    "gdp_trillion_usd": 0.033,
+    "population_m": 0.394,
+    "fossil_dep_pct_gdp": 0.0,
+    "key_tension": "A country with ~100% renewable electricity and the world's largest DAC facility still has among Europe's highest per-capita emissions — because aluminum smelters, drained peatlands, and fishing fleets account for more carbon than the clean grid can offset."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Iceland", "url": "https://climateactiontracker.org/countries/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — Iceland CO2", "url": "https://ourworldindata.org/co2/country/iceland", "date_accessed": "2026-04-20" },
+    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Iceland country profile", "url": "https://epi.yale.edu/country/2024/ISL", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Iceland", "url": "https://www.protectedplanet.net/country/ISL", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Iceland (EU joint NDC)", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Iceland Energy Profile", "url": "https://www.iea.org/countries/iceland", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database", "url": "https://climatecasechart.com/non-us-jurisdictions/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Iceland Country Data", "url": "https://data.worldbank.org/country/iceland", "date_accessed": "2026-04-20" },
+    { "name": "Environment Agency of Iceland (Umhverfisstofnun)", "url": "https://ust.is/english/", "date_accessed": "2026-04-20" },
+    { "name": "Icelandic Forest Service (Skógræktin)", "url": "https://www.skogur.is/", "date_accessed": "2026-04-20" },
+    { "name": "Marine and Freshwater Research Institute (Hafró)", "url": "https://www.hafogvatn.is/en", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Iceland species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "International Whaling Commission", "url": "https://iwc.int/", "date_accessed": "2026-04-20" },
+    { "name": "Climeworks — Mammoth DAC facility", "url": "https://climeworks.com/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

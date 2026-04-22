@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "SAU",
+    "name_en": "Saudi Arabia",
+    "name_es": "Arabia Saudita",
+    "region": "Asia",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 790,
+    "per_capita_tco2e": 21.3,
+    "historical_share_pct": 0.9,
+    "trend_5y_pct": 7.0,
+    "trend_10y_pct": 18.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 58,
+      "industry": 22,
+      "agriculture": 2,
+      "transport": 14,
+      "buildings": 3,
+      "lulucf": 0,
+      "waste": 1
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 3,
+    "fossil_pct": 97,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 2.5
+  },
+  "commitments": {
+    "ndc_target": "Reduce and avoid 278 MtCO2e annually by 2030 relative to BAU (conditional, updated NDC 2021)",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2060,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Saudi Green Initiative / Middle East Green Initiative (2021) — 50% renewables by 2030 pledge, 10 billion trees",
+      "National Renewable Energy Program (NREP, 2017) — 58.7 GW renewable target by 2030",
+      "Environmental Law (Royal Decree M/165, 2020) — framework law administered by NCEC",
+      "Circular Carbon Economy National Program (2021) — CCUS and hydrogen-centred mitigation framing",
+      "Vision 2030 (2016) — diversification strategy with sustainability pillar"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Critically insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/saudi-arabia/",
+    "projection_2030_mtco2e": 830,
+    "ndc_gap_mtco2e": 240,
+    "pathway_15c_gap_mtco2e": 470
+  },
+  "pillars": {
+    "climate": {
+      "score": 14,
+      "rationale": "One of the highest per-capita emitters in the world at ~21 tCO2e and the 10th-largest national emitter despite a population of only 36 million. CAT rates policies and 2030 NDC 'Critically insufficient' — the worst category — and the net-zero pledge is unsupported by near-term policy. Aramco, the state oil company, plans to sustain ~12 mb/d crude capacity through 2030 and is expanding gas.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 22,
+      "rationale": "Forest cover is under 0.5% of land area — among the lowest on Earth — reflecting a naturally arid baseline, but overgrazing and groundwater drawdown continue to degrade rangelands and juniper woodlands in the Asir highlands. The Saudi Green Initiative pledge of 10 billion trees is ambitious on paper but constrained by water scarcity and has limited independent verification.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 30,
+      "rationale": "Not megadiverse, but holds globally significant Arabian desert, Red Sea coral, and mangrove ecosystems. Arabian oryx reintroduction is a genuine conservation success; houbara bustard and falcons remain under heavy hunting pressure despite captive-breeding programs. Red Sea reefs are under-surveyed but face coastal development risk from NEOM, Red Sea Global, and Qiddiya megaprojects.",
+      "data_confidence": "low"
+    },
+    "protected_areas": {
+      "score": 38,
+      "rationale": "Terrestrial protected area coverage reported at ~18.1% (Protected Planet) — above regional average, boosted by large royal reserves declared since 2018 — but marine coverage is only ~5.9% and management effectiveness is weakly documented. Many paper parks overlap with hunting reserves and megaproject footprints. Zero OECMs reported.",
+      "data_confidence": "medium"
+    },
+    "pollution": {
+      "score": 35,
+      "rationale": "Population-weighted PM2.5 averages ~28–32 µg/m³ (5–6× WHO guideline) driven by dust, vehicle fleet, and petrochemical clusters at Jubail and Yanbu. Water stress is extreme: near-zero renewable freshwater, ~60% of supply from energy-intensive desalination that is itself fossil-fuelled. Yale EPI 2024 ranks Saudi Arabia 118/180 overall.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 28,
+      "rationale": "Agriculture is <3% of GDP but consumes ~80% of freshwater, historically for wheat grown from non-renewable fossil aquifers (the 1980s wheat program was phased out in 2016 after aquifer collapse). Pivot irrigation visible from space continues to expand for alfalfa exported as livestock feed. Pesticide use data is sparse and organic share is negligible.",
+      "data_confidence": "low"
+    },
+    "env_governance": {
+      "score": 18,
+      "rationale": "National environmental institutions (NCEC, MEWA) exist but operate under tight royal-court control with minimal civil society space and no independent environmental press. Saudi Arabia has blocked or weakened ambition language at successive COPs (COP27, COP28 UAE Consensus, COP29) and pushed Circular Carbon Economy framing to preserve oil extraction. Environmental defenders and climate activists face detention risk; Sabin Center lists zero domestic climate cases.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 25,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~830 MtCO2e projected 2030",
+      "target": "~360 MtCO2e (1.5°C compatible)",
+      "gap_pct": 131,
+      "source": "https://climateactiontracker.org/countries/saudi-arabia/"
+    },
+    {
+      "dimension": "Renewable share of electricity",
+      "current": "~3% (2025)",
+      "target": "50% by 2030 (Saudi Green Initiative pledge)",
+      "gap_pct": 94,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$30B/yr explicit; ~$260B/yr implicit (IMF)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "5.9%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 80,
+      "source": "https://www.protectedplanet.net/country/SAU"
+    },
+    {
+      "dimension": "Freshwater from non-fossil sources",
+      "current": "~60% of supply is fossil-fuelled desalination",
+      "target": "Solar / low-carbon desalination per Vision 2030",
+      "gap_pct": 85,
+      "source": "https://data.worldbank.org/country/saudi-arabia"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-11-21",
+      "action": "At COP30 (Belém), Saudi delegation again resisted language on fossil fuel phase-out, pushing 'transition fuels' and CCUS framing in final text negotiations",
+      "type": "negative",
+      "source": "https://unfccc.int/cop30"
+    },
+    {
+      "date": "2026-02-18",
+      "action": "Aramco announced capacity reversal — restoring plan to expand maximum sustained crude capacity above 12 mb/d, walking back 2024 pause",
+      "type": "negative",
+      "source": "https://www.aramco.com/en/news-media"
+    },
+    {
+      "date": "2025-09-10",
+      "action": "Sudair solar PV plant (1.5 GW) fully commissioned — largest utility-scale solar in the Gulf, part of NREP",
+      "type": "positive",
+      "source": "https://www.powersaudiarabia.com.sa/"
+    },
+    {
+      "date": "2025-12-05",
+      "action": "NEOM scaled back — The Line officially shortened from 170 km to ~2.4 km by 2030 per leaked internal plans; Trojena and Sindalah proceeding",
+      "type": "neutral",
+      "source": "https://www.neom.com/"
+    },
+    {
+      "date": "2026-01-30",
+      "action": "Royal decree designated two new marine protected areas in the Red Sea near Farasan Islands, adding ~4,200 km² of formal protection",
+      "type": "positive",
+      "source": "https://www.mewa.gov.sa/"
+    },
+    {
+      "date": "2025-10-08",
+      "action": "Public Investment Fund (PIF) issued $5B green bond — proceeds earmarked for renewables and green hydrogen projects",
+      "type": "positive",
+      "source": "https://www.pif.gov.sa/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 30,
+    "fossil_subsidies_pct_gdp": 2.7,
+    "climate_litigation_cases": 0
+  },
+  "context": {
+    "gdp_trillion_usd": 1.11,
+    "population_m": 36.9,
+    "fossil_dep_pct_gdp": 23.5,
+    "key_tension": "Saudi Arabia has pledged net zero by 2060 and is building one of the world's largest utility-solar pipelines, while simultaneously expanding crude oil capacity and systematically blocking fossil fuel phase-out language in UN climate negotiations — its climate policy is structurally organized around preserving oil demand, not ending it."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Saudi Arabia", "url": "https://climateactiontracker.org/countries/saudi-arabia/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Saudi Arabia", "url": "https://ourworldindata.org/co2/country/saudi-arabia", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Saudi Arabia country profile", "url": "https://epi.yale.edu/country/2024/SAU", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Saudi Arabia", "url": "https://www.protectedplanet.net/country/SAU", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Saudi Arabia updated NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — non-US", "url": "https://climatecasechart.com/non-us-jurisdictions/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Saudi Arabia Country Data", "url": "https://data.worldbank.org/country/saudi-arabia", "date_accessed": "2026-04-20" },
+    { "name": "Saudi Green Initiative", "url": "https://www.saudigreeninitiative.org/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Arabian Peninsula assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Saudi Aramco — Capital Program disclosures", "url": "https://www.aramco.com/en/investors", "date_accessed": "2026-04-20" },
+    { "name": "MEWA — Ministry of Environment, Water and Agriculture", "url": "https://www.mewa.gov.sa/", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Saudi Arabia Country Profile", "url": "https://www.iea.org/countries/saudi-arabia", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

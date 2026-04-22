@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "AUS",
+    "name_en": "Australia",
+    "name_es": "Australia",
+    "region": "Oceania",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 465,
+    "per_capita_tco2e": 17.1,
+    "historical_share_pct": 1.1,
+    "trend_5y_pct": -3.5,
+    "trend_10y_pct": -10.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 32,
+      "industry": 7,
+      "agriculture": 17,
+      "transport": 21,
+      "buildings": 4,
+      "lulucf": -5,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 40,
+    "fossil_pct": 60,
+    "nuclear_pct": 0,
+    "coal_pct": 43,
+    "renewable_growth_5y_pp": 17
+  },
+  "commitments": {
+    "ndc_target": "Reduce GHG emissions 62–70% below 2005 levels by 2035 (submitted September 2025), and 43% below 2005 by 2030",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Act 2022 — legislates 43% by 2030 and 2050 net-zero targets",
+      "Safeguard Mechanism Reform (2023) — declining baselines on ~215 largest emitting facilities",
+      "Nature Positive Plan (2023–2025) — EPBC Act overhaul (stalled in Senate 2024)",
+      "Future Made in Australia Act 2024 — $22.7B for green industry and critical minerals",
+      "Capacity Investment Scheme (2023) — underwriting 32 GW of renewables and storage by 2030"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/australia/",
+    "projection_2030_mtco2e": 395,
+    "ndc_gap_mtco2e": 60,
+    "pathway_15c_gap_mtco2e": 130
+  },
+  "pillars": {
+    "climate": {
+      "score": 42,
+      "rationale": "Among the highest per-capita emitters in the OECD at ~17 tCO2e and the world's largest coal + LNG exporter (Scope 3 exports ~3× domestic emissions). Domestic trajectory is improving — Climate Change Act 2022 and Safeguard Mechanism reform have set declining baselines on 215 industrial facilities — but CAT still rates Australia 'Insufficient'. The 2035 NDC (62–70% below 2005) is a meaningful step but excludes export emissions entirely.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 45,
+      "rationale": "Australia is one of only seven developed countries on the WWF global deforestation front, with Queensland and NSW land-clearing for cattle pasture among the world's highest rates outside the tropics. Victoria ended native forest logging in January 2024 — a landmark decision — but Tasmania and NSW continue. Bushfires in 2019–20 and 2024 burned tens of millions of hectares, degrading carbon stocks and ecosystems.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 30,
+      "rationale": "Megadiverse with ~87% endemic mammals and unique marsupial lineages, yet holds the worst mammal extinction record of any continent (>30 species since colonization). Koalas listed Endangered under EPBC (2022) in QLD/NSW/ACT. IUCN Red List shows continuing declines across vertebrates and invertebrates; ~2,000 species listed as threatened nationally. Great Barrier Reef experienced its 5th mass bleaching in 2024.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 68,
+      "rationale": "Terrestrial protected areas at 22.1% and marine at 45.0% (among the world's highest, boosted by 2022 expansion of Macquarie Island and Heard/McDonald reserves). Indigenous Protected Areas now cover >50% of the National Reserve System. Still short of 30% terrestrial target; quality of protection varies, with many reserves allowing grazing or extractive activity.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 70,
+      "rationale": "Air quality is among the best in the OECD (population-weighted PM2.5 ~6 µg/m³, near the WHO guideline), though bushfire smoke events periodically spike exposure. Water quality is generally strong. Yale EPI 2024 ranks Australia high on environmental health indicators. Plastic waste per capita remains among the world's highest, and PFAS contamination from Defence sites is an unresolved legacy.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 48,
+      "rationale": "Agriculture accounts for ~17% of national emissions, dominated by ruminant methane from 24M cattle and 70M sheep. Land clearing for pasture continues, especially in Queensland. Water allocations in the Murray-Darling Basin remain contested and over-allocated. Some progress: methane reduction via seaweed (Asparagopsis) feed additives moving to commercial trials; regenerative grazing adoption growing but still niche.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 55,
+      "rationale": "Strong institutional capacity and rule of law: the Climate Change Authority, independent Climate Change Act, and active Federal Court climate litigation (Sharma, Pabai Torres Strait cases). Uluru Statement from the Heart and Indigenous co-management of protected areas signal progress. Weaknesses: Nature Positive EPBC reform stalled in Senate (2024); approval of new coal and gas projects continues; fossil export lobbies retain significant influence.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 49,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~395 MtCO2e projected 2030",
+      "target": "~265 MtCO2e (1.5°C compatible)",
+      "gap_pct": 49,
+      "source": "https://climateactiontracker.org/countries/australia/"
+    },
+    {
+      "dimension": "Scope 3 fossil fuel exports",
+      "current": "~1,200 MtCO2e/yr embedded in coal + LNG exports",
+      "target": "Managed decline aligned with IEA 1.5°C (no new fields)",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/reports/net-zero-roadmap-a-global-pathway-to-keep-the-15-0c-goal-in-reach"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "22.1%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 26,
+      "source": "https://www.protectedplanet.net/country/AUS"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "43% (2025)",
+      "target": "<10% by 2030 for OECD 1.5°C alignment",
+      "gap_pct": 330,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~A$14.5B/yr (~US$9.6B, Australia Institute)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://australiainstitute.org.au/report/fossil-fuel-subsidies-2024/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-09-18",
+      "action": "Submitted 2035 NDC of 62–70% below 2005 levels at UNFCCC — doubled ambition from the 43% 2030 target",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2024-01-01",
+      "action": "Victoria ended native forest logging — ~1.8M hectares of state forest shifted out of production ahead of original 2030 deadline",
+      "type": "positive",
+      "source": "https://www.vic.gov.au/native-timber-industry-transition"
+    },
+    {
+      "date": "2025-05-28",
+      "action": "Approved North West Shelf LNG extension to 2070 — one of Australia's largest emitting facilities cleared for 50-year extension",
+      "type": "negative",
+      "source": "https://www.dcceew.gov.au/"
+    },
+    {
+      "date": "2024-11-20",
+      "action": "Nature Positive Plan EPBC Act reform stalled in Senate after industry and state lobbying — promised environmental watchdog delayed indefinitely",
+      "type": "negative",
+      "source": "https://www.dcceew.gov.au/environment/epbc/nature-positive-plan"
+    },
+    {
+      "date": "2025-07-25",
+      "action": "Federal Court ruling in Pabai Pabai v Commonwealth — found government owed no duty of care to Torres Strait Islanders on climate, appeal filed",
+      "type": "negative",
+      "source": "https://climatecasechart.com/non-us-jurisdiction/australia/"
+    },
+    {
+      "date": "2026-02-10",
+      "action": "Capacity Investment Scheme tender round 5 awarded 6.4 GW of renewables + storage — largest single tender in Australian history",
+      "type": "positive",
+      "source": "https://www.dcceew.gov.au/energy/renewable/capacity-investment-scheme"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 54,
+    "fossil_subsidies_usd_bn": 9.6,
+    "fossil_subsidies_pct_gdp": 0.52,
+    "climate_litigation_cases": 155
+  },
+  "context": {
+    "gdp_trillion_usd": 1.79,
+    "population_m": 27.2,
+    "fossil_dep_pct_gdp": 5.8,
+    "key_tension": "Australia is decarbonising its own grid at pace while remaining the world's second-largest coal exporter and third-largest LNG exporter — the domestic transition is real, but the export emissions it ships abroad are roughly triple its entire domestic footprint and stay off the national ledger."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Australia", "url": "https://climateactiontracker.org/countries/australia/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Australia", "url": "https://ourworldindata.org/co2/country/australia", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Australia country profile", "url": "https://epi.yale.edu/country/2024/AUS", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Australia", "url": "https://www.protectedplanet.net/country/AUS", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Australia 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies working paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Australia", "url": "https://climatecasechart.com/non-us-jurisdiction/australia/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Australia Country Data", "url": "https://data.worldbank.org/country/australia", "date_accessed": "2026-04-20" },
+    { "name": "Department of Climate Change, Energy, Environment and Water (DCCEEW)", "url": "https://www.dcceew.gov.au/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Australia species assessments", "url": "https://www.iucnredlist.org/search?country=AU", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Australian Institute of Marine Science — GBR bleaching 2024", "url": "https://www.aims.gov.au/information-centre/news-and-stories", "date_accessed": "2026-04-20" },
+    { "name": "The Australia Institute — Fossil Fuel Subsidies 2024", "url": "https://australiainstitute.org.au/report/fossil-fuel-subsidies-2024/", "date_accessed": "2026-04-20" },
+    { "name": "State of the Environment Report 2021 (Australia)", "url": "https://soe.dcceew.gov.au/", "date_accessed": "2026-04-20" },
+    { "name": "Climate Change Authority — 2035 Targets Advice", "url": "https://www.climatechangeauthority.gov.au/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

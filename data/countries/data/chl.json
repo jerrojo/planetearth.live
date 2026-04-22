@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "CHL",
+    "name_en": "Chile",
+    "name_es": "Chile",
+    "region": "South America",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 105,
+    "per_capita_tco2e": 5.3,
+    "historical_share_pct": 0.25,
+    "trend_5y_pct": -4.0,
+    "trend_10y_pct": 2.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 51,
+      "industry": 14,
+      "agriculture": 12,
+      "transport": 24,
+      "buildings": 4,
+      "lulucf": -30,
+      "waste": 4
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 68,
+    "fossil_pct": 32,
+    "nuclear_pct": 0,
+    "coal_pct": 14,
+    "renewable_growth_5y_pp": 22
+  },
+  "commitments": {
+    "ndc_target": "Absolute emissions cap of 95 MtCO2e by 2030, peak by 2025, and carbon budget of 1,100 MtCO2e for 2020–2030",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Framework Law (2022) — first in South America, codifies net zero by 2050",
+      "Nature-Based Solutions Strategy (2023) — integrates ecosystems into NDC accounting",
+      "Royalty Law for Mining (2023) — reallocates lithium/copper rents to regions",
+      "National Lithium Strategy (2023) — state-private partnership, salt-flat protection",
+      "Coal Retirement Plan (2019, accelerated 2024) — full phase-out by 2040",
+      "Water Code Reform (2022) — water as public good, human-rights framing"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/chile/",
+    "projection_2030_mtco2e": 102,
+    "ndc_gap_mtco2e": 7,
+    "pathway_15c_gap_mtco2e": 25
+  },
+  "pillars": {
+    "climate": {
+      "score": 62,
+      "rationale": "Electricity grid is 68% renewable (Ember 2025), with coal falling from 40% in 2018 to 14% as plants retire on schedule toward the 2040 exit. Absolute emissions cap NDC (95 MtCO2e by 2030) is among Latin America's strongest, and the 2022 Framework Law gives net zero 2050 statutory force. CAT still rates overall effort 'Insufficient' because transport and industrial diesel remain sticky and mining electrification is slow.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 50,
+      "rationale": "Native forest covers ~14.4 Mha (~19% of land) — globally significant temperate rainforest including Valdivian and Magellanic ecosystems — but has lost ~800,000 ha since 2000 to plantations (radiata pine, eucalyptus), fire, and agriculture. Catastrophic 2023 and 2024 megafires burned over 500,000 ha combined. LULUCF sink remains net-negative but shrinking as plantations age and droughts intensify.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Not on the 17-megadiverse list but hosts extraordinary endemism: Juan Fernández, Rapa Nui, Valdivian temperate rainforest, Atacama, and sub-Antarctic ecosystems. IUCN Red List shows ~22% of assessed vertebrates threatened. Huemul deer, Darwin's fox, and Andean cat are under severe pressure; salmon farming is driving sea-lion, dolphin, and benthic habitat decline in Patagonian fjords. Rewilding wins in Patagonia (puma, huemul) are real but localized.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 72,
+      "rationale": "Terrestrial protected areas at 21.3% and marine at 41.8% (Protected Planet 2025) — one of the highest marine coverage figures globally, driven by Rapa Nui, Juan Fernández, and Nazca-Desventuradas MPAs plus the 2018 Patagonia Parks donation (Tompkins legacy). Terrestrial coverage still below 30×30. Effective management and enforcement lag designation, especially in artisanal-fishing frontier zones.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 45,
+      "rationale": "Santiago and central-valley cities exceed WHO PM2.5 guideline by 4–6× during winter due to wood-burning heating and atmospheric inversion. Sacrifice zones (Quintero-Puchuncaví, Huasco, Mejillones, Coronel) concentrate heavy-metal and SO2 pollution near fossil-fired power and smelters. Salmon-farming nitrogen and antibiotic discharge is a growing coastal problem. Yale EPI 2024 scores Chile mid-range on air quality.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 42,
+      "rationale": "Export-oriented fruit, wine, and avocado production concentrated in the central valley drives severe water stress — Petorca province is a case study in agricultural water capture during a 15+ year megadrought. Pesticide use per hectare is among Latin America's highest. Salmon aquaculture (#2 globally) has chronic issues with escapes, sea-lice, and antibiotic use. Indigenous and agroecological alternatives exist but remain marginal.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 65,
+      "rationale": "Escazú Agreement ratified 2022, Climate Framework Law 2022, independent Environmental Tribunals, and active Sabin-registered climate litigation (~30 cases). Escazú makes Chile legally exceptional for defender protection in Latin America. But Global Witness still counts killings of Mapuche land defenders in Araucanía, and the 2022/2023 constitutional rewrite failed, leaving water and nature-rights reforms incomplete. Institutional capacity is high by regional standards.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 55,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~102 MtCO2e projected 2030",
+      "target": "~77 MtCO2e (1.5°C compatible)",
+      "gap_pct": 32,
+      "source": "https://climateactiontracker.org/countries/chile/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "14% (2025)",
+      "target": "0% by 2030 (accelerated phase-out)",
+      "gap_pct": 100,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "21.3%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 29,
+      "source": "https://www.protectedplanet.net/country/CHL"
+    },
+    {
+      "dimension": "Salar de Atacama water extraction",
+      "current": "~1,700 L/s brine + freshwater extraction",
+      "target": "Net-zero water impact for lithium (Codelco/SQM MOUs)",
+      "gap_pct": 100,
+      "source": "https://www.worldbank.org/en/country/chile"
+    },
+    {
+      "dimension": "Native forest loss vs plantation gain",
+      "current": "~800,000 ha native lost since 2000",
+      "target": "Net zero native deforestation",
+      "gap_pct": 100,
+      "source": "https://www.globalforestwatch.org/dashboards/country/CHL/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-05",
+      "action": "National Lithium Strategy signs first public-private JV on Salar de Atacama with Codelco-SQM, committing to direct lithium extraction (DLE) by 2030 to cut brine-water use ~50%",
+      "type": "positive",
+      "source": "https://www.codelco.com/"
+    },
+    {
+      "date": "2026-02-18",
+      "action": "Second NDC submitted under the Framework Law — retained 95 MtCO2e 2030 cap, added methane sub-target and formal inclusion of Nature-Based Solutions accounting",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2025-11-20",
+      "action": "Ventanas copper smelter permanently closed by Codelco, ending 60 years of SO2 emissions in Quintero-Puchuncaví sacrifice zone",
+      "type": "positive",
+      "source": "https://www.codelco.com/"
+    },
+    {
+      "date": "2025-09-14",
+      "action": "Environmental Tribunal of Valdivia orders suspension of six salmon farms in Kawésqar National Reserve for non-compliance with oxygen-depletion limits",
+      "type": "positive",
+      "source": "https://tribunalambiental.cl/"
+    },
+    {
+      "date": "2025-08-03",
+      "action": "Central-south megafires burn ~180,000 ha, killing 17 people — third consecutive catastrophic fire season linked to megadrought and plantation fuel loads",
+      "type": "negative",
+      "source": "https://www.conaf.cl/"
+    },
+    {
+      "date": "2026-01-12",
+      "action": "Boric administration extends Dorotea-Yendegaia protected corridor in Tierra del Fuego, connecting 1.1 Mha of Patagonian rewilding landscape",
+      "type": "positive",
+      "source": "https://www.mma.gob.cl/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 2,
+    "indigenous_land_recognition_pct": 6.4,
+    "fossil_subsidies_usd_bn": 2.6,
+    "fossil_subsidies_pct_gdp": 0.8,
+    "climate_litigation_cases": 31
+  },
+  "context": {
+    "gdp_trillion_usd": 0.34,
+    "population_m": 19.9,
+    "fossil_dep_pct_gdp": 0.2,
+    "key_tension": "Chile's clean-energy grid and rewilding leadership run on the same balance sheet as a lithium and copper mining boom that drains Atacama aquifers — the country is powering the global EV transition while watching its own water table fall."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Chile", "url": "https://climateactiontracker.org/countries/chile/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Chile", "url": "https://ourworldindata.org/co2/country/chile", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Chile country profile", "url": "https://epi.yale.edu/country/2024/CHL", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Chile", "url": "https://www.protectedplanet.net/country/CHL", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Chile Second NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Chile", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Chile", "url": "https://climatecasechart.com/non-us-jurisdiction/chile/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Chile Country Data", "url": "https://data.worldbank.org/country/chile", "date_accessed": "2026-04-20" },
+    { "name": "Ministerio del Medio Ambiente (MMA)", "url": "https://www.mma.gob.cl/", "date_accessed": "2026-04-20" },
+    { "name": "CONAF — Corporación Nacional Forestal (fire & forest data)", "url": "https://www.conaf.cl/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Chile species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Chile dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/CHL/", "date_accessed": "2026-04-20" },
+    { "name": "Escazú Agreement — ECLAC tracker", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

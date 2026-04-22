@@ -1,0 +1,206 @@
+{
+  "identity": {
+    "iso_a3": "COD",
+    "name_en": "Democratic Republic of the Congo",
+    "name_es": "República Democrática del Congo",
+    "region": "Africa",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 520,
+    "per_capita_tco2e": 4.8,
+    "historical_share_pct": 0.3,
+    "trend_5y_pct": 18.0,
+    "trend_10y_pct": 34.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 4,
+      "industry": 2,
+      "agriculture": 8,
+      "transport": 2,
+      "buildings": 1,
+      "lulucf": 80,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 96,
+    "fossil_pct": 4,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 1
+  },
+  "commitments": {
+    "ndc_target": "Conditional 21% reduction below BAU by 2030 (vs 2000 baseline); unconditional 2% — contingent on ~US$48.7B international finance",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2070,
+    "net_zero_status": "declaration",
+    "key_laws": [
+      "Forest Code (Loi n° 011/2002) — governs concessions and community forestry",
+      "Moratorium on new industrial logging concessions (2002, still contested)",
+      "Law on Fundamental Principles Relating to Environmental Protection (2011)",
+      "REDD+ National Strategy (2012, updated 2021)",
+      "CAFI Letter of Intent with Central African Forest Initiative (renewed 2021, US$500M)",
+      "Mining Code revision (2018) — raised royalties, created strategic minerals category"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Not rated",
+    "cat_url": "https://climateactiontracker.org/countries/",
+    "projection_2030_mtco2e": 620,
+    "ndc_gap_mtco2e": 180,
+    "pathway_15c_gap_mtco2e": 220
+  },
+  "pillars": {
+    "climate": {
+      "score": 55,
+      "rationale": "Per-capita emissions (~4.8 tCO2e) are low but totals (~520 MtCO2e) are globally significant because ~80% come from LULUCF — deforestation and peat degradation, not fossil fuels. Electricity is 96% hydro (Inga complex), and fossil use is tiny. But the 2021 NDC is almost entirely conditional on ~$48.7B external finance, and the 2022 oil-and-gas auction of 30 blocks (including in Virunga and Cuvette Centrale peatlands) signals a possible fossil pivot. CAT does not rate DRC.",
+      "data_confidence": "medium"
+    },
+    "forests_land": {
+      "score": 30,
+      "rationale": "DRC holds ~60% of the Congo Basin — the world's second-largest contiguous tropical rainforest (~152 Mha) — and the Cuvette Centrale peatlands storing ~30 GtC, roughly three years of global CO2 emissions. But primary forest loss hit record highs in 2023–2024 per Global Forest Watch; DRC is now the world's second-largest destroyer of primary tropical forest after Brazil. Drivers: slash-and-burn agriculture, charcoal, artisanal logging, and expanding mining/oil frontiers.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 45,
+      "rationale": "One of the most biodiverse countries on Earth: forest and lowland elephants, eastern lowland (Grauer's) gorillas, mountain gorillas, bonobos (endemic), okapi (endemic), and ~11,000 plant species. But armed conflict in North Kivu and Ituri, poaching, and habitat loss are pushing Grauer's gorillas and Congo peafowl toward extinction. IUCN lists hundreds of threatened species in DRC; Virunga rangers remain among the world's most endangered professions.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 50,
+      "rationale": "Terrestrial protected area coverage is ~14.2% and marine ~0.7% per Protected Planet — below GBF 30×30 but notable given security constraints. Virunga (Africa's oldest national park, 1925), Salonga, Kahuzi-Biega, and Okapi Wildlife Reserve are UNESCO World Heritage sites. Most are on the 'in danger' list due to armed groups, oil exploration threats, and underfunding. Enforcement on paper far exceeds enforcement on the ground.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 35,
+      "rationale": "Yale EPI 2024 ranks DRC near the bottom globally on air quality and sanitation: charcoal cooking fuel drives household PM2.5 exposure, and <20% of the population has access to safely managed water. Artisanal cobalt and copper mining in Katanga releases heavy metals into waterways; Kinshasa air quality is among the worst in Africa. Solid-waste management is essentially informal.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "Smallholder, low-input agriculture dominates — synthetic fertilizer and pesticide use are among the world's lowest per hectare. This yields a low chemical-pollution footprint but also persistent food insecurity and shifting-cultivation pressure on forests. Yields per hectare are a fraction of regional peers; without intensification on existing cropland, the deforestation frontier keeps expanding.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 25,
+      "rationale": "Environmental policy exists on paper (Forest Code, CAFI Letter of Intent, REDD+ strategy) but implementation is hobbled by corruption, conflict, and contested concessions. The 2022 auction of 30 oil/gas blocks — including in Virunga and Cuvette Centrale peatlands — was suspended in 2024 pending review, but the regulatory trajectory remains uncertain. Environmental defenders (Virunga rangers) are killed at among the world's highest rates; Global Witness documents ongoing assassinations.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 40,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Primary forest loss vs zero-deforestation pledge",
+      "current": "~600,000 ha/yr primary forest lost (2023–2024)",
+      "target": "Zero net deforestation by 2030 (Glasgow pledge)",
+      "gap_pct": 100,
+      "source": "https://www.globalforestwatch.org/dashboards/country/COD/"
+    },
+    {
+      "dimension": "Cuvette Centrale peatlands under oil concession",
+      "current": "9 of 30 auctioned blocks overlap peat/Virunga",
+      "target": "Full exclusion of peatlands & World Heritage sites from extractive use",
+      "gap_pct": 100,
+      "source": "https://www.rainforestfoundationuk.org/"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "14.2%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 53,
+      "source": "https://www.protectedplanet.net/country/COD"
+    },
+    {
+      "dimension": "NDC conditional finance gap",
+      "current": "~US$0.5B/yr CAFI + bilateral inflows",
+      "target": "~US$48.7B cumulative through 2030 (per NDC)",
+      "gap_pct": 90,
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "dimension": "Environmental defenders killed",
+      "current": "~10–15 Virunga rangers/yr (approximate, underreported)",
+      "target": "Zero — Escazú-equivalent protection",
+      "gap_pct": 100,
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-07-18",
+      "action": "Government suspended and re-launched review of the 2022 oil & gas block auction, cancelling several Cuvette Centrale peatland blocks after international pressure",
+      "type": "positive",
+      "source": "https://www.rainforestfoundationuk.org/"
+    },
+    {
+      "date": "2025-11-22",
+      "action": "CAFI-DRC partnership renewed at COP30 with additional US$150M tranche tied to deforestation-reduction milestones",
+      "type": "positive",
+      "source": "https://www.cafi.org/"
+    },
+    {
+      "date": "2025-09-30",
+      "action": "Global Forest Watch confirms DRC primary forest loss rose again in 2024, remaining second globally behind Brazil",
+      "type": "negative",
+      "source": "https://www.globalforestwatch.org/dashboards/country/COD/"
+    },
+    {
+      "date": "2026-02-14",
+      "action": "Armed M23 offensive in North Kivu forces evacuation of Virunga National Park staff; six rangers killed in subsequent months",
+      "type": "negative",
+      "source": "https://virunga.org/"
+    },
+    {
+      "date": "2025-12-05",
+      "action": "EU–DRC critical minerals strategic partnership signed, linking cobalt exports to environmental-and-social safeguards in Katanga",
+      "type": "neutral",
+      "source": "https://commission.europa.eu/"
+    },
+    {
+      "date": "2026-03-08",
+      "action": "Ministry of Environment publishes revised REDD+ registry and moratorium guidance, clarifying that 2002 logging moratorium remains in force",
+      "type": "positive",
+      "source": "https://www.mineenv.cd/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 12,
+    "indigenous_land_recognition_pct": 2,
+    "fossil_subsidies_usd_bn": 0.4,
+    "fossil_subsidies_pct_gdp": 0.6,
+    "climate_litigation_cases": 2
+  },
+  "context": {
+    "gdp_trillion_usd": 0.073,
+    "population_m": 108.4,
+    "fossil_dep_pct_gdp": 1.9,
+    "key_tension": "DRC holds the planet's second-largest rainforest and 30 GtC of peat carbon — but with 60% of its people in extreme poverty and a cobalt/oil revenue pipeline in front of it, 'leave it in the ground' only works if the rest of the world pays for the alternative."
+  },
+  "sources": [
+    { "name": "Our World in Data — CO2 emissions DRC", "url": "https://ourworldindata.org/co2/country/democratic-republic-of-congo", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — DRC dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/COD/", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — DRC", "url": "https://www.protectedplanet.net/country/COD", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — DRC country profile", "url": "https://epi.yale.edu/country/2024/COD", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — DRC species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — DRC NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "CAFI — Central African Forest Initiative (DRC)", "url": "https://www.cafi.org/countries/democratic-republic-congo", "date_accessed": "2026-04-20" },
+    { "name": "Rainforest Foundation UK — Congo Basin campaign", "url": "https://www.rainforestfoundationuk.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database", "url": "https://climatecasechart.com/", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Climate Action Tracker — country list", "url": "https://climateactiontracker.org/countries/", "date_accessed": "2026-04-20" },
+    { "name": "IEA — DRC energy profile", "url": "https://www.iea.org/countries/democratic-republic-of-the-congo", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — DRC country data", "url": "https://data.worldbank.org/country/congo-dem-rep", "date_accessed": "2026-04-20" },
+    { "name": "UNESCO — Virunga, Salonga, Kahuzi-Biega, Okapi Reserve", "url": "https://whc.unesco.org/en/statesparties/cd", "date_accessed": "2026-04-20" },
+    { "name": "Ministère de l'Environnement et Développement Durable (RDC)", "url": "https://www.mineenv.cd/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

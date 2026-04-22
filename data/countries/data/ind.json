@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "IND",
+    "name_en": "India",
+    "name_es": "India",
+    "region": "Asia",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 4100,
+    "per_capita_tco2e": 2.9,
+    "historical_share_pct": 3.4,
+    "trend_5y_pct": 18.0,
+    "trend_10y_pct": 42.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 68,
+      "industry": 9,
+      "agriculture": 14,
+      "transport": 9,
+      "buildings": 3,
+      "lulucf": -8,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 24,
+    "fossil_pct": 74,
+    "nuclear_pct": 2,
+    "coal_pct": 70,
+    "renewable_growth_5y_pp": 7
+  },
+  "commitments": {
+    "ndc_target": "Reduce emissions intensity of GDP by 45% from 2005 levels by 2030; achieve 50% non-fossil installed electric power capacity by 2030; create an additional carbon sink of 2.5–3 GtCO2e through forest and tree cover by 2030",
+    "ndc_updated_year": 2022,
+    "net_zero_year": 2070,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Energy Conservation (Amendment) Act (2022) — enables domestic carbon market and mandates non-fossil energy use",
+      "Forest (Conservation) Amendment Act (2023) — controversial relaxation of clearance requirements near borders",
+      "Environment (Protection) Act (1986) — umbrella statute",
+      "Wildlife (Protection) Amendment Act (2022) — expanded species schedules and CITES alignment",
+      "Air (Prevention and Control of Pollution) Act and National Clean Air Programme (NCAP, 2019)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Highly insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/india/",
+    "projection_2030_mtco2e": 4400,
+    "ndc_gap_mtco2e": 400,
+    "pathway_15c_gap_mtco2e": 1600
+  },
+  "pillars": {
+    "climate": {
+      "score": 40,
+      "rationale": "Per-capita emissions (~2.9 tCO2e) remain below the global average, yet India is the world's third-largest emitter and emissions rose ~42% over the past decade. Coal still supplies ~70% of electricity, and renewable capacity at 24% of generation is growing but lags the 500 GW / 50% non-fossil 2030 target. CAT rates the 2070 net-zero pledge and 2030 NDC as 'Highly insufficient' against a 1.5°C pathway.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 45,
+      "rationale": "Official India State of Forest Report claims ~21.7% forest and tree cover, but independent analyses (Global Forest Watch, Forest Survey methodology critiques) show net primary-forest loss, plantation monocultures inflating totals, and ~2.3 Mha of tree-cover loss since 2000. The 2023 Forest Conservation Amendment narrowed the definition of 'forest' and exempted strategic zones near borders, exposing Northeast and Himalayan ecosystems. Aravalli range deforestation near Delhi-NCR continues despite Supreme Court orders.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 38,
+      "rationale": "Megadiverse country hosting ~8% of recorded global species across the Western Ghats, Himalaya, and Sundarbans hotspots. Tiger population recovered to ~3,682 (2022 census, ~75% of the global wild tiger total) and Asiatic lion and one-horned rhino numbers are rising. But IUCN lists ~700+ threatened vertebrate species, the Gangetic dolphin and great Indian bustard are near extinction, and freshwater and grassland biomes are under acute pressure.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 35,
+      "rationale": "Terrestrial protected area coverage is ~8.1% and marine coverage ~0.3% (Protected Planet), far below the 30x30 Kunming-Montreal targets India endorsed. The network of 106 national parks, 573 wildlife sanctuaries, and 58 tiger reserves is well-managed in pockets but leaves grasslands, wetlands, and EEZ waters severely under-represented. OECM recognition has only recently begun.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 22,
+      "rationale": "India hosts the majority of the world's most polluted cities, with population-weighted PM2.5 around 50–55 µg/m³ (>10x WHO guideline) and Delhi winters routinely exceeding 300 µg/m³. The Ganga and Yamuna remain heavily contaminated despite the Namami Gange mission's Rs 40,000+ crore spend. Yale EPI 2024 ranks India 176 of 180 overall, with near-bottom scores on air quality and water sanitation.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 32,
+      "rationale": "Agriculture accounts for ~14% of emissions (methane from ~300M livestock and paddy, plus N2O from fertilizer) and consumes ~80% of freshwater withdrawals, driving collapse of the Indo-Gangetic aquifer. Urea-skewed fertilizer subsidies (~Rs 1.75 lakh crore/yr) lock in inefficient nutrient use. Natural-farming programs (Andhra Pradesh, national PKVY) are promising but cover <4% of cropland.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 38,
+      "rationale": "India has a sophisticated environmental legal architecture — the National Green Tribunal, Supreme Court environmental bench, and a vibrant climate-litigation docket (Ranjitsinh 2024 right-to-a-stable-climate ruling) — and Sabin Center tracks 70+ cases. But EIA norms were diluted in 2020 and 2023, FCRA restrictions have silenced major environmental NGOs (Greenpeace India, Amnesty), and Global Witness recorded lethal attacks on land defenders in 2023–24. Enforcement capacity at state pollution control boards is chronically weak.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 35,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~4.4 GtCO2e projected 2030",
+      "target": "~2.8 GtCO2e (1.5°C compatible)",
+      "gap_pct": 57,
+      "source": "https://climateactiontracker.org/countries/india/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "70% (2025)",
+      "target": "<25% by 2030 for 1.5°C alignment",
+      "gap_pct": 180,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "PM2.5 population-weighted exposure",
+      "current": "~52 µg/m³",
+      "target": "5 µg/m³ (WHO guideline)",
+      "gap_pct": 940,
+      "source": "https://epi.yale.edu/country/2024/IND"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "8.1%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 73,
+      "source": "https://www.protectedplanet.net/country/IND"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$39B/yr (IISD/IEA, 2023)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iisd.org/publications/report/mapping-indias-energy-subsidies-2023"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-02-01",
+      "action": "Union Budget 2026-27 allocated Rs 20,000 crore to PM Surya Ghar rooftop solar scheme and expanded green hydrogen mission outlay, continuing the renewable capex push",
+      "type": "positive",
+      "source": "https://www.indiabudget.gov.in/"
+    },
+    {
+      "date": "2025-11-15",
+      "action": "Delhi-NCR GRAP Stage IV invoked as AQI breached 450; schools shut and construction halted for 11 days — sixth consecutive winter of hazardous smog",
+      "type": "negative",
+      "source": "https://cpcb.nic.in/"
+    },
+    {
+      "date": "2025-09-22",
+      "action": "India crossed 220 GW of non-fossil installed capacity (solar ~108 GW, wind ~49 GW) — on track for 500 GW 2030 target but behind schedule",
+      "type": "positive",
+      "source": "https://mnre.gov.in/"
+    },
+    {
+      "date": "2025-07-10",
+      "action": "Supreme Court in TN Godavarman expanded interim stay on Forest Conservation Amendment 2023, keeping pre-1980 'forest' definition in force for unclassed lands",
+      "type": "positive",
+      "source": "https://main.sci.gov.in/"
+    },
+    {
+      "date": "2025-06-05",
+      "action": "Ministry of Environment approved Great Nicobar mega-infrastructure project (port, airport, township) over 130 sq km of rainforest despite tribal and ecological objections",
+      "type": "negative",
+      "source": "https://moef.gov.in/"
+    },
+    {
+      "date": "2025-04-03",
+      "action": "Carbon Credit Trading Scheme (CCTS) compliance market rules notified; obligated entities in 9 energy-intensive sectors begin trading in FY2026",
+      "type": "positive",
+      "source": "https://beeindia.gov.in/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 5,
+    "indigenous_land_recognition_pct": 3,
+    "fossil_subsidies_usd_bn": 39,
+    "fossil_subsidies_pct_gdp": 1.0,
+    "climate_litigation_cases": 73
+  },
+  "context": {
+    "gdp_trillion_usd": 3.94,
+    "population_m": 1438.0,
+    "fossil_dep_pct_gdp": 1.4,
+    "key_tension": "India must deliver development to 1.4 billion people on a fraction of the historical emissions of rich nations while its coal-heavy grid, filthy air, and drying rivers make its development model itself the climate risk."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — India", "url": "https://climateactiontracker.org/countries/india/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions India", "url": "https://ourworldindata.org/co2/country/india", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — India country profile", "url": "https://epi.yale.edu/country/2024/IND", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — India", "url": "https://www.protectedplanet.net/country/IND", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — India Updated NDC 2022", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — India Energy Outlook 2024", "url": "https://www.iea.org/reports/india-energy-outlook-2024", "date_accessed": "2026-04-20" },
+    { "name": "IISD — Mapping India's Energy Subsidies 2023", "url": "https://www.iisd.org/publications/report/mapping-indias-energy-subsidies-2023", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — India", "url": "https://climatecasechart.com/non-us-jurisdiction/india/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2024", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — India Country Data", "url": "https://data.worldbank.org/country/india", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of New and Renewable Energy (MNRE)", "url": "https://mnre.gov.in/", "date_accessed": "2026-04-20" },
+    { "name": "Central Pollution Control Board (CPCB) — AQI", "url": "https://cpcb.nic.in/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — India species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — India", "url": "https://www.globalforestwatch.org/dashboards/country/IND/", "date_accessed": "2026-04-20" },
+    { "name": "National Tiger Conservation Authority — Status of Tigers 2022", "url": "https://ntca.gov.in/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

@@ -1,0 +1,206 @@
+{
+  "identity": {
+    "iso_a3": "IDN",
+    "name_en": "Indonesia",
+    "name_es": "Indonesia",
+    "region": "Asia",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 1240,
+    "per_capita_tco2e": 4.4,
+    "historical_share_pct": 2.3,
+    "trend_5y_pct": 6.5,
+    "trend_10y_pct": 14.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 38,
+      "industry": 9,
+      "agriculture": 8,
+      "transport": 12,
+      "buildings": 2,
+      "lulucf": 28,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 20,
+    "fossil_pct": 80,
+    "nuclear_pct": 0,
+    "coal_pct": 61,
+    "renewable_growth_5y_pp": 4
+  },
+  "commitments": {
+    "ndc_target": "Enhanced NDC (2022): 31.89% unconditional and 43.20% conditional GHG reduction from business-as-usual by 2030; FOLU Net Sink 2030 for the forestry sector",
+    "ndc_updated_year": 2022,
+    "net_zero_year": 2060,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Law No. 32/2009 on Environmental Protection and Management",
+      "Job Creation Law / Omnibus Law (2020, revised 2023) — weakened environmental permitting, controversial",
+      "Presidential Regulation 112/2022 on Accelerating Renewable Energy Development",
+      "Indonesia FOLU Net Sink 2030 Operational Plan (2022)",
+      "Moratorium on new primary forest and peatland conversion — made permanent 2019",
+      "Law No. 21/2014 on Geothermal Energy"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Critically insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/indonesia/",
+    "projection_2030_mtco2e": 1450,
+    "ndc_gap_mtco2e": 430,
+    "pathway_15c_gap_mtco2e": 700
+  },
+  "pillars": {
+    "climate": {
+      "score": 28,
+      "rationale": "Indonesia is the world's 7th-largest emitter once LULUCF is included, with coal still providing 61% of electricity and new captive coal plants being built to power nickel smelters for the EV supply chain. The $20B Just Energy Transition Partnership (JETP) signed 2022 has delivered limited concessional finance and no firm coal retirement schedule. CAT rates overall policies 'Critically insufficient' — the weakest G20 category.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 35,
+      "rationale": "Primary forest loss has fallen sharply from the 2016 peak — 2024 saw the lowest deforestation in two decades per Global Forest Watch — but 2025 data show a rebound driven by palm oil, pulpwood, and nickel mining concessions. Peatland drainage and fires remain a structural risk: Indonesia holds ~36% of the world's tropical peat carbon. The permanent moratorium on new primary-forest and peatland conversion (2019) is real progress, but enforcement on existing concessions is patchy.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 32,
+      "rationale": "One of the world's most biodiverse countries, hosting Sumatran orangutans, Javan rhinos (fewer than 80 left), Sumatran tigers (~400), and the heart of the Coral Triangle. IUCN Red List shows accelerating declines: the Tapanuli orangutan (described 2017) already critically endangered, Javan rhino population hit by poaching in 2023–2024. Illegal wildlife trade and habitat fragmentation are the dominant drivers.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 38,
+      "rationale": "Terrestrial protected areas at ~12.2% and marine at ~3.1% (Protected Planet), both well below the GBF 30×30 target. Government pledged to expand marine protected areas to 30% by 2045 — a decade later than the global target. Coral Triangle reefs, among the planet's most species-rich marine ecosystems, remain under-protected and exposed to destructive fishing.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 30,
+      "rationale": "Jakarta routinely ranks among the world's most polluted major cities, with annual PM2.5 around 40 µg/m³ (8× WHO guideline). Peatland fires during dry years send transboundary haze across Southeast Asia. Plastic leakage into the ocean is among the highest globally; rivers in Java are heavily contaminated with textile and industrial effluent.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 32,
+      "rationale": "Palm oil is the defining commodity — Indonesia supplies ~59% of global output — with a mixed record on the ISPO/RSPO sustainability certifications and continued links to deforestation. Rice paddies are a major methane source (part of the 8% agriculture share). Smallholder yields lag regional peers, and pesticide and fertilizer overuse are documented in Java and Sumatra.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 30,
+      "rationale": "Environmental governance has weakened under the 2020 Omnibus Law, which loosened environmental-impact-assessment requirements and centralized permit authority. Global Witness recorded 4 environmental defenders killed in 2024 and documented escalating criminalization of activists opposing nickel, coal, and palm projects. The Prabowo administration (inaugurated October 2024) has accelerated strategic-project exemptions and downplayed JETP climate conditionality.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 32,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~1.45 GtCO2e projected 2030 (incl. LULUCF)",
+      "target": "~0.75 GtCO2e (1.5°C compatible)",
+      "gap_pct": 93,
+      "source": "https://climateactiontracker.org/countries/indonesia/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "61% (2025)",
+      "target": "<10% by 2030 for 1.5°C alignment",
+      "gap_pct": 510,
+      "source": "https://ember-energy.org/data/electricity-data-explorer/"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "~3.1%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 90,
+      "source": "https://www.protectedplanet.net/country/IDN"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "~12.2%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 59,
+      "source": "https://www.protectedplanet.net/country/IDN"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$33B/yr (energy subsidies, largely fossil)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-11-12",
+      "action": "Prabowo government signalled it may exit or renegotiate the $20B JETP framework, citing dissatisfaction with the ratio of grants vs loans and conditionality on coal retirement",
+      "type": "negative",
+      "source": "https://www.reuters.com/sustainability/climate-energy/"
+    },
+    {
+      "date": "2025-08-17",
+      "action": "Indonesia inaugurated first phase of Nusantara (IKN) capital relocation in East Kalimantan — environmental impact contested; 256,000 ha concession overlaps peatland and orangutan habitat",
+      "type": "negative",
+      "source": "https://www.mongabay.com/"
+    },
+    {
+      "date": "2025-06-05",
+      "action": "Launched expanded mangrove rehabilitation program targeting 600,000 ha by 2030 under FOLU Net Sink plan",
+      "type": "positive",
+      "source": "https://www.menlhk.go.id/"
+    },
+    {
+      "date": "2025-03-20",
+      "action": "Approved 21 GW of new captive coal capacity in nickel/aluminium industrial parks (Sulawesi, North Maluku) outside JETP restrictions",
+      "type": "negative",
+      "source": "https://energyandcleanair.org/publication/"
+    },
+    {
+      "date": "2026-02-10",
+      "action": "Constitutional Court ruled in favour of Indigenous groups in a forest-tenure case, ordering formal recognition of 1.2 million ha of adat (customary) forest",
+      "type": "positive",
+      "source": "https://www.aman.or.id/"
+    },
+    {
+      "date": "2026-01-15",
+      "action": "Ministry of Environment and Forestry merged with upstream Ministry of Energy oversight under Prabowo restructuring, raising concerns about independent environmental review",
+      "type": "negative",
+      "source": "https://www.mongabay.com/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 4,
+    "indigenous_land_recognition_pct": 4.5,
+    "fossil_subsidies_usd_bn": 33,
+    "fossil_subsidies_pct_gdp": 2.3,
+    "climate_litigation_cases": 14
+  },
+  "context": {
+    "gdp_trillion_usd": 1.42,
+    "population_m": 281.2,
+    "fossil_dep_pct_gdp": 4.8,
+    "key_tension": "Indonesia is being asked to protect the world's third-largest rainforest and third-largest tropical peat store while simultaneously becoming the electric-vehicle supply chain's nickel backbone — an export boom now powered by captive coal that sits outside its headline climate pledges."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Indonesia", "url": "https://climateactiontracker.org/countries/indonesia/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Indonesia", "url": "https://ourworldindata.org/co2/country/indonesia", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-energy.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Indonesia country profile", "url": "https://epi.yale.edu/country/2024/IDN", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Indonesia", "url": "https://www.protectedplanet.net/country/IDN", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Indonesia Enhanced NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Indonesia", "url": "https://climatecasechart.com/non-us-jurisdiction/indonesia/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Indonesia Country Data", "url": "https://data.worldbank.org/country/indonesia", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Indonesia dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/IDN/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Indonesia species assessments", "url": "https://www.iucnredlist.org/search?countries=IDN", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Environment and Forestry (KLHK)", "url": "https://www.menlhk.go.id/", "date_accessed": "2026-04-20" },
+    { "name": "JETP Indonesia — Comprehensive Investment and Policy Plan", "url": "https://jetp-id.org/", "date_accessed": "2026-04-20" },
+    { "name": "Mongabay Indonesia — environmental reporting", "url": "https://www.mongabay.co.id/", "date_accessed": "2026-04-20" },
+    { "name": "AMAN — Alliance of Indigenous Peoples of the Archipelago", "url": "https://www.aman.or.id/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

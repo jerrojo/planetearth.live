@@ -1,0 +1,202 @@
+{
+  "identity": {
+    "iso_a3": "CHN",
+    "name_en": "China",
+    "name_es": "China",
+    "region": "Asia",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 15100,
+    "per_capita_tco2e": 9.1,
+    "historical_share_pct": 13.5,
+    "trend_5y_pct": 8.0,
+    "trend_10y_pct": 21.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 72,
+      "industry": 14,
+      "agriculture": 6,
+      "transport": 8,
+      "buildings": 3,
+      "lulucf": -5,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 42,
+    "fossil_pct": 58,
+    "nuclear_pct": 5,
+    "coal_pct": 55,
+    "renewable_growth_5y_pp": 10
+  },
+  "commitments": {
+    "ndc_target": "Peak CO2 emissions before 2030 and cut net GHG emissions 7–10% from peak by 2035 (first absolute target in an NDC)",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2060,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Ecological and Environmental Code (2026) — first comprehensive codification of environmental law",
+      "14th Five-Year Plan energy & climate targets (2021–2025)",
+      "Dual-control on carbon emissions intensity and total (2024 reform)",
+      "Law on the Prevention and Control of Soil Pollution (2018)",
+      "Revised Forest Law (2020) — tightened logging permits, raised penalties"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Highly insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/china/",
+    "projection_2030_mtco2e": 13700,
+    "ndc_gap_mtco2e": 1500,
+    "pathway_15c_gap_mtco2e": 4000
+  },
+  "pillars": {
+    "climate": {
+      "score": 48,
+      "rationale": "World's largest annual emitter at ~15 GtCO2e but CO2 has been flat-to-falling for 21 months on record solar/wind build-out. 2035 NDC is the first absolute target China has ever submitted, yet the 7–10% cut from peak falls far short of a 1.5°C-compatible pathway (CAT: Highly insufficient). Coal still 55% of electricity despite renewables at 42%.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 55,
+      "rationale": "Forest cover rose from ~12% (1949) to ~24% today via the Grain-for-Green and Three-North Shelterbelt programs — the largest afforestation effort in human history. But much of it is monoculture plantation (low biodiversity), and primary/old-growth forest continues to be lost in the southwest. 2020 Forest Law tightened protections.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 35,
+      "rationale": "Megadiverse (17-country list) with giant pandas, snow leopards, Yangtze finless porpoises, but under severe pressure: Yangtze baiji declared functionally extinct (2006), 21% of vertebrates threatened. 10-year Yangtze fishing ban (2021) is showing early recovery signals. Red List trajectory remains negative.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 40,
+      "rationale": "Terrestrial protected areas at 15.61% and marine at 4.82% — well below the GBF 30×30 target adopted in Kunming on China's home soil. National Park system launched 2021 (5 parks) is a major structural step but coverage remains thin. Zero OECMs reported.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 45,
+      "rationale": "PM2.5 has fallen ~40% since the 2013 'war on pollution' but population-weighted exposure still ~30 µg/m³ (6× WHO guideline). Water quality improving; soil contamination remains a legacy problem from the industrial era. Plastic waste generation world-leading; 2020 single-use plastics ban is partially enforced.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 30,
+      "rationale": "Highly intensive: ~35% of global synthetic fertilizer use on ~9% of global cropland, driving massive N/P runoff. Organic agriculture <1% of land. Pesticide use starting to decline from 2015 peak. Food self-sufficiency pressure conflicts with regenerative transition.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 42,
+      "rationale": "Strong top-down capacity: Ministry of Ecology and Environment has teeth, and the 2026 Environmental Code is a milestone. But civil society and independent monitoring are heavily constrained — journalists and NGOs documenting pollution face harassment, and environmental defenders are largely invisible in global databases. Climate litigation exists but constrained.",
+      "data_confidence": "medium"
+    }
+  },
+  "score": {
+    "value": 43,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~13.7 GtCO2e projected 2030",
+      "target": "~9.7 GtCO2e (1.5°C compatible)",
+      "gap_pct": 41,
+      "source": "https://climateactiontracker.org/countries/china/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "55% (2025)",
+      "target": "<20% by 2030 for 1.5°C alignment",
+      "gap_pct": 175,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "15.61%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 48,
+      "source": "https://www.protectedplanet.net/country/CHN"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "4.82%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 84,
+      "source": "https://www.protectedplanet.net/country/CHN"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$50B/yr (IEA)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-13",
+      "action": "Ecological and Environmental Code adopted — first comprehensive codification of environmental law, giving net-zero pledge statutory force",
+      "type": "positive",
+      "source": "http://www.npc.gov.cn/"
+    },
+    {
+      "date": "2025-11-03",
+      "action": "Submitted 2035 NDC — first absolute emissions target in Chinese climate pledge history (7–10% cut from peak)",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2025-09-01",
+      "action": "Solar + wind capacity surpasses coal for the first time in installed capacity terms",
+      "type": "positive",
+      "source": "https://ember-climate.org/insights/research/"
+    },
+    {
+      "date": "2025-07-15",
+      "action": "Approved 6 new coal power plants totaling 8.4 GW despite renewable surge — 'coal as backup' framing continues",
+      "type": "negative",
+      "source": "https://energyandcleanair.org/publication/"
+    },
+    {
+      "date": "2026-01-20",
+      "action": "Yangtze fishing ban extended and expanded after early signs of finless porpoise population recovery",
+      "type": "positive",
+      "source": "http://www.gov.cn/"
+    },
+    {
+      "date": "2025-10-10",
+      "action": "Launched pilot national carbon market expansion to cover cement, aluminum, and steel sectors",
+      "type": "positive",
+      "source": "https://www.mee.gov.cn/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 50,
+    "fossil_subsidies_pct_gdp": 0.27,
+    "climate_litigation_cases": 18
+  },
+  "context": {
+    "gdp_trillion_usd": 18.74,
+    "population_m": 1408.28,
+    "fossil_dep_pct_gdp": 1.1,
+    "key_tension": "The world's largest emitter is also the world's largest builder of renewables — whether China's energy transition reaches scale in time depends less on technology and more on whether coal is allowed to retire, not just be supplemented."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — China", "url": "https://climateactiontracker.org/countries/china/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions China", "url": "https://ourworldindata.org/co2/country/china", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — China country profile", "url": "https://epi.yale.edu/country/2024/CHN", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — China", "url": "https://www.protectedplanet.net/country/CHN", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — China 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database", "url": "https://climatecasechart.com/non-us-jurisdiction/china/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — China Country Data", "url": "https://data.worldbank.org/country/china", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Ecology and Environment (MEE)", "url": "https://www.mee.gov.cn/", "date_accessed": "2026-04-20" },
+    { "name": "Centre for Research on Energy and Clean Air — China coal tracker", "url": "https://energyandcleanair.org/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — China species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "MEX",
+    "name_en": "Mexico",
+    "name_es": "México",
+    "region": "North America",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 780,
+    "per_capita_tco2e": 5.9,
+    "historical_share_pct": 1.3,
+    "trend_5y_pct": 2.0,
+    "trend_10y_pct": 5.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 64,
+      "industry": 10,
+      "agriculture": 12,
+      "transport": 22,
+      "buildings": 4,
+      "lulucf": 6,
+      "waste": 7
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 22,
+    "fossil_pct": 74,
+    "nuclear_pct": 4,
+    "coal_pct": 7,
+    "renewable_growth_5y_pp": 4
+  },
+  "commitments": {
+    "ndc_target": "Unconditional 35% reduction in GHG and 51% in black carbon below BAU by 2030 (updated 2022 NDC); conditional 40% GHG if international finance materializes",
+    "ndc_updated_year": 2022,
+    "net_zero_year": 2050,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "General Law on Climate Change (2012, reformed 2018)",
+      "Energy Transition Law (2015) — 35% clean electricity by 2024 target missed",
+      "General Law of Ecological Equilibrium and Environmental Protection (LGEEPA, 1988)",
+      "General Biodiversity Law (proposed, stalled in Congress since 2023)",
+      "Escazú Agreement (ratified 2021) — access to info, participation, defender protection"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Critically insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/mexico/",
+    "projection_2030_mtco2e": 790,
+    "ndc_gap_mtco2e": 220,
+    "pathway_15c_gap_mtco2e": 340
+  },
+  "pillars": {
+    "climate": {
+      "score": 28,
+      "rationale": "Climate Action Tracker rates Mexico 'Critically insufficient' — the lowest rating for any G20 economy. The 2022 NDC was downgraded in ambition relative to what a 1.5°C pathway requires, and the Sheinbaum administration's 2025 energy plan doubled down on Pemex and CFE fossil assets (Dos Bocas refinery, gas-fired generation). Renewables stalled at ~22% of electricity as permitting for private solar and wind remained frozen through 2024. The arrival of a climate-scientist president has not yet translated into a structural shift away from state-owned hydrocarbons.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 40,
+      "rationale": "Primary forest loss accelerated in the Yucatán Peninsula, Chiapas, and the Sierra Madre Occidental, with Global Forest Watch recording roughly 150,000 ha of primary humid forest loss in 2024 — driven by cattle ranching, agro-industrial expansion, and Maya Train right-of-way clearing. Community forestry in Oaxaca and Quintana Roo remains a global reference model, but enforcement against illegal logging is weak. Net forest loss continues despite a formal zero-deforestation pledge at COP26.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 38,
+      "rationale": "One of 17 megadiverse countries and the 5th most biodiverse globally, home to monarch butterflies, jaguars, axolotls, and over 200 endemic reptiles. Yet the vaquita porpoise is down to ~8 individuals in the Upper Gulf of California, and IUCN lists over 1,200 Mexican species as threatened. Monarch overwintering colonies shrank again in the 2024–25 season, and reef bleaching across the Mesoamerican system intensified.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 52,
+      "rationale": "Terrestrial protected areas stand at ~14.8% and marine areas at ~22.1% per Protected Planet — marine coverage is relatively strong thanks to Revillagigedo and other large offshore reserves, but on-paper protection vastly exceeds enforcement. CONANP's budget has been cut in real terms every year since 2019, leaving many reserves with minimal ranger presence. Terrestrial coverage remains well below the GBF 30×30 target.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 42,
+      "rationale": "Mexico City and Monterrey regularly exceed WHO PM2.5 guidelines by 4–6×, with ozone episodes worsening under extended heat. Industrial discharges into the Lerma-Santiago and Atoyac rivers remain largely unpenalized, and mining-sector toxics (notably the 2014 Sonora River spill) show slow remediation. National air quality monitoring coverage is improving but still sparse outside major metros.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "The 2020 presidential decree phasing out glyphosate and transgenic maize for human consumption is a rare global precedent, though implementation has been partially walked back after USMCA dispute-panel pressure. Smallholder milpa systems retain extraordinary maize diversity (~60 landraces). But commercial agriculture — especially avocado and berry expansion in Michoacán and Jalisco — drives water stress and deforestation.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 25,
+      "rationale": "Mexico has ranked among the top 3 deadliest countries for environmental defenders every year since 2019, with Global Witness documenting 18 killings in the most recent reporting year. The Escazú Agreement was ratified in 2021 but implementation is thin, and SEMARNAT has been consistently underfunded. Oversight of Pemex spills and Maya Train environmental impact assessments has been routinely waived via 'national security' decrees, hollowing out review institutions.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 37,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~790 MtCO2e projected 2030",
+      "target": "~450 MtCO2e (1.5°C compatible)",
+      "gap_pct": 76,
+      "source": "https://climateactiontracker.org/countries/mexico/"
+    },
+    {
+      "dimension": "Renewable electricity share",
+      "current": "22% (2025)",
+      "target": "60%+ by 2030 for 1.5°C alignment",
+      "gap_pct": 63,
+      "source": "https://ember-energy.org/data/"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "14.8%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 51,
+      "source": "https://www.protectedplanet.net/country/MEX"
+    },
+    {
+      "dimension": "Environmental defender killings",
+      "current": "18 killings in last reported year (top 3 globally)",
+      "target": "Zero impunity; full Escazú implementation",
+      "gap_pct": 100,
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    },
+    {
+      "dimension": "Fossil fuel subsidies",
+      "current": "~$18B/yr explicit (2023)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-10-01",
+      "action": "Claudia Sheinbaum — a climate scientist and former IPCC contributing author — inaugurated as president, raising expectations for a policy pivot",
+      "type": "neutral",
+      "source": "https://www.gob.mx/presidencia"
+    },
+    {
+      "date": "2025-02-14",
+      "action": "Sheinbaum administration's National Energy Plan 2025–2030 commits $23B to Pemex, capping private renewables at 46% of generation and preserving CFE majority control",
+      "type": "negative",
+      "source": "https://www.gob.mx/sener"
+    },
+    {
+      "date": "2025-06-20",
+      "action": "Supreme Court ruled against Maya Train environmental impact waivers, ordering retrospective assessment of forest and cenote impacts in Tramo 5",
+      "type": "positive",
+      "source": "https://www.scjn.gob.mx/"
+    },
+    {
+      "date": "2025-09-10",
+      "action": "Global Witness Defenders 2025 report lists Mexico as the 2nd deadliest country for land and environmental defenders with 18 killings in the prior reporting year",
+      "type": "negative",
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    },
+    {
+      "date": "2025-11-22",
+      "action": "Mexico submitted updated 2035 NDC at COP30 committing to 45% GHG reduction below BAU — CAT preliminary assessment flags it as still 'Insufficient'",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2026-02-05",
+      "action": "CONAPESCA and SEMAR launched joint enforcement operation in the Upper Gulf of California vaquita refuge after survey estimated fewer than 10 individuals remain",
+      "type": "positive",
+      "source": "https://www.gob.mx/semarnat"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 18,
+    "indigenous_land_recognition_pct": 28,
+    "fossil_subsidies_usd_bn": 18,
+    "fossil_subsidies_pct_gdp": 1.0,
+    "climate_litigation_cases": 32
+  },
+  "context": {
+    "gdp_trillion_usd": 1.85,
+    "population_m": 131.0,
+    "fossil_dep_pct_gdp": 3.4,
+    "key_tension": "A climate-scientist president leads a petro-state whose fiscal survival is structurally tethered to Pemex — the test of the Sheinbaum era is whether science in the presidency can outweigh hydrocarbons in the treasury."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Mexico", "url": "https://climateactiontracker.org/countries/mexico/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Mexico", "url": "https://ourworldindata.org/co2/country/mexico", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Electricity Data Explorer (Mexico)", "url": "https://ember-energy.org/data/", "date_accessed": "2026-04-20" },
+    { "name": "Yale Environmental Performance Index 2024 — Mexico", "url": "https://epi.yale.edu/country/2024/MEX", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Mexico", "url": "https://www.protectedplanet.net/country/MEX", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Mexico", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper (2023)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Mexico", "url": "https://climatecasechart.com/non-us-jurisdiction/mexico/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Mexico Country Data", "url": "https://data.worldbank.org/country/mexico", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Mexico", "url": "https://www.globalforestwatch.org/dashboards/country/MEX/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Mexico species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "CONABIO — Biodiversidad Mexicana", "url": "https://www.biodiversidad.gob.mx/", "date_accessed": "2026-04-20" },
+    { "name": "SEMARNAT — Secretaría de Medio Ambiente y Recursos Naturales", "url": "https://www.gob.mx/semarnat", "date_accessed": "2026-04-20" },
+    { "name": "LandMark — Indigenous & Community Lands Mexico", "url": "http://www.landmarkmap.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "CEMDA — Centro Mexicano de Derecho Ambiental", "url": "https://www.cemda.org.mx/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

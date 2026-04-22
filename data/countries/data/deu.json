@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "DEU",
+    "name_en": "Germany",
+    "name_es": "Alemania",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 649,
+    "per_capita_tco2e": 7.7,
+    "historical_share_pct": 5.2,
+    "trend_5y_pct": -18.0,
+    "trend_10y_pct": -28.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 32,
+      "industry": 22,
+      "agriculture": 9,
+      "transport": 22,
+      "buildings": 15,
+      "lulucf": 2,
+      "waste": 1
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 59,
+    "fossil_pct": 39,
+    "nuclear_pct": 0,
+    "coal_pct": 22,
+    "renewable_growth_5y_pp": 14
+  },
+  "commitments": {
+    "ndc_target": "At least 65% reduction in GHG emissions by 2030 vs 1990; 88% by 2040 (enshrined in Federal Climate Change Act 2021)",
+    "ndc_updated_year": 2024,
+    "net_zero_year": 2045,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Federal Climate Change Act (Bundes-Klimaschutzgesetz, 2019; amended 2021 and 2024)",
+      "Renewable Energy Sources Act (EEG, most recent revision 2023)",
+      "Coal Phase-Out Act (Kohleausstiegsgesetz, 2020) — final exit by 2038, target 2030 in Rhineland",
+      "Building Energy Act (GEG, 2023) — 'Heating Law' phasing out fossil boilers",
+      "Federal Nature Conservation Act (BNatSchG) and EU Nature Restoration Law (2024) implementation"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/germany/",
+    "projection_2030_mtco2e": 520,
+    "ndc_gap_mtco2e": 80,
+    "pathway_15c_gap_mtco2e": 180
+  },
+  "pillars": {
+    "climate": {
+      "score": 62,
+      "rationale": "Emissions have fallen ~48% below 1990 levels by 2024 — the sharpest absolute cut of any G7 economy — driven by coal-to-renewables switching and a mild post-crisis industrial contraction. Yet the Expert Council on Climate Change warned in 2025 that the transport and buildings sectors will miss their 2030 targets without stronger measures, and CAT rates Germany 'Insufficient' relative to a 1.5°C pathway. The 2024 amendment to the Climate Act relaxed sector-specific annual caps, softening accountability.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 55,
+      "rationale": "Roughly one-third of Germany is forested, but the 2018–2022 drought-bark-beetle crisis killed over 500,000 hectares of spruce monoculture, flipping forests from a net sink into a net emissions source in several inventory years. The Federal Forest Strategy 2050 pushes structural conversion to mixed native stands, but the transition is slow and heavily subsidised. Agricultural land-use pressure on peatlands — which hold a disproportionate share of soil carbon — remains largely unresolved.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Not megadiverse, but an EU biodiversity bellwether. Farmland bird populations have fallen ~34% since 1990 and one-third of assessed species are threatened according to the Federal Agency for Nature Conservation (BfN). Insect biomass studies (Krefeld, 2017 onwards) catalysed public awareness. The 2024 EU Nature Restoration Law requires restoration on 20% of land and sea by 2030 — Germany voted yes after internal coalition drama, but national implementation plans remain in draft.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 58,
+      "rationale": "Terrestrial protected areas cover ~37.8% and marine ~45.4% (Protected Planet), well above the GBF 30×30 threshold on paper. However, effectiveness is uneven: most terrestrial cover is Natura 2000 sites with multi-use regimes, and a DUH/WWF 2024 analysis found that over 60% of German marine protected areas still permit bottom trawling. Strict protection (IUCN I–II) remains below 3% of land.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 70,
+      "rationale": "Air quality has improved markedly — population-weighted PM2.5 is ~10 µg/m³, twice the WHO guideline but among the lowest in the G20. Nitrate groundwater contamination from intensive livestock remains in breach of the EU Nitrates Directive, with ECJ rulings against Germany in 2018 and continued Commission pressure in 2024. PFAS 'forever chemical' hotspots around industrial and military sites are a growing regulatory concern.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "Roughly 11% of farmland is certified organic (Destatis 2024) — on track for a national 30%-by-2030 target but pace has slowed. Livestock density in the northwest drives chronic nitrate pollution and ammonia emissions. The 2024 farmer protests forced the government to retreat on agricultural diesel subsidy cuts, illustrating the political ceiling on reform. Peatland rewetting remains the single biggest untapped mitigation lever.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 78,
+      "rationale": "Among the strongest governance records globally: independent Expert Council on Climate Change, constitutional climate ruling (BVerfG 2021) forcing Parliament to tighten targets, robust civil society (DUH, BUND, NABU), free press, and active courts. Germany hosts the UNFCCC Secretariat in Bonn. Weak points: the 2024 Climate Act amendment diluted sector-level accountability, and NGOs report narrower protest space after 2024–25 Last Generation (Letzte Generation) crackdowns.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 59,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs Climate Act target",
+      "current": "~520 MtCO2e projected 2030 under current policies",
+      "target": "438 MtCO2e (65% below 1990)",
+      "gap_pct": 19,
+      "source": "https://climateactiontracker.org/countries/germany/"
+    },
+    {
+      "dimension": "Coal phase-out timing",
+      "current": "22% of electricity from coal (2025); legal exit 2038",
+      "target": "Exit by 2030 for 1.5°C alignment (OECD)",
+      "gap_pct": 27,
+      "source": "https://ember-climate.org/data/data-explorer/"
+    },
+    {
+      "dimension": "Transport sector emissions",
+      "current": "~143 MtCO2e (2024), trend roughly flat",
+      "target": "85 MtCO2e by 2030 (Climate Act sector cap)",
+      "gap_pct": 68,
+      "source": "https://www.umweltbundesamt.de/en/data/climate/greenhouse-gas-emissions-in-germany"
+    },
+    {
+      "dimension": "Organic farmland share",
+      "current": "11.2% of utilised agricultural area (2024)",
+      "target": "30% by 2030 (national strategy)",
+      "gap_pct": 63,
+      "source": "https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Organic-Farming/_node.html"
+    },
+    {
+      "dimension": "Strictly protected terrestrial area (IUCN I–II)",
+      "current": "<3% strict protection",
+      "target": "10% strict protection by 2030 (EU Biodiversity Strategy)",
+      "gap_pct": 70,
+      "source": "https://www.protectedplanet.net/country/DEU"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-28",
+      "action": "Last Hambach-adjacent lignite block at Niederaußem taken offline — ahead of schedule retirement pushes Rhineland coal exit closer to 2030 target",
+      "type": "positive",
+      "source": "https://www.bmwk.de/"
+    },
+    {
+      "date": "2025-11-12",
+      "action": "New federal coalition weakened the Building Energy Act ('Heating Law'), extending timelines for fossil boiler phase-out and reducing heat-pump mandates",
+      "type": "negative",
+      "source": "https://www.bundesregierung.de/"
+    },
+    {
+      "date": "2025-09-04",
+      "action": "Renewables supplied 59% of electricity generation in 2024–25 rolling year — new record; solar added ~16 GW in 2025 alone",
+      "type": "positive",
+      "source": "https://ember-climate.org/insights/research/european-electricity-review-2025/"
+    },
+    {
+      "date": "2025-07-02",
+      "action": "Constitutional Court (BVerfG) upheld complaint by climate NGOs against weakened sector targets in the 2024 Climate Act amendment; government ordered to restore binding annual sector caps",
+      "type": "positive",
+      "source": "https://www.bundesverfassungsgericht.de/"
+    },
+    {
+      "date": "2025-06-15",
+      "action": "LNG terminal expansion approved on the North Sea coast (Stade, Wilhelmshaven 2) locking in ~20 years of fossil gas infrastructure post-Russia pivot",
+      "type": "negative",
+      "source": "https://www.bmwk.de/"
+    },
+    {
+      "date": "2026-01-30",
+      "action": "Germany voted in favour of the final EU Nature Restoration Law implementation package; national restoration plan released for public consultation",
+      "type": "positive",
+      "source": "https://environment.ec.europa.eu/topics/nature-and-biodiversity/nature-restoration-law_en"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 44,
+    "fossil_subsidies_pct_gdp": 0.9,
+    "climate_litigation_cases": 78
+  },
+  "context": {
+    "gdp_trillion_usd": 4.52,
+    "population_m": 84.5,
+    "fossil_dep_pct_gdp": 0.1,
+    "key_tension": "Germany has the strongest climate governance in the G20 and the sharpest G7 emissions cut on record, yet is simultaneously building new LNG infrastructure, softening its heating law, and relaxing annual sector caps — exposing how a post-Russian-gas industrial economy bends even exemplary climate law under cost-of-living pressure."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Germany", "url": "https://climateactiontracker.org/countries/germany/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Germany", "url": "https://ourworldindata.org/co2/country/germany", "date_accessed": "2026-04-20" },
+    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Germany country profile", "url": "https://epi.yale.edu/country/2024/DEU", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Germany", "url": "https://www.protectedplanet.net/country/DEU", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — EU/Germany submission", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Germany", "url": "https://climatecasechart.com/non-us-jurisdiction/germany/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Germany Country Data", "url": "https://data.worldbank.org/country/germany", "date_accessed": "2026-04-20" },
+    { "name": "Umweltbundesamt (UBA) — Greenhouse Gas Emissions in Germany", "url": "https://www.umweltbundesamt.de/en/data/climate/greenhouse-gas-emissions-in-germany", "date_accessed": "2026-04-20" },
+    { "name": "Expert Council on Climate Change (Expertenrat für Klimafragen)", "url": "https://expertenrat-klima.de/en/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Germany species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Destatis — Organic farming statistics", "url": "https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Organic-Farming/_node.html", "date_accessed": "2026-04-20" },
+    { "name": "BfN — Federal Agency for Nature Conservation", "url": "https://www.bfn.de/en", "date_accessed": "2026-04-20" },
+    { "name": "Federal Constitutional Court — Neubauer climate ruling", "url": "https://www.bundesverfassungsgericht.de/", "date_accessed": "2026-04-20" },
+    { "name": "EU Nature Restoration Law", "url": "https://environment.ec.europa.eu/topics/nature-and-biodiversity/nature-restoration-law_en", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

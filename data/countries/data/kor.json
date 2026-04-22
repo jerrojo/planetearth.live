@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "KOR",
+    "name_en": "South Korea",
+    "name_es": "Corea del Sur",
+    "region": "Asia",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 640,
+    "per_capita_tco2e": 12.4,
+    "historical_share_pct": 1.3,
+    "trend_5y_pct": -6.5,
+    "trend_10y_pct": -8.2,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 37,
+      "industry": 36,
+      "agriculture": 3,
+      "transport": 14,
+      "buildings": 7,
+      "lulucf": -6,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 10,
+    "fossil_pct": 58,
+    "nuclear_pct": 32,
+    "coal_pct": 30,
+    "renewable_growth_5y_pp": 4
+  },
+  "commitments": {
+    "ndc_target": "Reduce GHG emissions 40% below 2018 levels by 2030 (absolute target)",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Framework Act on Carbon Neutrality and Green Growth (2021) — legally binds the 2050 net-zero target",
+      "10th Basic Plan for Electricity Supply and Demand (2023) — raises nuclear, trims 2030 renewables ambition",
+      "11th Basic Plan for Electricity Supply and Demand (2025) — adds SMRs and offshore wind corridors",
+      "K-ETS Phase 4 allocation plan (2026–2030) — tighter caps, more auctioning",
+      "Distributed Energy Activation Act (2024) — restructures grid for renewables integration"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Highly insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/south-korea/",
+    "projection_2030_mtco2e": 600,
+    "ndc_gap_mtco2e": 165,
+    "pathway_15c_gap_mtco2e": 240
+  },
+  "pillars": {
+    "climate": {
+      "score": 38,
+      "rationale": "Per-capita emissions of ~12.4 tCO2e remain among the highest in the OECD, driven by heavy industry (steel, petrochemicals, semiconductors) and a coal-heavy grid. The 40% cut by 2030 from 2018 levels is one of Asia's few absolute targets but CAT rates overall effort 'Highly insufficient' because the policy package would leave a ~165 MtCO2e gap at 2030. Emissions have trended down ~8% over a decade on industrial restructuring and nuclear recovery, not on a structural renewables build-out.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 68,
+      "rationale": "One of the world's most successful reforestation stories: forest cover rebuilt from ~35% (post-Korean War denudation) to ~63% today through state-led planting from the 1970s onward. Forests are aging and increasingly carbon-saturated, reducing annual sink capacity, and climate-driven pine wilt and wildfires (notably the March 2025 Uiseong–Andong fires) are escalating losses. Timber self-sufficiency remains under 16%, shifting pressure onto tropical imports.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Not megadiverse but biologically significant — the Korean Peninsula hosts endemic species and critical East Asian–Australasian Flyway wetlands, yet IUCN lists ~267 Korean species as threatened and coastal tidal flats have been halved by reclamation since 1987. The DMZ functions as an accidental refuge but has no formal transboundary protection. The 2021 inscription of the Getbol tidal flats as UNESCO World Heritage was a positive signal; recovery programs for red-crowned cranes and Asiatic black bears show incremental gains.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 42,
+      "rationale": "Terrestrial protected areas stand at ~17.3% and marine at ~1.8% of jurisdictional waters — both well short of the Kunming-Montreal 30x30 targets. The national park network (23 parks) is mature but small in area, and coastal/marine protections have stagnated amid fishing-industry pushback. No formal OECM reporting to the WDPA.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 40,
+      "rationale": "Population-weighted PM2.5 averages ~19 ug/m3, nearly 4x the WHO guideline, with a mix of domestic coal, diesel, and transboundary sources. Yale EPI 2024 ranks South Korea outside the top 50 despite its income level, reflecting persistent air quality and waste pressures. Plastic waste generation per capita is among the world's highest; the 2022 café disposable-cup deposit scheme was scaled back in 2024, and the country remains a top per-capita plastic consumer.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 35,
+      "rationale": "Intensive, small-plot agriculture with some of the OECD's highest synthetic fertilizer and pesticide application rates per hectare. Livestock (pork, poultry) is a growing methane and nitrate source; food self-sufficiency has fallen below 45% (grain self-sufficiency under 20%), deepening import dependence and outsourced land footprint. Organic certified area remains under 2% of farmland.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 58,
+      "rationale": "Robust institutional architecture: the 2021 Framework Act on Carbon Neutrality, a functioning K-ETS (Asia's second-oldest), and a Constitutional Court ruling (August 2024) that found the government's post-2031 climate plan unconstitutional for failing future generations. Civil society and media are free and active, and climate litigation is accelerating. Weaknesses include industrial-sector capture of energy planning, lagging transparency on LNG build-out, and limited integration of biodiversity into sectoral policy.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 46,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~600 MtCO2e projected 2030",
+      "target": "~360 MtCO2e (1.5°C compatible)",
+      "gap_pct": 67,
+      "source": "https://climateactiontracker.org/countries/south-korea/"
+    },
+    {
+      "dimension": "Renewables share of electricity",
+      "current": "~10% (2024)",
+      "target": ">60% by 2030 for 1.5°C alignment",
+      "gap_pct": 83,
+      "source": "https://ember-energy.org/data/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "~30% (2024)",
+      "target": "Phase-out by 2030 (OECD)",
+      "gap_pct": 100,
+      "source": "https://ember-energy.org/countries-and-regions/countries/south-korea/"
+    },
+    {
+      "dimension": "Marine protected area",
+      "current": "~1.8%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 94,
+      "source": "https://www.protectedplanet.net/country/KOR"
+    },
+    {
+      "dimension": "Fossil fuel subsidies (explicit)",
+      "current": "~$14B/yr (IMF explicit)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-08-29",
+      "action": "Constitutional Court ruled the Carbon Neutrality Act unconstitutional for lacking quantified 2031–2049 reduction targets — first such ruling in Asia",
+      "type": "positive",
+      "source": "https://climatecasechart.com/non-us-case/do-hyun-kim-et-al-v-south-korea/"
+    },
+    {
+      "date": "2025-02-21",
+      "action": "11th Basic Plan for Electricity Supply finalized — expands nuclear and SMRs, modest increase to offshore wind, still leaves coal in the mix past 2035",
+      "type": "neutral",
+      "source": "https://www.motie.go.kr/"
+    },
+    {
+      "date": "2025-03-25",
+      "action": "Uiseong–Andong wildfires burned over 48,000 ha — largest in Korean history, displacing 30,000 and exposing climate-adaptation shortfalls",
+      "type": "negative",
+      "source": "https://www.reuters.com/world/asia-pacific/"
+    },
+    {
+      "date": "2025-11-10",
+      "action": "Korea Zinc, POSCO, and SK join wave of corporate PPAs for offshore wind, unlocking ~4 GW of private-sector demand signal",
+      "type": "positive",
+      "source": "https://ember-energy.org/countries-and-regions/countries/south-korea/"
+    },
+    {
+      "date": "2025-12-15",
+      "action": "KEPCO approved three new LNG terminals and 4.8 GW of gas-fired capacity, locking in fossil infrastructure to 2050+",
+      "type": "negative",
+      "source": "https://www.iea.org/countries/korea"
+    },
+    {
+      "date": "2026-02-28",
+      "action": "Revised NDC submission announced for pre-COP31, with Ministry of Environment signaling a tightened 2035 target aligned with Constitutional Court ruling",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 14,
+    "fossil_subsidies_pct_gdp": 0.78,
+    "climate_litigation_cases": 12
+  },
+  "context": {
+    "gdp_trillion_usd": 1.87,
+    "population_m": 51.63,
+    "fossil_dep_pct_gdp": 0.1,
+    "key_tension": "A high-income democracy with the institutional capacity, industrial base, and supreme court mandate to lead Asia on climate is instead extending coal, doubling down on LNG, and relying on a nuclear revival to paper over a renewables deployment that remains among the OECD's slowest."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — South Korea", "url": "https://climateactiontracker.org/countries/south-korea/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions South Korea", "url": "https://ourworldindata.org/co2/country/south-korea", "date_accessed": "2026-04-20" },
+    { "name": "Ember — South Korea electricity profile", "url": "https://ember-energy.org/countries-and-regions/countries/south-korea/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — South Korea country profile", "url": "https://epi.yale.edu/country/2024/KOR", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — South Korea", "url": "https://www.protectedplanet.net/country/KOR", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — South Korea", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Korea country page", "url": "https://www.iea.org/countries/korea", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation — Do-Hyun Kim et al. v. South Korea", "url": "https://climatecasechart.com/non-us-case/do-hyun-kim-et-al-v-south-korea/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Korea, Rep. Country Data", "url": "https://data.worldbank.org/country/korea-rep", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Environment (MoE) Korea", "url": "https://eng.me.go.kr/", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of Trade, Industry and Energy (MOTIE)", "url": "https://www.motie.go.kr/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Korea species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Solutions for Our Climate (SFOC) — Korea coal & LNG tracker", "url": "https://forourclimate.org/en", "date_accessed": "2026-04-20" },
+    { "name": "Korea Forest Service — national forest statistics", "url": "https://english.forest.go.kr/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "SWE",
+    "name_en": "Sweden",
+    "name_es": "Suecia",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 44,
+    "per_capita_tco2e": 4.1,
+    "historical_share_pct": 0.2,
+    "trend_5y_pct": -8.0,
+    "trend_10y_pct": -21.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 22,
+      "industry": 32,
+      "agriculture": 14,
+      "transport": 28,
+      "buildings": 3,
+      "lulucf": -35,
+      "waste": 1
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 68,
+    "fossil_pct": 2,
+    "nuclear_pct": 30,
+    "coal_pct": 0.4,
+    "renewable_growth_5y_pp": 6
+  },
+  "commitments": {
+    "ndc_target": "Reduce net emissions 63% by 2030 from 1990 levels (as part of EU NDC of at least -55%); national goal of -75% by 2040",
+    "ndc_updated_year": 2023,
+    "net_zero_year": 2045,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Act (2017) — binding framework law requiring climate policy plans and annual reviews",
+      "Carbon tax (1991) — world's earliest and now highest at ~SEK 1,500 (~USD 140)/tCO2",
+      "Environmental Code (Miljöbalken, 1999) — unified environmental statute",
+      "Forestry Act (1993) — equal production/environment goals but weak enforcement",
+      "EU Emissions Trading System (ETS) — covers ~38% of Swedish emissions"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/eu/",
+    "projection_2030_mtco2e": 42,
+    "ndc_gap_mtco2e": 16,
+    "pathway_15c_gap_mtco2e": 18
+  },
+  "pillars": {
+    "climate": {
+      "score": 62,
+      "rationale": "Per-capita emissions among the lowest in the OECD at ~4.1 tCO2e and electricity nearly fully non-fossil (hydro 40%, nuclear 30%, wind 23%). But after the Kristersson government cut the fuel tax and axed the climate bonus in 2023, transport emissions rose and Sweden's Climate Policy Council warned the country will miss its own 2030 and 2045 targets for the first time in a decade. Carbon tax remains the gold-standard policy instrument but its signal is being blunted at the pump.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 45,
+      "rationale": "Forest covers ~69% of Sweden's land area but is dominated by even-aged spruce and pine monocultures — only ~9% of productive forest is old-growth or near-natural. Clearcutting remains the default silviculture; satellite studies (Ahlström et al., 2022) show the boreal forest carbon sink has weakened sharply as intensive logging outpaces growth. The 1993 Forestry Act's 'freedom with responsibility' model treats production and environment as equal goals in law but logging permits dominate in practice.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Around 2,000 species are red-listed in Sweden, roughly one in five assessed — forestry is the primary pressure on more than 1,400 of them. Populations of woodland birds, lichens, and fungi tied to old-growth continue to decline (SLU Artdatabanken 2025). Marine biodiversity in the Baltic is stressed by eutrophication and cod collapse. Wolves and large carnivores persist but hunting quotas remain politically contested.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 58,
+      "rationale": "Terrestrial protected areas stand at ~15.0% and marine at ~14.6% (Protected Planet), both below the GBF 30×30 target but above the EU average. Most strict protection (IUCN I–II) is concentrated in mountainous north; productive southern forest is barely protected. OECM reporting has begun but coverage is modest.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 78,
+      "rationale": "Population-weighted PM2.5 is ~5.6 µg/m³, among the lowest in Europe and close to the WHO guideline. Water quality is high; wastewater treatment near universal. Legacy issues remain: PFAS contamination near airbases and industrial sites, and Baltic Sea eutrophication driven partly by Swedish agriculture. Yale EPI 2024 ranks Sweden top-5 globally largely on air and water indicators.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 60,
+      "rationale": "Around 20% of farmland is certified organic — one of the highest shares in the EU — and synthetic nitrogen use per hectare is below the EU average. But livestock density, especially dairy, still drives Baltic nutrient runoff, and the 2023 budget cut the organic conversion subsidy. Pesticide sales have declined modestly; peatland drainage for agriculture remains a significant emissions source.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 65,
+      "rationale": "Strong rule of law, independent Climate Policy Council with statutory review role, and freedom-of-information traditions make Sweden a governance leader on paper. But in 2024 the Council publicly warned that the current government's policies are incompatible with statutory climate targets — and the government proceeded anyway. Sami indigenous rights are recognized but the 2020 Girjas ruling and ongoing LKAB/Gállok mining conflicts show persistent gaps in FPIC for boreal land use.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 58,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs national target",
+      "current": "~42 MtCO2e projected 2030",
+      "target": "~26 MtCO2e (-63% vs 1990)",
+      "gap_pct": 62,
+      "source": "https://www.klimatpolitiskaradet.se/en/"
+    },
+    {
+      "dimension": "Old-growth / near-natural forest share",
+      "current": "~9% of productive forest",
+      "target": "Halt loss and restore (GBF Target 2, EU Biodiversity Strategy)",
+      "gap_pct": 70,
+      "source": "https://www.slu.se/en/departments/artdatabanken/"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~15.0%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 50,
+      "source": "https://www.protectedplanet.net/country/SWE"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "~14.6%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 51,
+      "source": "https://www.protectedplanet.net/country/SWE"
+    },
+    {
+      "dimension": "Red-listed species trajectory",
+      "current": "~2,000 species red-listed (≈1 in 5 assessed)",
+      "target": "Stabilize and reverse decline by 2030",
+      "gap_pct": 100,
+      "source": "https://www.artdatabanken.se/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-25",
+      "action": "Climate Policy Council's 2026 annual report concludes — for the third year in a row — that current policies will miss statutory 2030 and 2045 targets",
+      "type": "negative",
+      "source": "https://www.klimatpolitiskaradet.se/en/"
+    },
+    {
+      "date": "2025-11-12",
+      "action": "LKAB's Per Geijer rare-earth project (Kiruna) receives environmental permit; Sami reindeer-herding communities appeal citing FPIC concerns",
+      "type": "negative",
+      "source": "https://www.lkab.com/en/"
+    },
+    {
+      "date": "2025-09-20",
+      "action": "Autumn budget restores a reduced version of the climate bonus for electric vehicles after two years of falling EV sales",
+      "type": "positive",
+      "source": "https://www.regeringen.se/"
+    },
+    {
+      "date": "2025-06-18",
+      "action": "HYBRIT fossil-free steel joint venture (SSAB/LKAB/Vattenfall) begins commercial-scale shipments from Gällivare demonstration plant",
+      "type": "positive",
+      "source": "https://www.hybritdevelopment.se/"
+    },
+    {
+      "date": "2025-02-14",
+      "action": "Government extends subsidies for new nuclear reactors and passes law removing the cap on reactor count; critics warn it crowds out wind investment",
+      "type": "neutral",
+      "source": "https://www.regeringen.se/"
+    },
+    {
+      "date": "2024-12-05",
+      "action": "Supreme Administrative Court greenlights expanded spruce logging in reindeer-herding areas over Sami objections",
+      "type": "negative",
+      "source": "https://www.domstol.se/hogsta-forvaltningsdomstolen/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 55,
+    "fossil_subsidies_usd_bn": 3.2,
+    "fossil_subsidies_pct_gdp": 0.5,
+    "climate_litigation_cases": 6
+  },
+  "context": {
+    "gdp_trillion_usd": 0.63,
+    "population_m": 10.6,
+    "fossil_dep_pct_gdp": 0.1,
+    "key_tension": "Sweden's carbon tax and near-fossil-free grid are the template the world aspires to — but intensive boreal forestry, a weakening carbon sink, and a government actively pulling back on climate policy are eroding the headline story from the inside."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — EU (covers Sweden)", "url": "https://climateactiontracker.org/countries/eu/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Sweden", "url": "https://ourworldindata.org/co2/country/sweden", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Sweden electricity data", "url": "https://ember-climate.org/countries-and-regions/countries/sweden/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Sweden country profile", "url": "https://epi.yale.edu/country/2024/SWE", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Sweden", "url": "https://www.protectedplanet.net/country/SWE", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — EU NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center — Global Climate Litigation (Sweden)", "url": "https://climatecasechart.com/non-us-jurisdiction/sweden/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Sweden Country Data", "url": "https://data.worldbank.org/country/sweden", "date_accessed": "2026-04-20" },
+    { "name": "Swedish Climate Policy Council (Klimatpolitiska rådet)", "url": "https://www.klimatpolitiskaradet.se/en/", "date_accessed": "2026-04-20" },
+    { "name": "SLU Artdatabanken — Swedish Red List 2025", "url": "https://www.artdatabanken.se/", "date_accessed": "2026-04-20" },
+    { "name": "Swedish Environmental Protection Agency (Naturvårdsverket)", "url": "https://www.naturvardsverket.se/en/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Sweden species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Sami Council — Girjas and Gállok statements", "url": "https://www.saamicouncil.net/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

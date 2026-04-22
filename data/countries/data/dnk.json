@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "DNK",
+    "name_en": "Denmark",
+    "name_es": "Dinamarca",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 42,
+    "per_capita_tco2e": 7.0,
+    "historical_share_pct": 0.2,
+    "trend_5y_pct": -18.0,
+    "trend_10y_pct": -34.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 38,
+      "industry": 10,
+      "agriculture": 27,
+      "transport": 22,
+      "buildings": 6,
+      "lulucf": 2,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 84,
+    "fossil_pct": 16,
+    "nuclear_pct": 0,
+    "coal_pct": 6,
+    "renewable_growth_5y_pp": 18
+  },
+  "commitments": {
+    "ndc_target": "70% reduction in GHG emissions by 2030 from 1990 levels; 110% reduction by 2050 (net-negative)",
+    "ndc_updated_year": 2024,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Act (2020) — legally binding 70% by 2030 target with biennial climate programmes",
+      "Green Tripartite Agreement (2024) — world's first carbon tax on livestock agriculture, phased 2030–2035",
+      "Finance Act amendment (2022) — ending new oil & gas licensing in the North Sea by 2050",
+      "Nature and Biodiversity Package (2024) — 15 new national nature parks, rewilding commitments",
+      "Environmental Protection Act (consolidated 2023) — pesticide, water and air quality standards"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Almost sufficient",
+    "cat_url": "https://climateactiontracker.org/countries/denmark/",
+    "projection_2030_mtco2e": 32,
+    "ndc_gap_mtco2e": 5,
+    "pathway_15c_gap_mtco2e": 8
+  },
+  "pillars": {
+    "climate": {
+      "score": 74,
+      "rationale": "Emissions have fallen 34% over the last decade and ~50% from 1990 levels, putting the 70%-by-2030 target within reach but not yet locked in — the Climate Council's 2025 status report found a 5 MtCO2e gap remaining. Electricity is 84% renewable, with wind alone supplying more than half of generation. CAT rates Denmark 'Almost sufficient' — one of only a handful of countries to score above 'Insufficient'.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 52,
+      "rationale": "Forest cover is ~15.7% — low by European standards and a fraction of pre-agricultural levels — but has grown steadily through the national afforestation strategy targeting 20–25% by 2100. Most forests are managed plantations of non-native Norway spruce; old-growth is near-zero. 60% of the country is still farmed, leaving limited room for natural ecosystems.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 38,
+      "rationale": "Denmark ranks among the worst in the EU on biodiversity intactness: a 2023 national Red List found 41% of assessed species threatened or in decline, and the Biodiversity Intactness Index sits near the European floor. Agricultural intensification has hollowed out farmland bird populations and insect biomass. The 2024 Nature Package and 15 new nature national parks are the first serious structural response in decades.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 48,
+      "rationale": "Terrestrial protected areas stand at ~18.6% and marine at ~19.1% per Protected Planet — above the EU average but below the 30×30 target. Critically, independent assessments (WWF, Danish Society for Nature Conservation) find most 'protected' land is still farmed, hunted or forested commercially: strictly protected area is estimated at only 2.3%, well below the EU 10% strict-protection target.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 72,
+      "rationale": "Air quality is strong — population-weighted PM2.5 is ~9 µg/m³, close to the WHO guideline — and Denmark ranks 10th globally on Yale EPI 2024. Waste generation per capita remains among the highest in the EU (~800 kg/yr) and nitrogen pollution of coastal waters from agriculture is a chronic, unresolved problem causing annual oxygen depletion events in the Baltic and inner fjords.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 35,
+      "rationale": "The weak link in Denmark's profile: agriculture is 27% of emissions, nitrogen leaching drives recurrent marine dead zones, and livestock density (especially pigs, at ~12 million head vs. 5.9 million people) is among the highest in the world. The 2024 Green Tripartite introduced the world's first carbon tax on livestock (120 DKK/tCO2e rising to 300 DKK), but the phase-in stretches to 2035 and the effective rate after deductions is modest.",
+      "data_confidence": "high"
+    },
+    "env_governance": {
+      "score": 82,
+      "rationale": "Strong institutional architecture: an independent Climate Council with statutory advisory power, transparent biennial climate programmes, robust freedom of information, and active civil society. Denmark co-founded the Beyond Oil and Gas Alliance (2021) and has delivered on the North Sea licensing phase-out. Climate litigation is limited but functional. Yale EPI 2024 ranks Denmark top 5 globally.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 59,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 70% target",
+      "current": "~32 MtCO2e projected 2030 under current policies",
+      "target": "~27 MtCO2e (70% below 1990)",
+      "gap_pct": 18,
+      "source": "https://climateactiontracker.org/countries/denmark/"
+    },
+    {
+      "dimension": "Agricultural emissions",
+      "current": "~11 MtCO2e (27% of total, largely livestock methane + fertilizer N2O)",
+      "target": "~55–65% cut by 2030 for Paris alignment",
+      "gap_pct": 55,
+      "source": "https://en.klimaraadet.dk/"
+    },
+    {
+      "dimension": "Strictly protected land",
+      "current": "~2.3% strict protection",
+      "target": "10% strict protection by 2030 (EU Biodiversity Strategy)",
+      "gap_pct": 77,
+      "source": "https://www.protectedplanet.net/country/DNK"
+    },
+    {
+      "dimension": "Nitrogen load to coastal waters",
+      "current": "~56,000 tN/yr to marine waters",
+      "target": "~38,000 tN/yr (Water Framework Directive good status)",
+      "gap_pct": 32,
+      "source": "https://www.eea.europa.eu/en/countries/denmark"
+    },
+    {
+      "dimension": "Threatened species share",
+      "current": "41% of assessed species threatened or in decline",
+      "target": "Halt and reverse by 2030 (GBF Target 4)",
+      "gap_pct": 100,
+      "source": "https://www.iucnredlist.org/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-11-18",
+      "action": "Green Tripartite Agreement signed — world's first carbon tax on livestock agriculture, phased from 2030 at 120 DKK/tCO2e rising to 300 DKK by 2035, with reforestation of 250,000 hectares",
+      "type": "positive",
+      "source": "https://en.mfvm.dk/"
+    },
+    {
+      "date": "2025-05-06",
+      "action": "Climate Council's 2025 Status Report flags a ~5 MtCO2e gap to the 70%-by-2030 target and calls for sharper action on transport and agriculture",
+      "type": "neutral",
+      "source": "https://en.klimaraadet.dk/"
+    },
+    {
+      "date": "2025-09-22",
+      "action": "Copenhagen officially confirms it missed its 2025 carbon-neutral target, citing failure of biomass CCS and persistent transport emissions",
+      "type": "negative",
+      "source": "https://international.kk.dk/"
+    },
+    {
+      "date": "2025-11-14",
+      "action": "Ørsted announces scale-back of US offshore wind pipeline and 25% workforce cut, raising questions about the global offshore wind transition",
+      "type": "negative",
+      "source": "https://orsted.com/"
+    },
+    {
+      "date": "2026-02-10",
+      "action": "Denmark and 12 BOGA partners at the Beyond Oil and Gas Alliance ministerial reaffirm 2050 end-date for North Sea production and push for new non-signatory members",
+      "type": "positive",
+      "source": "https://beyondoilandgasalliance.org/"
+    },
+    {
+      "date": "2026-03-25",
+      "action": "Nature National Park programme reaches 15 designated parks covering ~250 km² of rewilded land; WWF Denmark says pace still too slow for 30×30",
+      "type": "positive",
+      "source": "https://mst.dk/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 1.4,
+    "fossil_subsidies_pct_gdp": 0.35,
+    "climate_litigation_cases": 6
+  },
+  "context": {
+    "gdp_trillion_usd": 0.41,
+    "population_m": 5.95,
+    "fossil_dep_pct_gdp": 0.4,
+    "key_tension": "Denmark leads the world on clean electricity and climate governance, but its pork-and-dairy agricultural model — 60% of the land, a third of emissions, and the engine of coastal dead zones — is the reason the same country cannot call itself a green one."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Denmark", "url": "https://climateactiontracker.org/countries/denmark/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Denmark", "url": "https://ourworldindata.org/co2/country/denmark", "date_accessed": "2026-04-20" },
+    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-energy.org/latest-insights/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Denmark country profile", "url": "https://epi.yale.edu/country/2024/DNK", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Denmark", "url": "https://www.protectedplanet.net/country/DNK", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Denmark / EU", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Denmark", "url": "https://climatecasechart.com/non-us-jurisdiction/denmark/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Denmark Country Data", "url": "https://data.worldbank.org/country/denmark", "date_accessed": "2026-04-20" },
+    { "name": "Danish Climate Council (Klimarådet) — 2025 Status Report", "url": "https://en.klimaraadet.dk/", "date_accessed": "2026-04-20" },
+    { "name": "Danish Ministry of Food, Agriculture and Fisheries — Green Tripartite", "url": "https://en.mfvm.dk/", "date_accessed": "2026-04-20" },
+    { "name": "Beyond Oil and Gas Alliance (BOGA)", "url": "https://beyondoilandgasalliance.org/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Denmark assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "European Environment Agency — Denmark", "url": "https://www.eea.europa.eu/en/countries/denmark", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

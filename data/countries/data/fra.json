@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "FRA",
+    "name_en": "France",
+    "name_es": "Francia",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 385,
+    "per_capita_tco2e": 5.6,
+    "historical_share_pct": 2.3,
+    "trend_5y_pct": -13.0,
+    "trend_10y_pct": -22.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 10,
+      "industry": 19,
+      "agriculture": 20,
+      "transport": 31,
+      "buildings": 17,
+      "lulucf": -5,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 27,
+    "fossil_pct": 6,
+    "nuclear_pct": 67,
+    "coal_pct": 1,
+    "renewable_growth_5y_pp": 5
+  },
+  "commitments": {
+    "ndc_target": "Net -55% GHG by 2030 vs 1990 (via EU Fit-for-55); domestic SNBC aligns with this trajectory",
+    "ndc_updated_year": 2023,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Energy Transition for Green Growth Act (2015) — first statutory climate framework",
+      "Energy-Climate Law (2019) — enshrined 2050 net-zero objective",
+      "Climate and Resilience Law (2021) — partial short-haul flight ban, artificialisation freeze",
+      "Green Industry Law (2023) — industrial decarbonisation and financing reform",
+      "Multiannual Energy Programme (PPE3, 2025) — new nuclear EPR2 fleet + renewable targets"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/eu/",
+    "projection_2030_mtco2e": 330,
+    "ndc_gap_mtco2e": 45,
+    "pathway_15c_gap_mtco2e": 90
+  },
+  "pillars": {
+    "climate": {
+      "score": 68,
+      "rationale": "Among the lowest per-capita emitters in the G20 (~5.6 tCO2e) thanks to ~67% nuclear electricity, and emissions are down ~22% over a decade. But the Haut Conseil pour le Climat has warned three years running that the pace of reduction must roughly double to hit the -55% 2030 target; transport and buildings are the chronic laggards. CAT rates the EU bloc 'Insufficient'.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 62,
+      "rationale": "Forest cover ~31% and slowly expanding in mainland France, but the national carbon sink has collapsed ~40% since 2015 — drought, bark beetles, and fires have turned forests from a reliable sink into a fragile one. The 2021 artificialisation freeze (ZAN) aims to halve soil sealing by 2031 but faces heavy pushback from local governments.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 48,
+      "rationale": "Not megadiverse in mainland terms, but French overseas territories (New Caledonia, French Polynesia, Guiana) host globally significant biodiversity and put France in the top tier of state biodiversity stewards. IUCN Red List shows ~18% of assessed French species threatened; pollinator collapse and farmland bird declines (-30% in 20 years) are severe. 2023 National Biodiversity Strategy 2030 was adopted but chronically underfunded.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 58,
+      "rationale": "Terrestrial protected areas at ~27% and marine at ~33% of EEZ on paper — France is one of the few countries nominally past the GBF 30×30 marine target, largely thanks to vast Pacific and Indian Ocean reserves. But IUCN and NGOs flag weak management: only ~4% of metropolitan marine area is under strong protection, and bottom trawling is still permitted in most MPAs.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 70,
+      "rationale": "PM2.5 exposure has fallen sharply and most cities now meet EU limits, though ~40,000 premature deaths/yr are still attributed to air pollution. France has been repeatedly condemned by the Conseil d'État for failing to enforce air-quality standards. Pesticide use remains high; PFAS ('forever chemicals') and nitrate pollution in Brittany groundwater are persistent hotspots.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "EU's largest agricultural producer with high input intensity — France uses more pesticides per hectare than most European peers, and the Ecophyto plan to halve pesticide use has been missed twice. Organic farmland ~10% (above EU average). Farmers' revolts in 2024–2025 led the government to suspend or weaken several environmental rules, including pesticide reduction targets.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 72,
+      "rationale": "Strong institutional architecture: independent Haut Conseil pour le Climat, active Conseil d'État, robust civil society, and landmark 'L'Affaire du Siècle' ruling (2021) recognising state climate liability. Yale EPI 2024 ranks France in the global top 10. Counterweight: 2024–2025 farm unrest triggered regulatory rollbacks and Macron's government is under sustained far-right pressure on green rules.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 61,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs NDC",
+      "current": "~330 MtCO2e projected 2030",
+      "target": "~285 MtCO2e (-55% vs 1990)",
+      "gap_pct": 16,
+      "source": "https://www.hautconseilclimat.fr/"
+    },
+    {
+      "dimension": "Annual emissions cut pace",
+      "current": "~2% per year (2019–2024)",
+      "target": "~4.5% per year to 2030",
+      "gap_pct": 125,
+      "source": "https://www.hautconseilclimat.fr/publications/rapport-annuel-2025/"
+    },
+    {
+      "dimension": "Marine area under strong protection (metropolitan)",
+      "current": "~4%",
+      "target": "10% strict protection (GBF)",
+      "gap_pct": 60,
+      "source": "https://www.protectedplanet.net/country/FRA"
+    },
+    {
+      "dimension": "Pesticide use reduction (Ecophyto)",
+      "current": "Roughly flat vs 2009 baseline",
+      "target": "-50% by 2030",
+      "gap_pct": 100,
+      "source": "https://agriculture.gouv.fr/ecophyto"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$9B/yr (IMF explicit)",
+      "target": "Phase out per G20 2009 pledge",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-04",
+      "action": "Constitutional Council upholds 'L'Affaire du Siècle' compliance order — government given 12 months to close cumulative emissions debt or face daily penalties",
+      "type": "positive",
+      "source": "https://laffairedusiecle.net/"
+    },
+    {
+      "date": "2025-11-18",
+      "action": "PPE3 multiannual energy programme adopted, confirming 6 new EPR2 reactors and quadrupling of solar capacity by 2035",
+      "type": "neutral",
+      "source": "https://www.ecologie.gouv.fr/ppe"
+    },
+    {
+      "date": "2025-07-09",
+      "action": "Government suspends pesticide reduction targets under Ecophyto in response to farmers' protests; Conseil d'État to review in 2026",
+      "type": "negative",
+      "source": "https://agriculture.gouv.fr/ecophyto"
+    },
+    {
+      "date": "2025-05-22",
+      "action": "Short-haul domestic flight ban extended to routes with <2h30 train alternatives (marginal in scope but symbolic first in EU)",
+      "type": "positive",
+      "source": "https://www.ecologie.gouv.fr/"
+    },
+    {
+      "date": "2026-02-11",
+      "action": "National Biodiversity Strategy 2030 funding cut ~20% in mid-year budget revision amid deficit pressure",
+      "type": "negative",
+      "source": "https://www.ecologie.gouv.fr/strategie-nationale-biodiversite"
+    },
+    {
+      "date": "2025-09-30",
+      "action": "France joins the High Ambition Coalition push for binding global plastics treaty at INC-5.2; hosts ministerial in Nice",
+      "type": "positive",
+      "source": "https://www.unep.org/inc-plastic-pollution"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 12,
+    "fossil_subsidies_usd_bn": 9,
+    "fossil_subsidies_pct_gdp": 0.3,
+    "climate_litigation_cases": 42
+  },
+  "context": {
+    "gdp_trillion_usd": 3.13,
+    "population_m": 68.4,
+    "fossil_dep_pct_gdp": 0.1,
+    "key_tension": "A low-carbon electricity system (nuclear-dominated) gives France genuine climate credibility, but the political coalition required to decarbonise transport, buildings and agriculture is fraying under far-right and farm-sector pressure — the easy wins are taken, the hard ones are stalling."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — EU (covers France)", "url": "https://climateactiontracker.org/countries/eu/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions France", "url": "https://ourworldindata.org/co2/country/france", "date_accessed": "2026-04-20" },
+    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — France country profile", "url": "https://epi.yale.edu/country/2024/FRA", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — France", "url": "https://www.protectedplanet.net/country/FRA", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — EU NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "Haut Conseil pour le Climat — Rapport annuel 2025", "url": "https://www.hautconseilclimat.fr/publications/rapport-annuel-2025/", "date_accessed": "2026-04-20" },
+    { "name": "IEA — France Energy Policy Review", "url": "https://www.iea.org/countries/france", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — France", "url": "https://climatecasechart.com/non-us-jurisdiction/france/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — France Country Data", "url": "https://data.worldbank.org/country/france", "date_accessed": "2026-04-20" },
+    { "name": "Ministère de la Transition écologique", "url": "https://www.ecologie.gouv.fr/", "date_accessed": "2026-04-20" },
+    { "name": "L'Affaire du Siècle — litigation tracker", "url": "https://laffairedusiecle.net/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — France assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "CITEPA — Inventaire national des émissions", "url": "https://www.citepa.org/fr/secten/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

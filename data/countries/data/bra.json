@@ -1,0 +1,212 @@
+{
+  "identity": {
+    "iso_a3": "BRA",
+    "name_en": "Brazil",
+    "name_es": "Brasil",
+    "region": "South America",
+    "megadiverse": true
+  },
+  "emissions": {
+    "total_mtco2e": 1310,
+    "per_capita_tco2e": 6.1,
+    "historical_share_pct": 1.0,
+    "trend_5y_pct": -12.0,
+    "trend_10y_pct": -5.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 19,
+      "industry": 6,
+      "agriculture": 27,
+      "transport": 10,
+      "buildings": 2,
+      "lulucf": 34,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 89,
+    "fossil_pct": 9,
+    "nuclear_pct": 2,
+    "coal_pct": 1,
+    "renewable_growth_5y_pp": 6
+  },
+  "commitments": {
+    "ndc_target": "Reduce absolute net GHG emissions by 59–67% below 2005 levels by 2035 (submitted November 2024 ahead of COP30 host year)",
+    "ndc_updated_year": 2024,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Climate Change Law / PNMC (Law 12.187, 2009) — framework law, updated 2024 to embed 2050 net-zero",
+      "Forest Code (Law 12.651, 2012) — still the backbone of rural land-use regulation",
+      "Regulated Carbon Market Law (Law 15.042, December 2024) — establishes Brazilian cap-and-trade (SBCE)",
+      "Fuel of the Future Law (Law 14.993, 2024) — raises biodiesel, SAF, and ethanol blending mandates",
+      "Atlantic Forest Law (Law 11.428, 2006)",
+      "PPCDAm — Action Plan for the Prevention and Control of Deforestation in the Amazon (relaunched 2023)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/brazil/",
+    "projection_2030_mtco2e": 1150,
+    "ndc_gap_mtco2e": 250,
+    "pathway_15c_gap_mtco2e": 450
+  },
+  "pillars": {
+    "climate": {
+      "score": 58,
+      "rationale": "Brazil's electricity grid is ~89% renewable (hydro-dominant, with fast-growing wind and solar) and its energy-sector emissions per capita are low for a G20 economy. But land-use change and agriculture together account for roughly 60% of national emissions, meaning Brazil's climate footprint is really a forest footprint. CAT rates the NDC 'Insufficient' — the 59–67% cut by 2035 is ambitious on paper but relies on deforestation control that has not yet been institutionalised.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 45,
+      "rationale": "INPE/PRODES recorded a 30.6% fall in Amazon primary-forest loss in 2023 and a further 30.6% drop in 2024 under the relaunched PPCDAm — the fastest reversal in two decades. Yet the Cerrado continues to burn and clear at record rates (MapBiomas: Cerrado loss now exceeds the Amazon in some months), and 2024 saw the worst fire season since 2007 across all biomes. Brazil still loses roughly one million hectares of native vegetation per year.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 50,
+      "rationale": "Brazil is the planet's most biodiverse country — Amazon, Cerrado, Pantanal, Atlantic Forest, and Caatinga between them host ~10% of all known species. IUCN lists over 3,100 threatened species in Brazil, and the 2024 Pantanal fires burned an estimated 17% of the biome. Recovery of jaguar, giant otter, and hyacinth macaw populations in protected Amazon blocks shows what is possible when enforcement holds.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 62,
+      "rationale": "Terrestrial protected areas cover 30.4% of territory and marine 26.6% — Brazil is one of very few large economies already at or near the GBF 30x30 thresholds on paper (Protected Planet). Indigenous Lands add another ~13% of the country and function as some of the most effective carbon sinks in the Amazon. Quality is uneven: many 'paper parks' lack management plans, staff, or budget, and mining-bill pressure continues.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 55,
+      "rationale": "Urban air quality is moderate by global standards (Yale EPI 2024 ranks Brazil mid-table on PM2.5 exposure), but biomass-burning smoke from Amazon and Cerrado fires now drives public-health crises as far south as São Paulo. Pesticide use per hectare is among the highest in the world, with ~500 new agrochemicals approved since 2019. Sanitation coverage still reaches barely half the population, with untreated sewage loading major rivers.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 38,
+      "rationale": "Agribusiness drives roughly a quarter of GDP and an even larger share of emissions: enteric methane from ~230M cattle, nitrous oxide from soy-fertiliser systems, and land-use change from frontier expansion. No-till is widespread, but organic and agroecological land remains under 1%. The Fuel of the Future law doubles down on biofuels without firm sustainability guardrails, keeping agricultural emissions on a rising trajectory.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 52,
+      "rationale": "The Lula government has rebuilt IBAMA, ICMBio, and FUNAI after the 2019–2022 dismantling and reactivated the inter-ministerial deforestation commission, but Congress — dominated by the bancada ruralista — has passed laws weakening the Marco Temporal ruling on Indigenous land and attempting to cut environmental-licensing steps (vetoed 2024). Brazil remains one of the deadliest countries for environmental defenders (Global Witness). COP30 in Belém is a governance stress-test in real time.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 52,
+    "traffic_light": "yellow",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~1.15 GtCO2e projected 2030",
+      "target": "~0.70 GtCO2e (1.5°C compatible)",
+      "gap_pct": 64,
+      "source": "https://climateactiontracker.org/countries/brazil/"
+    },
+    {
+      "dimension": "Cerrado native vegetation loss",
+      "current": "~700,000 ha cleared in 2024",
+      "target": "Zero net conversion by 2030 (PPCerrado + GBF)",
+      "gap_pct": 100,
+      "source": "https://plataforma.brasil.mapbiomas.org/"
+    },
+    {
+      "dimension": "Indigenous Land demarcation backlog",
+      "current": "~250 territories awaiting ratification",
+      "target": "Full demarcation of pending TIs per 1988 Constitution deadline",
+      "gap_pct": 60,
+      "source": "https://www.gov.br/funai/pt-br"
+    },
+    {
+      "dimension": "Environmental defenders killed",
+      "current": "25 killed in 2023 (Global Witness)",
+      "target": "Zero (UN Aarhus / Escazú baseline)",
+      "gap_pct": 100,
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/missing-voices/"
+    },
+    {
+      "dimension": "Fossil fuel subsidies",
+      "current": "~$27B/yr explicit (INESC/IISD)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iisd.org/subsidies/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2024-12-12",
+      "action": "Law 15.042 signed — establishes Brazil's regulated carbon market (SBCE), covering facilities emitting >25 ktCO2e, with caps to be set through 2030",
+      "type": "positive",
+      "source": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L15042.htm"
+    },
+    {
+      "date": "2024-11-08",
+      "action": "Brazil submitted 2035 NDC at UNFCCC: 59–67% net GHG cut below 2005 — first major economy to file ahead of COP30",
+      "type": "positive",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2024-11-06",
+      "action": "INPE/PRODES confirms Amazon deforestation fell 30.6% in 2023–24 reference period — lowest rate in nine years",
+      "type": "positive",
+      "source": "http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes"
+    },
+    {
+      "date": "2024-09-20",
+      "action": "Pantanal and Amazon fire season sets record: ~11.8M ha burned nationally, smoke plumes reach São Paulo and Argentina",
+      "type": "negative",
+      "source": "https://queimadas.dgi.inpe.br/queimadas/portal"
+    },
+    {
+      "date": "2025-04-24",
+      "action": "Federal Senate approves 'Devastation PL' (PL 2.159/2021) weakening environmental licensing; Lula pledges partial veto, civil society protests",
+      "type": "negative",
+      "source": "https://www25.senado.leg.br/web/atividade/materias/-/materia/148785"
+    },
+    {
+      "date": "2025-06-05",
+      "action": "Terras Indígenas Aripuanã and Kayabi ratified; six demarcation decrees signed on World Environment Day",
+      "type": "positive",
+      "source": "https://www.gov.br/funai/pt-br/assuntos/noticias"
+    },
+    {
+      "date": "2025-10-30",
+      "action": "COP30 opens in Belém do Pará — first COP inside the Amazon; 'Tropical Forest Forever Facility' finance mechanism launched",
+      "type": "positive",
+      "source": "https://cop30.br/en"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 25,
+    "indigenous_land_recognition_pct": 13.0,
+    "fossil_subsidies_usd_bn": 27,
+    "fossil_subsidies_pct_gdp": 1.3,
+    "climate_litigation_cases": 82
+  },
+  "context": {
+    "gdp_trillion_usd": 2.17,
+    "population_m": 215.3,
+    "fossil_dep_pct_gdp": 3.1,
+    "key_tension": "Brazil is hosting COP30 in the Amazon while its Congress greenlights new offshore oil frontiers and guts environmental licensing — the government that cut deforestation hardest is also the one betting hardest on fossil expansion."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Brazil", "url": "https://climateactiontracker.org/countries/brazil/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Brazil", "url": "https://ourworldindata.org/co2/country/brazil", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Brazil Electricity Review", "url": "https://ember-energy.org/countries-and-regions/brazil/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Brazil country profile", "url": "https://epi.yale.edu/country/2024/BRA", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Brazil", "url": "https://www.protectedplanet.net/country/BRA", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Brazil 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "INPE / PRODES — Amazon Deforestation Monitoring", "url": "http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes", "date_accessed": "2026-04-20" },
+    { "name": "MapBiomas — Annual Land Cover and Fire Monitor", "url": "https://plataforma.brasil.mapbiomas.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Missing Voices / Defenders 2024", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/missing-voices/", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Brazil", "url": "https://climatecasechart.com/non-us-jurisdiction/brazil/", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies (2023 estimates)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IISD — Brazil Fossil Fuel Subsidy Inventory", "url": "https://www.iisd.org/subsidies/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Brazil Country Data", "url": "https://data.worldbank.org/country/brazil", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Brazil species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "FUNAI — Indigenous Lands registry", "url": "https://www.gov.br/funai/pt-br", "date_accessed": "2026-04-20" },
+    { "name": "COP30 Presidency — Belém", "url": "https://cop30.br/en", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

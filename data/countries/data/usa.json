@@ -1,0 +1,213 @@
+{
+  "identity": {
+    "iso_a3": "USA",
+    "name_en": "United States",
+    "name_es": "Estados Unidos",
+    "region": "North America",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 5900,
+    "per_capita_tco2e": 17.5,
+    "historical_share_pct": 24.3,
+    "trend_5y_pct": -3.5,
+    "trend_10y_pct": -12.0,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 28,
+      "industry": 23,
+      "agriculture": 10,
+      "transport": 29,
+      "buildings": 13,
+      "lulucf": -12,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 26,
+    "fossil_pct": 56,
+    "nuclear_pct": 18,
+    "coal_pct": 15,
+    "renewable_growth_5y_pp": 7
+  },
+  "commitments": {
+    "ndc_target": "Reduce net GHG emissions 50–52% below 2005 levels by 2030 (submitted 2021; currently under executive review after January 2025 Paris withdrawal notice)",
+    "ndc_updated_year": 2021,
+    "net_zero_year": 2050,
+    "net_zero_status": "pledge",
+    "key_laws": [
+      "Inflation Reduction Act (2022) — ~$369B in clean energy tax credits and investments",
+      "Bipartisan Infrastructure Law (2021) — transmission, EV charging, orphan well cleanup",
+      "CHIPS and Science Act (2022) — clean tech R&D funding",
+      "Clean Air Act (1970, amended 1990) — core pollution authority",
+      "Endangered Species Act (1973)",
+      "Executive Order 14154 'Unleashing American Energy' (Jan 2025) — rescinded prior climate EOs, paused IRA disbursements"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Critically insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/usa/",
+    "projection_2030_mtco2e": 5400,
+    "ndc_gap_mtco2e": 2100,
+    "pathway_15c_gap_mtco2e": 2400
+  },
+  "pillars": {
+    "climate": {
+      "score": 32,
+      "rationale": "Second-largest annual emitter (~5.9 GtCO2e) and the largest cumulative emitter in history (~24% of all emissions since 1850). Per-capita emissions of ~17.5 tCO2e are roughly double China's and triple the EU's. Emissions have declined ~12% over a decade on coal-to-gas switching and renewables, but the second Trump administration's January 2025 Paris withdrawal, IRA disbursement freeze, and fossil fuel expansion orders have pushed CAT's rating from 'Insufficient' to 'Critically insufficient'. 2030 projection now falls ~2.1 GtCO2e short of the 50–52% NDC.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 60,
+      "rationale": "Forest cover is ~34% of land area and has been roughly stable for a century, with net tree gain across much of the East. National Forest System covers 193M acres, and the LULUCF sector is a sizeable net sink (~12% of gross emissions). However, old-growth protections weakened in 2025 as the Mature and Old-Growth Forest rule was rescinded, and Western forests face escalating wildfire and drought mortality that is eroding carbon sink strength.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 42,
+      "rationale": "Not megadiverse but globally significant for temperate and desert endemism, with ~1,700 ESA-listed species. IUCN Red List shows ~1,250 US species threatened, and North American bird populations have fallen ~30% since 1970 (Rosenberg et al., Science). The Endangered Species Act remains a strong statutory floor, but 2025 rule changes narrowed the definition of 'harm' and weakened critical habitat designations, and funding for US Fish & Wildlife Service recovery work is being cut.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 38,
+      "rationale": "Terrestrial protected areas sit at ~13% and marine at ~23% (largely driven by remote Pacific marine monuments), per Protected Planet. The America the Beautiful 30x30 initiative launched in 2021 has been effectively shelved under the second Trump administration, with Executive Orders in 2025 opening Arctic, offshore, and national monument lands to leasing. Antiquities Act monuments at Bears Ears, Grand Staircase-Escalante, and Chuckwalla are under active shrinkage review.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 58,
+      "rationale": "Air quality is strong by global standards (population-weighted PM2.5 ~7–8 µg/m³) thanks to 50 years of Clean Air Act enforcement, and Yale EPI 2024 ranks the US 34th overall but high on air quality. But EPA's 2024 PM2.5 NAAQS tightening is under reversal, the 2024 power plant GHG rule is being rescinded, PFAS contamination is widespread, and wildfire smoke now contributes measurable excess mortality across the West. Plastic waste generation is the highest per-capita of any major economy.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 35,
+      "rationale": "World's largest agricultural exporter with highly industrialized, input-intensive production: the Corn Belt drives the Gulf of Mexico hypoxic zone, and enteric methane from ~90M cattle is a major non-CO2 emitter. Organic agriculture is ~1% of cropland. The 2024 Farm Bill reauthorization stalled, IRA conservation funding (EQIP/CSP) is partially paused, and USDA climate-smart commodities program was cancelled in April 2025.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 45,
+      "rationale": "Exceptional statutory and scientific capacity (EPA, NOAA, USGS, NASA, national labs) and the world's most active climate litigation docket (~2,000+ cases tracked by Sabin Center). But 2025 brought aggressive rollback: the Supreme Court's Loper Bright decision (2024) removed Chevron deference, shrinking agency discretion; EPA announced 31 rule rollbacks in a single March 2025 day; and the January 2025 Paris withdrawal and federal climate-data purges have hollowed out federal capacity. State-level action (California, New York, Washington) partially offsets this.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 42,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs NDC pledge",
+      "current": "~5.4 GtCO2e projected 2030 under current policies",
+      "target": "~3.3 GtCO2e (50–52% below 2005)",
+      "gap_pct": 64,
+      "source": "https://climateactiontracker.org/countries/usa/"
+    },
+    {
+      "dimension": "Per-capita emissions",
+      "current": "17.5 tCO2e/person",
+      "target": "~2.3 tCO2e/person (1.5°C global per-capita by 2030)",
+      "gap_pct": 661,
+      "source": "https://ourworldindata.org/co2/country/united-states"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~13%",
+      "target": "30% by 2030 (GBF / America the Beautiful)",
+      "gap_pct": 57,
+      "source": "https://www.protectedplanet.net/country/USA"
+    },
+    {
+      "dimension": "Fossil fuel subsidies (explicit)",
+      "current": "~$20B/yr explicit (OECD/EIA)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+    },
+    {
+      "dimension": "Fossil fuel subsidies (implicit, IMF)",
+      "current": "~$760B/yr including externalities",
+      "target": "Phase out / price externalities",
+      "gap_pct": 100,
+      "source": "https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-01-20",
+      "action": "Executive Order 14162 initiating US withdrawal from the Paris Agreement (second time); one-year UN notification clock started",
+      "type": "negative",
+      "source": "https://www.whitehouse.gov/presidential-actions/"
+    },
+    {
+      "date": "2025-01-20",
+      "action": "Executive Order 14154 'Unleashing American Energy' — revoked 2021 climate EOs, paused IRA and BIL disbursements, directed expanded oil and gas leasing on federal lands and offshore",
+      "type": "negative",
+      "source": "https://www.whitehouse.gov/presidential-actions/"
+    },
+    {
+      "date": "2025-03-12",
+      "action": "EPA Administrator Zeldin announced 31 major environmental rule rollbacks in a single day, including the 2024 power plant GHG rule, vehicle standards, and mercury/air toxics updates",
+      "type": "negative",
+      "source": "https://www.epa.gov/newsreleases"
+    },
+    {
+      "date": "2025-04-17",
+      "action": "USDA cancelled the $3B Partnerships for Climate-Smart Commodities program launched under the Biden administration",
+      "type": "negative",
+      "source": "https://www.usda.gov/"
+    },
+    {
+      "date": "2025-06-01",
+      "action": "US solar installations surpassed 250 GW cumulative capacity; Texas led all states in new utility-scale additions despite state-level opposition",
+      "type": "positive",
+      "source": "https://www.seia.org/us-solar-market-insight"
+    },
+    {
+      "date": "2025-09-15",
+      "action": "California, New York, Washington, and 20 other states plus DC launched the US Climate Alliance's subnational NDC, pledging to meet the 2030 50–52% target at the state level",
+      "type": "positive",
+      "source": "https://www.usclimatealliance.org/"
+    },
+    {
+      "date": "2026-02-10",
+      "action": "Supreme Court declined to block Hawaii youth climate settlement, preserving the landmark 2024 decarbonization consent decree for state transportation",
+      "type": "positive",
+      "source": "https://climatecasechart.com/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 2,
+    "indigenous_land_recognition_pct": 2.3,
+    "fossil_subsidies_usd_bn": 760,
+    "fossil_subsidies_pct_gdp": 2.6,
+    "climate_litigation_cases": 2050
+  },
+  "context": {
+    "gdp_trillion_usd": 29.2,
+    "population_m": 336.7,
+    "fossil_dep_pct_gdp": 1.4,
+    "key_tension": "The country with the greatest historical responsibility, the strongest science capacity, and the most advanced clean-tech investment program on paper is actively dismantling that program mid-execution, leaving states and courts to carry federal-scale obligations."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — United States", "url": "https://climateactiontracker.org/countries/usa/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions United States", "url": "https://ourworldindata.org/co2/country/united-states", "date_accessed": "2026-04-20" },
+    { "name": "Ember — US Electricity Review 2025", "url": "https://ember-climate.org/countries-and-regions/countries/united-states/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — United States country profile", "url": "https://epi.yale.edu/country/2024/USA", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — United States", "url": "https://www.protectedplanet.net/country/USA", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — United States", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IMF Working Paper — Fossil Fuel Subsidies 2023 Update", "url": "https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — US", "url": "https://climatecasechart.com/us-climate-change-litigation/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — United States Country Data", "url": "https://data.worldbank.org/country/united-states", "date_accessed": "2026-04-20" },
+    { "name": "EPA — Inventory of US GHG Emissions and Sinks", "url": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks", "date_accessed": "2026-04-20" },
+    { "name": "EIA — Monthly Energy Review", "url": "https://www.eia.gov/totalenergy/data/monthly/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — United States species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Rhodium Group — Taking Stock 2025", "url": "https://rhg.com/research/taking-stock-2025/", "date_accessed": "2026-04-20" },
+    { "name": "US Climate Alliance", "url": "https://www.usclimatealliance.org/", "date_accessed": "2026-04-20" },
+    { "name": "Center for Biological Diversity — ESA rollback tracker", "url": "https://www.biologicaldiversity.org/", "date_accessed": "2026-04-20" },
+    { "name": "LandMark — Indigenous and Community Lands", "url": "https://www.landmarkmap.org/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

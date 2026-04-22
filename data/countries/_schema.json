@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Country Planet Lens Profile",
+  "description": "Structured profile for the 30 focus countries rendered in planetearth.live country panels. Version 1 covers the Planet lens only (Phase 1). Human lens (Phase 2) will be added as a parallel sibling field, never blended into a composite score.",
+  "type": "object",
+  "required": ["identity", "emissions", "energy_mix", "commitments", "reality", "pillars", "score", "recent_actions", "sources", "last_updated"],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "required": ["iso_a3", "name_en", "name_es", "region"],
+      "properties": {
+        "iso_a3": { "type": "string", "description": "ISO 3166-1 alpha-3 code" },
+        "name_en": { "type": "string" },
+        "name_es": { "type": "string" },
+        "region": { "type": "string", "enum": ["Africa", "Asia", "Europe", "North America", "South America", "Oceania"] },
+        "megadiverse": { "type": "boolean", "description": "Listed among the 17 megadiverse countries (Mittermeier 1997)" }
+      }
+    },
+    "emissions": {
+      "type": "object",
+      "description": "CO2-equivalent, including LULUCF where available. Primary source: OWID / EDGAR / Climate Watch.",
+      "required": ["total_mtco2e", "per_capita_tco2e", "year"],
+      "properties": {
+        "total_mtco2e": { "type": "number" },
+        "per_capita_tco2e": { "type": "number" },
+        "historical_share_pct": { "type": "number", "description": "Cumulative emissions share since 1850" },
+        "trend_5y_pct": { "type": "number", "description": "Change over last 5 years (negative = decreasing)" },
+        "trend_10y_pct": { "type": "number" },
+        "year": { "type": "integer", "description": "Reference year for the point estimates" },
+        "sectors_pct": {
+          "type": "object",
+          "properties": {
+            "energy": { "type": "number" },
+            "industry": { "type": "number" },
+            "agriculture": { "type": "number" },
+            "transport": { "type": "number" },
+            "buildings": { "type": "number" },
+            "lulucf": { "type": "number" },
+            "waste": { "type": "number" }
+          }
+        }
+      }
+    },
+    "energy_mix": {
+      "type": "object",
+      "description": "Electricity generation mix. Source: Ember Climate (most recent full year).",
+      "properties": {
+        "year": { "type": "integer" },
+        "renewable_pct": { "type": "number", "description": "Wind + solar + hydro + bio + geothermal" },
+        "fossil_pct": { "type": "number" },
+        "nuclear_pct": { "type": "number" },
+        "coal_pct": { "type": "number" },
+        "renewable_growth_5y_pp": { "type": "number", "description": "Change in percentage points over 5 years" }
+      }
+    },
+    "commitments": {
+      "type": "object",
+      "properties": {
+        "ndc_target": { "type": "string", "description": "Verbatim NDC target with base year" },
+        "ndc_updated_year": { "type": "integer" },
+        "net_zero_year": { "type": "integer" },
+        "net_zero_status": { "type": "string", "enum": ["law", "policy", "pledge", "declaration", "none"] },
+        "key_laws": { "type": "array", "items": { "type": "string" }, "description": "Major climate/nature laws with year" }
+      }
+    },
+    "reality": {
+      "type": "object",
+      "description": "Independent assessment of promise vs. trajectory",
+      "properties": {
+        "cat_rating": { "type": "string", "enum": ["1.5°C Paris Agreement compatible", "Almost sufficient", "Insufficient", "Highly insufficient", "Critically insufficient", "Not rated"] },
+        "cat_url": { "type": "string", "format": "uri" },
+        "projection_2030_mtco2e": { "type": "number", "description": "Emissions under current policies" },
+        "ndc_gap_mtco2e": { "type": "number", "description": "Gap between 2030 projection and NDC pledge" },
+        "pathway_15c_gap_mtco2e": { "type": "number", "description": "Gap between 2030 projection and Paris-1.5°C compatible pathway" }
+      }
+    },
+    "pillars": {
+      "type": "object",
+      "description": "Seven-pillar Planet Lens scoring. Each pillar is 0–100.",
+      "required": ["climate", "forests_land", "biodiversity", "protected_areas", "pollution", "agriculture", "env_governance"],
+      "properties": {
+        "climate":           { "$ref": "#/definitions/pillar" },
+        "forests_land":      { "$ref": "#/definitions/pillar" },
+        "biodiversity":      { "$ref": "#/definitions/pillar" },
+        "protected_areas":   { "$ref": "#/definitions/pillar" },
+        "pollution":         { "$ref": "#/definitions/pillar" },
+        "agriculture":       { "$ref": "#/definitions/pillar" },
+        "env_governance":    { "$ref": "#/definitions/pillar" }
+      }
+    },
+    "score": {
+      "type": "object",
+      "description": "Composite Planet Lens score. Weights: climate 25, forests 15, biodiversity 15, protected 10, pollution 10, agriculture 10, governance 15.",
+      "required": ["value", "traffic_light"],
+      "properties": {
+        "value": { "type": "number", "minimum": 0, "maximum": 100 },
+        "traffic_light": { "type": "string", "enum": ["green", "yellow", "red"] },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"], "description": "Low when >2 pillars rely on single-source data" }
+      }
+    },
+    "top_gaps": {
+      "type": "array",
+      "description": "The 3–5 most consequential, quantified gaps between current state and Paris + GBF-aligned targets.",
+      "items": {
+        "type": "object",
+        "required": ["dimension", "current", "target", "gap_pct", "source"],
+        "properties": {
+          "dimension": { "type": "string" },
+          "current": { "type": "string" },
+          "target": { "type": "string" },
+          "gap_pct": { "type": "number" },
+          "source": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "recent_actions": {
+      "type": "array",
+      "description": "Environmentally relevant actions from the last 12 months. Each tagged positive/negative/neutral.",
+      "items": {
+        "type": "object",
+        "required": ["date", "action", "type", "source"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "action": { "type": "string" },
+          "type": { "type": "string", "enum": ["positive", "negative", "neutral"] },
+          "source": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "intersection": {
+      "type": "object",
+      "description": "Signals at the intersection of planet and humans. Lives in Phase 1 because each directly affects environmental outcomes.",
+      "properties": {
+        "defenders_killed_12m": { "type": "integer", "description": "Env defenders killed, last year reported. Source: Global Witness." },
+        "indigenous_land_recognition_pct": { "type": "number", "description": "Share of traditional lands with formal recognition. Source: LandMark / RRI." },
+        "fossil_subsidies_usd_bn": { "type": "number" },
+        "fossil_subsidies_pct_gdp": { "type": "number" },
+        "climate_litigation_cases": { "type": "integer", "description": "Active climate litigation cases filed. Source: Sabin Center." }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "gdp_trillion_usd": { "type": "number" },
+        "population_m": { "type": "number" },
+        "fossil_dep_pct_gdp": { "type": "number", "description": "Fossil fuel rents as share of GDP. World Bank." },
+        "key_tension": { "type": "string", "description": "One-sentence framing of the central contradiction or challenge" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "date_accessed"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "date_accessed": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "last_updated": { "type": "string", "format": "date" }
+  },
+  "definitions": {
+    "pillar": {
+      "type": "object",
+      "required": ["score", "rationale"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "rationale": { "type": "string", "description": "2–4 sentence explanation with primary source(s)" },
+        "data_confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+      }
+    }
+  }
+}

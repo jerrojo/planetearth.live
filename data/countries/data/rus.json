@@ -1,0 +1,204 @@
+{
+  "identity": {
+    "iso_a3": "RUS",
+    "name_en": "Russia",
+    "name_es": "Rusia",
+    "region": "Europe",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 2580,
+    "per_capita_tco2e": 17.8,
+    "historical_share_pct": 6.9,
+    "trend_5y_pct": 2.5,
+    "trend_10y_pct": 4.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 79,
+      "industry": 11,
+      "agriculture": 5,
+      "transport": 9,
+      "buildings": 5,
+      "lulucf": -20,
+      "waste": 3
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 20,
+    "fossil_pct": 61,
+    "nuclear_pct": 19,
+    "coal_pct": 17,
+    "renewable_growth_5y_pp": 1
+  },
+  "commitments": {
+    "ndc_target": "Reduce GHG emissions by 30% below 1990 levels by 2030 (taking into account the maximum absorptive capacity of forests and other ecosystems) — a target Russia already meets due to the 1990s industrial collapse",
+    "ndc_updated_year": 2020,
+    "net_zero_year": 2060,
+    "net_zero_status": "declaration",
+    "key_laws": [
+      "Federal Law on Limiting Greenhouse Gas Emissions (No. 296-FZ, 2021) — mandatory emissions reporting for large emitters, no binding cap",
+      "Sakhalin regional carbon trading experiment (launched 2022) — only sub-national ETS in Russia",
+      "Strategy for Low Carbon Development to 2050 (2021) — adopted then effectively shelved post-2022",
+      "Forest Code of 2006, amended 2020 — criticized for weakening protective forest categories",
+      "Federal Law on Environmental Expertise (1995) — scope repeatedly narrowed since 2018"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Critically insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/russian-federation/",
+    "projection_2030_mtco2e": 2450,
+    "ndc_gap_mtco2e": 0,
+    "pathway_15c_gap_mtco2e": 1200
+  },
+  "pillars": {
+    "climate": {
+      "score": 18,
+      "rationale": "Russia is the world's fourth-largest annual emitter (~2.58 GtCO2e, excluding LULUCF) and among the highest per-capita at ~17.8 tCO2e. Its 2030 NDC is weaker than current emissions — essentially a ceiling set above the actual trajectory — and Climate Action Tracker rates the country 'Critically insufficient', the lowest tier. The 2060 net-zero pledge has no implementing legislation and the war economy has re-entrenched fossil extraction as the fiscal core of the state.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 38,
+      "rationale": "Russia hosts ~20% of the world's forests and the largest boreal biome (taiga) on Earth, historically a net carbon sink of 500–600 MtCO2 per year. But Global Forest Watch records accelerating fire-driven and logging-driven loss — Siberian wildfires in 2021 and 2023 were among the largest ever recorded — and recent research suggests the sink has collapsed or reversed in some regions. Permafrost thaw under ~65% of Russian territory is releasing methane and destabilizing infrastructure and carbon stocks at rates faster than any IPCC scenario modeled.",
+      "data_confidence": "medium"
+    },
+    "biodiversity": {
+      "score": 40,
+      "rationale": "Not on the Mittermeier megadiverse list but ecologically vast, with Amur tigers, polar bears, Siberian cranes, and Lake Baikal endemics. IUCN Red List shows ~380 nationally threatened vertebrates; poaching pressure on tigers and sturgeon remains intense. Russia withdrew from or defunded participation in multiple international conservation bodies post-2022 (Arctic Council cooperation frozen, Bern Convention exit in 2023), fragmenting data pipelines that once fed Red List assessments.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 42,
+      "rationale": "Terrestrial protected areas cover ~13.5% and marine ~3.5% of Russia's territory per Protected Planet, anchored by the storied zapovednik strict-reserve system dating to 1916. Both figures sit well below the GBF 30x30 targets Russia nominally supports. Recent legislative changes allow reduction of protected-area boundaries for 'infrastructure of federal significance', opening pathways to extractive encroachment.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 30,
+      "rationale": "Yale EPI 2024 ranks Russia in the bottom third globally on air quality, with legacy heavy-metal and PM2.5 hotspots in Norilsk, Chelyabinsk, and Kuzbass. The 2020 Norilsk diesel spill (21,000 tonnes) remains the largest Arctic fuel release on record; enforcement against Nornickel was modest relative to damage. Plastic and industrial waste management is weak and the 2019 waste reform has stalled, with several regions missing recycling targets by wide margins.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 45,
+      "rationale": "Russia is the world's largest wheat exporter and has seen rapid agricultural expansion into previously abandoned Soviet-era lands, with mixed climate implications. Synthetic fertilizer use per hectare is moderate by OECD standards but rising; pesticide regulation is weak and monitoring opaque. Organic agriculture is <0.5% of cropland despite a 2020 organic law, and climate-driven shifts in the black-earth zone are already altering yields.",
+      "data_confidence": "low"
+    },
+    "env_governance": {
+      "score": 15,
+      "rationale": "Environmental governance has regressed sharply since 2022: Russia withdrew from the Council of Europe (ending Bern Convention and Aarhus engagement), froze Arctic Council cooperation, and narrowed the scope of state environmental review. Independent environmental NGOs (Bellona, WWF Russia, Greenpeace Russia) have been liquidated, declared 'undesirable', or forced to dissolve between 2022 and 2024. Journalists and activists covering pollution or extraction face criminal prosecution under foreign-agent and discreditation laws.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 30,
+    "traffic_light": "red",
+    "confidence": "medium"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~2.45 GtCO2e projected 2030",
+      "target": "~1.25 GtCO2e (1.5°C compatible)",
+      "gap_pct": 96,
+      "source": "https://climateactiontracker.org/countries/russian-federation/"
+    },
+    {
+      "dimension": "Fossil share of electricity",
+      "current": "61% (2024)",
+      "target": "<25% by 2030 for 1.5°C alignment",
+      "gap_pct": 144,
+      "source": "https://ember-energy.org/data/"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~13.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 55,
+      "source": "https://www.protectedplanet.net/country/RUS"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "~3.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 88,
+      "source": "https://www.protectedplanet.net/country/RUS"
+    },
+    {
+      "dimension": "Explicit fossil fuel subsidies",
+      "current": "~$36B/yr (IEA, 2023)",
+      "target": "Phase out per G20 2009 commitment",
+      "gap_pct": 100,
+      "source": "https://www.iea.org/topics/fossil-fuel-subsidies"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-12-15",
+      "action": "Federal law expanded criteria allowing reduction of protected-area boundaries for 'strategic infrastructure', including oil and gas projects in the Arctic",
+      "type": "negative",
+      "source": "http://publication.pravo.gov.ru/"
+    },
+    {
+      "date": "2025-09-22",
+      "action": "WWF Russia forced to fully dissolve after 'undesirable organization' designation; long-running tiger and leopard monitoring programs transferred to state bodies with reduced transparency",
+      "type": "negative",
+      "source": "https://www.globalwitness.org/en/campaigns/environmental-activists/"
+    },
+    {
+      "date": "2025-07-10",
+      "action": "Ministry of Natural Resources reported record 2025 Siberian wildfire season, with over 9 million hectares burned through mid-summer",
+      "type": "negative",
+      "source": "https://www.mnr.gov.ru/"
+    },
+    {
+      "date": "2025-06-01",
+      "action": "Sakhalin regional carbon trading experiment extended to 2028 and publishes first compliance-cycle results — the sole operational sub-national ETS in Russia",
+      "type": "positive",
+      "source": "https://icapcarbonaction.com/en/ets/russia-sakhalin-pilot-ets"
+    },
+    {
+      "date": "2025-04-18",
+      "action": "Russia rejected inclusion in the EU's revised methane regulation reporting framework for gas imports, following departure from multiple international climate MRV partnerships",
+      "type": "negative",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2026-02-05",
+      "action": "Rosatom commissioned two additional reactor units, keeping nuclear at ~19% of electricity — a low-carbon anchor in an otherwise fossil-heavy mix",
+      "type": "positive",
+      "source": "https://www.iaea.org/PRIS/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 3,
+    "fossil_subsidies_usd_bn": 36,
+    "fossil_subsidies_pct_gdp": 1.8,
+    "climate_litigation_cases": 3
+  },
+  "context": {
+    "gdp_trillion_usd": 2.02,
+    "population_m": 144.4,
+    "fossil_dep_pct_gdp": 13.0,
+    "key_tension": "The country holding the world's largest boreal carbon sink and a warming Arctic has rebuilt its state budget around fossil exports and dismantled the civil-society and international scaffolding that would let anyone verify what is happening to its forests, permafrost, and emissions."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Russian Federation", "url": "https://climateactiontracker.org/countries/russian-federation/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Russia", "url": "https://ourworldindata.org/co2/country/russia", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review", "url": "https://ember-energy.org/data/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Russia country profile", "url": "https://epi.yale.edu/country/2024/RUS", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Russian Federation", "url": "https://www.protectedplanet.net/country/RUS", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Russia", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Working Paper (2023)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Russia", "url": "https://climatecasechart.com/non-us-jurisdiction/russia/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Russian Federation data", "url": "https://data.worldbank.org/country/russian-federation", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Russia species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Forest Watch — Russia", "url": "https://www.globalforestwatch.org/dashboards/country/RUS/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "International Carbon Action Partnership — Sakhalin ETS", "url": "https://icapcarbonaction.com/en/ets/russia-sakhalin-pilot-ets", "date_accessed": "2026-04-20" },
+    { "name": "Arctic Monitoring and Assessment Programme (AMAP)", "url": "https://www.amap.no/", "date_accessed": "2026-04-20" },
+    { "name": "LandMark — Indigenous & community lands (Russia)", "url": "https://www.landmarkmap.org/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

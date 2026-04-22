@@ -1,0 +1,205 @@
+{
+  "identity": {
+    "iso_a3": "URY",
+    "name_en": "Uruguay",
+    "name_es": "Uruguay",
+    "region": "South America",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 35.2,
+    "per_capita_tco2e": 9.9,
+    "historical_share_pct": 0.04,
+    "trend_5y_pct": -4.0,
+    "trend_10y_pct": -8.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 16,
+      "industry": 4,
+      "agriculture": 74,
+      "transport": 10,
+      "buildings": 2,
+      "lulucf": -28,
+      "waste": 4
+    }
+  },
+  "energy_mix": {
+    "year": 2024,
+    "renewable_pct": 94,
+    "fossil_pct": 6,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 3
+  },
+  "commitments": {
+    "ndc_target": "Reduce per-GDP CO2 emissions 29% by 2030 vs 1990; methane 57% and N2O 48% per-GDP cuts; conditional targets contingent on finance",
+    "ndc_updated_year": 2022,
+    "net_zero_year": 2050,
+    "net_zero_status": "policy",
+    "key_laws": [
+      "National Climate Change Policy (2017) — cross-sector framework",
+      "Long-Term Climate Strategy to 2050 (2021) — submitted to UNFCCC",
+      "Law 19.829 Environmental Education (2019)",
+      "Law 17.283 General Environmental Protection Law (2000)",
+      "Escazú Agreement ratified (2019) — first-wave signatory on environmental access rights",
+      "Green Hydrogen Roadmap (2023) — H2U strategy targets exports by 2030"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Not rated",
+    "cat_url": "https://climateactiontracker.org/",
+    "projection_2030_mtco2e": 33.0,
+    "ndc_gap_mtco2e": 2.0,
+    "pathway_15c_gap_mtco2e": 8.0
+  },
+  "pillars": {
+    "climate": {
+      "score": 72,
+      "rationale": "Electricity sector is ~94% renewable (wind, hydro, solar, biomass) — one of the cleanest grids on Earth — and the transition was achieved in under a decade (2008–2017) via a state-led auction model. Per-capita emissions still ~9.9 tCO2e because agriculture (mostly enteric methane from 12M cattle) dominates the inventory. NDC uses emissions-intensity framing rather than absolute caps, softening accountability; 2050 net-zero is policy, not law.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 55,
+      "rationale": "Tree cover has expanded from ~3% (1990) to ~11% today, almost entirely via commercial eucalyptus and pine plantations supplying pulp mills (UPM, Montes del Plata). Native forest (monte indígena) is legally protected under Law 15.939 and has slightly expanded, but monoculture plantation conflicts with water tables, soil acidification, and community opposition in Tacuarembó and Paysandú. Net land-use carbon sink remains positive (~10 MtCO2/yr).",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 50,
+      "rationale": "Not megadiverse but holds globally significant Pampas grassland, one of the most converted ecosystems on Earth (>80% lost to soy and pasture). IUCN Red List flags ~70 threatened vertebrate species, including pampas deer and southern right whale. Species-level monitoring is thin compared to Brazil or Argentina; grassland conversion pressure from soy expansion is the main driver of biodiversity loss.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 38,
+      "rationale": "Terrestrial protected areas at ~1.4% and marine at ~1.0% (SNAP, Sistema Nacional de Áreas Protegidas) — among the lowest coverage ratios in Latin America and far below the GBF 30×30 target Uruguay endorsed. The network exists structurally (18 protected areas) but remains underfunded and fragmented across private landholdings. Marine protection is especially weak given a 142,000 km2 EEZ.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 65,
+      "rationale": "Air quality is generally good (PM2.5 ~9 µg/m3, within 2x of WHO guideline) thanks to clean electricity and low industrial density. But water pollution is the acute story: 2023 Montevideo drinking-water crisis (Paso Severino reservoir) forced salinisation of tap water, and recurrent cyanobacteria blooms on the Rio de la Plata and Santa Lucía basin reflect agricultural nutrient runoff. Plastic and e-waste management remain immature.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 35,
+      "rationale": "Agriculture is ~74% of the emissions inventory — the highest agricultural share of any country in the G20-adjacent set — driven by 12M cattle (4 per person) and expanding soy. Beef exports (>$2B/yr) are Uruguay's signature product and its biggest climate contradiction: enteric methane dwarfs the clean-electricity win. Pesticide use has risen sharply with soy; organic and regenerative systems remain <3% of farmland.",
+      "data_confidence": "high"
+    },
+    "env_governance": {
+      "score": 72,
+      "rationale": "Strong democratic institutions, independent judiciary, ratified the Escazú Agreement (2019) — rare in the region — giving legal force to environmental access rights. Ministry of Environment (MA) created 2020 has grown capacity; Yale EPI ranks Uruguay top-20 globally for environmental governance. The Orsi government (Frente Amplio, in office since March 2025) has signaled stronger climate ambition, though plantation and beef lobbies retain significant influence.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 55,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "~1.4% (SNAP)",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 95,
+      "source": "https://www.protectedplanet.net/country/URY"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "~1.0% of EEZ",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 97,
+      "source": "https://www.protectedplanet.net/country/URY"
+    },
+    {
+      "dimension": "Agricultural emissions intensity",
+      "current": "74% of inventory; enteric methane ~18 MtCO2e",
+      "target": "30% methane cut by 2030 (Global Methane Pledge)",
+      "gap_pct": 85,
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "dimension": "NDC target type (intensity vs absolute)",
+      "current": "Per-GDP intensity target for 2030",
+      "target": "Absolute cap aligned with 1.5°C",
+      "gap_pct": 100,
+      "source": "https://climateactiontracker.org/"
+    },
+    {
+      "dimension": "Freshwater quality (Santa Lucía basin)",
+      "current": "Recurrent cyanobacteria; 2023 drinking-water crisis",
+      "target": "Full compliance with national nutrient standards",
+      "gap_pct": 70,
+      "source": "https://www.gub.uy/ministerio-ambiente/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-03-15",
+      "action": "Orsi government launches National Water Plan update — caps irrigation withdrawals in Santa Lucía basin and mandates riparian buffer zones on soy and dairy operations",
+      "type": "positive",
+      "source": "https://www.gub.uy/ministerio-ambiente/"
+    },
+    {
+      "date": "2025-11-10",
+      "action": "First green hydrogen pilot plant (HIF Global / Enertrag) breaks ground in Paysandú — 10 MW electrolyzer targeting export-grade methanol",
+      "type": "positive",
+      "source": "https://www.gub.uy/ministerio-industria-energia-mineria/"
+    },
+    {
+      "date": "2025-09-22",
+      "action": "Ministry of Environment reports a 9% expansion of the national protected area system (SNAP) with two new coastal reserves in Rocha",
+      "type": "positive",
+      "source": "https://www.gub.uy/ministerio-ambiente/"
+    },
+    {
+      "date": "2025-06-04",
+      "action": "Cabinet approves a 30,000-hectare eucalyptus plantation expansion in Tacuarembó despite local opposition over groundwater depletion",
+      "type": "negative",
+      "source": "https://www.elpais.com.uy/"
+    },
+    {
+      "date": "2026-01-18",
+      "action": "Uruguay submits updated Long-Term Climate Strategy to UNFCCC — retains 2050 net-zero target but still without statutory force",
+      "type": "neutral",
+      "source": "https://unfccc.int/"
+    },
+    {
+      "date": "2025-10-30",
+      "action": "Beef industry secures extension of rural land-tax break tied to export volumes — critics say it entrenches extensive-grazing methane footprint",
+      "type": "negative",
+      "source": "https://www.elobservador.com.uy/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0,
+    "fossil_subsidies_usd_bn": 0.3,
+    "fossil_subsidies_pct_gdp": 0.4,
+    "climate_litigation_cases": 3
+  },
+  "context": {
+    "gdp_trillion_usd": 0.082,
+    "population_m": 3.42,
+    "fossil_dep_pct_gdp": 0.0,
+    "key_tension": "Uruguay runs one of the cleanest electricity grids on Earth yet exports beef and pulp that make agriculture three-quarters of its emissions — its climate story is decided not at the power plant but at the pasture."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Uruguay", "url": "https://climateactiontracker.org/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Uruguay", "url": "https://ourworldindata.org/co2/country/uruguay", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Uruguay country profile", "url": "https://epi.yale.edu/country/2024/URY", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Uruguay", "url": "https://www.protectedplanet.net/country/URY", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Uruguay NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies Template", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Uruguay", "url": "https://climatecasechart.com/non-us-jurisdiction/uruguay/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Uruguay Country Data", "url": "https://data.worldbank.org/country/uruguay", "date_accessed": "2026-04-20" },
+    { "name": "Ministerio de Ambiente (Uruguay)", "url": "https://www.gub.uy/ministerio-ambiente/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Uruguay species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Escazú Agreement — ECLAC", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" },
+    { "name": "FAO — Uruguay Land Use Statistics", "url": "https://www.fao.org/faostat/en/#country/234", "date_accessed": "2026-04-20" },
+    { "name": "UTE — Uruguayan electricity utility generation data", "url": "https://portal.ute.com.uy/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

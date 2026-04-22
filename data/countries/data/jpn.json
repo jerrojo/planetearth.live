@@ -1,0 +1,210 @@
+{
+  "identity": {
+    "iso_a3": "JPN",
+    "name_en": "Japan",
+    "name_es": "Japón",
+    "region": "Asia",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 1017,
+    "per_capita_tco2e": 8.2,
+    "historical_share_pct": 4.0,
+    "trend_5y_pct": -11.0,
+    "trend_10y_pct": -21.0,
+    "year": 2024,
+    "sectors_pct": {
+      "energy": 40,
+      "industry": 25,
+      "agriculture": 3,
+      "transport": 17,
+      "buildings": 11,
+      "lulucf": -4,
+      "waste": 2
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 27,
+    "fossil_pct": 64,
+    "nuclear_pct": 9,
+    "coal_pct": 30,
+    "renewable_growth_5y_pp": 6
+  },
+  "commitments": {
+    "ndc_target": "Cut GHG emissions 60% by 2035 and 73% by 2040 from FY2013 levels (submitted Feb 2025)",
+    "ndc_updated_year": 2025,
+    "net_zero_year": 2050,
+    "net_zero_status": "law",
+    "key_laws": [
+      "Act on Promotion of Global Warming Countermeasures (revised 2021) — enshrined 2050 net-zero in law",
+      "GX Promotion Act (2023) — Green Transformation framework, carbon pricing from 2028, emissions trading from 2026",
+      "Strategic Energy Plan 7th Edition (Feb 2025) — targets 40–50% renewables and 20% nuclear by FY2040",
+      "Biodiversity National Strategy 2023–2030 — aligns with GBF 30×30",
+      "Act on Rationalizing Energy Use (revised 2022) — extended to non-fossil energy"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Insufficient",
+    "cat_url": "https://climateactiontracker.org/countries/japan/",
+    "projection_2030_mtco2e": 1040,
+    "ndc_gap_mtco2e": 120,
+    "pathway_15c_gap_mtco2e": 280
+  },
+  "pillars": {
+    "climate": {
+      "score": 42,
+      "rationale": "Emissions have fallen 21% over a decade from their 2013 peak, but the pace is insufficient and heavily dependent on demand contraction from a shrinking, aging population rather than structural decarbonization. The February 2025 NDC (60% cut by 2035) lags the IPCC 1.5°C benchmark of ~66%, and CAT rates Japan 'Insufficient'. Coal still generates ~30% of electricity, and JBIC remains one of the world's largest public financiers of overseas fossil projects despite G7 pledges to end unabated coal support.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 68,
+      "rationale": "Forest cover is among the highest in the OECD at ~68% of land area, stable for decades thanks to post-war reforestation and depopulation of rural areas. However, much of the estate is aging cedar (sugi) and cypress monoculture planted in the 1950s–60s, with low structural diversity and growing wildlife-conflict problems. Domestic timber self-sufficiency is rising but Japan remains a major importer of tropical hardwoods linked to deforestation in Southeast Asia.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 45,
+      "rationale": "Not megadiverse but highly endemic as an archipelago — ~40% of mammals and ~20% of vascular plants are endemic. IUCN assessments show ~370 species threatened, with pressure concentrated on Okinawa endemics (Iriomote cat, Amami rabbit) and freshwater fish. Japan resumed commercial whaling in 2019 after leaving the IWC and in 2024 added fin whales to its catch list, a reputational blow even as domestic demand continues to decline.",
+      "data_confidence": "medium"
+    },
+    "protected_areas": {
+      "score": 50,
+      "rationale": "Terrestrial protected area coverage sits at ~20.5% and marine at ~13.3% per Protected Planet — middling for an OECD country, well short of the GBF 30×30 target Japan formally endorsed. The 2023–2030 Biodiversity Strategy commits to 30×30 and has recognized the first tranche of OECMs ('Nature Symbiosis Sites'), which could accelerate coverage if scaled. Quality remains an issue: many existing parks allow significant commercial activity.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 72,
+      "rationale": "Air quality is strong by global standards (PM2.5 ~9 µg/m³, near WHO guideline) and Yale EPI 2024 ranks Japan well on air and water indicators. Legacy industrial contamination (Minamata, Itai-itai) drove world-leading chemical regulation. Weak spots: plastic waste generation is the second highest per capita globally, and the ongoing discharge of treated ALPS water from Fukushima Daiichi remains contested regionally despite IAEA endorsement.",
+      "data_confidence": "high"
+    },
+    "agriculture": {
+      "score": 40,
+      "rationale": "Japanese agriculture is in structural decline — the average farmer is over 68, abandoned farmland is expanding, and food self-sufficiency sits at ~38% on a calorie basis (one of the lowest in the OECD). Fertilizer and pesticide intensity per hectare remain high, though total use has fallen with the cropland area. The 2021 'MIDORI' strategy targets 25% organic by 2050 from a <1% base, an ambition far outpacing current policy support.",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 62,
+      "rationale": "Strong institutional capacity — independent courts, a capable Ministry of the Environment, high transparency, and a free press. Climate litigation is emerging but modest (Sabin Center lists ~10 active cases, including the Kobe Steel coal challenges). The binding gap is political: the GX strategy bundles renewables with new coal, ammonia co-firing, and expanded nuclear, and Japan has actively opposed stronger G7 coal-exit language. Indigenous Ainu land rights remain largely unrecognized despite 2019 legal status.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 53,
+    "traffic_light": "yellow",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "2030 emissions vs 1.5°C pathway",
+      "current": "~1040 MtCO2e projected 2030",
+      "target": "~760 MtCO2e (1.5°C compatible)",
+      "gap_pct": 37,
+      "source": "https://climateactiontracker.org/countries/japan/"
+    },
+    {
+      "dimension": "Coal share of electricity",
+      "current": "~30% (2025)",
+      "target": "Phase out unabated coal by 2030 (G7 pledge)",
+      "gap_pct": 100,
+      "source": "https://ember-energy.org/data/electricity-data-explorer/"
+    },
+    {
+      "dimension": "Protected terrestrial area",
+      "current": "20.5%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 32,
+      "source": "https://www.protectedplanet.net/country/JPN"
+    },
+    {
+      "dimension": "Protected marine area",
+      "current": "13.3%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 56,
+      "source": "https://www.protectedplanet.net/country/JPN"
+    },
+    {
+      "dimension": "Overseas fossil finance (JBIC + JOGMEC + NEXI)",
+      "current": "~$7B/yr average 2020–2023",
+      "target": "Zero new unabated fossil support (Glasgow Statement)",
+      "gap_pct": 100,
+      "source": "https://priceofoil.org/2024/public-finance-for-energy-database/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2025-02-18",
+      "action": "Submitted updated NDC at UNFCCC: 60% emissions cut by 2035 and 73% by 2040 vs FY2013 — below the 66% IPCC 1.5°C benchmark",
+      "type": "negative",
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "date": "2025-02-18",
+      "action": "Cabinet approved 7th Strategic Energy Plan targeting 40–50% renewables and 20% nuclear by FY2040, dropping earlier language to 'reduce reliance on nuclear as much as possible'",
+      "type": "neutral",
+      "source": "https://www.enecho.meti.go.jp/en/"
+    },
+    {
+      "date": "2025-06-06",
+      "action": "Expanded commercial whaling quota to include fin whales for the first time since leaving the IWC in 2019",
+      "type": "negative",
+      "source": "https://www.iwc.int/"
+    },
+    {
+      "date": "2025-10-22",
+      "action": "First GX Economic Transition Bonds ('Climate Transition Bonds') oversubscribed, financing hydrogen, ammonia co-firing and perovskite solar — critics flag ammonia co-firing as a coal lifeline",
+      "type": "neutral",
+      "source": "https://www.mof.go.jp/english/"
+    },
+    {
+      "date": "2025-08-29",
+      "action": "Kashiwazaki-Kariwa Unit 7 restarts, Japan's first restart of a TEPCO reactor since Fukushima, signaling nuclear re-acceleration under GX",
+      "type": "neutral",
+      "source": "https://www.nra.go.jp/english/"
+    },
+    {
+      "date": "2026-01-15",
+      "action": "Environment Ministry designated 40 additional Nature Symbiosis Sites (OECMs), bringing total covered area to ~3.1% and inching toward 30×30",
+      "type": "positive",
+      "source": "https://www.env.go.jp/en/"
+    },
+    {
+      "date": "2025-11-11",
+      "action": "Tokyo District Court dismissed the Sendai coal power plant climate lawsuit, ruling plaintiffs lacked standing on climate grounds",
+      "type": "negative",
+      "source": "http://climatecasechart.com/non-us-jurisdiction/japan/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 0,
+    "indigenous_land_recognition_pct": 0.1,
+    "fossil_subsidies_usd_bn": 33,
+    "fossil_subsidies_pct_gdp": 0.78,
+    "climate_litigation_cases": 10
+  },
+  "context": {
+    "gdp_trillion_usd": 4.21,
+    "population_m": 123.4,
+    "fossil_dep_pct_gdp": 0.0,
+    "key_tension": "A high-capacity, high-rule-of-law democracy that has bundled its decarbonization strategy with ammonia co-firing, new coal life-extension, and the world's largest public fossil-finance pipeline — positioning itself as a climate leader while slow-walking the coal exit its G7 peers have accepted."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Japan", "url": "https://climateactiontracker.org/countries/japan/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Japan", "url": "https://ourworldindata.org/co2/country/japan", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Electricity Data Explorer (Japan)", "url": "https://ember-energy.org/data/electricity-data-explorer/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Japan country profile", "url": "https://epi.yale.edu/country/2024/JPN", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Japan", "url": "https://www.protectedplanet.net/country/JPN", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Japan 2025 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Japan", "url": "http://climatecasechart.com/non-us-jurisdiction/japan/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Japan Country Data", "url": "https://data.worldbank.org/country/japan", "date_accessed": "2026-04-20" },
+    { "name": "Ministry of the Environment, Japan", "url": "https://www.env.go.jp/en/", "date_accessed": "2026-04-20" },
+    { "name": "Agency for Natural Resources and Energy (METI) — Strategic Energy Plan", "url": "https://www.enecho.meti.go.jp/en/", "date_accessed": "2026-04-20" },
+    { "name": "Oil Change International — Public Finance for Energy Database", "url": "https://priceofoil.org/2024/public-finance-for-energy-database/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Japan species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "International Whaling Commission", "url": "https://www.iwc.int/", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}

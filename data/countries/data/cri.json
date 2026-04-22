@@ -1,0 +1,206 @@
+{
+  "identity": {
+    "iso_a3": "CRI",
+    "name_en": "Costa Rica",
+    "name_es": "Costa Rica",
+    "region": "North America",
+    "megadiverse": false
+  },
+  "emissions": {
+    "total_mtco2e": 12.4,
+    "per_capita_tco2e": 2.3,
+    "historical_share_pct": 0.02,
+    "trend_5y_pct": -3.5,
+    "trend_10y_pct": 1.8,
+    "year": 2025,
+    "sectors_pct": {
+      "energy": 24,
+      "industry": 6,
+      "agriculture": 23,
+      "transport": 41,
+      "buildings": 2,
+      "lulucf": -18,
+      "waste": 4
+    }
+  },
+  "energy_mix": {
+    "year": 2025,
+    "renewable_pct": 98,
+    "fossil_pct": 2,
+    "nuclear_pct": 0,
+    "coal_pct": 0,
+    "renewable_growth_5y_pp": 0
+  },
+  "commitments": {
+    "ndc_target": "Maximum absolute net emissions of 9.11 MtCO2e by 2030 (27% below BAU)",
+    "ndc_updated_year": 2020,
+    "net_zero_year": 2050,
+    "net_zero_status": "policy",
+    "key_laws": [
+      "National Decarbonization Plan 2018–2050 (2019)",
+      "Forest Law 7575 (1996) — created PES, banned deforestation of primary forest",
+      "Biodiversity Law 7788 (1998)",
+      "Wildlife Conservation Law 7317 (1992, reformed 2012 banning sport hunting)",
+      "National Adaptation Policy 2018–2030 (2018)",
+      "Law 9518 — Incentives and promotion of electric transport (2018)"
+    ]
+  },
+  "reality": {
+    "cat_rating": "Almost sufficient",
+    "cat_url": "https://climateactiontracker.org/countries/costa-rica/",
+    "projection_2030_mtco2e": 11.2,
+    "ndc_gap_mtco2e": 2.1,
+    "pathway_15c_gap_mtco2e": 1.5
+  },
+  "pillars": {
+    "climate": {
+      "score": 78,
+      "rationale": "Electricity grid is 98% renewable (hydro ~68%, geothermal ~14%, wind ~12%, solar/bio ~4%) and has run on 100% renewable power for periods exceeding 300 consecutive days. Per-capita emissions of ~2.3 tCO2e are a third of the OECD average. CAT rates 'Almost sufficient' — one of only a handful of countries globally. Weak spot: transport fuels ~41% of emissions and EV uptake is slower than the Decarbonization Plan trajectory.",
+      "data_confidence": "high"
+    },
+    "forests_land": {
+      "score": 82,
+      "rationale": "A global exemplar of forest transition: cover fell to ~26% in 1983 and has since recovered to ~57% via the 1996 Forest Law ban on primary-forest clearing and the Payments for Ecosystem Services (PES) program — the first national-scale PES scheme in the developing world, now compensating landowners on over 1.3 million hectares. Net deforestation has been near zero since 2010. Some remaining pressure in the northern zone from pineapple expansion.",
+      "data_confidence": "high"
+    },
+    "biodiversity": {
+      "score": 72,
+      "rationale": "Not on the official megadiverse-17 list but contains ~6% of known global biodiversity on 0.03% of the planet's land area — among the highest density on Earth. IUCN Red List shows declining trajectory for amphibians (chytrid fungus, golden toad extinct) and some endemic birds, but populations of jaguars, scarlet macaws, tapirs, and sea turtles have stabilized or increased within protected landscapes. Connectivity gaps between parks remain the key weakness.",
+      "data_confidence": "high"
+    },
+    "protected_areas": {
+      "score": 75,
+      "rationale": "Terrestrial protected areas at ~27.6% (Protected Planet) — close to the GBF 30×30 target and among the highest in the Americas. Marine protected areas expanded dramatically in 2021–2022 with the Bicentenary Marine Management Area around Cocos Island, pushing coverage to ~30% of EEZ. SINAC's 11-conservation-area structure is well-established but chronically underfunded.",
+      "data_confidence": "high"
+    },
+    "pollution": {
+      "score": 62,
+      "rationale": "Air quality is generally good (PM2.5 ~11 µg/m³, ~2× WHO guideline, largely from transport in the Central Valley). Water quality is the weaker story: pesticide concentrations in lowland aquifers from pineapple and banana monocultures exceed reference limits in multiple watersheds, and Costa Rica has one of the highest per-hectare pesticide application rates in the OECD. Plastics management is improving under the 2019 single-use plastics strategy.",
+      "data_confidence": "medium"
+    },
+    "agriculture": {
+      "score": 52,
+      "rationale": "Yale EPI flags agriculture as Costa Rica's lowest-performing policy area. Pesticide intensity is ~25 kg/ha of active ingredient on banana and pineapple — roughly 10× the OECD median — and nitrogen runoff threatens coastal reefs. Organic agriculture remains under 2% of farmland. Counterweight: strong agroforestry tradition in coffee, expanding silvopasture in cattle (which still drives ~40% of agri-emissions).",
+      "data_confidence": "medium"
+    },
+    "env_governance": {
+      "score": 76,
+      "rationale": "Institutional backbone is strong: MINAE, SINAC, and FONAFIFO have decades of continuity; the Sala IV constitutional chamber routinely upholds the right to a healthy environment; Costa Rica co-authored the Escazú Agreement on environmental rights. Concerns in 2024–2026: the Chaves administration has pushed to reopen metallic gold mining (Crucitas), slashed MINAE's budget, and attacked environmental journalists. Two environmental defenders killed in the last three years per Global Witness.",
+      "data_confidence": "high"
+    }
+  },
+  "score": {
+    "value": 73,
+    "traffic_light": "green",
+    "confidence": "high"
+  },
+  "top_gaps": [
+    {
+      "dimension": "Transport emissions share",
+      "current": "~41% of total emissions, EV stock ~3% of fleet",
+      "target": "Decarbonization Plan: 8% EV share of light fleet by 2030",
+      "gap_pct": 62,
+      "source": "https://cambioclimatico.go.cr/plan-nacional-de-descarbonizacion/"
+    },
+    {
+      "dimension": "Agricultural pesticide intensity",
+      "current": "~25 kg active ingredient/ha (banana/pineapple)",
+      "target": "OECD median ~2.5 kg/ha",
+      "gap_pct": 90,
+      "source": "https://epi.yale.edu/country/2024/CRI"
+    },
+    {
+      "dimension": "Terrestrial protected area",
+      "current": "27.6%",
+      "target": "30% by 2030 (GBF)",
+      "gap_pct": 8,
+      "source": "https://www.protectedplanet.net/country/CRI"
+    },
+    {
+      "dimension": "2030 emissions vs NDC pledge",
+      "current": "~11.2 MtCO2e projected 2030",
+      "target": "9.11 MtCO2e (NDC)",
+      "gap_pct": 23,
+      "source": "https://unfccc.int/NDCREG"
+    },
+    {
+      "dimension": "Net-zero statutory anchoring",
+      "current": "2050 target in executive policy (Decarbonization Plan)",
+      "target": "Codified in law",
+      "gap_pct": 100,
+      "source": "https://climateactiontracker.org/countries/costa-rica/"
+    }
+  ],
+  "recent_actions": [
+    {
+      "date": "2026-02-18",
+      "action": "Legislative Assembly rejected the executive-backed bill to reopen open-pit metallic gold mining at Crucitas — preserving the 2010 moratorium",
+      "type": "positive",
+      "source": "http://www.asamblea.go.cr/"
+    },
+    {
+      "date": "2025-11-22",
+      "action": "MINAE operating budget cut by ~12% in the 2026 fiscal plan, reducing park-ranger headcount at SINAC",
+      "type": "negative",
+      "source": "https://www.minae.go.cr/"
+    },
+    {
+      "date": "2025-09-30",
+      "action": "PES program renewed and expanded to cover an additional 60,000 hectares with new biodiversity-corridor modality",
+      "type": "positive",
+      "source": "https://www.fonafifo.go.cr/"
+    },
+    {
+      "date": "2025-07-08",
+      "action": "Cocos Island / Bicentenary Marine Management Area management plan approved, establishing full no-take zones on ~54,000 km²",
+      "type": "positive",
+      "source": "https://www.sinac.go.cr/"
+    },
+    {
+      "date": "2025-05-14",
+      "action": "Environmental journalist Álvaro Murillo sued by senior government officials after reporting on mining advocacy — chilling effect flagged by RSF",
+      "type": "negative",
+      "source": "https://rsf.org/en/country/costa-rica"
+    },
+    {
+      "date": "2026-03-05",
+      "action": "National Electric Transport Plan update set a binding 2030 target of 70,000 EVs and 1,200 public chargers, with tax relief extended through 2030",
+      "type": "positive",
+      "source": "https://cambioclimatico.go.cr/"
+    }
+  ],
+  "intersection": {
+    "defenders_killed_12m": 1,
+    "indigenous_land_recognition_pct": 6.7,
+    "fossil_subsidies_usd_bn": 0.3,
+    "fossil_subsidies_pct_gdp": 0.35,
+    "climate_litigation_cases": 7
+  },
+  "context": {
+    "gdp_trillion_usd": 0.093,
+    "population_m": 5.21,
+    "fossil_dep_pct_gdp": 0.0,
+    "key_tension": "Costa Rica built the developing world's most admired environmental brand on forest and electricity wins, but its pesticide-heavy agricultural exports and a sitting administration pushing gold mining and budget cuts test whether the green identity is structural or generational."
+  },
+  "sources": [
+    { "name": "Climate Action Tracker — Costa Rica", "url": "https://climateactiontracker.org/countries/costa-rica/", "date_accessed": "2026-04-20" },
+    { "name": "Our World in Data — CO2 emissions Costa Rica", "url": "https://ourworldindata.org/co2/country/costa-rica", "date_accessed": "2026-04-20" },
+    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
+    { "name": "Yale EPI 2024 — Costa Rica country profile", "url": "https://epi.yale.edu/country/2024/CRI", "date_accessed": "2026-04-20" },
+    { "name": "Protected Planet — Costa Rica", "url": "https://www.protectedplanet.net/country/CRI", "date_accessed": "2026-04-20" },
+    { "name": "UNFCCC NDC Registry — Costa Rica", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
+    { "name": "National Decarbonization Plan 2018–2050", "url": "https://cambioclimatico.go.cr/plan-nacional-de-descarbonizacion/", "date_accessed": "2026-04-20" },
+    { "name": "SINAC — National System of Conservation Areas", "url": "https://www.sinac.go.cr/", "date_accessed": "2026-04-20" },
+    { "name": "MINAE — Ministerio de Ambiente y Energía", "url": "https://www.minae.go.cr/", "date_accessed": "2026-04-20" },
+    { "name": "FONAFIFO — Payments for Ecosystem Services", "url": "https://www.fonafifo.go.cr/", "date_accessed": "2026-04-20" },
+    { "name": "IUCN Red List — Costa Rica assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
+    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
+    { "name": "Sabin Center Climate Litigation Database — Costa Rica", "url": "https://climatecasechart.com/non-us-jurisdiction/costa-rica/", "date_accessed": "2026-04-20" },
+    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "IMF — Energy Subsidies", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
+    { "name": "World Bank — Costa Rica Country Data", "url": "https://data.worldbank.org/country/costa-rica", "date_accessed": "2026-04-20" },
+    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
+    { "name": "Escazú Agreement — UN ECLAC", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" }
+  ],
+  "last_updated": "2026-04-20"
+}
