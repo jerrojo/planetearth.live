@@ -118,7 +118,7 @@ function renderInto(profile: CountryProfile): void {
     // Country switcher — small colored dots for all 30, click to switch.
     // Solves "panel covers part of the globe" UX: user can swap countries
     // without needing to find the light on the canvas.
-    h += `<div class="cp-switcher" role="tablist" aria-label="${lang === 'es' ? 'Cambiar de país' : 'Switch country'}">`;
+    h += `<div class="cp-switcher" role="group" aria-label="${lang === 'es' ? 'Cambiar de país' : 'Switch country'}">`;
     for (const c of COUNTRIES) {
         const isActive = c.iso_a3 === profile.identity.iso_a3;
         const cName = lang === 'es' ? c.name_es : c.name_en;
@@ -128,7 +128,8 @@ function renderInto(profile: CountryProfile): void {
            + `style="--cp-dot:${cHex}" `
            + `title="${escapeHtml(cName)} · ${c.score}" `
            + `aria-label="${escapeHtml(cName)}, ${c.score}, ${c.traffic_light}" `
-           + `aria-selected="${isActive}"></button>`;
+           + (isActive ? `aria-current="true"` : '')
+           + `></button>`;
     }
     h += `</div>`;
 
