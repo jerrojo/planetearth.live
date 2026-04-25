@@ -118,11 +118,18 @@ export function showPanel(idx: number): void {
         h += `<div class="animate-in" style="animation-delay:${0.06 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
     });
 
-    // Global actions — systemic changes
-    h += `<div class="section-title animate-in" style="animation-delay:0.24s">${t('panel.sectionGlobal')}</div>`;
+    // Governmental actions — what governments should do for this category
+    h += `<div class="section-title animate-in" style="animation-delay:0.20s">${t('panel.sectionGovernmental')}</div>`;
+    const govActions = localizedActions(idx, 'governmental'); // preserve authored order
+    govActions.forEach((a, i) => {
+        h += `<div class="animate-in" style="animation-delay:${0.22 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
+    });
+
+    // Global actions — planet-level systemic changes
+    h += `<div class="section-title animate-in" style="animation-delay:0.40s">${t('panel.sectionGlobal')}</div>`;
     const sortedGlobal = sortActions(localizedActions(idx, 'global'));
     sortedGlobal.forEach((a, i) => {
-        h += `<div class="animate-in" style="animation-delay:${0.28 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
+        h += `<div class="animate-in" style="animation-delay:${0.44 + i * 0.04}s">${renderAction(a, cat.color)}</div>`;
     });
 
     // Impact box

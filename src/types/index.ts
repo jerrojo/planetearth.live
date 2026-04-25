@@ -114,6 +114,7 @@ export interface Category {
   subtitle: string;
   color: string;
   global: ActionItem[];
+  governmental: ActionItem[];
   individual: ActionItem[];
   impact: string;
   relatedMetrics: number[];   // indices into metrics array

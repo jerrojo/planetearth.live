@@ -19,12 +19,7 @@ import {
     loadCountry,
     getCountryIndex,
     COUNTRIES,
-    GLOBAL_ACTIONS,
-    GOVERNMENTAL_ACTIONS,
-    PERSONAL_ACTIONS,
     type CountryProfile,
-    type ActionItem,
-    type ActionList,
     type TrafficLight,
 } from '../../data/countries-loader';
 
@@ -82,45 +77,6 @@ function escapeHtml(s: string): string {
 function pillarBar(score: number, color: string): string {
     const clamped = Math.max(0, Math.min(100, score));
     return `<div class="cp-pillar-bar"><div class="cp-pillar-fill" style="width:${clamped}%;background:${color}"></div></div>`;
-}
-
-function actionItemHtml(a: ActionItem, lang: 'en' | 'es'): string {
-    const title = lang === 'es' ? a.title_es : a.title_en;
-    const what = lang === 'es' ? (a.what_es ?? '') : (a.what_en ?? '');
-    const why = lang === 'es' ? (a.why_matters_es ?? '') : (a.why_matters_en ?? '');
-    return `<div class="cp-action">
-        <div class="cp-action-rank">${a.rank}</div>
-        <div class="cp-action-body">
-            <div class="cp-action-title">${escapeHtml(title)}</div>
-            ${what ? `<div class="cp-action-what">${escapeHtml(what)}</div>` : ''}
-            ${why ? `<div class="cp-action-why"><em>${escapeHtml(why)}</em></div>` : ''}
-            ${a.source ? `<a class="cp-action-source" href="${escapeHtml(a.source)}" target="_blank" rel="noopener">${escapeHtml(a.source.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>` : ''}
-        </div>
-    </div>`;
-}
-
-function accordionHtml(
-    id: string,
-    icon: string,
-    title: string,
-    body: string,
-): string {
-    return `<details class="cp-acciones-section" id="${id}">
-        <summary class="cp-acciones-summary">
-            <span class="cp-acciones-icon">${icon}</span>
-            <span class="cp-acciones-title">${escapeHtml(title)}</span>
-            <span class="cp-acciones-chevron" aria-hidden="true">▾</span>
-        </summary>
-        <div class="cp-acciones-body">${body}</div>
-    </details>`;
-}
-
-function accionesSection(list: ActionList, lang: 'en' | 'es'): string {
-    return list.items
-        .slice()
-        .sort((a, b) => a.rank - b.rank)
-        .map(item => actionItemHtml(item, lang))
-        .join('');
 }
 
 // ── Main render ────────────────────────────────────────────────────────
@@ -225,60 +181,10 @@ function renderInto(profile: CountryProfile): void {
         h += `</ul>`;
     }
 
-    // ── Universal Acciones ─────────────────────────────────────────────
-
-    h += `<div class="cp-acciones-divider"></div>`;
-    h += `<div class="section-title">${lang === 'es' ? 'Acciones' : 'Actions'}</div>`;
-    h += `<div class="cp-acciones-intro">${lang === 'es'
-        ? 'Estas 5 acciones por categoría aplican a todos los países.'
-        : 'These 5 actions per category apply to every country.'}</div>`;
-
-    h += accordionHtml(
-        'cp-acciones-globales',
-        '🌍',
-        lang === 'es' ? 'Acciones Globales' : 'Global Actions',
-        `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para todos los países' : 'For every country'}</div>`
-            + accionesSection(GLOBAL_ACTIONS, lang),
-    );
-
-    // Government actions: universal top 5 + country-specific gaps (priorities for THIS country).
-    let govBody = `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para todos los gobiernos' : 'For every government'}</div>`;
-    govBody += accionesSection(GOVERNMENTAL_ACTIONS, lang);
-    if (profile.top_gaps && profile.top_gaps.length > 0) {
-        const countryName = lang === 'es' ? (profile.identity['name_es'] as string) : profile.identity.name_en;
-        govBody += `<div class="cp-acciones-country-divider"></div>`;
-        govBody += `<div class="cp-acciones-country-label">`
-            + (lang === 'es' ? `Específicas para ${escapeHtml(countryName)}` : `Specific to ${escapeHtml(countryName)}`)
-            + `</div>`;
-        govBody += `<ol class="cp-country-gaps">`;
-        for (const g of profile.top_gaps.slice(0, 5)) {
-            const dim = (g['dimension'] as string) ?? (g['title_' + lang] as string) ?? '';
-            const cur = (g['current'] as string) ?? '';
-            const tgt = (g['target'] as string) ?? '';
-            const src = (g['source'] as string) ?? '';
-            govBody += `<li class="cp-country-gap-item">`;
-            govBody += `<div class="cp-country-gap-dim">${escapeHtml(dim)}</div>`;
-            if (cur) govBody += `<div class="cp-country-gap-line"><span class="cp-gap-tag cp-gap-current">${lang === 'es' ? 'hoy' : 'now'}</span> ${escapeHtml(cur)}</div>`;
-            if (tgt) govBody += `<div class="cp-country-gap-line"><span class="cp-gap-tag cp-gap-target">${lang === 'es' ? 'objetivo' : 'target'}</span> ${escapeHtml(tgt)}</div>`;
-            if (src) govBody += `<a class="cp-action-source" href="${escapeHtml(src)}" target="_blank" rel="noopener">${escapeHtml(src.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>`;
-            govBody += `</li>`;
-        }
-        govBody += `</ol>`;
-    }
-    h += accordionHtml(
-        'cp-acciones-gubernamentales',
-        '🏛',
-        lang === 'es' ? 'Acciones Gubernamentales' : 'Governmental Actions',
-        govBody,
-    );
-
-    h += accordionHtml(
-        'cp-acciones-personales',
-        '👤',
-        lang === 'es' ? 'Acciones Personales' : 'Personal Actions',
-        `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para toda persona' : 'For every person'}</div>`
-            + accionesSection(PERSONAL_ACTIONS, lang),
-    );
+    // Note: per-category Individual / Governmental / Global action lists now
+    // live inside each of the 12 category panels (sidebar). The country panel
+    // intentionally focuses on country-specific signal: score, pillars, gaps
+    // and recent actions. Open a category from the sidebar to see actions.
 
     const content = document.getElementById('panelContent');
     if (content) {

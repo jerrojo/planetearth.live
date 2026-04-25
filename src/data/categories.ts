@@ -25,11 +25,15 @@ export function categorySubtitle(idx: number): string {
 }
 
 /** Return the localized action list (preserves `tier` / `startHere` metadata). */
-export function localizedActions(idx: number, kind: 'global' | 'individual'): ActionItem[] {
+export function localizedActions(idx: number, kind: 'global' | 'governmental' | 'individual'): ActionItem[] {
     const source = categories[idx][kind];
     if (getLocale() === 'en') {
         const en = categoriesEN[idx];
-        const translated = kind === 'global' ? en.global : en.individual;
+        const translated = kind === 'global'
+            ? en.global
+            : kind === 'governmental'
+                ? en.governmental
+                : en.individual;
         // Pair each original ActionItem with its translated text, preserving
         // tier/startHere flags. Index alignment is guaranteed by hand-authored
         // parity between categories.ts and categories.en.ts.
@@ -53,6 +57,12 @@ export const categories: Category[] = [
         {text:"🔬 Investigar fusión nuclear y almacenamiento de energía"},
         {text:"🔗 Mercados de carbono transparentes y verificables"},
         {text:"🌳 Reforestar 1,000 millones de hectáreas", tier:'B'}],
+      governmental:[
+        {text:"🛑 Calendario vinculante de salida de fósiles (carbón, petróleo, gas)", tier:'S'},
+        {text:"💸 Eliminar subsidios fósiles y redirigir a transición justa", tier:'S'},
+        {text:"⚖️ Precio al carbono que refleje el daño real", tier:'A'},
+        {text:"🔌 Mandato de red 100% renovable con almacenamiento", tier:'A'},
+        {text:"🚆 Inversión masiva en transporte público y tren"}],
       individual:[
         {text:"☀️ Paneles solares en tu hogar", tier:'B', startHere:true},
         {text:"🚲 Usar transporte eléctrico, bicicleta o público", tier:'B'},
@@ -68,6 +78,12 @@ export const categories: Category[] = [
         {text:"📡 Monitoreo global con sensores e inteligencia artificial"},
         {text:"🚫 Prohibir pesticidas que matan polinizadores"},
         {text:"🧬 Bancos de semillas y genes descentralizados"}],
+      governmental:[
+        {text:"🛡️ Legislar 30×30 (30% tierra y mar protegidos para 2030)", tier:'S'},
+        {text:"✊ Reconocer tenencia indígena y áreas comunitarias (OECM)", tier:'A'},
+        {text:"🚫 Prohibir neonicotinoides y glifosato"},
+        {text:"💰 Financiar parques con personal y aplicación real"},
+        {text:"🐺 Reintroducir especies clave (lobos, jaguares, polinizadores)"}],
       individual:[
         {text:"🌱 Crear jardines con plantas nativas", startHere:true},
         {text:"🔍 Participar en ciencia ciudadana (iNaturalist)"},
@@ -83,6 +99,12 @@ export const categories: Category[] = [
         {text:"💧 Desalinización con energía renovable"},
         {text:"🐠 Proteger el 30% de los océanos como reservas marinas", tier:'S'},
         {text:"♻️ Sistemas de reciclaje y reutilización de agua"}],
+      governmental:[
+        {text:"🌊 Ratificar el Tratado de Alta Mar (BBNJ) y aplicarlo", tier:'S'},
+        {text:"🚱 Tope vinculante a la producción primaria de plástico", tier:'S'},
+        {text:"🚤 Prohibir pesca de arrastre y subsidios pesqueros perjudiciales", tier:'A'},
+        {text:"💧 Proteger cuencas y derechos del agua de las comunidades"},
+        {text:"🐟 Reservas marinas sin extracción en el 30% del océano"}],
       individual:[
         {text:"🌧️ Instalar captación de agua de lluvia", startHere:true},
         {text:"🪨 Filtros naturales: piedra, arena y plantas"},
@@ -98,6 +120,12 @@ export const categories: Category[] = [
         {text:"🦁 Prohibir el comercio de vida silvestre"},
         {text:"⚖️ Reconocer legalmente que los animales sienten"},
         {text:"🦌 Crear pasos de fauna en carreteras e infraestructura"}],
+      governmental:[
+        {text:"⛔ Eliminación gradual de la ganadería industrial confinada", tier:'A'},
+        {text:"📜 Reconocer en ley que los animales son seres sintientes"},
+        {text:"🦁 Prohibición total del comercio de fauna silvestre", tier:'A'},
+        {text:"🏗️ Pasos de fauna obligatorios en autopistas y vías"},
+        {text:"🧪 Prohibir pruebas en animales para cosméticos y limpieza"}],
       individual:[
         {text:"🥩 Consumir solo carne de ganadería libre y responsable", tier:'B', startHere:true},
         {text:"🐾 Adoptar en vez de comprar mascotas"},
@@ -113,6 +141,12 @@ export const categories: Category[] = [
         {text:"🤖 Distribución de alimentos optimizada con inteligencia artificial"},
         {text:"🏙️ Agricultura vertical y urbana a gran escala"},
         {text:"🌽 Diversificar cultivos: de 4 especies principales a cientos"}],
+      governmental:[
+        {text:"🌾 Subsidiar agricultura regenerativa, no agroindustria intensiva", tier:'S'},
+        {text:"🥛 Eliminar subsidios a carne y lácteos industriales", tier:'A'},
+        {text:"🏷️ Etiquetado obligatorio de huella climática y origen real"},
+        {text:"🍎 Comida escolar fresca, local y de temporada"},
+        {text:"♻️ Ley nacional contra desperdicio alimentario (donación obligatoria)"}],
       individual:[
         {text:"🥕 Comer local, de temporada y de suelos sanos", tier:'B', startHere:true},
         {text:"🪱 Compostar tus residuos orgánicos", tier:'C'},
@@ -128,6 +162,12 @@ export const categories: Category[] = [
         {text:"🛰️ Monitoreo y limpieza de basura espacial"},
         {text:"👽 Investigar señales de vida en otros planetas"},
         {text:"📜 Tratados internacionales de gobernanza espacial"}],
+      governmental:[
+        {text:"🛰️ Regular y aplicar la limpieza de basura espacial"},
+        {text:"🌌 Leyes contra contaminación lumínica para preservar el cielo"},
+        {text:"📜 Aplicar el Tratado del Espacio Exterior y prohibir armas en órbita"},
+        {text:"🤝 Asignación equitativa de órbitas (no monopolios privados)"},
+        {text:"🛡️ Financiar defensa planetaria multilateral (asteroides cercanos)"}],
       individual:[
         {text:"🔭 Apoyar agencias espaciales responsables", startHere:true},
         {text:"⭐ Participar en astronomía ciudadana"},
@@ -143,6 +183,12 @@ export const categories: Category[] = [
         {text:"💜 Salud mental como prioridad pública"},
         {text:"🌬️ Eliminar la contaminación del aire (7 millones de muertes/año)"},
         {text:"🔐 Datos de salud privados y protegidos"}],
+      governmental:[
+        {text:"🏥 Sistema universal de salud con cobertura al 100%", tier:'S'},
+        {text:"🧠 Paridad legal entre salud mental y física"},
+        {text:"🌬️ Estándares estrictos de calidad del aire alineados con la OMS", tier:'A'},
+        {text:"🚭 Subir impuestos a tabaco, alcohol y ultraprocesados"},
+        {text:"💊 Negociar precios de medicamentos esenciales"}],
       individual:[
         {text:"🏃 Ejercicio 150+ minutos por semana (+7 años de vida)", tier:'B', startHere:true},
         {text:"😴 Dormir 7-9 horas de forma consistente"},
@@ -158,6 +204,12 @@ export const categories: Category[] = [
         {text:"📂 Código abierto para tecnología esencial"},
         {text:"📋 Regulación de IA con transparencia y auditoría"},
         {text:"📊 Monitoreo ambiental en tiempo real a nivel global"}],
+      governmental:[
+        {text:"🤖 Regulación de IA con auditoría externa obligatoria", tier:'S'},
+        {text:"🔧 Ley de derecho a reparar electrónicos"},
+        {text:"🔓 Software de gobierno abierto por defecto"},
+        {text:"🛡️ Soberanía y portabilidad de datos personales"},
+        {text:"📜 Antimonopolio efectivo contra concentración tecnológica", tier:'A'}],
       individual:[
         {text:"💻 Aprender pensamiento computacional y lógico", startHere:true},
         {text:"🔒 Usar herramientas que protejan tu privacidad"},
@@ -173,6 +225,12 @@ export const categories: Category[] = [
         {text:"💰 Renta básica universal"},
         {text:"🏦 Impuesto global a ultra-ricos y paraísos fiscales"},
         {text:"🔎 Transparencia total en cadenas de producción"}],
+      governmental:[
+        {text:"💰 Impuesto a la riqueza extrema y herencias multi-millonarias", tier:'S'},
+        {text:"🏦 Banca pública y fondos soberanos con criterios sostenibles"},
+        {text:"📊 Indicadores más allá del PIB (bienestar, huella ecológica)", tier:'A'},
+        {text:"🚫 Cerrar paraísos fiscales; registro real de beneficiarios obligatorio"},
+        {text:"💼 Salario mínimo digno y semana laboral reducida"}],
       individual:[
         {text:"🛒 Comprar a empresas responsables y locales", tier:'B', startHere:true},
         {text:"🔧 Reparar en vez de tirar"},
@@ -188,6 +246,12 @@ export const categories: Category[] = [
         {text:"🪙 Educación financiera desde la infancia"},
         {text:"📚 Plataformas de educación abierta y gratuita"},
         {text:"🌱 Formación masiva en habilidades de regeneración"}],
+      governmental:[
+        {text:"🎓 Educación pública gratuita de calidad universal", tier:'S'},
+        {text:"🌍 Currículo obligatorio de cambio climático y ecología"},
+        {text:"👨‍🏫 Salarios docentes profesionalizados"},
+        {text:"📚 Bibliotecas y educación abierta financiadas con presupuesto digno"},
+        {text:"🤝 Programas de aprendizaje a lo largo de la vida"}],
       individual:[
         {text:"📖 Dedicar 30 minutos al día a aprender algo nuevo", startHere:true},
         {text:"👩‍🏫 Enseñar a otros: mentoría y voluntariado"},
@@ -203,6 +267,12 @@ export const categories: Category[] = [
         {text:"⚖️ Tribunales ambientales con derechos de la naturaleza"},
         {text:"🌍 Cooperación internacional con acuerdos vinculantes"},
         {text:"🕊️ Justicia restaurativa, no solo castigos"}],
+      governmental:[
+        {text:"🗳️ Voto preferencial o segunda vuelta automática", tier:'A'},
+        {text:"💸 Financiamiento público de campañas (no dinero privado)", tier:'S'},
+        {text:"🛡️ Tribunales anti-corrupción independientes"},
+        {text:"📣 Protección legal a denunciantes y defensores ambientales"},
+        {text:"👥 Asambleas ciudadanas vinculantes en temas clave"}],
       individual:[
         {text:"🗳️ Votar de forma informada en toda elección", tier:'B', startHere:true},
         {text:"🏛️ Participar en asambleas y decisiones ciudadanas"},
@@ -218,6 +288,12 @@ export const categories: Category[] = [
         {text:"🛑 Reducir el hiperconsumo como valor cultural"},
         {text:"🤝 Cooperación sobre competencia como valor social"},
         {text:"🧭 Marco ético para inteligencia artificial, genética y nuevas tecnologías"}],
+      governmental:[
+        {text:"📵 Derecho a la desconexión (sin correos fuera de horario)"},
+        {text:"🧘 Tiempo contemplativo en escuelas públicas"},
+        {text:"🪶 Reconocer y proteger la sabiduría de pueblos originarios"},
+        {text:"🌳 Espacios públicos para silencio y meditación"},
+        {text:"💚 Día nacional de salud mental y bienestar"}],
       individual:[
         {text:"🛍️ Cuestionar cada compra: ¿realmente lo necesito?", startHere:true},
         {text:"💛 Practicar empatía activa todos los días"},

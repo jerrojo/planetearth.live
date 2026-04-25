@@ -121,6 +121,7 @@ export type StringKey =
     | 'panel.connectedWith'
     | 'panel.metricsHighlighted'
     | 'panel.sectionIndividual'
+    | 'panel.sectionGovernmental'
     | 'panel.sectionGlobal'
     | 'panel.impactLabel'
     | 'panel.scaleMid'
@@ -294,6 +295,7 @@ const es: Dict = {
     'panel.connectedWith': 'Conectado con',
     'panel.metricsHighlighted': 'Métricas relacionadas resaltadas arriba',
     'panel.sectionIndividual': 'Acciones Individuales',
+    'panel.sectionGovernmental': 'Acciones Gubernamentales',
     'panel.sectionGlobal': 'Acciones Globales',
     'panel.impactLabel': 'Impacto 3.5%:',
     'panel.scaleMid': 'Meta 3.5%',
@@ -469,6 +471,7 @@ const en: Dict = {
     'panel.connectedWith': 'Connected with',
     'panel.metricsHighlighted': 'Related metrics highlighted above',
     'panel.sectionIndividual': 'Individual Actions',
+    'panel.sectionGovernmental': 'Governmental Actions',
     'panel.sectionGlobal': 'Global Actions',
     'panel.impactLabel': '3.5% Impact:',
     'panel.scaleMid': '3.5% Goal',
