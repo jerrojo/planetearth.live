@@ -18,6 +18,7 @@ import { getLocale, subscribe as subscribeLocale } from '../../i18n';
 import {
     loadCountry,
     getCountryIndex,
+    COUNTRIES,
     GLOBAL_ACTIONS,
     GOVERNMENTAL_ACTIONS,
     PERSONAL_ACTIONS,
@@ -149,6 +150,23 @@ function renderInto(profile: CountryProfile): void {
 
     let h = '';
 
+    // Country switcher — small colored dots for all 30, click to switch.
+    // Solves "panel covers part of the globe" UX: user can swap countries
+    // without needing to find the light on the canvas.
+    h += `<div class="cp-switcher" role="tablist" aria-label="${lang === 'es' ? 'Cambiar de país' : 'Switch country'}">`;
+    for (const c of COUNTRIES) {
+        const isActive = c.iso_a3 === profile.identity.iso_a3;
+        const cName = lang === 'es' ? c.name_es : c.name_en;
+        const cHex = LIGHT_HEX[c.traffic_light];
+        h += `<button type="button" class="cp-switcher-dot${isActive ? ' is-active' : ''}" `
+           + `data-iso="${c.iso_a3}" `
+           + `style="--cp-dot:${cHex}" `
+           + `title="${escapeHtml(cName)} · ${c.score}" `
+           + `aria-label="${escapeHtml(cName)}, ${c.score}, ${c.traffic_light}" `
+           + `aria-selected="${isActive}"></button>`;
+    }
+    h += `</div>`;
+
     // Score banner
     h += `<div class="cp-score-banner" style="border-color:${lightHex}">`;
     h += `<div class="cp-score-value" style="color:${lightHex}">${score}</div>`;
@@ -219,23 +237,66 @@ function renderInto(profile: CountryProfile): void {
         'cp-acciones-globales',
         '🌍',
         lang === 'es' ? 'Acciones Globales' : 'Global Actions',
-        accionesSection(GLOBAL_ACTIONS, lang),
+        `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para todos los países' : 'For every country'}</div>`
+            + accionesSection(GLOBAL_ACTIONS, lang),
     );
+
+    // Government actions: universal top 5 + country-specific gaps (priorities for THIS country).
+    let govBody = `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para todos los gobiernos' : 'For every government'}</div>`;
+    govBody += accionesSection(GOVERNMENTAL_ACTIONS, lang);
+    if (profile.top_gaps && profile.top_gaps.length > 0) {
+        const countryName = lang === 'es' ? (profile.identity['name_es'] as string) : profile.identity.name_en;
+        govBody += `<div class="cp-acciones-country-divider"></div>`;
+        govBody += `<div class="cp-acciones-country-label">`
+            + (lang === 'es' ? `Específicas para ${escapeHtml(countryName)}` : `Specific to ${escapeHtml(countryName)}`)
+            + `</div>`;
+        govBody += `<ol class="cp-country-gaps">`;
+        for (const g of profile.top_gaps.slice(0, 5)) {
+            const dim = (g['dimension'] as string) ?? (g['title_' + lang] as string) ?? '';
+            const cur = (g['current'] as string) ?? '';
+            const tgt = (g['target'] as string) ?? '';
+            const src = (g['source'] as string) ?? '';
+            govBody += `<li class="cp-country-gap-item">`;
+            govBody += `<div class="cp-country-gap-dim">${escapeHtml(dim)}</div>`;
+            if (cur) govBody += `<div class="cp-country-gap-line"><span class="cp-gap-tag cp-gap-current">${lang === 'es' ? 'hoy' : 'now'}</span> ${escapeHtml(cur)}</div>`;
+            if (tgt) govBody += `<div class="cp-country-gap-line"><span class="cp-gap-tag cp-gap-target">${lang === 'es' ? 'objetivo' : 'target'}</span> ${escapeHtml(tgt)}</div>`;
+            if (src) govBody += `<a class="cp-action-source" href="${escapeHtml(src)}" target="_blank" rel="noopener">${escapeHtml(src.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>`;
+            govBody += `</li>`;
+        }
+        govBody += `</ol>`;
+    }
     h += accordionHtml(
         'cp-acciones-gubernamentales',
         '🏛',
         lang === 'es' ? 'Acciones Gubernamentales' : 'Governmental Actions',
-        accionesSection(GOVERNMENTAL_ACTIONS, lang),
+        govBody,
     );
+
     h += accordionHtml(
         'cp-acciones-personales',
         '👤',
         lang === 'es' ? 'Acciones Personales' : 'Personal Actions',
-        accionesSection(PERSONAL_ACTIONS, lang),
+        `<div class="cp-acciones-universal-label">${lang === 'es' ? 'Para toda persona' : 'For every person'}</div>`
+            + accionesSection(PERSONAL_ACTIONS, lang),
     );
 
     const content = document.getElementById('panelContent');
-    if (content) content.innerHTML = h;
+    if (content) {
+        content.innerHTML = h;
+
+        // Wire the country switcher dots (event delegation — re-rendered each time)
+        const switcher = content.querySelector('.cp-switcher');
+        if (switcher) {
+            switcher.addEventListener('click', (ev) => {
+                const t = (ev.target as HTMLElement).closest('.cp-switcher-dot') as HTMLElement | null;
+                if (!t) return;
+                const iso = t.dataset['iso'];
+                if (iso && iso !== profile.identity.iso_a3) {
+                    void showCountryPanel(iso);
+                }
+            });
+        }
+    }
 }
 
 // ── Public API ─────────────────────────────────────────────────────────
