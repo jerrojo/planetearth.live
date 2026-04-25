@@ -76,6 +76,7 @@ export function initAccessibility(): () => boolean {
             { key: 'naturalEvents', labelKey: 'a11y.layerEvents' },
             { key: 'stations',      labelKey: 'a11y.layerStations' },
             { key: 'countries',     labelKey: 'a11y.layerCountries' },
+            { key: 'countryLights', labelKey: 'a11y.layerCountryLights' },
             { key: 'filmGrain',     labelKey: 'a11y.layerGrain' },
         ];
 

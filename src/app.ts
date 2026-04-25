@@ -21,6 +21,7 @@ import { createConnections, updateConnections, showConnections, hideConnections 
 import { createStationMarkers } from './renderer/effects/station-markers';
 import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
 import { createCountryMarkers } from './renderer/effects/country-markers';
+import { createCountryLights } from './renderer/effects/country-lights';
 import { initStations } from './data/measurement-stations';
 
 // UI
@@ -99,6 +100,7 @@ export function createApp(): void {
 
     // Country accountability markers (curated editorial — positive/negative actions)
     const countryMarkersCtx = createCountryMarkers(globeGroup);
+    const countryLightsCtx = createCountryLights(globeGroup);
 
     // Particles
     const starsCtx = createStars(scene);
@@ -158,12 +160,14 @@ export function createApp(): void {
     windCtx.points.visible = isLayerEnabled('windFlow');
     naturalEventMarkers.group.visible = isLayerEnabled('naturalEvents');
     countryMarkersCtx.group.visible = isLayerEnabled('countries');
+    countryLightsCtx.group.visible = isLayerEnabled('countryLights');
     stationCtx.group.visible = isLayerEnabled('stations');
     let filmGrainEnabled = isLayerEnabled('filmGrain');
     onLayerChange((key, value) => {
         if (key === 'windFlow') windCtx.points.visible = value;
         else if (key === 'naturalEvents') naturalEventMarkers.group.visible = value;
         else if (key === 'countries') countryMarkersCtx.group.visible = value;
+        else if (key === 'countryLights') countryLightsCtx.group.visible = value;
         else if (key === 'stations') stationCtx.group.visible = value;
         else if (key === 'filmGrain') filmGrainEnabled = value;
     });
@@ -398,8 +402,11 @@ export function createApp(): void {
         // Natural event markers (NASA EONET fires, volcanoes, storms)
         if (naturalEventMarkers.group.visible) naturalEventMarkers.update(t);
 
-        // Country accountability pulses
+        // Country accountability pulses (curated 16)
         if (countryMarkersCtx.group.visible) countryMarkersCtx.update(t);
+
+        // Country traffic lights — Planet-Lens composite (30 countries)
+        if (countryLightsCtx.group.visible) countryLightsCtx.update(t);
 
         // City pulse — smoother ease
         cityDots.forEach((d, i) => {

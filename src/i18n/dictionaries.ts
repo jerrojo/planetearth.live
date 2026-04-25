@@ -47,6 +47,7 @@ export type StringKey =
     | 'a11y.layerWind'
     | 'a11y.layerEvents'
     | 'a11y.layerCountries'
+    | 'a11y.layerCountryLights'
     | 'a11y.layerStations'
     | 'a11y.layerGrain'
     | 'data.fresh'
@@ -179,6 +180,7 @@ const es: Dict = {
     'a11y.layerWind': 'Flujo del viento',
     'a11y.layerEvents': 'Eventos naturales',
     'a11y.layerCountries': 'Países',
+    'a11y.layerCountryLights': 'Semáforos por país',
     'a11y.layerStations': 'Estaciones de medición',
     'a11y.layerGrain': 'Grano cinematográfico',
     'data.fresh': 'al día',
@@ -353,6 +355,7 @@ const en: Dict = {
     'a11y.layerWind': 'Wind flow',
     'a11y.layerEvents': 'Natural events',
     'a11y.layerCountries': 'Countries',
+    'a11y.layerCountryLights': 'Country traffic lights',
     'a11y.layerStations': 'Measurement stations',
     'a11y.layerGrain': 'Film grain',
     'data.fresh': 'fresh',
