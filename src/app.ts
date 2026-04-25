@@ -22,6 +22,7 @@ import { createStationMarkers } from './renderer/effects/station-markers';
 import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
 import { createCountryMarkers } from './renderer/effects/country-markers';
 import { createCountryLights } from './renderer/effects/country-lights';
+import { showCountryPanel } from './ui/components/country-panel';
 import { initStations } from './data/measurement-stations';
 
 // UI
@@ -171,6 +172,56 @@ export function createApp(): void {
         else if (key === 'stations') stationCtx.group.visible = value;
         else if (key === 'filmGrain') filmGrainEnabled = value;
     });
+
+    // ── Country traffic-light raycaster ──────────────────────────────────
+    // Click (or tap) a traffic light → open the country Planet-Lens panel.
+    // Hover → set crosshair cursor so the user knows the lights are interactive.
+    {
+        const raycaster = new THREE.Raycaster();
+        const ndc = new THREE.Vector2();
+        const downPos = { x: 0, y: 0 };
+        const DRAG_THRESHOLD = 5; // px — anything beyond this is a drag, not a click
+
+        function setNdcFromEvent(ev: MouseEvent | PointerEvent): void {
+            const rect = canvas.getBoundingClientRect();
+            ndc.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+            ndc.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
+        }
+
+        function pickCountry(ev: MouseEvent | PointerEvent): void {
+            if (!countryLightsCtx.group.visible) return;
+            setNdcFromEvent(ev);
+            raycaster.setFromCamera(ndc, camera);
+            const hits = raycaster.intersectObjects(countryLightsCtx.pickTargets, false);
+            if (hits.length === 0) return;
+            const hit = hits[0].object;
+            const iso3 = hit.userData?.['iso3'] as string | undefined;
+            if (iso3) {
+                ev.preventDefault();
+                ev.stopPropagation();
+                void showCountryPanel(iso3);
+            }
+        }
+
+        canvas.addEventListener('pointerdown', ev => {
+            downPos.x = ev.clientX;
+            downPos.y = ev.clientY;
+        });
+        canvas.addEventListener('pointerup', ev => {
+            const dx = ev.clientX - downPos.x;
+            const dy = ev.clientY - downPos.y;
+            if (dx * dx + dy * dy <= DRAG_THRESHOLD * DRAG_THRESHOLD) {
+                pickCountry(ev);
+            }
+        });
+        canvas.addEventListener('pointermove', ev => {
+            if (!countryLightsCtx.group.visible) return;
+            setNdcFromEvent(ev);
+            raycaster.setFromCamera(ndc, camera);
+            const hits = raycaster.intersectObjects(countryLightsCtx.pickTargets, false);
+            canvas.style.cursor = hits.length > 0 ? 'pointer' : '';
+        });
+    }
 
     // Keyboard shortcuts
     const panel = document.getElementById('panel')!;
