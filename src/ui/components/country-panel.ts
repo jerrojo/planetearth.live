@@ -15,6 +15,7 @@
  * initPanel(); no extra wiring needed.
  */
 import { getLocale, subscribe as subscribeLocale } from '../../i18n';
+import { registerPanelTakeoverHook, clearCategoryPanelState } from './panel';
 import {
     loadCountry,
     getCountryIndex,
@@ -31,6 +32,14 @@ let currentProfile: CountryProfile | null = null;
 // Re-render on locale change so all bilingual fields swap.
 subscribeLocale(() => {
     if (currentIso && currentProfile) renderInto(currentProfile);
+});
+
+// Cross-clearing: when the category panel takes over (showPanel) or the
+// shared close button fires, drop our state so we don't re-render stale
+// country content on the next locale toggle.
+registerPanelTakeoverHook(() => {
+    currentIso = null;
+    currentProfile = null;
 });
 
 // ── Pillar metadata (display order + weights + bilingual labels) ───────
@@ -208,6 +217,11 @@ function renderInto(profile: CountryProfile): void {
 // ── Public API ─────────────────────────────────────────────────────────
 
 export async function showCountryPanel(iso3: string): Promise<void> {
+    // Take ownership of #panel: tell the category panel to drop its state so
+    // a future locale change doesn't try to re-render the previously open
+    // category over our country content.
+    clearCategoryPanelState();
+
     currentIso = iso3.toUpperCase();
     const profile = await loadCountry(currentIso);
     if (!profile) {

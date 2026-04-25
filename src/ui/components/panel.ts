@@ -10,6 +10,20 @@ let onCategoryChange: ((idx: number) => void) | null = null;
 let onCategoryClose: (() => void) | null = null;
 let currentOpenIdx: number | null = null;
 
+// Cross-clearing hook: country-panel registers a callback that clears its
+// own state when a category opens / panel closes. Avoids the race where
+// both panels claim ownership of #panelContent on a locale change.
+let onPanelTakeover: (() => void) | null = null;
+export function registerPanelTakeoverHook(fn: () => void): void {
+    onPanelTakeover = fn;
+}
+
+/** Mark the category panel as inactive without closing the DOM panel.
+ *  Called by country-panel when it takes over the shared #panel element. */
+export function clearCategoryPanelState(): void {
+    currentOpenIdx = null;
+}
+
 // Re-render the open panel whenever the user switches language so its title,
 // section headings, stat cards and connections badge track the active locale.
 subscribe(() => {
@@ -72,6 +86,9 @@ function sortActions(actions: ActionItem[]): ActionItem[] {
 }
 
 export function showPanel(idx: number): void {
+    // Tell country-panel to release ownership of the shared #panel element
+    if (onPanelTakeover) onPanelTakeover();
+
     const cat = categories[idx];
     lastFocusedBtn = document.activeElement as HTMLElement;
 
@@ -183,6 +200,10 @@ function highlightRelatedMetrics(indices: number[]): void {
 }
 
 export function closePanel(): void {
+    // Clear country-panel state too so a future locale change doesn't try
+    // to re-render the country we already dismissed.
+    if (onPanelTakeover) onPanelTakeover();
+
     const panel = document.getElementById('panel')!;
     panel.classList.remove('active');
     panel.setAttribute('aria-modal', 'false');

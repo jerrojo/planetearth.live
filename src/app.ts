@@ -20,7 +20,10 @@ import { createHeatmap, showHeatmap, hideHeatmap, updateHeatmap } from './render
 import { createConnections, updateConnections, showConnections, hideConnections } from './renderer/effects/connections';
 import { createStationMarkers } from './renderer/effects/station-markers';
 import { createNaturalEventMarkers } from './renderer/effects/natural-event-markers';
-import { createCountryMarkers } from './renderer/effects/country-markers';
+// Note: createCountryMarkers (16-curated editorial dots) was retired in favor
+// of createCountryLights (30 traffic lights from Planet-Lens dataset). The
+// curated layer's content is now superseded by the structured per-country
+// JSONs. The legacy file is kept for potential future use.
 import { createCountryLights } from './renderer/effects/country-lights';
 import { showCountryPanel } from './ui/components/country-panel';
 import { initStations } from './data/measurement-stations';
@@ -99,8 +102,8 @@ export function createApp(): void {
     // Natural event markers (wildfires, volcanoes, storms from NASA EONET)
     const naturalEventMarkers = createNaturalEventMarkers(globeGroup);
 
-    // Country accountability markers (curated editorial — positive/negative actions)
-    const countryMarkersCtx = createCountryMarkers(globeGroup);
+    // Country traffic lights — 30 Planet-Lens composite scores (replaces the
+    // older 16-entry editorial layer).
     const countryLightsCtx = createCountryLights(globeGroup);
 
     // Particles
@@ -160,14 +163,12 @@ export function createApp(): void {
     // to re-enter the animation loop.
     windCtx.points.visible = isLayerEnabled('windFlow');
     naturalEventMarkers.group.visible = isLayerEnabled('naturalEvents');
-    countryMarkersCtx.group.visible = isLayerEnabled('countries');
     countryLightsCtx.group.visible = isLayerEnabled('countryLights');
     stationCtx.group.visible = isLayerEnabled('stations');
     let filmGrainEnabled = isLayerEnabled('filmGrain');
     onLayerChange((key, value) => {
         if (key === 'windFlow') windCtx.points.visible = value;
         else if (key === 'naturalEvents') naturalEventMarkers.group.visible = value;
-        else if (key === 'countries') countryMarkersCtx.group.visible = value;
         else if (key === 'countryLights') countryLightsCtx.group.visible = value;
         else if (key === 'stations') stationCtx.group.visible = value;
         else if (key === 'filmGrain') filmGrainEnabled = value;
@@ -214,8 +215,14 @@ export function createApp(): void {
                 pickCountry(ev);
             }
         });
+        // Throttle pointermove → ~16 fps for cursor feedback. 30 raycaster
+        // intersections every event would chew CPU on a fast mouse.
+        let lastMoveAt = 0;
         canvas.addEventListener('pointermove', ev => {
             if (!countryLightsCtx.group.visible) return;
+            const now = performance.now();
+            if (now - lastMoveAt < 60) return;
+            lastMoveAt = now;
             setNdcFromEvent(ev);
             raycaster.setFromCamera(ndc, camera);
             const hits = raycaster.intersectObjects(countryLightsCtx.pickTargets, false);
@@ -452,9 +459,6 @@ export function createApp(): void {
 
         // Natural event markers (NASA EONET fires, volcanoes, storms)
         if (naturalEventMarkers.group.visible) naturalEventMarkers.update(t);
-
-        // Country accountability pulses (curated 16)
-        if (countryMarkersCtx.group.visible) countryMarkersCtx.update(t);
 
         // Country traffic lights — Planet-Lens composite (30 countries)
         if (countryLightsCtx.group.visible) countryLightsCtx.update(t);

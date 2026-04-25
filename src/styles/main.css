@@ -2288,4 +2288,8 @@ html[dir="rtl"] .font-seg-btn:not(:last-child) {
 @media (max-width: 600px) {
     .cp-score-value { font-size: 30px; }
     .cp-recent-item { grid-template-columns: 10px 64px 1fr; }
+    .cp-switcher { gap: 4px; padding: 6px; }
+    .cp-switcher-dot { width: 13px; height: 13px; }
+    .cp-action-title { font-size: 12px; }
+    .cp-action-what { font-size: 11px; }
 }
