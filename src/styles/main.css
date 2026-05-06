@@ -2119,9 +2119,26 @@ html[dir="rtl"] .font-seg-btn:not(:last-child) {
     font-size: 12px;
     margin-bottom: 4px;
 }
-.cp-pillar-label { color: #ddd; }
+.cp-pillar-label { color: #ddd; display: inline-flex; align-items: center; gap: 6px; }
 .cp-pillar-weight { color: #777; font-size: 11px; }
-.cp-pillar-score { color: #fff; font-weight: 600; min-width: 22px; text-align: right; }
+.cp-pillar-score { color: #fff; font-weight: 600; min-width: 22px; text-align: right; transition: color 0.3s ease; }
+.cp-pillar-live-badge {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(90, 232, 159, 0.15);
+    color: #7af0b3;
+    font-weight: 600;
+    cursor: help;
+    animation: cp-live-pulse 0.6s ease-out;
+}
+@keyframes cp-live-pulse {
+    0%   { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1);   opacity: 1; }
+}
+.cp-pillar-fill { transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
 .cp-pillar-bar {
     height: 6px;
     background: rgba(255,255,255,0.07);

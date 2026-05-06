@@ -5,7 +5,6 @@
  *   - windFlow: atmospheric circulation particle streamlines (decoupled from
  *     reduce-motion, which users sometimes want on without losing the globe feel).
  *   - naturalEvents: NASA EONET wildfires, volcanoes, storms, earthquakes.
- *   - countries: country accountability markers (curated editorial layer, 16 entries).
  *   - countryLights: 30 traffic-light markers (Planet Lens composite score per country).
  *
  * Persisted to localStorage under `planetearth-layer-<key>`. Subscribers are notified
@@ -13,12 +12,11 @@
  * or tear down any per-frame cost.
  */
 
-export type LayerKey = 'windFlow' | 'naturalEvents' | 'countries' | 'countryLights' | 'stations' | 'filmGrain';
+export type LayerKey = 'windFlow' | 'naturalEvents' | 'countryLights' | 'stations' | 'filmGrain';
 
 const DEFAULTS: Record<LayerKey, boolean> = {
     windFlow: true,
     naturalEvents: true,
-    countries: true,        // editorial, lightweight (16 curated)
     countryLights: true,    // Planet-Lens composite traffic lights (30 countries)
     stations: true,     // real measurement sensors (Argo, NOAA GHG, weather, buoys, tide,
                         // solar, seismic, airq). On by default — the dots ARE the data.

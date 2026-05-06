@@ -23,6 +23,7 @@ import {
     type CountryProfile,
     type TrafficLight,
 } from '../../data/countries-loader';
+import { fetchLivePillars, type LivePillars, type LiveValue } from '../../services/country-live-data';
 
 // ── State ──────────────────────────────────────────────────────────────
 
@@ -83,9 +84,31 @@ function escapeHtml(s: string): string {
     }[c]!));
 }
 
-function pillarBar(score: number, color: string): string {
+function pillarBar(score: number, color: string, targetable = false): string {
     const clamped = Math.max(0, Math.min(100, score));
-    return `<div class="cp-pillar-bar"><div class="cp-pillar-fill" style="width:${clamped}%;background:${color}"></div></div>`;
+    const attr = targetable ? ' data-fill' : '';
+    return `<div class="cp-pillar-bar"><div class="cp-pillar-fill"${attr} style="width:${clamped}%;background:${color}"></div></div>`;
+}
+
+/** Patch a pillar's score + bar in place after a live fetch resolves. */
+function applyLiveValue(panelEl: Element, pillarKey: string, lv: LiveValue, lang: 'en' | 'es'): void {
+    const pillar = panelEl.querySelector(`[data-pillar="${pillarKey}"]`);
+    if (!pillar) return;
+    const scoreEl = pillar.querySelector<HTMLElement>('[data-score]');
+    const fillEl = pillar.querySelector<HTMLElement>('[data-fill]');
+    const badge = pillar.querySelector<HTMLElement>('.cp-pillar-live-badge');
+    if (scoreEl) {
+        scoreEl.textContent = String(lv.score);
+        scoreEl.title = `${lv.raw} ${lv.unit} · ${lv.asOf}`;
+    }
+    if (fillEl) {
+        fillEl.style.width = Math.max(0, Math.min(100, lv.score)) + '%';
+    }
+    if (badge) {
+        badge.hidden = false;
+        badge.textContent = lang === 'es' ? 'en vivo' : 'live';
+        badge.title = `${lv.raw} ${lv.unit} · ${lv.asOf}\n${lv.source}`;
+    }
 }
 
 // ── Main render ────────────────────────────────────────────────────────
@@ -142,20 +165,20 @@ function renderInto(profile: CountryProfile): void {
     h += `</div>`;
     h += `</div>`;
 
-    // Pillars
+    // Pillars (mounted with data-pillar so live-data fetchers can update bars in place)
     h += `<div class="section-title">${lang === 'es' ? '7 pilares' : '7 pillars'}</div>`;
     h += `<div class="cp-pillars">`;
     for (const p of PILLARS) {
-        const pillar = profile.pillars[p.key] as { value?: number; score?: number; rationale?: string } | undefined;
-        const pscore = pillar?.value ?? pillar?.score ?? 0;
+        const pillar = profile.pillars[p.key] as { score?: number } | undefined;
+        const pscore = pillar?.score ?? 0;
         const label = lang === 'es' ? p.label_es : p.label_en;
-        h += `<div class="cp-pillar">`;
+        h += `<div class="cp-pillar" data-pillar="${p.key}">`;
         h += `<div class="cp-pillar-row">`;
-        h += `<span class="cp-pillar-label">${escapeHtml(label)}</span>`;
+        h += `<span class="cp-pillar-label">${escapeHtml(label)}<span class="cp-pillar-live-badge" hidden></span></span>`;
         h += `<span class="cp-pillar-weight">${Math.round(p.weight * 100)}%</span>`;
-        h += `<span class="cp-pillar-score">${pscore}</span>`;
+        h += `<span class="cp-pillar-score" data-score>${pscore}</span>`;
         h += `</div>`;
-        h += pillarBar(pscore as number, lightHex);
+        h += pillarBar(pscore as number, lightHex, true);
         h += `</div>`;
     }
     h += `</div>`;
@@ -241,6 +264,25 @@ export async function showCountryPanel(iso3: string): Promise<void> {
     if (!wasOpen) {
         const close = document.getElementById('closeBtn');
         close?.focus();
+    }
+
+    // ── Fire live-data fetches in parallel with the static render ────────
+    // OWID (climate), Open-Meteo (pollution), GFW (forests). When each
+    // resolves, patch the corresponding pillar's score + bar in place. If
+    // the user has navigated to a different country in the meantime, drop
+    // the result silently — the staleness check is currentIso === iso3.
+    const idx = getCountryIndex(currentIso);
+    if (idx) {
+        const requestedIso = currentIso;
+        fetchLivePillars(requestedIso, idx.lat, idx.lon).then((live: LivePillars) => {
+            if (currentIso !== requestedIso) return; // navigated away
+            const content = document.getElementById('panelContent');
+            if (!content) return;
+            const lang = (getLocale() === 'en' ? 'en' : 'es') as 'en' | 'es';
+            if (live.climate)      applyLiveValue(content, 'climate',       live.climate, lang);
+            if (live.pollution)    applyLiveValue(content, 'pollution',     live.pollution, lang);
+            if (live.forests_land) applyLiveValue(content, 'forests_land', live.forests_land, lang);
+        }).catch(() => { /* silent fallback to static */ });
     }
 }
 
