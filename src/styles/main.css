@@ -198,7 +198,7 @@ body.loaded .a11y-toggle {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   View mode — after 60 seconds of no interaction the chrome fades away so
+   View mode — after 30 seconds of no interaction the chrome fades away so
    only the planet remains. Any pointer, key, wheel, or touch input restores
    the UI immediately via the interaction tracker in app.ts.
    Rules placed AFTER the body.loaded entrance block so they win the cascade.
@@ -206,6 +206,7 @@ body.loaded .a11y-toggle {
 body.idle .title,
 body.idle .categories,
 body.idle .mobile-cats,
+body.idle .country-strip,
 body.idle .dashboard,
 body.idle .instructions,
 body.idle .a11y-toggle,
@@ -2048,6 +2049,112 @@ html[dir="rtl"] .font-seg-btn:not(:last-child) {
 @keyframes stalePulse {
     0%, 100% { opacity: 0.55; transform: scale(1); }
     50%      { opacity: 1.0;  transform: scale(1.35); }
+}
+
+/* ── Country Strip — 30 country chips below the population counter ────── */
+/* Sits in the top stack between .pop-counter and .categories. Joins
+   body.idle's fade-out group so it disappears with the rest of the UI
+   after 30s of no interaction. */
+.country-strip {
+    position: fixed;
+    top: 122px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(960px, calc(100vw - 32px));
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    pointer-events: auto;
+    transition: opacity 0.6s ease-out;
+}
+.country-strip-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(220, 224, 255, 0.55);
+    font-weight: 600;
+}
+.country-strip-track {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding: 4px 2px 6px;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Fade edges so users see there's more on the sides */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 16px,
+        black calc(100% - 16px),
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        black 16px,
+        black calc(100% - 16px),
+        transparent 100%
+    );
+}
+.country-strip-track::-webkit-scrollbar { display: none; }
+.country-chip {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    min-width: 50px;
+    padding: 6px 8px 4px;
+    background: rgba(20, 22, 50, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 2px solid var(--chip-color, #888);
+    border-radius: 7px;
+    cursor: pointer;
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.country-chip:hover {
+    transform: translateY(-2px);
+    background: rgba(40, 44, 88, 0.75);
+    border-top-color: rgba(255, 255, 255, 0.18);
+}
+.country-chip:focus-visible {
+    outline: 2px solid var(--chip-color, #fff);
+    outline-offset: 2px;
+}
+.country-chip-flag {
+    font-size: 18px;
+    line-height: 1;
+    /* Emoji rendering — keep them crisp on macOS/iOS */
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+}
+.country-chip-score {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+    .country-strip { top: 110px; width: calc(100vw - 16px); }
+    .country-strip-label { font-size: 9px; letter-spacing: 1.5px; }
+    .country-chip { min-width: 46px; padding: 5px 6px 3px; }
+    .country-chip-flag { font-size: 16px; }
+    .country-chip-score { font-size: 10px; }
+}
+@media (max-width: 480px) {
+    .country-strip { top: 102px; }
+    .country-chip { min-width: 42px; padding: 4px 5px 3px; }
+    .country-chip-flag { font-size: 15px; }
 }
 
 /* ── Country Panel (Planet Lens) ─────────────────────────────────────── */

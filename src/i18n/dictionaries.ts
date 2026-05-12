@@ -107,6 +107,7 @@ export type StringKey =
     | 'personality.10.happy'  | 'personality.10.worried'  | 'personality.10.danger'  | 'personality.10.critical'
     | 'aria.canvas'
     | 'aria.popCounter'
+    | 'country.strip.aria'
     | 'aria.dashboardRegion'
     | 'aria.textSize'
     // Dashboard planet-health aggregate widget
@@ -284,6 +285,7 @@ const es: Dict = {
     'personality.10.critical': '¡Red 100 % fósil!',
     'aria.canvas': 'Visualización 3D interactiva del planeta Tierra mostrando biomas y datos de impacto planetario',
     'aria.popCounter': 'Contador de población mundial y meta de participación',
+    'country.strip.aria': '30 países ordenados por salud, clic para ver detalle',
     'aria.dashboardRegion': 'Métricas ambientales',
     'aria.textSize': 'Tamaño de texto',
     'dashboard.planetHealth.label': 'Salud Planetaria',
@@ -460,6 +462,7 @@ const en: Dict = {
     'personality.10.critical': '100% fossil grid!',
     'aria.canvas': 'Interactive 3D visualization of planet Earth showing biomes and planetary impact data',
     'aria.popCounter': 'World population counter and participation goal',
+    'country.strip.aria': '30 countries sorted by health, click to view detail',
     'aria.dashboardRegion': 'Environmental metrics',
     'aria.textSize': 'Text size',
     'dashboard.planetHealth.label': 'Planetary Health',

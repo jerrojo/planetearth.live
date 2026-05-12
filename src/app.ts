@@ -35,6 +35,7 @@ import { initDashboard, updateDashboardVisuals, updateSparklines, type Dashboard
 import { initLiveTicker } from './ui/components/live-ticker';
 import { initPopulationCounter } from './ui/components/population-counter';
 import { initAccessibility } from './ui/components/accessibility';
+import { initCountryStrip } from './ui/components/country-strip';
 import { initActionPrompt } from './ui/components/action-prompt';
 
 // Controls
@@ -125,6 +126,7 @@ export function createApp(): void {
     const dashCtx: DashboardContext = initDashboard();
     initLiveTicker(document.getElementById('dashboard')!);
     initPopulationCounter();
+    initCountryStrip();
     const actionPrompt = initActionPrompt(dashCtx.metrics);
 
     // Insert action widget below planet-score, above metric cards
@@ -342,7 +344,7 @@ export function createApp(): void {
     // clears the idle class instantly (CSS transition handles the fade-in).
     // This plays well with Page Visibility: when the tab comes back we restart
     // the timer so the user returns to a populated HUD.
-    const IDLE_MS = 60_000;
+    const IDLE_MS = 30_000;
     let idleTimer: ReturnType<typeof setTimeout> | null = null;
     function resetIdle(): void {
         document.body.classList.remove('idle');
