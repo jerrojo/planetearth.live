@@ -396,13 +396,41 @@ body.loaded .categories { transform: translateY(-50%) translateY(0); }
     padding: 20px;
     backdrop-filter: blur(28px) saturate(1.3);
     z-index: 50;
-    overflow-y: auto;
+    /* The panel itself doesn't scroll — only #panelContent does. This keeps
+       the close button (and country title) visible while reading long
+       per-country profiles. */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: all var(--dur-state) cubic-bezier(0.22, 1, 0.36, 1);
     opacity: 0;
     pointer-events: none;
     box-shadow: var(--shadow-soft);
     contain: layout style;
 }
+/* Title + subtitle stay at the top (no scroll), so the country name
+   stays as context while the user reads down. */
+.panel > h2,
+.panel > .subtitle { flex: 0 0 auto; }
+/* The actual scrolling region — only the body content moves. */
+.panel > #panelContent {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    /* Restore the panel-level scrollbar styling on the inner element */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(197,179,230,0.15) transparent;
+    /* Small gutter so content doesn't kiss the rounded edge */
+    margin-right: -6px;
+    padding-right: 6px;
+}
+.panel > #panelContent::-webkit-scrollbar { width: 3px; }
+.panel > #panelContent::-webkit-scrollbar-track { background: transparent; }
+.panel > #panelContent::-webkit-scrollbar-thumb {
+    background: rgba(197,179,230,0.15);
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+.panel > #panelContent::-webkit-scrollbar-thumb:hover { background: rgba(197,179,230,0.35); }
 .panel.active {
     opacity: 1;
     pointer-events: all;
@@ -511,11 +539,8 @@ body.loaded .categories { transform: translateY(-50%) translateY(0); }
     background: var(--gradient-bar);
     border-radius: 3px 0 0 3px;
 }
-.panel::-webkit-scrollbar { width: 3px; }
-.panel::-webkit-scrollbar-track { background: transparent; }
-.panel::-webkit-scrollbar-thumb { background: rgba(197,179,230,0.15); border-radius: 2px; transition: background 0.3s; }
-.panel::-webkit-scrollbar-thumb:hover { background: rgba(197,179,230,0.35); }
-.panel { scrollbar-width: thin; scrollbar-color: rgba(197,179,230,0.15) transparent; }
+/* Scrollbar styling moved to .panel > #panelContent — only the inner
+   content scrolls now (see flex-column layout above). */
 
 /* ---- Dashboard HUD (Planet Health Score + Metric Cards) ---- */
 .dashboard {
