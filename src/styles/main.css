@@ -2159,9 +2159,13 @@ html[dir="rtl"] .font-seg-btn:not(:last-child) {
 
 /* ── Country Panel (Planet Lens) ─────────────────────────────────────── */
 
-/* Country switcher — 30 mini-dots at top, one per profiled country */
+/* Country switcher — 30 mini-dots at top, one per profiled country.
+   Only shown on mobile: on desktop/tablet, the country strip outside
+   the panel is reachable, so the in-panel switcher is redundant.
+   On phones the panel covers the strip, so the switcher is the only
+   way to swap countries without closing first. */
 .cp-switcher {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 6px;
     margin: 0 0 14px;
@@ -2169,6 +2173,9 @@ html[dir="rtl"] .font-seg-btn:not(:last-child) {
     background: rgba(255,255,255,0.025);
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 8px;
+}
+@media (max-width: 900px) {
+    .cp-switcher { display: flex; }
 }
 .cp-switcher-dot {
     width: 16px;
