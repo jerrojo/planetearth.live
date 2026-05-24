@@ -63,9 +63,9 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 30,
-      "rationale": "Not megadiverse but ecologically distinctive: Arabian oryx (reintroduced from extinction-in-the-wild), dugongs (second-largest global population in the Gulf), hawksbill turtles, and endemic reef fish. IUCN Red List flags ~14% of assessed species as threatened; coral bleaching in the southern Gulf is chronic due to extreme SST. Wildlife trade enforcement has strengthened but the UAE remains a CITES transit hub of concern.",
-      "data_confidence": "medium"
+      "score": 66,
+      "rationale": "Not megadiverse but ecologically distinctive: Arabian oryx (reintroduced from extinction-in-the-wild), dugongs (second-largest global population in the Gulf), hawksbill turtles, and endemic reef fish. IUCN Red List flags ~14% of assessed species as threatened; coral bleaching in the southern Gulf is chronic due to extreme SST. Wildlife trade enforcement has strengthened but the UAE remains a CITES transit hub of concern. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (61.7%, NHM 2020, area-weighted) + 20% Red List Index (0.84, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 45,
@@ -89,8 +89,8 @@
     }
   },
   "score": {
-    "value": 37,
-    "traffic_light": "red",
+    "value": 43,
+    "traffic_light": "yellow",
     "confidence": "medium"
   },
   "top_gaps": [
@@ -182,23 +182,101 @@
     "key_tension": "The UAE chaired COP28 and delivered the first UNFCCC text calling to 'transition away from fossil fuels' — while its national oil company simultaneously accelerates the largest oil capacity expansion of any producer outside the United States."
   },
   "sources": [
-    { "name": "Climate Action Tracker — UAE", "url": "https://climateactiontracker.org/countries/uae/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions UAE", "url": "https://ourworldindata.org/co2/country/united-arab-emirates", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — UAE country profile", "url": "https://epi.yale.edu/country/2024/ARE", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — United Arab Emirates", "url": "https://www.protectedplanet.net/country/ARE", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — UAE Third NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Working Paper (Parry et al.)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — UAE", "url": "https://climatecasechart.com/non-us-jurisdiction/united-arab-emirates/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — COP28 fossil fuel lobbyists briefing", "url": "https://www.globalwitness.org/en/campaigns/fossil-gas/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — UAE Country Data", "url": "https://data.worldbank.org/country/united-arab-emirates", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — UAE species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "UAE Ministry of Climate Change and Environment (MOCCAE)", "url": "https://www.moccae.gov.ae/", "date_accessed": "2026-04-20" },
-    { "name": "Masdar — Project portfolio", "url": "https://www.masdar.ae/", "date_accessed": "2026-04-20" },
-    { "name": "ADNOC — Upstream production plans", "url": "https://www.adnoc.ae/", "date_accessed": "2026-04-20" },
-    { "name": "UAE Consensus — COP28 Outcome (UNFCCC)", "url": "https://unfccc.int/cop28/outcomes", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — UAE",
+      "url": "https://climateactiontracker.org/countries/uae/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions UAE",
+      "url": "https://ourworldindata.org/co2/country/united-arab-emirates",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — UAE country profile",
+      "url": "https://epi.yale.edu/country/2024/ARE",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — United Arab Emirates",
+      "url": "https://www.protectedplanet.net/country/ARE",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — UAE Third NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Working Paper (Parry et al.)",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — UAE",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/united-arab-emirates/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — COP28 fossil fuel lobbyists briefing",
+      "url": "https://www.globalwitness.org/en/campaigns/fossil-gas/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — UAE Country Data",
+      "url": "https://data.worldbank.org/country/united-arab-emirates",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — UAE species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UAE Ministry of Climate Change and Environment (MOCCAE)",
+      "url": "https://www.moccae.gov.ae/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Masdar — Project portfolio",
+      "url": "https://www.masdar.ae/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "ADNOC — Upstream production plans",
+      "url": "https://www.adnoc.ae/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UAE Consensus — COP28 Outcome (UNFCCC)",
+      "url": "https://unfccc.int/cop28/outcomes",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

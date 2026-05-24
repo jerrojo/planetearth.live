@@ -63,8 +63,8 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 62,
-      "rationale": "Per square kilometer, Ecuador is arguably the most biodiverse country on Earth — Yasuní alone holds more tree species per hectare than the U.S. and Canada combined, and the Galápagos remain a unique endemic laboratory. IUCN Red List flags 2,300+ threatened species, among the highest globally in absolute terms, with pink river dolphin, Andean condor, jaguar, and scalloped hammerhead under pressure. Constitutional Rights of Nature jurisprudence (Los Cedros 2021) is the strongest legal biodiversity shield in the Global South.",
+      "score": 70,
+      "rationale": "Per square kilometer, Ecuador is arguably the most biodiverse country on Earth — Yasuní alone holds more tree species per hectare than the U.S. and Canada combined, and the Galápagos remain a unique endemic laboratory. IUCN Red List flags 2,300+ threatened species, among the highest globally in absolute terms, with pink river dolphin, Andean condor, jaguar, and scalloped hammerhead under pressure. Constitutional Rights of Nature jurisprudence (Los Cedros 2021) is the strongest legal biodiversity shield in the Global South. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (71.7%, NHM 2020, area-weighted) + 20% Red List Index (0.65, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 54,
+    "value": 55,
     "traffic_light": "yellow",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Ecuador is the first country where citizens voted to leave oil in the ground and the first to give nature constitutional rights — yet a cash-strapped state facing a violence crisis keeps drilling, logging and mining the Amazon anyway."
   },
   "sources": [
-    { "name": "Climate Action Tracker — country coverage", "url": "https://climateactiontracker.org/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Ecuador", "url": "https://ourworldindata.org/co2/country/ecuador", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Ecuador electricity data", "url": "https://ember-energy.org/countries-and-regions/ecuador/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Ecuador country profile", "url": "https://epi.yale.edu/country/2024/ECU", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Ecuador", "url": "https://www.protectedplanet.net/country/ECU", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Ecuador", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Ecuador Article IV and energy subsidy reform", "url": "https://www.imf.org/en/Countries/ECU", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Change Litigation Database — Ecuador", "url": "https://climatecasechart.com/non-us-jurisdiction/ecuador/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Ecuador Country Data", "url": "https://data.worldbank.org/country/ecuador", "date_accessed": "2026-04-20" },
-    { "name": "INEC Ecuador — Environmental Information", "url": "https://www.ecuadorencifras.gob.ec/estadisticas-ambientales/", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Ecuador dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/ECU/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Ecuador species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Constitutional Court of Ecuador — Yasuní and Los Cedros rulings", "url": "https://www.corteconstitucional.gob.ec/", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Environment, Water and Ecological Transition (MAATE)", "url": "https://www.ambiente.gob.ec/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — country coverage",
+      "url": "https://climateactiontracker.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Ecuador",
+      "url": "https://ourworldindata.org/co2/country/ecuador",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Ecuador electricity data",
+      "url": "https://ember-energy.org/countries-and-regions/ecuador/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Ecuador country profile",
+      "url": "https://epi.yale.edu/country/2024/ECU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Ecuador",
+      "url": "https://www.protectedplanet.net/country/ECU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Ecuador",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Database",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Ecuador Article IV and energy subsidy reform",
+      "url": "https://www.imf.org/en/Countries/ECU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Change Litigation Database — Ecuador",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/ecuador/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders of the Earth 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Ecuador Country Data",
+      "url": "https://data.worldbank.org/country/ecuador",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "INEC Ecuador — Environmental Information",
+      "url": "https://www.ecuadorencifras.gob.ec/estadisticas-ambientales/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Ecuador dashboard",
+      "url": "https://www.globalforestwatch.org/dashboards/country/ECU/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Ecuador species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Constitutional Court of Ecuador — Yasuní and Los Cedros rulings",
+      "url": "https://www.corteconstitucional.gob.ec/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Environment, Water and Ecological Transition (MAATE)",
+      "url": "https://www.ambiente.gob.ec/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

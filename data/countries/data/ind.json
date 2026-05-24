@@ -63,9 +63,9 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 38,
-      "rationale": "Megadiverse country hosting ~8% of recorded global species across the Western Ghats, Himalaya, and Sundarbans hotspots. Tiger population recovered to ~3,682 (2022 census, ~75% of the global wild tiger total) and Asiatic lion and one-horned rhino numbers are rising. But IUCN lists ~700+ threatened vertebrate species, the Gangetic dolphin and great Indian bustard are near extinction, and freshwater and grassland biomes are under acute pressure.",
-      "data_confidence": "medium"
+      "score": 40,
+      "rationale": "Megadiverse country hosting ~8% of recorded global species across the Western Ghats, Himalaya, and Sundarbans hotspots. Tiger population recovered to ~3,682 (2022 census, ~75% of the global wild tiger total) and Asiatic lion and one-horned rhino numbers are rising. But IUCN lists ~700+ threatened vertebrate species, the Gangetic dolphin and great Indian bustard are near extinction, and freshwater and grassland biomes are under acute pressure. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (33.0%, NHM 2020, area-weighted) + 20% Red List Index (0.67, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 35,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 35,
+    "value": 37,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -182,24 +182,106 @@
     "key_tension": "India must deliver development to 1.4 billion people on a fraction of the historical emissions of rich nations while its coal-heavy grid, filthy air, and drying rivers make its development model itself the climate risk."
   },
   "sources": [
-    { "name": "Climate Action Tracker — India", "url": "https://climateactiontracker.org/countries/india/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions India", "url": "https://ourworldindata.org/co2/country/india", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — India country profile", "url": "https://epi.yale.edu/country/2024/IND", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — India", "url": "https://www.protectedplanet.net/country/IND", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — India Updated NDC 2022", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — India Energy Outlook 2024", "url": "https://www.iea.org/reports/india-energy-outlook-2024", "date_accessed": "2026-04-20" },
-    { "name": "IISD — Mapping India's Energy Subsidies 2023", "url": "https://www.iisd.org/publications/report/mapping-indias-energy-subsidies-2023", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — India", "url": "https://climatecasechart.com/non-us-jurisdiction/india/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2024", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — India Country Data", "url": "https://data.worldbank.org/country/india", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of New and Renewable Energy (MNRE)", "url": "https://mnre.gov.in/", "date_accessed": "2026-04-20" },
-    { "name": "Central Pollution Control Board (CPCB) — AQI", "url": "https://cpcb.nic.in/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — India species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — India", "url": "https://www.globalforestwatch.org/dashboards/country/IND/", "date_accessed": "2026-04-20" },
-    { "name": "National Tiger Conservation Authority — Status of Tigers 2022", "url": "https://ntca.gov.in/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — India",
+      "url": "https://climateactiontracker.org/countries/india/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions India",
+      "url": "https://ourworldindata.org/co2/country/india",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — India country profile",
+      "url": "https://epi.yale.edu/country/2024/IND",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — India",
+      "url": "https://www.protectedplanet.net/country/IND",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — India Updated NDC 2022",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — India Energy Outlook 2024",
+      "url": "https://www.iea.org/reports/india-energy-outlook-2024",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IISD — Mapping India's Energy Subsidies 2023",
+      "url": "https://www.iisd.org/publications/report/mapping-indias-energy-subsidies-2023",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — India",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/india/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2024",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — India Country Data",
+      "url": "https://data.worldbank.org/country/india",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of New and Renewable Energy (MNRE)",
+      "url": "https://mnre.gov.in/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Central Pollution Control Board (CPCB) — AQI",
+      "url": "https://cpcb.nic.in/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — India species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — India",
+      "url": "https://www.globalforestwatch.org/dashboards/country/IND/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "National Tiger Conservation Authority — Status of Tigers 2022",
+      "url": "https://ntca.gov.in/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

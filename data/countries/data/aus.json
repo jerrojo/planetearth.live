@@ -63,8 +63,8 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 30,
-      "rationale": "Megadiverse with ~87% endemic mammals and unique marsupial lineages, yet holds the worst mammal extinction record of any continent (>30 species since colonization). Koalas listed Endangered under EPBC (2022) in QLD/NSW/ACT. IUCN Red List shows continuing declines across vertebrates and invertebrates; ~2,000 species listed as threatened nationally. Great Barrier Reef experienced its 5th mass bleaching in 2024.",
+      "score": 64,
+      "rationale": "Megadiverse with ~87% endemic mammals and unique marsupial lineages, yet holds the worst mammal extinction record of any continent (>30 species since colonization). Koalas listed Endangered under EPBC (2022) in QLD/NSW/ACT. IUCN Red List shows continuing declines across vertebrates and invertebrates; ~2,000 species listed as threatened nationally. Great Barrier Reef experienced its 5th mass bleaching in 2024. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (59.8%, NHM 2020, area-weighted) + 20% Red List Index (0.81, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 49,
+    "value": 54,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -182,24 +182,106 @@
     "key_tension": "Australia is decarbonising its own grid at pace while remaining the world's second-largest coal exporter and third-largest LNG exporter — the domestic transition is real, but the export emissions it ships abroad are roughly triple its entire domestic footprint and stay off the national ledger."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Australia", "url": "https://climateactiontracker.org/countries/australia/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Australia", "url": "https://ourworldindata.org/co2/country/australia", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Australia country profile", "url": "https://epi.yale.edu/country/2024/AUS", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Australia", "url": "https://www.protectedplanet.net/country/AUS", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Australia 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies working paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Australia", "url": "https://climatecasechart.com/non-us-jurisdiction/australia/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Australia Country Data", "url": "https://data.worldbank.org/country/australia", "date_accessed": "2026-04-20" },
-    { "name": "Department of Climate Change, Energy, Environment and Water (DCCEEW)", "url": "https://www.dcceew.gov.au/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Australia species assessments", "url": "https://www.iucnredlist.org/search?country=AU", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Australian Institute of Marine Science — GBR bleaching 2024", "url": "https://www.aims.gov.au/information-centre/news-and-stories", "date_accessed": "2026-04-20" },
-    { "name": "The Australia Institute — Fossil Fuel Subsidies 2024", "url": "https://australiainstitute.org.au/report/fossil-fuel-subsidies-2024/", "date_accessed": "2026-04-20" },
-    { "name": "State of the Environment Report 2021 (Australia)", "url": "https://soe.dcceew.gov.au/", "date_accessed": "2026-04-20" },
-    { "name": "Climate Change Authority — 2035 Targets Advice", "url": "https://www.climatechangeauthority.gov.au/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Australia",
+      "url": "https://climateactiontracker.org/countries/australia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Australia",
+      "url": "https://ourworldindata.org/co2/country/australia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Australia country profile",
+      "url": "https://epi.yale.edu/country/2024/AUS",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Australia",
+      "url": "https://www.protectedplanet.net/country/AUS",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Australia 2035 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies working paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Australia",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/australia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders of the Earth 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Australia Country Data",
+      "url": "https://data.worldbank.org/country/australia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Department of Climate Change, Energy, Environment and Water (DCCEEW)",
+      "url": "https://www.dcceew.gov.au/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Australia species assessments",
+      "url": "https://www.iucnredlist.org/search?country=AU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Australian Institute of Marine Science — GBR bleaching 2024",
+      "url": "https://www.aims.gov.au/information-centre/news-and-stories",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "The Australia Institute — Fossil Fuel Subsidies 2024",
+      "url": "https://australiainstitute.org.au/report/fossil-fuel-subsidies-2024/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "State of the Environment Report 2021 (Australia)",
+      "url": "https://soe.dcceew.gov.au/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Climate Change Authority — 2035 Targets Advice",
+      "url": "https://www.climatechangeauthority.gov.au/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

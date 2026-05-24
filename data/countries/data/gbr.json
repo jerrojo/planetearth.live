@@ -63,8 +63,8 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 28,
-      "rationale": "The UK is among the most nature-depleted countries on Earth — State of Nature 2023 finds 1 in 6 species at risk of extinction, abundance down ~19% since 1970, and the UK ranks in the bottom 10% globally for biodiversity intactness (BII ~50%). Iconic chalk streams (85% of the world's total) are polluted by sewage and agricultural runoff. Most nature-depleted country in the G7.",
+      "score": 44,
+      "rationale": "The UK is among the most nature-depleted countries on Earth — State of Nature 2023 finds 1 in 6 species at risk of extinction, abundance down ~19% since 1970, and the UK ranks in the bottom 10% globally for biodiversity intactness (BII ~50%). Iconic chalk streams (85% of the world's total) are polluted by sewage and agricultural runoff. Most nature-depleted country in the G7. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (31.0%, NHM 2020, area-weighted) + 20% Red List Index (0.97, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 53,
+    "value": 56,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -188,23 +188,101 @@
     "key_tension": "The UK leads the G7 on decarbonising its power system — and trails it on the state of its nature; the emissions curve bends while chalk streams, rivers, and wildlife abundance continue to collapse."
   },
   "sources": [
-    { "name": "Climate Action Tracker — United Kingdom", "url": "https://climateactiontracker.org/countries/uk/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions United Kingdom", "url": "https://ourworldindata.org/co2/country/united-kingdom", "date_accessed": "2026-04-20" },
-    { "name": "Ember — UK Electricity Data", "url": "https://ember-climate.org/countries-and-regions/countries/united-kingdom/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — United Kingdom country profile", "url": "https://epi.yale.edu/country/2024/GBR", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — United Kingdom", "url": "https://www.protectedplanet.net/country/GBR", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — UK 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — UK", "url": "https://climatecasechart.com/non-us-jurisdiction/united-kingdom/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — United Kingdom Country Data", "url": "https://data.worldbank.org/country/united-kingdom", "date_accessed": "2026-04-20" },
-    { "name": "Climate Change Committee — 2025 Progress Report", "url": "https://www.theccc.org.uk/publication/progress-report-2025/", "date_accessed": "2026-04-20" },
-    { "name": "State of Nature Report 2023", "url": "https://stateofnature.org.uk/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — UK species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Office for Environmental Protection — Annual Report", "url": "https://www.theoep.org.uk/", "date_accessed": "2026-04-20" },
-    { "name": "DEFRA — Water quality and sewage overflow data", "url": "https://environment.data.gov.uk/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — United Kingdom",
+      "url": "https://climateactiontracker.org/countries/uk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions United Kingdom",
+      "url": "https://ourworldindata.org/co2/country/united-kingdom",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — UK Electricity Data",
+      "url": "https://ember-climate.org/countries-and-regions/countries/united-kingdom/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — United Kingdom country profile",
+      "url": "https://epi.yale.edu/country/2024/GBR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — United Kingdom",
+      "url": "https://www.protectedplanet.net/country/GBR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — UK 2035 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — UK",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/united-kingdom/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — United Kingdom Country Data",
+      "url": "https://data.worldbank.org/country/united-kingdom",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Climate Change Committee — 2025 Progress Report",
+      "url": "https://www.theccc.org.uk/publication/progress-report-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "State of Nature Report 2023",
+      "url": "https://stateofnature.org.uk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — UK species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Office for Environmental Protection — Annual Report",
+      "url": "https://www.theoep.org.uk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "DEFRA — Water quality and sewage overflow data",
+      "url": "https://environment.data.gov.uk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

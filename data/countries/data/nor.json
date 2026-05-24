@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Roughly 1 in 5 assessed species is Red-Listed nationally; wild Atlantic salmon stocks collapsed to a record low in 2024, triggering river closures. Open-net salmon farming exports ~1.2 MtCO2e of escape, sea-lice and benthic impact along the coast. Arctic warming at 3–4× global mean is pushing cod, reindeer and polar bear ranges; IUCN trajectory remains negative.",
-      "data_confidence": "medium"
+      "score": 80,
+      "rationale": "Roughly 1 in 5 assessed species is Red-Listed nationally; wild Atlantic salmon stocks collapsed to a record low in 2024, triggering river closures. Open-net salmon farming exports ~1.2 MtCO2e of escape, sea-lice and benthic impact along the coast. Arctic warming at 3–4× global mean is pushing cod, reindeer and polar bear ranges; IUCN trajectory remains negative. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (76.2%, NHM 2020, area-weighted) + 20% Red List Index (0.95, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 58,
@@ -89,8 +89,8 @@
     }
   },
   "score": {
-    "value": 60,
-    "traffic_light": "yellow",
+    "value": 65,
+    "traffic_light": "green",
     "confidence": "high"
   },
   "top_gaps": [
@@ -182,23 +182,101 @@
     "key_tension": "Norway powers itself almost entirely on renewables and leads the world on EVs, yet exports enough oil and gas to emit ten times its domestic footprint — its climate credibility rests on whether it is willing to manage the decline of the industry that made it rich."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Norway", "url": "https://climateactiontracker.org/countries/norway/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Norway", "url": "https://ourworldindata.org/co2/country/norway", "date_accessed": "2026-04-20" },
-    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Norway country profile", "url": "https://epi.yale.edu/country/2024/NOR", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Norway", "url": "https://www.protectedplanet.net/country/NOR", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Norway updated NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies (country estimates)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Norway", "url": "https://climatecasechart.com/non-us-jurisdiction/norway/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Norway Country Data", "url": "https://data.worldbank.org/country/norway", "date_accessed": "2026-04-20" },
-    { "name": "Norwegian Environment Agency (Miljødirektoratet)", "url": "https://www.miljodirektoratet.no/", "date_accessed": "2026-04-20" },
-    { "name": "Norwegian Offshore Directorate (Sodir)", "url": "https://www.sodir.no/", "date_accessed": "2026-04-20" },
-    { "name": "Norges Bank Investment Management (Government Pension Fund Global)", "url": "https://www.nbim.no/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Atlantic Salmon", "url": "https://www.iucnredlist.org/species/19855/9026693", "date_accessed": "2026-04-20" },
-    { "name": "Norway's International Climate and Forest Initiative (NICFI)", "url": "https://www.nicfi.no/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Norway",
+      "url": "https://climateactiontracker.org/countries/norway/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Norway",
+      "url": "https://ourworldindata.org/co2/country/norway",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — European Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Norway country profile",
+      "url": "https://epi.yale.edu/country/2024/NOR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Norway",
+      "url": "https://www.protectedplanet.net/country/NOR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Norway updated NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies (country estimates)",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Norway",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/norway/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Norway Country Data",
+      "url": "https://data.worldbank.org/country/norway",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Norwegian Environment Agency (Miljødirektoratet)",
+      "url": "https://www.miljodirektoratet.no/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Norwegian Offshore Directorate (Sodir)",
+      "url": "https://www.sodir.no/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Norges Bank Investment Management (Government Pension Fund Global)",
+      "url": "https://www.nbim.no/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Atlantic Salmon",
+      "url": "https://www.iucnredlist.org/species/19855/9026693",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Norway's International Climate and Forest Initiative (NICFI)",
+      "url": "https://www.nicfi.no/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

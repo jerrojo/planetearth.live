@@ -63,9 +63,9 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 30,
-      "rationale": "Not megadiverse, but holds globally significant Arabian desert, Red Sea coral, and mangrove ecosystems. Arabian oryx reintroduction is a genuine conservation success; houbara bustard and falcons remain under heavy hunting pressure despite captive-breeding programs. Red Sea reefs are under-surveyed but face coastal development risk from NEOM, Red Sea Global, and Qiddiya megaprojects.",
-      "data_confidence": "low"
+      "score": 66,
+      "rationale": "Not megadiverse, but holds globally significant Arabian desert, Red Sea coral, and mangrove ecosystems. Arabian oryx reintroduction is a genuine conservation success; houbara bustard and falcons remain under heavy hunting pressure despite captive-breeding programs. Red Sea reefs are under-surveyed but face coastal development risk from NEOM, Red Sea Global, and Qiddiya megaprojects. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (60.1%, NHM 2020, area-weighted) + 20% Red List Index (0.89, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 38,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 25,
+    "value": 30,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Saudi Arabia has pledged net zero by 2060 and is building one of the world's largest utility-solar pipelines, while simultaneously expanding crude oil capacity and systematically blocking fossil fuel phase-out language in UN climate negotiations — its climate policy is structurally organized around preserving oil demand, not ending it."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Saudi Arabia", "url": "https://climateactiontracker.org/countries/saudi-arabia/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Saudi Arabia", "url": "https://ourworldindata.org/co2/country/saudi-arabia", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Saudi Arabia country profile", "url": "https://epi.yale.edu/country/2024/SAU", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Saudi Arabia", "url": "https://www.protectedplanet.net/country/SAU", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Saudi Arabia updated NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — non-US", "url": "https://climatecasechart.com/non-us-jurisdictions/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Saudi Arabia Country Data", "url": "https://data.worldbank.org/country/saudi-arabia", "date_accessed": "2026-04-20" },
-    { "name": "Saudi Green Initiative", "url": "https://www.saudigreeninitiative.org/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Arabian Peninsula assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Saudi Aramco — Capital Program disclosures", "url": "https://www.aramco.com/en/investors", "date_accessed": "2026-04-20" },
-    { "name": "MEWA — Ministry of Environment, Water and Agriculture", "url": "https://www.mewa.gov.sa/", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Saudi Arabia Country Profile", "url": "https://www.iea.org/countries/saudi-arabia", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Saudi Arabia",
+      "url": "https://climateactiontracker.org/countries/saudi-arabia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Saudi Arabia",
+      "url": "https://ourworldindata.org/co2/country/saudi-arabia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Saudi Arabia country profile",
+      "url": "https://epi.yale.edu/country/2024/SAU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Saudi Arabia",
+      "url": "https://www.protectedplanet.net/country/SAU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Saudi Arabia updated NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies database",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper 2023",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — non-US",
+      "url": "https://climatecasechart.com/non-us-jurisdictions/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Saudi Arabia Country Data",
+      "url": "https://data.worldbank.org/country/saudi-arabia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Saudi Green Initiative",
+      "url": "https://www.saudigreeninitiative.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Arabian Peninsula assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Saudi Aramco — Capital Program disclosures",
+      "url": "https://www.aramco.com/en/investors",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "MEWA — Ministry of Environment, Water and Agriculture",
+      "url": "https://www.mewa.gov.sa/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Saudi Arabia Country Profile",
+      "url": "https://www.iea.org/countries/saudi-arabia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

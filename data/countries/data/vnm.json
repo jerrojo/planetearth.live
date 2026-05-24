@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 32,
-      "rationale": "Extraordinarily biodiverse despite not being on the Mittermeier 17-country list — home to the critically endangered saola (rediscovered 1992, possibly <100 individuals), Cao Vit gibbon, Delacour's langur, and the last Indochinese tigers (likely functionally extinct in the wild since ~2014). IUCN lists Vietnam among the top countries globally for critically endangered mammals, and illegal wildlife trade through Vietnam remains a major regional driver. The Javan rhino was declared extinct in Vietnam in 2011.",
-      "data_confidence": "medium"
+      "score": 49,
+      "rationale": "Extraordinarily biodiverse despite not being on the Mittermeier 17-country list — home to the critically endangered saola (rediscovered 1992, possibly <100 individuals), Cao Vit gibbon, Delacour's langur, and the last Indochinese tigers (likely functionally extinct in the wild since ~2014). IUCN lists Vietnam among the top countries globally for critically endangered mammals, and illegal wildlife trade through Vietnam remains a major regional driver. The Javan rhino was declared extinct in Vietnam in 2011. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (43.2%, NHM 2020, area-weighted) + 20% Red List Index (0.70, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 36,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 35,
+    "value": 39,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Vietnam signed the world's second-largest JETP deal ($15.5B) while simultaneously jailing the civil-society leaders who built the case for it — making the transition a top-down bargain without the independent monitoring that would make it credible."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Vietnam", "url": "https://climateactiontracker.org/countries/vietnam/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Vietnam", "url": "https://ourworldindata.org/co2/country/vietnam", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025 (Vietnam)", "url": "https://ember-climate.org/countries-and-regions/countries/vietnam/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Vietnam country profile", "url": "https://epi.yale.edu/country/2024/VNM", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Vietnam", "url": "https://www.protectedplanet.net/country/VNM", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Vietnam 2022 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Vietnam's Clean Energy Transition", "url": "https://www.iea.org/reports/vietnams-clean-energy-transition", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Country Estimates", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Vietnam", "url": "https://climatecasechart.com/non-us-jurisdiction/vietnam/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Vietnam Country Data", "url": "https://data.worldbank.org/country/vietnam", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Vietnam", "url": "https://www.globalforestwatch.org/dashboards/country/VNM/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Vietnam species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Human Rights Watch — Vietnam Chapter 2025", "url": "https://www.hrw.org/world-report/2025/country-chapters/vietnam", "date_accessed": "2026-04-20" },
-    { "name": "JETP Resource Mobilisation Plan — Vietnam", "url": "https://jetp-vietnam.com/", "date_accessed": "2026-04-20" },
-    { "name": "Global Energy Monitor — Vietnam coal and LNG trackers", "url": "https://globalenergymonitor.org/countries/vietnam/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Vietnam",
+      "url": "https://climateactiontracker.org/countries/vietnam/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Vietnam",
+      "url": "https://ourworldindata.org/co2/country/vietnam",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025 (Vietnam)",
+      "url": "https://ember-climate.org/countries-and-regions/countries/vietnam/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Vietnam country profile",
+      "url": "https://epi.yale.edu/country/2024/VNM",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Vietnam",
+      "url": "https://www.protectedplanet.net/country/VNM",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Vietnam 2022 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Vietnam's Clean Energy Transition",
+      "url": "https://www.iea.org/reports/vietnams-clean-energy-transition",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Country Estimates",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Vietnam",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/vietnam/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Vietnam Country Data",
+      "url": "https://data.worldbank.org/country/vietnam",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Vietnam",
+      "url": "https://www.globalforestwatch.org/dashboards/country/VNM/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Vietnam species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Human Rights Watch — Vietnam Chapter 2025",
+      "url": "https://www.hrw.org/world-report/2025/country-chapters/vietnam",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "JETP Resource Mobilisation Plan — Vietnam",
+      "url": "https://jetp-vietnam.com/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Energy Monitor — Vietnam coal and LNG trackers",
+      "url": "https://globalenergymonitor.org/countries/vietnam/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

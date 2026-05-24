@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 38,
-      "rationale": "Denmark ranks among the worst in the EU on biodiversity intactness: a 2023 national Red List found 41% of assessed species threatened or in decline, and the Biodiversity Intactness Index sits near the European floor. Agricultural intensification has hollowed out farmland bird populations and insect biomass. The 2024 Nature Package and 15 new nature national parks are the first serious structural response in decades.",
-      "data_confidence": "medium"
+      "score": 35,
+      "rationale": "Denmark ranks among the worst in the EU on biodiversity intactness: a 2023 national Red List found 41% of assessed species threatened or in decline, and the Biodiversity Intactness Index sits near the European floor. Agricultural intensification has hollowed out farmland bird populations and insect biomass. The 2024 Nature Package and 15 new nature national parks are the first serious structural response in decades. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (19.1%, NHM 2020, area-weighted) + 20% Red List Index (0.98, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 48,
@@ -182,23 +182,101 @@
     "key_tension": "Denmark leads the world on clean electricity and climate governance, but its pork-and-dairy agricultural model — 60% of the land, a third of emissions, and the engine of coastal dead zones — is the reason the same country cannot call itself a green one."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Denmark", "url": "https://climateactiontracker.org/countries/denmark/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Denmark", "url": "https://ourworldindata.org/co2/country/denmark", "date_accessed": "2026-04-20" },
-    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-energy.org/latest-insights/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Denmark country profile", "url": "https://epi.yale.edu/country/2024/DNK", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Denmark", "url": "https://www.protectedplanet.net/country/DNK", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Denmark / EU", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Denmark", "url": "https://climatecasechart.com/non-us-jurisdiction/denmark/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Denmark Country Data", "url": "https://data.worldbank.org/country/denmark", "date_accessed": "2026-04-20" },
-    { "name": "Danish Climate Council (Klimarådet) — 2025 Status Report", "url": "https://en.klimaraadet.dk/", "date_accessed": "2026-04-20" },
-    { "name": "Danish Ministry of Food, Agriculture and Fisheries — Green Tripartite", "url": "https://en.mfvm.dk/", "date_accessed": "2026-04-20" },
-    { "name": "Beyond Oil and Gas Alliance (BOGA)", "url": "https://beyondoilandgasalliance.org/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Denmark assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "European Environment Agency — Denmark", "url": "https://www.eea.europa.eu/en/countries/denmark", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Denmark",
+      "url": "https://climateactiontracker.org/countries/denmark/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Denmark",
+      "url": "https://ourworldindata.org/co2/country/denmark",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — European Electricity Review 2025",
+      "url": "https://ember-energy.org/latest-insights/european-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Denmark country profile",
+      "url": "https://epi.yale.edu/country/2024/DNK",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Denmark",
+      "url": "https://www.protectedplanet.net/country/DNK",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Denmark / EU",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper 2023",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Denmark",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/denmark/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Denmark Country Data",
+      "url": "https://data.worldbank.org/country/denmark",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Danish Climate Council (Klimarådet) — 2025 Status Report",
+      "url": "https://en.klimaraadet.dk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Danish Ministry of Food, Agriculture and Fisheries — Green Tripartite",
+      "url": "https://en.mfvm.dk/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Beyond Oil and Gas Alliance (BOGA)",
+      "url": "https://beyondoilandgasalliance.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Denmark assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "European Environment Agency — Denmark",
+      "url": "https://www.eea.europa.eu/en/countries/denmark",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

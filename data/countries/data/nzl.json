@@ -64,8 +64,8 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 32,
-      "rationale": "An archipelago of extraordinary endemism — kiwi, kākāpō, tuatara, Hector's dolphin, long-tailed bat — but roughly 74% of native terrestrial birds and ~94% of reptiles are threatened or at risk (DOC Threat Classification). Predator Free 2050 is world-leading in ambition, with measurable kiwi recoveries in sanctuary zones, but introduced mammals still cost ~25 million native birds annually. Yale EPI 2024 biodiversity subscore remains middling.",
+      "score": 61,
+      "rationale": "An archipelago of extraordinary endemism — kiwi, kākāpō, tuatara, Hector's dolphin, long-tailed bat — but roughly 74% of native terrestrial birds and ~94% of reptiles are threatened or at risk (DOC Threat Classification). Predator Free 2050 is world-leading in ambition, with measurable kiwi recoveries in sanctuary zones, but introduced mammals still cost ~25 million native birds annually. Yale EPI 2024 biodiversity subscore remains middling. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (60.1%, NHM 2020, area-weighted) + 20% Red List Index (0.64, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 45,
+    "value": 48,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -183,23 +183,101 @@
     "key_tension": "A country that markets itself as '100% Pure' and legislated net-zero by 2050 still runs an economy anchored in methane-intensive dairy and sheep, and the government elected in late 2023 is actively unwinding the environmental guardrails built over the previous decade."
   },
   "sources": [
-    { "name": "Climate Action Tracker — New Zealand", "url": "https://climateactiontracker.org/countries/new-zealand/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions New Zealand", "url": "https://ourworldindata.org/co2/country/new-zealand", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — New Zealand profile", "url": "https://epi.yale.edu/country/2024/NZL", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — New Zealand", "url": "https://www.protectedplanet.net/country/NZL", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — New Zealand 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Country Estimates", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation — New Zealand", "url": "https://climatecasechart.com/non-us-jurisdiction/new-zealand/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — New Zealand Country Data", "url": "https://data.worldbank.org/country/new-zealand", "date_accessed": "2026-04-20" },
-    { "name": "Ministry for the Environment — NZ Greenhouse Gas Inventory", "url": "https://environment.govt.nz/publications/new-zealands-greenhouse-gas-inventory/", "date_accessed": "2026-04-20" },
-    { "name": "Department of Conservation — Predator Free 2050", "url": "https://www.doc.govt.nz/nature/pests-and-threats/predator-free-2050/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — New Zealand species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Parliamentary Commissioner for the Environment", "url": "https://pce.parliament.nz/", "date_accessed": "2026-04-20" },
-    { "name": "NZ Climate Change Commission — He Pou a Rangi", "url": "https://www.climatecommission.govt.nz/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — New Zealand",
+      "url": "https://climateactiontracker.org/countries/new-zealand/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions New Zealand",
+      "url": "https://ourworldindata.org/co2/country/new-zealand",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — New Zealand profile",
+      "url": "https://epi.yale.edu/country/2024/NZL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — New Zealand",
+      "url": "https://www.protectedplanet.net/country/NZL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — New Zealand 2035 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies database",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Country Estimates",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation — New Zealand",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/new-zealand/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — New Zealand Country Data",
+      "url": "https://data.worldbank.org/country/new-zealand",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry for the Environment — NZ Greenhouse Gas Inventory",
+      "url": "https://environment.govt.nz/publications/new-zealands-greenhouse-gas-inventory/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Department of Conservation — Predator Free 2050",
+      "url": "https://www.doc.govt.nz/nature/pests-and-threats/predator-free-2050/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — New Zealand species",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Parliamentary Commissioner for the Environment",
+      "url": "https://pce.parliament.nz/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "NZ Climate Change Commission — He Pou a Rangi",
+      "url": "https://www.climatecommission.govt.nz/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

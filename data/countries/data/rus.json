@@ -63,9 +63,9 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 40,
-      "rationale": "Not on the Mittermeier megadiverse list but ecologically vast, with Amur tigers, polar bears, Siberian cranes, and Lake Baikal endemics. IUCN Red List shows ~380 nationally threatened vertebrates; poaching pressure on tigers and sturgeon remains intense. Russia withdrew from or defunded participation in multiple international conservation bodies post-2022 (Arctic Council cooperation frozen, Bern Convention exit in 2023), fragmenting data pipelines that once fed Red List assessments.",
-      "data_confidence": "medium"
+      "score": 77,
+      "rationale": "Not on the Mittermeier megadiverse list but ecologically vast, with Amur tigers, polar bears, Siberian cranes, and Lake Baikal endemics. IUCN Red List shows ~380 nationally threatened vertebrates; poaching pressure on tigers and sturgeon remains intense. Russia withdrew from or defunded participation in multiple international conservation bodies post-2022 (Arctic Council cooperation frozen, Bern Convention exit in 2023), fragmenting data pipelines that once fed Red List assessments. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (72.5%, NHM 2020, area-weighted) + 20% Red List Index (0.95, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 42,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 30,
+    "value": 36,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "The country holding the world's largest boreal carbon sink and a warming Arctic has rebuilt its state budget around fossil exports and dismantled the civil-society and international scaffolding that would let anyone verify what is happening to its forests, permafrost, and emissions."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Russian Federation", "url": "https://climateactiontracker.org/countries/russian-federation/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Russia", "url": "https://ourworldindata.org/co2/country/russia", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review", "url": "https://ember-energy.org/data/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Russia country profile", "url": "https://epi.yale.edu/country/2024/RUS", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Russian Federation", "url": "https://www.protectedplanet.net/country/RUS", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Russia", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Working Paper (2023)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Russia", "url": "https://climatecasechart.com/non-us-jurisdiction/russia/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders of the Earth 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Russian Federation data", "url": "https://data.worldbank.org/country/russian-federation", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Russia species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Russia", "url": "https://www.globalforestwatch.org/dashboards/country/RUS/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "International Carbon Action Partnership — Sakhalin ETS", "url": "https://icapcarbonaction.com/en/ets/russia-sakhalin-pilot-ets", "date_accessed": "2026-04-20" },
-    { "name": "Arctic Monitoring and Assessment Programme (AMAP)", "url": "https://www.amap.no/", "date_accessed": "2026-04-20" },
-    { "name": "LandMark — Indigenous & community lands (Russia)", "url": "https://www.landmarkmap.org/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Russian Federation",
+      "url": "https://climateactiontracker.org/countries/russian-federation/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Russia",
+      "url": "https://ourworldindata.org/co2/country/russia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review",
+      "url": "https://ember-energy.org/data/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Russia country profile",
+      "url": "https://epi.yale.edu/country/2024/RUS",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Russian Federation",
+      "url": "https://www.protectedplanet.net/country/RUS",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Russia",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Working Paper (2023)",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Russia",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/russia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders of the Earth 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Russian Federation data",
+      "url": "https://data.worldbank.org/country/russian-federation",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Russia species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Russia",
+      "url": "https://www.globalforestwatch.org/dashboards/country/RUS/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "International Carbon Action Partnership — Sakhalin ETS",
+      "url": "https://icapcarbonaction.com/en/ets/russia-sakhalin-pilot-ets",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Arctic Monitoring and Assessment Programme (AMAP)",
+      "url": "https://www.amap.no/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "LandMark — Indigenous & community lands (Russia)",
+      "url": "https://www.landmarkmap.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

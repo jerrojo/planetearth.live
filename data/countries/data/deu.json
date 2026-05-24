@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Not megadiverse, but an EU biodiversity bellwether. Farmland bird populations have fallen ~34% since 1990 and one-third of assessed species are threatened according to the Federal Agency for Nature Conservation (BfN). Insect biomass studies (Krefeld, 2017 onwards) catalysed public awareness. The 2024 EU Nature Restoration Law requires restoration on 20% of land and sea by 2030 — Germany voted yes after internal coalition drama, but national implementation plans remain in draft.",
-      "data_confidence": "medium"
+      "score": 42,
+      "rationale": "Not megadiverse, but an EU biodiversity bellwether. Farmland bird populations have fallen ~34% since 1990 and one-third of assessed species are threatened according to the Federal Agency for Nature Conservation (BfN). Insect biomass studies (Krefeld, 2017 onwards) catalysed public awareness. The 2024 EU Nature Restoration Law requires restoration on 20% of land and sea by 2030 — Germany voted yes after internal coalition drama, but national implementation plans remain in draft. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (27.8%, NHM 2020, area-weighted) + 20% Red List Index (0.97, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 58,
@@ -182,24 +182,106 @@
     "key_tension": "Germany has the strongest climate governance in the G20 and the sharpest G7 emissions cut on record, yet is simultaneously building new LNG infrastructure, softening its heating law, and relaxing annual sector caps — exposing how a post-Russian-gas industrial economy bends even exemplary climate law under cost-of-living pressure."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Germany", "url": "https://climateactiontracker.org/countries/germany/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Germany", "url": "https://ourworldindata.org/co2/country/germany", "date_accessed": "2026-04-20" },
-    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Germany country profile", "url": "https://epi.yale.edu/country/2024/DEU", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Germany", "url": "https://www.protectedplanet.net/country/DEU", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — EU/Germany submission", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper 2023", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Germany", "url": "https://climatecasechart.com/non-us-jurisdiction/germany/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Germany Country Data", "url": "https://data.worldbank.org/country/germany", "date_accessed": "2026-04-20" },
-    { "name": "Umweltbundesamt (UBA) — Greenhouse Gas Emissions in Germany", "url": "https://www.umweltbundesamt.de/en/data/climate/greenhouse-gas-emissions-in-germany", "date_accessed": "2026-04-20" },
-    { "name": "Expert Council on Climate Change (Expertenrat für Klimafragen)", "url": "https://expertenrat-klima.de/en/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Germany species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Destatis — Organic farming statistics", "url": "https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Organic-Farming/_node.html", "date_accessed": "2026-04-20" },
-    { "name": "BfN — Federal Agency for Nature Conservation", "url": "https://www.bfn.de/en", "date_accessed": "2026-04-20" },
-    { "name": "Federal Constitutional Court — Neubauer climate ruling", "url": "https://www.bundesverfassungsgericht.de/", "date_accessed": "2026-04-20" },
-    { "name": "EU Nature Restoration Law", "url": "https://environment.ec.europa.eu/topics/nature-and-biodiversity/nature-restoration-law_en", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Germany",
+      "url": "https://climateactiontracker.org/countries/germany/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Germany",
+      "url": "https://ourworldindata.org/co2/country/germany",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — European Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Germany country profile",
+      "url": "https://epi.yale.edu/country/2024/DEU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Germany",
+      "url": "https://www.protectedplanet.net/country/DEU",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — EU/Germany submission",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper 2023",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Germany",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/germany/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Germany Country Data",
+      "url": "https://data.worldbank.org/country/germany",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Umweltbundesamt (UBA) — Greenhouse Gas Emissions in Germany",
+      "url": "https://www.umweltbundesamt.de/en/data/climate/greenhouse-gas-emissions-in-germany",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Expert Council on Climate Change (Expertenrat für Klimafragen)",
+      "url": "https://expertenrat-klima.de/en/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Germany species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Destatis — Organic farming statistics",
+      "url": "https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Organic-Farming/_node.html",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "BfN — Federal Agency for Nature Conservation",
+      "url": "https://www.bfn.de/en",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Federal Constitutional Court — Neubauer climate ruling",
+      "url": "https://www.bundesverfassungsgericht.de/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "EU Nature Restoration Law",
+      "url": "https://environment.ec.europa.eu/topics/nature-and-biodiversity/nature-restoration-law_en",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 50,
-      "rationale": "Not megadiverse but holds globally significant Pampas grassland, one of the most converted ecosystems on Earth (>80% lost to soy and pasture). IUCN Red List flags ~70 threatened vertebrate species, including pampas deer and southern right whale. Species-level monitoring is thin compared to Brazil or Argentina; grassland conversion pressure from soy expansion is the main driver of biodiversity loss.",
-      "data_confidence": "medium"
+      "score": 49,
+      "rationale": "Not megadiverse but holds globally significant Pampas grassland, one of the most converted ecosystems on Earth (>80% lost to soy and pasture). IUCN Red List flags ~70 threatened vertebrate species, including pampas deer and southern right whale. Species-level monitoring is thin compared to Brazil or Argentina; grassland conversion pressure from soy expansion is the main driver of biodiversity loss. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (38.6%, NHM 2020, area-weighted) + 20% Red List Index (0.91, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 38,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 55,
+    "value": 58,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -183,23 +183,101 @@
     "key_tension": "Uruguay runs one of the cleanest electricity grids on Earth yet exports beef and pulp that make agriculture three-quarters of its emissions — its climate story is decided not at the power plant but at the pasture."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Uruguay", "url": "https://climateactiontracker.org/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Uruguay", "url": "https://ourworldindata.org/co2/country/uruguay", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Uruguay country profile", "url": "https://epi.yale.edu/country/2024/URY", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Uruguay", "url": "https://www.protectedplanet.net/country/URY", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Uruguay NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Template", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Uruguay", "url": "https://climatecasechart.com/non-us-jurisdiction/uruguay/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Uruguay Country Data", "url": "https://data.worldbank.org/country/uruguay", "date_accessed": "2026-04-20" },
-    { "name": "Ministerio de Ambiente (Uruguay)", "url": "https://www.gub.uy/ministerio-ambiente/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Uruguay species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Escazú Agreement — ECLAC", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" },
-    { "name": "FAO — Uruguay Land Use Statistics", "url": "https://www.fao.org/faostat/en/#country/234", "date_accessed": "2026-04-20" },
-    { "name": "UTE — Uruguayan electricity utility generation data", "url": "https://portal.ute.com.uy/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Uruguay",
+      "url": "https://climateactiontracker.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Uruguay",
+      "url": "https://ourworldindata.org/co2/country/uruguay",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Uruguay country profile",
+      "url": "https://epi.yale.edu/country/2024/URY",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Uruguay",
+      "url": "https://www.protectedplanet.net/country/URY",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Uruguay NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Template",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Uruguay",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/uruguay/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Uruguay Country Data",
+      "url": "https://data.worldbank.org/country/uruguay",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministerio de Ambiente (Uruguay)",
+      "url": "https://www.gub.uy/ministerio-ambiente/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Uruguay species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Escazú Agreement — ECLAC",
+      "url": "https://www.cepal.org/en/escazuagreement",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "FAO — Uruguay Land Use Statistics",
+      "url": "https://www.fao.org/faostat/en/#country/234",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UTE — Uruguayan electricity utility generation data",
+      "url": "https://portal.ute.com.uy/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

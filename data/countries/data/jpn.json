@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 45,
-      "rationale": "Not megadiverse but highly endemic as an archipelago — ~40% of mammals and ~20% of vascular plants are endemic. IUCN assessments show ~370 species threatened, with pressure concentrated on Okinawa endemics (Iriomote cat, Amami rabbit) and freshwater fish. Japan resumed commercial whaling in 2019 after leaving the IWC and in 2024 added fin whales to its catch list, a reputational blow even as domestic demand continues to decline.",
-      "data_confidence": "medium"
+      "score": 56,
+      "rationale": "Not megadiverse but highly endemic as an archipelago — ~40% of mammals and ~20% of vascular plants are endemic. IUCN assessments show ~370 species threatened, with pressure concentrated on Okinawa endemics (Iriomote cat, Amami rabbit) and freshwater fish. Japan resumed commercial whaling in 2019 after leaving the IWC and in 2024 added fin whales to its catch list, a reputational blow even as domestic demand continues to decline. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (51.7%, NHM 2020, area-weighted) + 20% Red List Index (0.75, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 50,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 53,
+    "value": 55,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -188,23 +188,101 @@
     "key_tension": "A high-capacity, high-rule-of-law democracy that has bundled its decarbonization strategy with ammonia co-firing, new coal life-extension, and the world's largest public fossil-finance pipeline — positioning itself as a climate leader while slow-walking the coal exit its G7 peers have accepted."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Japan", "url": "https://climateactiontracker.org/countries/japan/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Japan", "url": "https://ourworldindata.org/co2/country/japan", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Electricity Data Explorer (Japan)", "url": "https://ember-energy.org/data/electricity-data-explorer/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Japan country profile", "url": "https://epi.yale.edu/country/2024/JPN", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Japan", "url": "https://www.protectedplanet.net/country/JPN", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Japan 2025 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Japan", "url": "http://climatecasechart.com/non-us-jurisdiction/japan/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Japan Country Data", "url": "https://data.worldbank.org/country/japan", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of the Environment, Japan", "url": "https://www.env.go.jp/en/", "date_accessed": "2026-04-20" },
-    { "name": "Agency for Natural Resources and Energy (METI) — Strategic Energy Plan", "url": "https://www.enecho.meti.go.jp/en/", "date_accessed": "2026-04-20" },
-    { "name": "Oil Change International — Public Finance for Energy Database", "url": "https://priceofoil.org/2024/public-finance-for-energy-database/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Japan species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "International Whaling Commission", "url": "https://www.iwc.int/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Japan",
+      "url": "https://climateactiontracker.org/countries/japan/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Japan",
+      "url": "https://ourworldindata.org/co2/country/japan",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Electricity Data Explorer (Japan)",
+      "url": "https://ember-energy.org/data/electricity-data-explorer/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Japan country profile",
+      "url": "https://epi.yale.edu/country/2024/JPN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Japan",
+      "url": "https://www.protectedplanet.net/country/JPN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Japan 2025 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Japan",
+      "url": "http://climatecasechart.com/non-us-jurisdiction/japan/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Japan Country Data",
+      "url": "https://data.worldbank.org/country/japan",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of the Environment, Japan",
+      "url": "https://www.env.go.jp/en/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Agency for Natural Resources and Energy (METI) — Strategic Energy Plan",
+      "url": "https://www.enecho.meti.go.jp/en/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Oil Change International — Public Finance for Energy Database",
+      "url": "https://priceofoil.org/2024/public-finance-for-energy-database/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Japan species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "International Whaling Commission",
+      "url": "https://www.iwc.int/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

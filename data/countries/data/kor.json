@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Not megadiverse but biologically significant — the Korean Peninsula hosts endemic species and critical East Asian–Australasian Flyway wetlands, yet IUCN lists ~267 Korean species as threatened and coastal tidal flats have been halved by reclamation since 1987. The DMZ functions as an accidental refuge but has no formal transboundary protection. The 2021 inscription of the Getbol tidal flats as UNESCO World Heritage was a positive signal; recovery programs for red-crowned cranes and Asiatic black bears show incremental gains.",
-      "data_confidence": "medium"
+      "score": 45,
+      "rationale": "Not megadiverse but biologically significant — the Korean Peninsula hosts endemic species and critical East Asian–Australasian Flyway wetlands, yet IUCN lists ~267 Korean species as threatened and coastal tidal flats have been halved by reclamation since 1987. The DMZ functions as an accidental refuge but has no formal transboundary protection. The 2021 inscription of the Getbol tidal flats as UNESCO World Heritage was a positive signal; recovery programs for red-crowned cranes and Asiatic black bears show incremental gains. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (39.0%, NHM 2020, area-weighted) + 20% Red List Index (0.68, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 42,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 46,
+    "value": 47,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -182,23 +182,101 @@
     "key_tension": "A high-income democracy with the institutional capacity, industrial base, and supreme court mandate to lead Asia on climate is instead extending coal, doubling down on LNG, and relying on a nuclear revival to paper over a renewables deployment that remains among the OECD's slowest."
   },
   "sources": [
-    { "name": "Climate Action Tracker — South Korea", "url": "https://climateactiontracker.org/countries/south-korea/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions South Korea", "url": "https://ourworldindata.org/co2/country/south-korea", "date_accessed": "2026-04-20" },
-    { "name": "Ember — South Korea electricity profile", "url": "https://ember-energy.org/countries-and-regions/countries/south-korea/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — South Korea country profile", "url": "https://epi.yale.edu/country/2024/KOR", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — South Korea", "url": "https://www.protectedplanet.net/country/KOR", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — South Korea", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Korea country page", "url": "https://www.iea.org/countries/korea", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation — Do-Hyun Kim et al. v. South Korea", "url": "https://climatecasechart.com/non-us-case/do-hyun-kim-et-al-v-south-korea/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Korea, Rep. Country Data", "url": "https://data.worldbank.org/country/korea-rep", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Environment (MoE) Korea", "url": "https://eng.me.go.kr/", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Trade, Industry and Energy (MOTIE)", "url": "https://www.motie.go.kr/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Korea species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Solutions for Our Climate (SFOC) — Korea coal & LNG tracker", "url": "https://forourclimate.org/en", "date_accessed": "2026-04-20" },
-    { "name": "Korea Forest Service — national forest statistics", "url": "https://english.forest.go.kr/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — South Korea",
+      "url": "https://climateactiontracker.org/countries/south-korea/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions South Korea",
+      "url": "https://ourworldindata.org/co2/country/south-korea",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — South Korea electricity profile",
+      "url": "https://ember-energy.org/countries-and-regions/countries/south-korea/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — South Korea country profile",
+      "url": "https://epi.yale.edu/country/2024/KOR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — South Korea",
+      "url": "https://www.protectedplanet.net/country/KOR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — South Korea",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Korea country page",
+      "url": "https://www.iea.org/countries/korea",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation — Do-Hyun Kim et al. v. South Korea",
+      "url": "https://climatecasechart.com/non-us-case/do-hyun-kim-et-al-v-south-korea/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Korea, Rep. Country Data",
+      "url": "https://data.worldbank.org/country/korea-rep",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Environment (MoE) Korea",
+      "url": "https://eng.me.go.kr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Trade, Industry and Energy (MOTIE)",
+      "url": "https://www.motie.go.kr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Korea species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Solutions for Our Climate (SFOC) — Korea coal & LNG tracker",
+      "url": "https://forourclimate.org/en",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Korea Forest Service — national forest statistics",
+      "url": "https://english.forest.go.kr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

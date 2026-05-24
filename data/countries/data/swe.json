@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Around 2,000 species are red-listed in Sweden, roughly one in five assessed — forestry is the primary pressure on more than 1,400 of them. Populations of woodland birds, lichens, and fungi tied to old-growth continue to decline (SLU Artdatabanken 2025). Marine biodiversity in the Baltic is stressed by eutrophication and cod collapse. Wolves and large carnivores persist but hunting quotas remain politically contested.",
-      "data_confidence": "medium"
+      "score": 72,
+      "rationale": "Around 2,000 species are red-listed in Sweden, roughly one in five assessed — forestry is the primary pressure on more than 1,400 of them. Populations of woodland birds, lichens, and fungi tied to old-growth continue to decline (SLU Artdatabanken 2025). Marine biodiversity in the Baltic is stressed by eutrophication and cod collapse. Wolves and large carnivores persist but hunting quotas remain politically contested. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (65.5%, NHM 2020, area-weighted) + 20% Red List Index (0.99, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 58,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 58,
+    "value": 62,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Sweden's carbon tax and near-fossil-free grid are the template the world aspires to — but intensive boreal forestry, a weakening carbon sink, and a government actively pulling back on climate policy are eroding the headline story from the inside."
   },
   "sources": [
-    { "name": "Climate Action Tracker — EU (covers Sweden)", "url": "https://climateactiontracker.org/countries/eu/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Sweden", "url": "https://ourworldindata.org/co2/country/sweden", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Sweden electricity data", "url": "https://ember-climate.org/countries-and-regions/countries/sweden/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Sweden country profile", "url": "https://epi.yale.edu/country/2024/SWE", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Sweden", "url": "https://www.protectedplanet.net/country/SWE", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — EU NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center — Global Climate Litigation (Sweden)", "url": "https://climatecasechart.com/non-us-jurisdiction/sweden/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Sweden Country Data", "url": "https://data.worldbank.org/country/sweden", "date_accessed": "2026-04-20" },
-    { "name": "Swedish Climate Policy Council (Klimatpolitiska rådet)", "url": "https://www.klimatpolitiskaradet.se/en/", "date_accessed": "2026-04-20" },
-    { "name": "SLU Artdatabanken — Swedish Red List 2025", "url": "https://www.artdatabanken.se/", "date_accessed": "2026-04-20" },
-    { "name": "Swedish Environmental Protection Agency (Naturvårdsverket)", "url": "https://www.naturvardsverket.se/en/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Sweden species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Sami Council — Girjas and Gállok statements", "url": "https://www.saamicouncil.net/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — EU (covers Sweden)",
+      "url": "https://climateactiontracker.org/countries/eu/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Sweden",
+      "url": "https://ourworldindata.org/co2/country/sweden",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Sweden electricity data",
+      "url": "https://ember-climate.org/countries-and-regions/countries/sweden/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Sweden country profile",
+      "url": "https://epi.yale.edu/country/2024/SWE",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Sweden",
+      "url": "https://www.protectedplanet.net/country/SWE",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — EU NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies database",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center — Global Climate Litigation (Sweden)",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/sweden/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Sweden Country Data",
+      "url": "https://data.worldbank.org/country/sweden",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Swedish Climate Policy Council (Klimatpolitiska rådet)",
+      "url": "https://www.klimatpolitiskaradet.se/en/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "SLU Artdatabanken — Swedish Red List 2025",
+      "url": "https://www.artdatabanken.se/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Swedish Environmental Protection Agency (Naturvårdsverket)",
+      "url": "https://www.naturvardsverket.se/en/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Sweden species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sami Council — Girjas and Gállok statements",
+      "url": "https://www.saamicouncil.net/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

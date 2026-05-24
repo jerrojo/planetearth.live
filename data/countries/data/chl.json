@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Not on the 17-megadiverse list but hosts extraordinary endemism: Juan Fernández, Rapa Nui, Valdivian temperate rainforest, Atacama, and sub-Antarctic ecosystems. IUCN Red List shows ~22% of assessed vertebrates threatened. Huemul deer, Darwin's fox, and Andean cat are under severe pressure; salmon farming is driving sea-lion, dolphin, and benthic habitat decline in Patagonian fjords. Rewilding wins in Patagonia (puma, huemul) are real but localized.",
-      "data_confidence": "medium"
+      "score": 74,
+      "rationale": "Not on the 17-megadiverse list but hosts extraordinary endemism: Juan Fernández, Rapa Nui, Valdivian temperate rainforest, Atacama, and sub-Antarctic ecosystems. IUCN Red List shows ~22% of assessed vertebrates threatened. Huemul deer, Darwin's fox, and Andean cat are under severe pressure; salmon farming is driving sea-lion, dolphin, and benthic habitat decline in Patagonian fjords. Rewilding wins in Patagonia (puma, huemul) are real but localized. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (73.4%, NHM 2020, area-weighted) + 20% Red List Index (0.75, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 72,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 55,
+    "value": 60,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -183,23 +183,101 @@
     "key_tension": "Chile's clean-energy grid and rewilding leadership run on the same balance sheet as a lithium and copper mining boom that drains Atacama aquifers — the country is powering the global EV transition while watching its own water table fall."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Chile", "url": "https://climateactiontracker.org/countries/chile/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Chile", "url": "https://ourworldindata.org/co2/country/chile", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Chile country profile", "url": "https://epi.yale.edu/country/2024/CHL", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Chile", "url": "https://www.protectedplanet.net/country/CHL", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Chile Second NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Chile", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Chile", "url": "https://climatecasechart.com/non-us-jurisdiction/chile/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Chile Country Data", "url": "https://data.worldbank.org/country/chile", "date_accessed": "2026-04-20" },
-    { "name": "Ministerio del Medio Ambiente (MMA)", "url": "https://www.mma.gob.cl/", "date_accessed": "2026-04-20" },
-    { "name": "CONAF — Corporación Nacional Forestal (fire & forest data)", "url": "https://www.conaf.cl/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Chile species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Chile dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/CHL/", "date_accessed": "2026-04-20" },
-    { "name": "Escazú Agreement — ECLAC tracker", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Chile",
+      "url": "https://climateactiontracker.org/countries/chile/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Chile",
+      "url": "https://ourworldindata.org/co2/country/chile",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Chile country profile",
+      "url": "https://epi.yale.edu/country/2024/CHL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Chile",
+      "url": "https://www.protectedplanet.net/country/CHL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Chile Second NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Chile",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Chile",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/chile/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Chile Country Data",
+      "url": "https://data.worldbank.org/country/chile",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministerio del Medio Ambiente (MMA)",
+      "url": "https://www.mma.gob.cl/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "CONAF — Corporación Nacional Forestal (fire & forest data)",
+      "url": "https://www.conaf.cl/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Chile species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Chile dashboard",
+      "url": "https://www.globalforestwatch.org/dashboards/country/CHL/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Escazú Agreement — ECLAC tracker",
+      "url": "https://www.cepal.org/en/escazuagreement",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

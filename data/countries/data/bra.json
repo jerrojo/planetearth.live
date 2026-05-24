@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 50,
-      "rationale": "Brazil is the planet's most biodiverse country — Amazon, Cerrado, Pantanal, Atlantic Forest, and Caatinga between them host ~10% of all known species. IUCN lists over 3,100 threatened species in Brazil, and the 2024 Pantanal fires burned an estimated 17% of the biome. Recovery of jaguar, giant otter, and hyacinth macaw populations in protected Amazon blocks shows what is possible when enforcement holds.",
-      "data_confidence": "medium"
+      "score": 69,
+      "rationale": "Brazil is the planet's most biodiverse country — Amazon, Cerrado, Pantanal, Atlantic Forest, and Caatinga between them host ~10% of all known species. IUCN lists over 3,100 threatened species in Brazil, and the 2024 Pantanal fires burned an estimated 17% of the biome. Recovery of jaguar, giant otter, and hyacinth macaw populations in protected Amazon blocks shows what is possible when enforcement holds. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (64.8%, NHM 2020, area-weighted) + 20% Red List Index (0.88, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 62,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 52,
+    "value": 55,
     "traffic_light": "yellow",
     "confidence": "medium"
   },
@@ -189,24 +189,106 @@
     "key_tension": "Brazil is hosting COP30 in the Amazon while its Congress greenlights new offshore oil frontiers and guts environmental licensing — the government that cut deforestation hardest is also the one betting hardest on fossil expansion."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Brazil", "url": "https://climateactiontracker.org/countries/brazil/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Brazil", "url": "https://ourworldindata.org/co2/country/brazil", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Brazil Electricity Review", "url": "https://ember-energy.org/countries-and-regions/brazil/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Brazil country profile", "url": "https://epi.yale.edu/country/2024/BRA", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Brazil", "url": "https://www.protectedplanet.net/country/BRA", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Brazil 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "INPE / PRODES — Amazon Deforestation Monitoring", "url": "http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes", "date_accessed": "2026-04-20" },
-    { "name": "MapBiomas — Annual Land Cover and Fire Monitor", "url": "https://plataforma.brasil.mapbiomas.org/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Missing Voices / Defenders 2024", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/missing-voices/", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Brazil", "url": "https://climatecasechart.com/non-us-jurisdiction/brazil/", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies (2023 estimates)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IISD — Brazil Fossil Fuel Subsidy Inventory", "url": "https://www.iisd.org/subsidies/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Brazil Country Data", "url": "https://data.worldbank.org/country/brazil", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Brazil species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "FUNAI — Indigenous Lands registry", "url": "https://www.gov.br/funai/pt-br", "date_accessed": "2026-04-20" },
-    { "name": "COP30 Presidency — Belém", "url": "https://cop30.br/en", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Brazil",
+      "url": "https://climateactiontracker.org/countries/brazil/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Brazil",
+      "url": "https://ourworldindata.org/co2/country/brazil",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Brazil Electricity Review",
+      "url": "https://ember-energy.org/countries-and-regions/brazil/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Brazil country profile",
+      "url": "https://epi.yale.edu/country/2024/BRA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Brazil",
+      "url": "https://www.protectedplanet.net/country/BRA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Brazil 2035 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "INPE / PRODES — Amazon Deforestation Monitoring",
+      "url": "http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "MapBiomas — Annual Land Cover and Fire Monitor",
+      "url": "https://plataforma.brasil.mapbiomas.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Missing Voices / Defenders 2024",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/missing-voices/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Brazil",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/brazil/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies (2023 estimates)",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IISD — Brazil Fossil Fuel Subsidy Inventory",
+      "url": "https://www.iisd.org/subsidies/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Brazil Country Data",
+      "url": "https://data.worldbank.org/country/brazil",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Brazil species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "FUNAI — Indigenous Lands registry",
+      "url": "https://www.gov.br/funai/pt-br",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "COP30 Presidency — Belém",
+      "url": "https://cop30.br/en",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

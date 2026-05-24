@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Not megadiverse in mainland terms, but French overseas territories (New Caledonia, French Polynesia, Guiana) host globally significant biodiversity and put France in the top tier of state biodiversity stewards. IUCN Red List shows ~18% of assessed French species threatened; pollinator collapse and farmland bird declines (-30% in 20 years) are severe. 2023 National Biodiversity Strategy 2030 was adopted but chronically underfunded.",
-      "data_confidence": "medium"
+      "score": 47,
+      "rationale": "Not megadiverse in mainland terms, but French overseas territories (New Caledonia, French Polynesia, Guiana) host globally significant biodiversity and put France in the top tier of state biodiversity stewards. IUCN Red List shows ~18% of assessed French species threatened; pollinator collapse and farmland bird declines (-30% in 20 years) are severe. 2023 National Biodiversity Strategy 2030 was adopted but chronically underfunded. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (37.6%, NHM 2020, area-weighted) + 20% Red List Index (0.83, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 58,
@@ -182,23 +182,101 @@
     "key_tension": "A low-carbon electricity system (nuclear-dominated) gives France genuine climate credibility, but the political coalition required to decarbonise transport, buildings and agriculture is fraying under far-right and farm-sector pressure — the easy wins are taken, the hard ones are stalling."
   },
   "sources": [
-    { "name": "Climate Action Tracker — EU (covers France)", "url": "https://climateactiontracker.org/countries/eu/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions France", "url": "https://ourworldindata.org/co2/country/france", "date_accessed": "2026-04-20" },
-    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — France country profile", "url": "https://epi.yale.edu/country/2024/FRA", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — France", "url": "https://www.protectedplanet.net/country/FRA", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — EU NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "Haut Conseil pour le Climat — Rapport annuel 2025", "url": "https://www.hautconseilclimat.fr/publications/rapport-annuel-2025/", "date_accessed": "2026-04-20" },
-    { "name": "IEA — France Energy Policy Review", "url": "https://www.iea.org/countries/france", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — France", "url": "https://climatecasechart.com/non-us-jurisdiction/france/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — France Country Data", "url": "https://data.worldbank.org/country/france", "date_accessed": "2026-04-20" },
-    { "name": "Ministère de la Transition écologique", "url": "https://www.ecologie.gouv.fr/", "date_accessed": "2026-04-20" },
-    { "name": "L'Affaire du Siècle — litigation tracker", "url": "https://laffairedusiecle.net/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — France assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "CITEPA — Inventaire national des émissions", "url": "https://www.citepa.org/fr/secten/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — EU (covers France)",
+      "url": "https://climateactiontracker.org/countries/eu/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions France",
+      "url": "https://ourworldindata.org/co2/country/france",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — European Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/european-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — France country profile",
+      "url": "https://epi.yale.edu/country/2024/FRA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — France",
+      "url": "https://www.protectedplanet.net/country/FRA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — EU NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Haut Conseil pour le Climat — Rapport annuel 2025",
+      "url": "https://www.hautconseilclimat.fr/publications/rapport-annuel-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — France Energy Policy Review",
+      "url": "https://www.iea.org/countries/france",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Database",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — France",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/france/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — France Country Data",
+      "url": "https://data.worldbank.org/country/france",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministère de la Transition écologique",
+      "url": "https://www.ecologie.gouv.fr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "L'Affaire du Siècle — litigation tracker",
+      "url": "https://laffairedusiecle.net/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — France assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "CITEPA — Inventaire national des émissions",
+      "url": "https://www.citepa.org/fr/secten/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

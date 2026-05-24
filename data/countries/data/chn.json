@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 35,
-      "rationale": "Megadiverse (17-country list) with giant pandas, snow leopards, Yangtze finless porpoises, but under severe pressure: Yangtze baiji declared functionally extinct (2006), 21% of vertebrates threatened. 10-year Yangtze fishing ban (2021) is showing early recovery signals. Red List trajectory remains negative.",
-      "data_confidence": "medium"
+      "score": 51,
+      "rationale": "Megadiverse (17-country list) with giant pandas, snow leopards, Yangtze finless porpoises, but under severe pressure: Yangtze baiji declared functionally extinct (2006), 21% of vertebrates threatened. 10-year Yangtze fishing ban (2021) is showing early recovery signals. Red List trajectory remains negative. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (45.9%, NHM 2020, area-weighted) + 20% Red List Index (0.72, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 40,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 43,
+    "value": 46,
     "traffic_light": "yellow",
     "confidence": "medium"
   },
@@ -182,21 +182,91 @@
     "key_tension": "The world's largest emitter is also the world's largest builder of renewables — whether China's energy transition reaches scale in time depends less on technology and more on whether coal is allowed to retire, not just be supplemented."
   },
   "sources": [
-    { "name": "Climate Action Tracker — China", "url": "https://climateactiontracker.org/countries/china/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions China", "url": "https://ourworldindata.org/co2/country/china", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — China country profile", "url": "https://epi.yale.edu/country/2024/CHN", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — China", "url": "https://www.protectedplanet.net/country/CHN", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — China 2035 NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database", "url": "https://climatecasechart.com/non-us-jurisdiction/china/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — China Country Data", "url": "https://data.worldbank.org/country/china", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Ecology and Environment (MEE)", "url": "https://www.mee.gov.cn/", "date_accessed": "2026-04-20" },
-    { "name": "Centre for Research on Energy and Clean Air — China coal tracker", "url": "https://energyandcleanair.org/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — China species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — China",
+      "url": "https://climateactiontracker.org/countries/china/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions China",
+      "url": "https://ourworldindata.org/co2/country/china",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — China country profile",
+      "url": "https://epi.yale.edu/country/2024/CHN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — China",
+      "url": "https://www.protectedplanet.net/country/CHN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — China 2035 NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/china/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — China Country Data",
+      "url": "https://data.worldbank.org/country/china",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Ecology and Environment (MEE)",
+      "url": "https://www.mee.gov.cn/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Centre for Research on Energy and Clean Air — China coal tracker",
+      "url": "https://energyandcleanair.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — China species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

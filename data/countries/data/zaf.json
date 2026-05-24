@@ -63,8 +63,8 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 55,
-      "rationale": "One of 17 megadiverse countries — home to the Cape Floristic Region (one of six floral kingdoms on Earth), three biodiversity hotspots, and iconic megafauna. Rhino poaching killed 420 animals in 2024 (down from 2014 peak of 1,215 but rebounding in KwaZulu-Natal). IUCN Red List shows ~14% of assessed species threatened. Strong science base (SANBI) but funding and enforcement gaps.",
+      "score": 51,
+      "rationale": "One of 17 megadiverse countries — home to the Cape Floristic Region (one of six floral kingdoms on Earth), three biodiversity hotspots, and iconic megafauna. Rhino poaching killed 420 animals in 2024 (down from 2014 peak of 1,215 but rebounding in KwaZulu-Natal). IUCN Red List shows ~14% of assessed species threatened. Strong science base (SANBI) but funding and enforcement gaps. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (45.0%, NHM 2020, area-weighted) + 20% Red List Index (0.76, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 47,
+    "value": 46,
     "traffic_light": "yellow",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "South Africa has Africa's most developed climate law and the continent's most coal-dependent grid in the same country — the Just Energy Transition is a test case for whether an emerging economy can decarbonise without deepening unemployment in regions whose entire economy is built on coal."
   },
   "sources": [
-    { "name": "Climate Action Tracker — South Africa", "url": "https://climateactiontracker.org/countries/south-africa/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions South Africa", "url": "https://ourworldindata.org/co2/country/south-africa", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — South Africa country profile", "url": "https://epi.yale.edu/country/2024/ZAF", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — South Africa", "url": "https://www.protectedplanet.net/country/ZAF", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — South Africa", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center — Climate Litigation Database (South Africa)", "url": "https://climatecasechart.com/non-us-jurisdiction/south-africa/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — South Africa Country Data", "url": "https://data.worldbank.org/country/south-africa", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — South African species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Presidency of South Africa — JET Investment Plan", "url": "https://www.thepresidency.gov.za/just-energy-transition-investment-plan", "date_accessed": "2026-04-20" },
-    { "name": "Department of Forestry, Fisheries and the Environment (DFFE)", "url": "https://www.dffe.gov.za/", "date_accessed": "2026-04-20" },
-    { "name": "SANBI — South African National Biodiversity Institute", "url": "https://www.sanbi.org/", "date_accessed": "2026-04-20" },
-    { "name": "High Court of South Africa — Deadly Air judgment 2022", "url": "https://www.saflii.org/za/cases/ZAGPPHC/2022/208.html", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — South Africa",
+      "url": "https://climateactiontracker.org/countries/south-africa/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions South Africa",
+      "url": "https://ourworldindata.org/co2/country/south-africa",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — South Africa country profile",
+      "url": "https://epi.yale.edu/country/2024/ZAF",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — South Africa",
+      "url": "https://www.protectedplanet.net/country/ZAF",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — South Africa",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center — Climate Litigation Database (South Africa)",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/south-africa/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — South Africa Country Data",
+      "url": "https://data.worldbank.org/country/south-africa",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — South African species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Presidency of South Africa — JET Investment Plan",
+      "url": "https://www.thepresidency.gov.za/just-energy-transition-investment-plan",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Department of Forestry, Fisheries and the Environment (DFFE)",
+      "url": "https://www.dffe.gov.za/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "SANBI — South African National Biodiversity Institute",
+      "url": "https://www.sanbi.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "High Court of South Africa — Deadly Air judgment 2022",
+      "url": "https://www.saflii.org/za/cases/ZAGPPHC/2022/208.html",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

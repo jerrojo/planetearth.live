@@ -63,9 +63,9 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 45,
-      "rationale": "Not megadiverse but globally significant as a Mediterranean Basin hotspot with endemic argan woodlands, Barbary macaque, North African leopard (critically endangered) and a critical Afro-Palearctic migratory bird corridor through the Strait of Gibraltar. IUCN Red List trajectory is negative: ~11% of mammals and ~14% of fish threatened. Marine ecosystems under heavy industrial fishing pressure.",
-      "data_confidence": "medium"
+      "score": 64,
+      "rationale": "Not megadiverse but globally significant as a Mediterranean Basin hotspot with endemic argan woodlands, Barbary macaque, North African leopard (critically endangered) and a critical Afro-Palearctic migratory bird corridor through the Strait of Gibraltar. IUCN Red List trajectory is negative: ~11% of mammals and ~14% of fish threatened. Marine ecosystems under heavy industrial fishing pressure. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (57.7%, NHM 2020, area-weighted) + 20% Red List Index (0.88, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 35,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 43,
+    "value": 48,
     "traffic_light": "yellow",
     "confidence": "medium"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Morocco exports the clean-energy future — green hydrogen to Europe, world-scale CSP, phosphate for global food security — while running its own grid on coal and draining its aquifers to grow berries and avocados for European supermarkets."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Morocco", "url": "https://climateactiontracker.org/countries/morocco/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Morocco", "url": "https://ourworldindata.org/co2/country/morocco", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025 (Morocco)", "url": "https://ember-climate.org/countries-and-regions/countries/morocco/", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Morocco Country Profile", "url": "https://www.iea.org/countries/morocco", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Morocco country profile", "url": "https://epi.yale.edu/country/2024/MAR", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Morocco", "url": "https://www.protectedplanet.net/country/MAR", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Morocco Updated NDC 2021", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Morocco species assessments", "url": "https://www.iucnredlist.org/search?country=MA", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Country Data", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Morocco", "url": "https://climatecasechart.com/non-us-jurisdiction/morocco/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Morocco Country Data", "url": "https://data.worldbank.org/country/morocco", "date_accessed": "2026-04-20" },
-    { "name": "MASEN — Moroccan Agency for Sustainable Energy", "url": "https://www.masen.ma/", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Energy Transition and Sustainable Development", "url": "https://www.mem.gov.ma/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "FAO AQUASTAT — Morocco water profile", "url": "https://www.fao.org/aquastat/en/countries-and-basins/country-profiles/country/MAR", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Morocco",
+      "url": "https://climateactiontracker.org/countries/morocco/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Morocco",
+      "url": "https://ourworldindata.org/co2/country/morocco",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025 (Morocco)",
+      "url": "https://ember-climate.org/countries-and-regions/countries/morocco/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Morocco Country Profile",
+      "url": "https://www.iea.org/countries/morocco",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Morocco country profile",
+      "url": "https://epi.yale.edu/country/2024/MAR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Morocco",
+      "url": "https://www.protectedplanet.net/country/MAR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Morocco Updated NDC 2021",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Morocco species assessments",
+      "url": "https://www.iucnredlist.org/search?country=MA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Country Data",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Morocco",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/morocco/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Morocco Country Data",
+      "url": "https://data.worldbank.org/country/morocco",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "MASEN — Moroccan Agency for Sustainable Energy",
+      "url": "https://www.masen.ma/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Energy Transition and Sustainable Development",
+      "url": "https://www.mem.gov.ma/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "FAO AQUASTAT — Morocco water profile",
+      "url": "https://www.fao.org/aquastat/en/countries-and-basins/country-profiles/country/MAR",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

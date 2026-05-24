@@ -63,9 +63,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Low species richness by geography (island, subarctic) but globally important seabird colonies — ~60% of world Atlantic puffins breed here, alongside razorbills, fulmars, and Arctic terns. Whale hunting (minke and fin) continues under commercial quotas despite IWC moratorium, though 2024 quotas were the lowest ever and only one company remains active. Overfished cod and other demersal stocks are now rebuilding under ITQ management. Invasive mink, lupines, and spruce transform lowland habitats.",
-      "data_confidence": "medium"
+      "score": 82,
+      "rationale": "Low species richness by geography (island, subarctic) but globally important seabird colonies — ~60% of world Atlantic puffins breed here, alongside razorbills, fulmars, and Arctic terns. Whale hunting (minke and fin) continues under commercial quotas despite IWC moratorium, though 2024 quotas were the lowest ever and only one company remains active. Overfished cod and other demersal stocks are now rebuilding under ITQ management. Invasive mink, lupines, and spruce transform lowland habitats. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (80.4%, NHM 2020, area-weighted) + 20% Red List Index (0.88, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 55,
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 55,
+    "value": 60,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -182,23 +182,101 @@
     "key_tension": "A country with ~100% renewable electricity and the world's largest DAC facility still has among Europe's highest per-capita emissions — because aluminum smelters, drained peatlands, and fishing fleets account for more carbon than the clean grid can offset."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Iceland", "url": "https://climateactiontracker.org/countries/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — Iceland CO2", "url": "https://ourworldindata.org/co2/country/iceland", "date_accessed": "2026-04-20" },
-    { "name": "Ember — European Electricity Review 2025", "url": "https://ember-climate.org/insights/research/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Iceland country profile", "url": "https://epi.yale.edu/country/2024/ISL", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Iceland", "url": "https://www.protectedplanet.net/country/ISL", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Iceland (EU joint NDC)", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Iceland Energy Profile", "url": "https://www.iea.org/countries/iceland", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Database", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database", "url": "https://climatecasechart.com/non-us-jurisdictions/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Iceland Country Data", "url": "https://data.worldbank.org/country/iceland", "date_accessed": "2026-04-20" },
-    { "name": "Environment Agency of Iceland (Umhverfisstofnun)", "url": "https://ust.is/english/", "date_accessed": "2026-04-20" },
-    { "name": "Icelandic Forest Service (Skógræktin)", "url": "https://www.skogur.is/", "date_accessed": "2026-04-20" },
-    { "name": "Marine and Freshwater Research Institute (Hafró)", "url": "https://www.hafogvatn.is/en", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Iceland species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "International Whaling Commission", "url": "https://iwc.int/", "date_accessed": "2026-04-20" },
-    { "name": "Climeworks — Mammoth DAC facility", "url": "https://climeworks.com/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Iceland",
+      "url": "https://climateactiontracker.org/countries/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — Iceland CO2",
+      "url": "https://ourworldindata.org/co2/country/iceland",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — European Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Iceland country profile",
+      "url": "https://epi.yale.edu/country/2024/ISL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Iceland",
+      "url": "https://www.protectedplanet.net/country/ISL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Iceland (EU joint NDC)",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Iceland Energy Profile",
+      "url": "https://www.iea.org/countries/iceland",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Database",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database",
+      "url": "https://climatecasechart.com/non-us-jurisdictions/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Iceland Country Data",
+      "url": "https://data.worldbank.org/country/iceland",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Environment Agency of Iceland (Umhverfisstofnun)",
+      "url": "https://ust.is/english/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Icelandic Forest Service (Skógræktin)",
+      "url": "https://www.skogur.is/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Marine and Freshwater Research Institute (Hafró)",
+      "url": "https://www.hafogvatn.is/en",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Iceland species",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "International Whaling Commission",
+      "url": "https://iwc.int/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Climeworks — Mammoth DAC facility",
+      "url": "https://climeworks.com/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

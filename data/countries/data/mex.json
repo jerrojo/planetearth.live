@@ -63,8 +63,8 @@
       "data_confidence": "medium"
     },
     "biodiversity": {
-      "score": 38,
-      "rationale": "One of 17 megadiverse countries and the 5th most biodiverse globally, home to monarch butterflies, jaguars, axolotls, and over 200 endemic reptiles. Yet the vaquita porpoise is down to ~8 individuals in the Upper Gulf of California, and IUCN lists over 1,200 Mexican species as threatened. Monarch overwintering colonies shrank again in the 2024–25 season, and reef bleaching across the Mesoamerican system intensified.",
+      "score": 58,
+      "rationale": "One of 17 megadiverse countries and the 5th most biodiverse globally, home to monarch butterflies, jaguars, axolotls, and over 200 endemic reptiles. Yet the vaquita porpoise is down to ~8 individuals in the Upper Gulf of California, and IUCN lists over 1,200 Mexican species as threatened. Monarch overwintering colonies shrank again in the 2024–25 season, and reef bleaching across the Mesoamerican system intensified. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (55.7%, NHM 2020, area-weighted) + 20% Red List Index (0.68, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 37,
+    "value": 39,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -182,24 +182,106 @@
     "key_tension": "A climate-scientist president leads a petro-state whose fiscal survival is structurally tethered to Pemex — the test of the Sheinbaum era is whether science in the presidency can outweigh hydrocarbons in the treasury."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Mexico", "url": "https://climateactiontracker.org/countries/mexico/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Mexico", "url": "https://ourworldindata.org/co2/country/mexico", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Electricity Data Explorer (Mexico)", "url": "https://ember-energy.org/data/", "date_accessed": "2026-04-20" },
-    { "name": "Yale Environmental Performance Index 2024 — Mexico", "url": "https://epi.yale.edu/country/2024/MEX", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Mexico", "url": "https://www.protectedplanet.net/country/MEX", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Mexico", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies Working Paper (2023)", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Mexico", "url": "https://climatecasechart.com/non-us-jurisdiction/mexico/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Mexico Country Data", "url": "https://data.worldbank.org/country/mexico", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Mexico", "url": "https://www.globalforestwatch.org/dashboards/country/MEX/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Mexico species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "CONABIO — Biodiversidad Mexicana", "url": "https://www.biodiversidad.gob.mx/", "date_accessed": "2026-04-20" },
-    { "name": "SEMARNAT — Secretaría de Medio Ambiente y Recursos Naturales", "url": "https://www.gob.mx/semarnat", "date_accessed": "2026-04-20" },
-    { "name": "LandMark — Indigenous & Community Lands Mexico", "url": "http://www.landmarkmap.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "CEMDA — Centro Mexicano de Derecho Ambiental", "url": "https://www.cemda.org.mx/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Mexico",
+      "url": "https://climateactiontracker.org/countries/mexico/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Mexico",
+      "url": "https://ourworldindata.org/co2/country/mexico",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Electricity Data Explorer (Mexico)",
+      "url": "https://ember-energy.org/data/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale Environmental Performance Index 2024 — Mexico",
+      "url": "https://epi.yale.edu/country/2024/MEX",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Mexico",
+      "url": "https://www.protectedplanet.net/country/MEX",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Mexico",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Database",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies Working Paper (2023)",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Mexico",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/mexico/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Mexico Country Data",
+      "url": "https://data.worldbank.org/country/mexico",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Mexico",
+      "url": "https://www.globalforestwatch.org/dashboards/country/MEX/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Mexico species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "CONABIO — Biodiversidad Mexicana",
+      "url": "https://www.biodiversidad.gob.mx/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "SEMARNAT — Secretaría de Medio Ambiente y Recursos Naturales",
+      "url": "https://www.gob.mx/semarnat",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "LandMark — Indigenous & Community Lands Mexico",
+      "url": "http://www.landmarkmap.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "CEMDA — Centro Mexicano de Derecho Ambiental",
+      "url": "https://www.cemda.org.mx/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

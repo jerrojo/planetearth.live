@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 32,
-      "rationale": "One of the world's most biodiverse countries, hosting Sumatran orangutans, Javan rhinos (fewer than 80 left), Sumatran tigers (~400), and the heart of the Coral Triangle. IUCN Red List shows accelerating declines: the Tapanuli orangutan (described 2017) already critically endangered, Javan rhino population hit by poaching in 2023–2024. Illegal wildlife trade and habitat fragmentation are the dominant drivers.",
-      "data_confidence": "medium"
+      "score": 61,
+      "rationale": "One of the world's most biodiverse countries, hosting Sumatran orangutans, Javan rhinos (fewer than 80 left), Sumatran tigers (~400), and the heart of the Coral Triangle. IUCN Red List shows accelerating declines: the Tapanuli orangutan (described 2017) already critically endangered, Javan rhino population hit by poaching in 2023–2024. Illegal wildlife trade and habitat fragmentation are the dominant drivers. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (58.0%, NHM 2020, area-weighted) + 20% Red List Index (0.75, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 38,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 32,
+    "value": 36,
     "traffic_light": "red",
     "confidence": "medium"
   },
@@ -183,24 +183,106 @@
     "key_tension": "Indonesia is being asked to protect the world's third-largest rainforest and third-largest tropical peat store while simultaneously becoming the electric-vehicle supply chain's nickel backbone — an export boom now powered by captive coal that sits outside its headline climate pledges."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Indonesia", "url": "https://climateactiontracker.org/countries/indonesia/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Indonesia", "url": "https://ourworldindata.org/co2/country/indonesia", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-energy.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Indonesia country profile", "url": "https://epi.yale.edu/country/2024/IDN", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Indonesia", "url": "https://www.protectedplanet.net/country/IDN", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Indonesia Enhanced NDC", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies Working Paper", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Indonesia", "url": "https://climatecasechart.com/non-us-jurisdiction/indonesia/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Indonesia Country Data", "url": "https://data.worldbank.org/country/indonesia", "date_accessed": "2026-04-20" },
-    { "name": "Global Forest Watch — Indonesia dashboard", "url": "https://www.globalforestwatch.org/dashboards/country/IDN/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Indonesia species assessments", "url": "https://www.iucnredlist.org/search?countries=IDN", "date_accessed": "2026-04-20" },
-    { "name": "Ministry of Environment and Forestry (KLHK)", "url": "https://www.menlhk.go.id/", "date_accessed": "2026-04-20" },
-    { "name": "JETP Indonesia — Comprehensive Investment and Policy Plan", "url": "https://jetp-id.org/", "date_accessed": "2026-04-20" },
-    { "name": "Mongabay Indonesia — environmental reporting", "url": "https://www.mongabay.co.id/", "date_accessed": "2026-04-20" },
-    { "name": "AMAN — Alliance of Indigenous Peoples of the Archipelago", "url": "https://www.aman.or.id/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Indonesia",
+      "url": "https://climateactiontracker.org/countries/indonesia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Indonesia",
+      "url": "https://ourworldindata.org/co2/country/indonesia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-energy.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Indonesia country profile",
+      "url": "https://epi.yale.edu/country/2024/IDN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Indonesia",
+      "url": "https://www.protectedplanet.net/country/IDN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Indonesia Enhanced NDC",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies Working Paper",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Indonesia",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/indonesia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Indonesia Country Data",
+      "url": "https://data.worldbank.org/country/indonesia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Forest Watch — Indonesia dashboard",
+      "url": "https://www.globalforestwatch.org/dashboards/country/IDN/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Indonesia species assessments",
+      "url": "https://www.iucnredlist.org/search?countries=IDN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministry of Environment and Forestry (KLHK)",
+      "url": "https://www.menlhk.go.id/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "JETP Indonesia — Comprehensive Investment and Policy Plan",
+      "url": "https://jetp-id.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Mongabay Indonesia — environmental reporting",
+      "url": "https://www.mongabay.co.id/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "AMAN — Alliance of Indigenous Peoples of the Archipelago",
+      "url": "https://www.aman.or.id/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

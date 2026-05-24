@@ -64,8 +64,8 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 72,
-      "rationale": "Not on the official megadiverse-17 list but contains ~6% of known global biodiversity on 0.03% of the planet's land area — among the highest density on Earth. IUCN Red List shows declining trajectory for amphibians (chytrid fungus, golden toad extinct) and some endemic birds, but populations of jaguars, scarlet macaws, tapirs, and sea turtles have stabilized or increased within protected landscapes. Connectivity gaps between parks remain the key weakness.",
+      "score": 73,
+      "rationale": "Not on the official megadiverse-17 list but contains ~6% of known global biodiversity on 0.03% of the planet's land area — among the highest density on Earth. IUCN Red List shows declining trajectory for amphibians (chytrid fungus, golden toad extinct) and some endemic birds, but populations of jaguars, scarlet macaws, tapirs, and sea turtles have stabilized or increased within protected landscapes. Connectivity gaps between parks remain the key weakness. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (69.9%, NHM 2020, area-weighted) + 20% Red List Index (0.84, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -183,24 +183,106 @@
     "key_tension": "Costa Rica built the developing world's most admired environmental brand on forest and electricity wins, but its pesticide-heavy agricultural exports and a sitting administration pushing gold mining and budget cuts test whether the green identity is structural or generational."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Costa Rica", "url": "https://climateactiontracker.org/countries/costa-rica/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Costa Rica", "url": "https://ourworldindata.org/co2/country/costa-rica", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025", "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Costa Rica country profile", "url": "https://epi.yale.edu/country/2024/CRI", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Costa Rica", "url": "https://www.protectedplanet.net/country/CRI", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Costa Rica", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "National Decarbonization Plan 2018–2050", "url": "https://cambioclimatico.go.cr/plan-nacional-de-descarbonizacion/", "date_accessed": "2026-04-20" },
-    { "name": "SINAC — National System of Conservation Areas", "url": "https://www.sinac.go.cr/", "date_accessed": "2026-04-20" },
-    { "name": "MINAE — Ministerio de Ambiente y Energía", "url": "https://www.minae.go.cr/", "date_accessed": "2026-04-20" },
-    { "name": "FONAFIFO — Payments for Ecosystem Services", "url": "https://www.fonafifo.go.cr/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Costa Rica assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Costa Rica", "url": "https://climatecasechart.com/non-us-jurisdiction/costa-rica/", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Database", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Energy Subsidies", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Costa Rica Country Data", "url": "https://data.worldbank.org/country/costa-rica", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Escazú Agreement — UN ECLAC", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Costa Rica",
+      "url": "https://climateactiontracker.org/countries/costa-rica/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Costa Rica",
+      "url": "https://ourworldindata.org/co2/country/costa-rica",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025",
+      "url": "https://ember-climate.org/insights/research/global-electricity-review-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Costa Rica country profile",
+      "url": "https://epi.yale.edu/country/2024/CRI",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Costa Rica",
+      "url": "https://www.protectedplanet.net/country/CRI",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Costa Rica",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "National Decarbonization Plan 2018–2050",
+      "url": "https://cambioclimatico.go.cr/plan-nacional-de-descarbonizacion/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "SINAC — National System of Conservation Areas",
+      "url": "https://www.sinac.go.cr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "MINAE — Ministerio de Ambiente y Energía",
+      "url": "https://www.minae.go.cr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "FONAFIFO — Payments for Ecosystem Services",
+      "url": "https://www.fonafifo.go.cr/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Costa Rica assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Costa Rica",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/costa-rica/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Database",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Energy Subsidies",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Costa Rica Country Data",
+      "url": "https://data.worldbank.org/country/costa-rica",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Escazú Agreement — UN ECLAC",
+      "url": "https://www.cepal.org/en/escazuagreement",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

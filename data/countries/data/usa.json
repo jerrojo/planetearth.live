@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 42,
-      "rationale": "Not megadiverse but globally significant for temperate and desert endemism, with ~1,700 ESA-listed species. IUCN Red List shows ~1,250 US species threatened, and North American bird populations have fallen ~30% since 1970 (Rosenberg et al., Science). The Endangered Species Act remains a strong statutory floor, but 2025 rule changes narrowed the definition of 'harm' and weakened critical habitat designations, and funding for US Fish & Wildlife Service recovery work is being cut.",
-      "data_confidence": "medium"
+      "score": 58,
+      "rationale": "Not megadiverse but globally significant for temperate and desert endemism, with ~1,700 ESA-listed species. IUCN Red List shows ~1,250 US species threatened, and North American bird populations have fallen ~30% since 1970 (Rosenberg et al., Science). The Endangered Species Act remains a strong statutory floor, but 2025 rule changes narrowed the definition of 'harm' and weakened critical habitat designations, and funding for US Fish & Wildlife Service recovery work is being cut. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (51.7%, NHM 2020, area-weighted) + 20% Red List Index (0.83, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 38,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 42,
+    "value": 46,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -189,25 +189,111 @@
     "key_tension": "The country with the greatest historical responsibility, the strongest science capacity, and the most advanced clean-tech investment program on paper is actively dismantling that program mid-execution, leaving states and courts to carry federal-scale obligations."
   },
   "sources": [
-    { "name": "Climate Action Tracker — United States", "url": "https://climateactiontracker.org/countries/usa/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions United States", "url": "https://ourworldindata.org/co2/country/united-states", "date_accessed": "2026-04-20" },
-    { "name": "Ember — US Electricity Review 2025", "url": "https://ember-climate.org/countries-and-regions/countries/united-states/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — United States country profile", "url": "https://epi.yale.edu/country/2024/USA", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — United States", "url": "https://www.protectedplanet.net/country/USA", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — United States", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IMF Working Paper — Fossil Fuel Subsidies 2023 Update", "url": "https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Fossil Fuel Subsidies Tracker", "url": "https://www.iea.org/topics/fossil-fuel-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — US", "url": "https://climatecasechart.com/us-climate-change-litigation/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — United States Country Data", "url": "https://data.worldbank.org/country/united-states", "date_accessed": "2026-04-20" },
-    { "name": "EPA — Inventory of US GHG Emissions and Sinks", "url": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks", "date_accessed": "2026-04-20" },
-    { "name": "EIA — Monthly Energy Review", "url": "https://www.eia.gov/totalenergy/data/monthly/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — United States species", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Rhodium Group — Taking Stock 2025", "url": "https://rhg.com/research/taking-stock-2025/", "date_accessed": "2026-04-20" },
-    { "name": "US Climate Alliance", "url": "https://www.usclimatealliance.org/", "date_accessed": "2026-04-20" },
-    { "name": "Center for Biological Diversity — ESA rollback tracker", "url": "https://www.biologicaldiversity.org/", "date_accessed": "2026-04-20" },
-    { "name": "LandMark — Indigenous and Community Lands", "url": "https://www.landmarkmap.org/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — United States",
+      "url": "https://climateactiontracker.org/countries/usa/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions United States",
+      "url": "https://ourworldindata.org/co2/country/united-states",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — US Electricity Review 2025",
+      "url": "https://ember-climate.org/countries-and-regions/countries/united-states/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — United States country profile",
+      "url": "https://epi.yale.edu/country/2024/USA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — United States",
+      "url": "https://www.protectedplanet.net/country/USA",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — United States",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF Working Paper — Fossil Fuel Subsidies 2023 Update",
+      "url": "https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Fossil Fuel Subsidies Tracker",
+      "url": "https://www.iea.org/topics/fossil-fuel-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — US",
+      "url": "https://climatecasechart.com/us-climate-change-litigation/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — United States Country Data",
+      "url": "https://data.worldbank.org/country/united-states",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "EPA — Inventory of US GHG Emissions and Sinks",
+      "url": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "EIA — Monthly Energy Review",
+      "url": "https://www.eia.gov/totalenergy/data/monthly/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — United States species",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Rhodium Group — Taking Stock 2025",
+      "url": "https://rhg.com/research/taking-stock-2025/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "US Climate Alliance",
+      "url": "https://www.usclimatealliance.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Center for Biological Diversity — ESA rollback tracker",
+      "url": "https://www.biologicaldiversity.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "LandMark — Indigenous and Community Lands",
+      "url": "https://www.landmarkmap.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

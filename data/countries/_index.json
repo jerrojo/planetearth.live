@@ -1,7 +1,7 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "phase": "planet-lens-only",
-  "last_updated": "2026-04-22",
+  "last_updated": "2026-05-24",
   "countries": [
     {
       "iso_a3": "CHN",
@@ -12,7 +12,7 @@
       "status": "completed",
       "lat": 39.9042,
       "lon": 116.4074,
-      "score": 43,
+      "score": 46,
       "traffic_light": "yellow"
     },
     {
@@ -24,7 +24,7 @@
       "status": "completed",
       "lat": 38.9072,
       "lon": -77.0369,
-      "score": 42,
+      "score": 46,
       "traffic_light": "yellow"
     },
     {
@@ -36,7 +36,7 @@
       "status": "completed",
       "lat": 28.6139,
       "lon": 77.209,
-      "score": 35,
+      "score": 37,
       "traffic_light": "red"
     },
     {
@@ -48,7 +48,7 @@
       "status": "completed",
       "lat": 55.7558,
       "lon": 37.6173,
-      "score": 30,
+      "score": 36,
       "traffic_light": "red"
     },
     {
@@ -60,7 +60,7 @@
       "status": "completed",
       "lat": 35.6762,
       "lon": 139.6503,
-      "score": 53,
+      "score": 55,
       "traffic_light": "yellow"
     },
     {
@@ -84,7 +84,7 @@
       "status": "completed",
       "lat": 37.5665,
       "lon": 126.978,
-      "score": 46,
+      "score": 47,
       "traffic_light": "yellow"
     },
     {
@@ -96,7 +96,7 @@
       "status": "completed",
       "lat": 45.4215,
       "lon": -75.6972,
-      "score": 51,
+      "score": 56,
       "traffic_light": "yellow"
     },
     {
@@ -108,7 +108,7 @@
       "status": "completed",
       "lat": 19.4326,
       "lon": -99.1332,
-      "score": 37,
+      "score": 39,
       "traffic_light": "red"
     },
     {
@@ -120,7 +120,7 @@
       "status": "completed",
       "lat": -15.7975,
       "lon": -47.8919,
-      "score": 52,
+      "score": 55,
       "traffic_light": "yellow"
     },
     {
@@ -132,7 +132,7 @@
       "status": "completed",
       "lat": -6.2088,
       "lon": 106.8456,
-      "score": 32,
+      "score": 36,
       "traffic_light": "red"
     },
     {
@@ -144,7 +144,7 @@
       "status": "completed",
       "lat": -4.4419,
       "lon": 15.2663,
-      "score": 40,
+      "score": 46,
       "traffic_light": "yellow"
     },
     {
@@ -156,7 +156,7 @@
       "status": "completed",
       "lat": 24.7136,
       "lon": 46.6753,
-      "score": 25,
+      "score": 30,
       "traffic_light": "red"
     },
     {
@@ -168,8 +168,8 @@
       "status": "completed",
       "lat": 24.4539,
       "lon": 54.3773,
-      "score": 37,
-      "traffic_light": "red"
+      "score": 43,
+      "traffic_light": "yellow"
     },
     {
       "iso_a3": "AUS",
@@ -180,7 +180,7 @@
       "status": "completed",
       "lat": -35.2809,
       "lon": 149.13,
-      "score": 49,
+      "score": 54,
       "traffic_light": "yellow"
     },
     {
@@ -192,8 +192,8 @@
       "status": "completed",
       "lat": 59.9139,
       "lon": 10.7522,
-      "score": 60,
-      "traffic_light": "yellow"
+      "score": 65,
+      "traffic_light": "green"
     },
     {
       "iso_a3": "GBR",
@@ -204,7 +204,7 @@
       "status": "completed",
       "lat": 51.5074,
       "lon": -0.1278,
-      "score": 53,
+      "score": 56,
       "traffic_light": "yellow"
     },
     {
@@ -216,7 +216,7 @@
       "status": "completed",
       "lat": -25.7461,
       "lon": 28.1881,
-      "score": 47,
+      "score": 46,
       "traffic_light": "yellow"
     },
     {
@@ -240,7 +240,7 @@
       "status": "completed",
       "lat": 64.1466,
       "lon": -21.9426,
-      "score": 55,
+      "score": 60,
       "traffic_light": "yellow"
     },
     {
@@ -276,7 +276,7 @@
       "status": "completed",
       "lat": 59.3293,
       "lon": 18.0686,
-      "score": 58,
+      "score": 62,
       "traffic_light": "yellow"
     },
     {
@@ -288,7 +288,7 @@
       "status": "completed",
       "lat": -34.9011,
       "lon": -56.1645,
-      "score": 55,
+      "score": 58,
       "traffic_light": "yellow"
     },
     {
@@ -300,7 +300,7 @@
       "status": "completed",
       "lat": -41.2865,
       "lon": 174.7762,
-      "score": 45,
+      "score": 48,
       "traffic_light": "yellow"
     },
     {
@@ -312,7 +312,7 @@
       "status": "completed",
       "lat": -33.4489,
       "lon": -70.6693,
-      "score": 55,
+      "score": 60,
       "traffic_light": "yellow"
     },
     {
@@ -324,7 +324,7 @@
       "status": "completed",
       "lat": 34.0209,
       "lon": -6.8417,
-      "score": 43,
+      "score": 48,
       "traffic_light": "yellow"
     },
     {
@@ -336,7 +336,7 @@
       "status": "completed",
       "lat": 21.0285,
       "lon": 105.8542,
-      "score": 35,
+      "score": 39,
       "traffic_light": "red"
     },
     {
@@ -348,7 +348,7 @@
       "status": "completed",
       "lat": 4.711,
       "lon": -74.0721,
-      "score": 50,
+      "score": 54,
       "traffic_light": "yellow"
     },
     {
@@ -360,7 +360,7 @@
       "status": "completed",
       "lat": -0.1807,
       "lon": -78.4678,
-      "score": 54,
+      "score": 55,
       "traffic_light": "yellow"
     }
   ]

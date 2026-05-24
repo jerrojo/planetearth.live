@@ -64,9 +64,9 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 48,
-      "rationale": "Not on the megadiverse list, but home to iconic species — boreal caribou, polar bears, right whales, Pacific salmon — many in steep decline. Boreal caribou populations are below self-sustaining thresholds across most ranges; North Atlantic right whale at ~370 individuals. The 2030 Nature Strategy (2024) raised ambition, but Species at Risk Act enforcement remains weak and provincial resistance slows recovery planning.",
-      "data_confidence": "medium"
+      "score": 87,
+      "rationale": "Not on the megadiverse list, but home to iconic species — boreal caribou, polar bears, right whales, Pacific salmon — many in steep decline. Boreal caribou populations are below self-sustaining thresholds across most ranges; North Atlantic right whale at ~370 individuals. The 2030 Nature Strategy (2024) raised ambition, but Species at Risk Act enforcement remains weak and provincial resistance slows recovery planning. [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (85.0%, NHM 2020, area-weighted) + 20% Red List Index (0.97, IUCN/OWID 2024).",
+      "data_confidence": "high"
     },
     "protected_areas": {
       "score": 55,
@@ -90,7 +90,7 @@
     }
   },
   "score": {
-    "value": 51,
+    "value": 56,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -183,24 +183,106 @@
     "key_tension": "Canada brokered the global 30×30 biodiversity deal and legislated net-zero, yet remains the G7's highest per-capita emitter and its largest untapped bitumen reserve — a country whose climate diplomacy is credible only to the extent it can outpace the political gravity of the Alberta oil sands."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Canada", "url": "https://climateactiontracker.org/countries/canada/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Canada", "url": "https://ourworldindata.org/co2/country/canada", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Global Electricity Review 2025 (Canada)", "url": "https://ember-climate.org/countries-and-regions/countries/canada/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Canada country profile", "url": "https://epi.yale.edu/country/2024/CAN", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Canada", "url": "https://www.protectedplanet.net/country/CAN", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Canada", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Canada Energy Policy Review", "url": "https://www.iea.org/countries/canada", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IISD — Public Cash for Fossil Fuels in Canada", "url": "https://www.iisd.org/publications/report/public-cash-fossil-fuels-canada", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center — Canada climate litigation", "url": "https://climatecasechart.com/non-us-jurisdiction/canada/", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Canada Country Data", "url": "https://data.worldbank.org/country/canada", "date_accessed": "2026-04-20" },
-    { "name": "Environment and Climate Change Canada — National Inventory Report", "url": "https://www.canada.ca/en/environment-climate-change/services/climate-change/greenhouse-gas-emissions/inventory.html", "date_accessed": "2026-04-20" },
-    { "name": "Natural Resources Canada — National Forestry Database", "url": "https://nfdp.ccfm.org/", "date_accessed": "2026-04-20" },
-    { "name": "Canadian Forest Service — Wildfire statistics 2023–2024", "url": "https://cwfis.cfs.nrcan.gc.ca/", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Canada species assessments", "url": "https://www.iucnredlist.org/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" },
-    { "name": "Land Needs Guarantee / Indigenous Leadership Initiative", "url": "https://www.ilinationhood.ca/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Canada",
+      "url": "https://climateactiontracker.org/countries/canada/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Canada",
+      "url": "https://ourworldindata.org/co2/country/canada",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Global Electricity Review 2025 (Canada)",
+      "url": "https://ember-climate.org/countries-and-regions/countries/canada/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Canada country profile",
+      "url": "https://epi.yale.edu/country/2024/CAN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Canada",
+      "url": "https://www.protectedplanet.net/country/CAN",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Canada",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Canada Energy Policy Review",
+      "url": "https://www.iea.org/countries/canada",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IISD — Public Cash for Fossil Fuels in Canada",
+      "url": "https://www.iisd.org/publications/report/public-cash-fossil-fuels-canada",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center — Canada climate litigation",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/canada/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Canada Country Data",
+      "url": "https://data.worldbank.org/country/canada",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Environment and Climate Change Canada — National Inventory Report",
+      "url": "https://www.canada.ca/en/environment-climate-change/services/climate-change/greenhouse-gas-emissions/inventory.html",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Natural Resources Canada — National Forestry Database",
+      "url": "https://nfdp.ccfm.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Canadian Forest Service — Wildfire statistics 2023–2024",
+      "url": "https://cwfis.cfs.nrcan.gc.ca/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Canada species assessments",
+      "url": "https://www.iucnredlist.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Land Needs Guarantee / Indigenous Leadership Initiative",
+      "url": "https://www.ilinationhood.ca/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }

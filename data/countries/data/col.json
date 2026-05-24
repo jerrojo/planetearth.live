@@ -63,8 +63,8 @@
       "data_confidence": "high"
     },
     "biodiversity": {
-      "score": 58,
-      "rationale": "Second-most biodiverse country on Earth per unit area and #1 globally for bird and orchid species. Home to ~10% of all known species across Amazon, Andes, Pacific, Caribbean, and Orinoco biomes. IUCN Red List shows ~1,300 threatened species with amphibians and freshwater fish under the heaviest pressure. Jaguar, cotton-top tamarin, and Andean bear recovery programs exist but habitat fragmentation from agriculture and illegal mining continues. Strong scientific institutions (Humboldt Institute, SiB Colombia).",
+      "score": 74,
+      "rationale": "Second-most biodiverse country on Earth per unit area and #1 globally for bird and orchid species. Home to ~10% of all known species across Amazon, Andes, Pacific, Caribbean, and Orinoco biomes. IUCN Red List shows ~1,300 threatened species with amphibians and freshwater fish under the heaviest pressure. Jaguar, cotton-top tamarin, and Andean bear recovery programs exist but habitat fragmentation from agriculture and illegal mining continues. Strong scientific institutions (Humboldt Institute, SiB Colombia). [Planet Lens v1.1] Score = 80% Biodiversity Intactness Index (73.9%, NHM 2020, area-weighted) + 20% Red List Index (0.74, IUCN/OWID 2024).",
       "data_confidence": "high"
     },
     "protected_areas": {
@@ -89,7 +89,7 @@
     }
   },
   "score": {
-    "value": 50,
+    "value": 54,
     "traffic_light": "yellow",
     "confidence": "high"
   },
@@ -182,23 +182,101 @@
     "key_tension": "Colombia has the strongest climate rhetoric in Latin America and the weakest frontier enforcement on Earth — halting new oil exploration is historic, but protecting the Amazon and the defenders who guard it is where the policy meets the bullet."
   },
   "sources": [
-    { "name": "Climate Action Tracker — Colombia", "url": "https://climateactiontracker.org/countries/colombia/", "date_accessed": "2026-04-20" },
-    { "name": "Our World in Data — CO2 emissions Colombia", "url": "https://ourworldindata.org/co2/country/colombia", "date_accessed": "2026-04-20" },
-    { "name": "Ember — Colombia Electricity Profile", "url": "https://ember-climate.org/countries-and-regions/countries/colombia/", "date_accessed": "2026-04-20" },
-    { "name": "Yale EPI 2024 — Colombia country profile", "url": "https://epi.yale.edu/country/2024/COL", "date_accessed": "2026-04-20" },
-    { "name": "Protected Planet — Colombia", "url": "https://www.protectedplanet.net/country/COL", "date_accessed": "2026-04-20" },
-    { "name": "IDEAM — Sistema de Monitoreo de Bosques y Carbono", "url": "http://www.ideam.gov.co/web/ecosistemas/deforestacion-colombia", "date_accessed": "2026-04-20" },
-    { "name": "UNFCCC NDC Registry — Colombia", "url": "https://unfccc.int/NDCREG", "date_accessed": "2026-04-20" },
-    { "name": "Global Witness — Defenders Report 2025", "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/", "date_accessed": "2026-04-20" },
-    { "name": "Sabin Center Climate Litigation Database — Colombia", "url": "https://climatecasechart.com/non-us-jurisdiction/colombia/", "date_accessed": "2026-04-20" },
-    { "name": "IMF — Fossil Fuel Subsidies", "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies", "date_accessed": "2026-04-20" },
-    { "name": "IEA — Colombia Energy Profile", "url": "https://www.iea.org/countries/colombia", "date_accessed": "2026-04-20" },
-    { "name": "World Bank — Colombia Country Data", "url": "https://data.worldbank.org/country/colombia", "date_accessed": "2026-04-20" },
-    { "name": "IUCN Red List — Colombia species assessments", "url": "https://www.iucnredlist.org/search?land_regions=SA&country=CO", "date_accessed": "2026-04-20" },
-    { "name": "Fossil Fuel Non-Proliferation Treaty Initiative", "url": "https://fossilfueltreaty.org/", "date_accessed": "2026-04-20" },
-    { "name": "CEPAL — Escazú Agreement Observatory", "url": "https://www.cepal.org/en/escazuagreement", "date_accessed": "2026-04-20" },
-    { "name": "Ministerio de Ambiente y Desarrollo Sostenible", "url": "https://www.minambiente.gov.co/", "date_accessed": "2026-04-20" },
-    { "name": "Kunming-Montreal Global Biodiversity Framework", "url": "https://www.cbd.int/gbf/", "date_accessed": "2026-04-20" }
+    {
+      "name": "Climate Action Tracker — Colombia",
+      "url": "https://climateactiontracker.org/countries/colombia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Our World in Data — CO2 emissions Colombia",
+      "url": "https://ourworldindata.org/co2/country/colombia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ember — Colombia Electricity Profile",
+      "url": "https://ember-climate.org/countries-and-regions/countries/colombia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Yale EPI 2024 — Colombia country profile",
+      "url": "https://epi.yale.edu/country/2024/COL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Protected Planet — Colombia",
+      "url": "https://www.protectedplanet.net/country/COL",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IDEAM — Sistema de Monitoreo de Bosques y Carbono",
+      "url": "http://www.ideam.gov.co/web/ecosistemas/deforestacion-colombia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "UNFCCC NDC Registry — Colombia",
+      "url": "https://unfccc.int/NDCREG",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Global Witness — Defenders Report 2025",
+      "url": "https://www.globalwitness.org/en/campaigns/environmental-activists/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Sabin Center Climate Litigation Database — Colombia",
+      "url": "https://climatecasechart.com/non-us-jurisdiction/colombia/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IMF — Fossil Fuel Subsidies",
+      "url": "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IEA — Colombia Energy Profile",
+      "url": "https://www.iea.org/countries/colombia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "World Bank — Colombia Country Data",
+      "url": "https://data.worldbank.org/country/colombia",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "IUCN Red List — Colombia species assessments",
+      "url": "https://www.iucnredlist.org/search?land_regions=SA&country=CO",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Fossil Fuel Non-Proliferation Treaty Initiative",
+      "url": "https://fossilfueltreaty.org/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "CEPAL — Escazú Agreement Observatory",
+      "url": "https://www.cepal.org/en/escazuagreement",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Ministerio de Ambiente y Desarrollo Sostenible",
+      "url": "https://www.minambiente.gov.co/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Kunming-Montreal Global Biodiversity Framework",
+      "url": "https://www.cbd.int/gbf/",
+      "date_accessed": "2026-04-20"
+    },
+    {
+      "name": "Biodiversity Intactness Index v2.1.1 — Natural History Museum",
+      "url": "https://doi.org/10.5519/k33reyb6",
+      "date_accessed": "2026-05-24"
+    },
+    {
+      "name": "Red List Index (IUCN, SDG 15.5.1) — Our World in Data",
+      "url": "https://ourworldindata.org/grapher/red-list-index",
+      "date_accessed": "2026-05-24"
+    }
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-05-24"
 }
